@@ -1,5 +1,5 @@
 
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState, useCallback } from 'react';
 
 interface UseInViewOptions {
   threshold?: number;
@@ -43,4 +43,46 @@ export const useInView = <T extends HTMLElement = HTMLDivElement>(options: UseIn
   }, [threshold, rootMargin, triggerOnce, hasTriggered]);
 
   return { ref, isInView };
+};
+
+// Hook for managing multiple animated elements
+export const useMultipleInView = <T extends HTMLElement = HTMLDivElement>(
+  count: number, 
+  options: UseInViewOptions = {}
+) => {
+  const [isInView, setIsInView] = useState(false);
+  const [hasTriggered, setHasTriggered] = useState(false);
+  const containerRef = useRef<T>(null);
+
+  const { threshold = 0.2, rootMargin = '0px', triggerOnce = true } = options;
+
+  useEffect(() => {
+    const element = containerRef.current;
+    if (!element) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        const inView = entry.isIntersecting;
+        
+        if (inView && (!triggerOnce || !hasTriggered)) {
+          setIsInView(true);
+          setHasTriggered(true);
+        } else if (!triggerOnce) {
+          setIsInView(inView);
+        }
+      },
+      {
+        threshold,
+        rootMargin,
+      }
+    );
+
+    observer.observe(element);
+
+    return () => {
+      observer.unobserve(element);
+    };
+  }, [threshold, rootMargin, triggerOnce, hasTriggered]);
+
+  return { containerRef, isInView };
 };
