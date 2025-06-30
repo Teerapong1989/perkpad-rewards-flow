@@ -1,18 +1,28 @@
-
 import { Card, CardContent } from "@/components/ui/card";
 import { Star } from "lucide-react";
+import { useInView } from "@/hooks/useInView";
 
 const TestimonialsSection = () => {
+  const { ref: sectionRef, isInView: sectionInView } = useInView({ threshold: 0.1 });
+  const { ref: cardsRef, isInView: cardsInView } = useInView({ threshold: 0.2 });
+
   return (
-    <section className="py-20 px-6 bg-white">
+    <section className="py-20 px-6 bg-white" ref={sectionRef}>
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-16">
+        <div className={`text-center mb-16 transition-all duration-1000 ${
+          sectionInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+        }`}>
           <h2 className="text-4xl font-bold text-slate-800 mb-4">
             Loved by small business owners
           </h2>
         </div>
-        <div className="grid md:grid-cols-3 gap-8">
-          <Card className="border-0 shadow-lg rounded-2xl bg-gradient-to-br from-teal-50 to-white">
+        <div 
+          ref={cardsRef}
+          className="grid md:grid-cols-3 gap-8"
+        >
+          <Card className={`border-0 shadow-lg rounded-2xl bg-gradient-to-br from-teal-50 to-white transition-all duration-700 hover:scale-105 ${
+            cardsInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
+          }`} style={{ transitionDelay: cardsInView ? '100ms' : '0ms' }}>
             <CardContent className="p-8">
               <div className="flex mb-4">
                 {[1,2,3,4,5].map((star) => (
@@ -34,7 +44,9 @@ const TestimonialsSection = () => {
             </CardContent>
           </Card>
 
-          <Card className="border-0 shadow-lg rounded-2xl bg-gradient-to-br from-orange-50 to-white">
+          <Card className={`border-0 shadow-lg rounded-2xl bg-gradient-to-br from-orange-50 to-white transition-all duration-700 hover:scale-105 ${
+            cardsInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
+          }`} style={{ transitionDelay: cardsInView ? '200ms' : '0ms' }}>
             <CardContent className="p-8">
               <div className="flex mb-4">
                 {[1,2,3,4,5].map((star) => (
@@ -56,7 +68,9 @@ const TestimonialsSection = () => {
             </CardContent>
           </Card>
 
-          <Card className="border-0 shadow-lg rounded-2xl bg-gradient-to-br from-purple-50 to-white">
+          <Card className={`border-0 shadow-lg rounded-2xl bg-gradient-to-br from-purple-50 to-white transition-all duration-700 hover:scale-105 ${
+            cardsInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
+          }`} style={{ transitionDelay: cardsInView ? '300ms' : '0ms' }}>
             <CardContent className="p-8">
               <div className="flex mb-4">
                 {[1,2,3,4,5].map((star) => (

@@ -1,17 +1,33 @@
-
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { useInView } from "@/hooks/useInView";
 
 const FAQSection = () => {
+  const { ref: sectionRef, isInView: sectionInView } = useInView({ threshold: 0.1 });
+  const { ref: accordionRef, isInView: accordionInView } = useInView({ threshold: 0.2 });
+
   return (
-    <section className="py-20 px-6 bg-gradient-to-br from-slate-50 to-teal-50">
+    <section className="py-20 px-6 bg-gradient-to-br from-slate-50 to-teal-50" ref={sectionRef}>
       <div className="max-w-4xl mx-auto">
-        <div className="text-center mb-16">
+        <div className={`text-center mb-16 transition-all duration-1000 ${
+          sectionInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+        }`}>
           <h2 className="text-4xl font-bold text-slate-800 mb-4">
             Frequently Asked Questions
           </h2>
         </div>
-        <Accordion type="single" collapsible className="space-y-4">
-          <AccordionItem value="item-1" className="bg-white rounded-2xl px-6 border-0 shadow-sm">
+        <Accordion 
+          type="single" 
+          collapsible 
+          className="space-y-4"
+          ref={accordionRef}
+        >
+          <AccordionItem 
+            value="item-1" 
+            className={`bg-white rounded-2xl px-6 border-0 shadow-sm transition-all duration-700 ${
+              accordionInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+            }`}
+            style={{ transitionDelay: accordionInView ? '100ms' : '0ms' }}
+          >
             <AccordionTrigger className="text-lg font-semibold text-slate-800 hover:no-underline">
               Can customers use this without downloading an app?
             </AccordionTrigger>
@@ -20,7 +36,13 @@ const FAQSection = () => {
             </AccordionContent>
           </AccordionItem>
 
-          <AccordionItem value="item-2" className="bg-white rounded-2xl px-6 border-0 shadow-sm">
+          <AccordionItem 
+            value="item-2" 
+            className={`bg-white rounded-2xl px-6 border-0 shadow-sm transition-all duration-700 ${
+              accordionInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+            }`}
+            style={{ transitionDelay: accordionInView ? '200ms' : '0ms' }}
+          >
             <AccordionTrigger className="text-lg font-semibold text-slate-800 hover:no-underline">
               How do I upgrade or cancel my subscription?
             </AccordionTrigger>
@@ -29,7 +51,13 @@ const FAQSection = () => {
             </AccordionContent>
           </AccordionItem>
 
-          <AccordionItem value="item-3" className="bg-white rounded-2xl px-6 border-0 shadow-sm">
+          <AccordionItem 
+            value="item-3" 
+            className={`bg-white rounded-2xl px-6 border-0 shadow-sm transition-all duration-700 ${
+              accordionInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+            }`}
+            style={{ transitionDelay: accordionInView ? '300ms' : '0ms' }}
+          >
             <AccordionTrigger className="text-lg font-semibold text-slate-800 hover:no-underline">
               What happens to my customer data if I cancel?
             </AccordionTrigger>
@@ -38,7 +66,13 @@ const FAQSection = () => {
             </AccordionContent>
           </AccordionItem>
 
-          <AccordionItem value="item-4" className="bg-white rounded-2xl px-6 border-0 shadow-sm">
+          <AccordionItem 
+            value="item-4" 
+            className={`bg-white rounded-2xl px-6 border-0 shadow-sm transition-all duration-700 ${
+              accordionInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+            }`}
+            style={{ transitionDelay: accordionInView ? '400ms' : '0ms' }}
+          >
             <AccordionTrigger className="text-lg font-semibold text-slate-800 hover:no-underline">
               Do you offer support for setting up my loyalty program?
             </AccordionTrigger>
