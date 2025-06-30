@@ -102,7 +102,7 @@ const HeroSection = () => {
                 </div>
                 <div className="bg-gradient-to-r from-orange-50 to-orange-100 border-2 border-orange-200 rounded-2xl p-6 text-center relative overflow-hidden">
                   <div className="absolute inset-0 bg-gradient-to-r from-transparent via-orange-200/30 to-transparent animate-pulse"></div>
-                  <p className="text-orange-700 font-bold text-lg relative">3 more visits for a free coffee! ☕</p>
+                  <p className="text-orange-700 font-bold text-lg relative">🎁 3 more visits to pick a gift box and reveal your prize!</p>
                   <div className="w-full bg-orange-200 rounded-full h-2 mt-3 relative">
                     <div className="bg-gradient-to-r from-orange-400 to-orange-500 h-2 rounded-full" style={{width: '70%'}}></div>
                   </div>
