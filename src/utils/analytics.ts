@@ -1,14 +1,22 @@
 
+// Type declarations for global analytics functions
+declare global {
+  interface Window {
+    gtag?: (...args: any[]) => void;
+    fbq?: (...args: any[]) => void;
+  }
+}
+
 // Advanced analytics and conversion tracking
 export const trackEvent = (eventName: string, properties: Record<string, any> = {}) => {
   // Google Analytics 4
-  if (typeof gtag !== 'undefined') {
-    gtag('event', eventName, properties);
+  if (typeof window !== 'undefined' && window.gtag) {
+    window.gtag('event', eventName, properties);
   }
   
   // Facebook Pixel
-  if (typeof fbq !== 'undefined') {
-    fbq('track', eventName, properties);
+  if (typeof window !== 'undefined' && window.fbq) {
+    window.fbq('track', eventName, properties);
   }
   
   // Custom analytics
@@ -20,7 +28,7 @@ export const trackConversion = (conversionType: 'signup' | 'demo_request' | 'pag
     conversion_type: conversionType,
     value: value || 0,
     timestamp: new Date().toISOString(),
-    page: window.location.pathname
+    page: typeof window !== 'undefined' ? window.location.pathname : ''
   });
 };
 
@@ -28,17 +36,19 @@ export const trackUserBehavior = (action: string, element: string) => {
   trackEvent('user_interaction', {
     action,
     element,
-    page: window.location.pathname,
+    page: typeof window !== 'undefined' ? window.location.pathname : '',
     timestamp: new Date().toISOString()
   });
 };
 
 // A/B Testing support
 export const getVariant = (testName: string): string => {
-  const stored = localStorage.getItem(`ab_test_${testName}`);
+  if (typeof window === 'undefined' || !window.localStorage) return 'A';
+  
+  const stored = window.localStorage.getItem(`ab_test_${testName}`);
   if (stored) return stored;
   
   const variant = Math.random() > 0.5 ? 'A' : 'B';
-  localStorage.setItem(`ab_test_${testName}`, variant);
+  window.localStorage.setItem(`ab_test_${testName}`, variant);
   return variant;
 };

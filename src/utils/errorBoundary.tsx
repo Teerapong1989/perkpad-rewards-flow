@@ -25,8 +25,8 @@ class ErrorBoundary extends Component<Props, State> {
     console.error('Error Boundary Caught:', error, errorInfo);
     
     // Track error for monitoring
-    if (typeof gtag !== 'undefined') {
-      gtag('event', 'exception', {
+    if (typeof window !== 'undefined' && window.gtag) {
+      window.gtag('event', 'exception', {
         description: error.message,
         fatal: false
       });
