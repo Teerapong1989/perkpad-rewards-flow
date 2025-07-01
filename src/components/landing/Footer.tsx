@@ -1,5 +1,6 @@
 
 import { Gift } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -35,8 +36,8 @@ const Footer = () => {
           <div>
             <h4 className="font-semibold text-white mb-4">Legal</h4>
             <ul className="space-y-2">
-              <li><span className="text-slate-500">Privacy Policy - Coming Soon</span></li>
-              <li><span className="text-slate-500">Terms of Service - Coming Soon</span></li>
+              <li><Link to="/privacy-policy" className="hover:text-teal-400 transition-colors">Privacy Policy</Link></li>
+              <li><Link to="/terms-of-service" className="hover:text-teal-400 transition-colors">Terms of Service</Link></li>
             </ul>
           </div>
         </div>
