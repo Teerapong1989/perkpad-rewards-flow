@@ -84,6 +84,11 @@ const pricingPlans = [
 const PricingSection = () => {
   const { containerRef: cardsRef, isInView: cardsInView } = useMultipleInView(4, { threshold: 0.2 });
 
+  const handlePlanClick = (planName: string) => {
+    // All plans lead to Tally form for now
+    window.open('https://tally.so/r/nGVLNp', '_blank', 'noopener,noreferrer');
+  };
+
   return (
     <section id="pricing" className="py-20 px-6 bg-gradient-to-br from-slate-50 to-teal-50">
       <div className="max-w-7xl mx-auto">
@@ -146,6 +151,7 @@ const PricingSection = () => {
                   <Button 
                     className={`w-full mt-auto ${plan.popular ? 'bg-teal-600 hover:bg-teal-700 text-white' : ''}`} 
                     variant={plan.buttonVariant}
+                    onClick={() => handlePlanClick(plan.name)}
                   >
                     {plan.buttonText}
                   </Button>

@@ -4,6 +4,10 @@ import { Badge } from "@/components/ui/badge";
 import { QrCode, Gift, Star, ArrowRight, Users, Zap, Sparkles, Check, Clock, TrendingUp } from "lucide-react";
 
 const HeroSection = () => {
+  const handleSignUpClick = () => {
+    window.open('https://tally.so/r/nGVLNp', '_blank', 'noopener,noreferrer');
+  };
+
   return (
     <section className="relative overflow-hidden py-20 px-6">
       {/* Background decoration */}
@@ -42,13 +46,13 @@ const HeroSection = () => {
             </div>
             
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button size="lg" className="bg-gradient-to-r from-teal-600 to-teal-700 hover:from-teal-700 hover:to-teal-800 text-lg px-10 py-7 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105">
+              <Button 
+                size="lg" 
+                className="bg-gradient-to-r from-teal-600 to-teal-700 hover:from-teal-700 hover:to-teal-800 text-lg px-10 py-7 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105"
+                onClick={handleSignUpClick}
+              >
                 Start Your 5-Minute Setup (Free)
                 <ArrowRight className="ml-2 w-5 h-5" />
-              </Button>
-              <Button variant="outline" size="lg" className="text-lg px-10 py-7 rounded-2xl border-2 border-teal-200 hover:bg-teal-50 hover:border-teal-300 transition-all duration-300">
-                <Zap className="mr-2 w-5 h-5" />
-                See It Work (90-Second Demo)
               </Button>
             </div>
             

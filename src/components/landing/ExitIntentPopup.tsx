@@ -7,6 +7,7 @@ import { X, Gift, ArrowRight } from "lucide-react";
 const ExitIntentPopup = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [hasShown, setHasShown] = useState(false);
+  const [email, setEmail] = useState("");
 
   useEffect(() => {
     const handleMouseLeave = (e: MouseEvent) => {
@@ -19,6 +20,14 @@ const ExitIntentPopup = () => {
     document.addEventListener('mouseleave', handleMouseLeave);
     return () => document.removeEventListener('mouseleave', handleMouseLeave);
   }, [hasShown]);
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    // Redirect to Tally form with email pre-filled if possible
+    const tallyUrl = `https://tally.so/r/nGVLNp${email ? `?email=${encodeURIComponent(email)}` : ''}`;
+    window.open(tallyUrl, '_blank', 'noopener,noreferrer');
+    setIsVisible(false);
+  };
 
   if (!isVisible) return null;
 
@@ -50,17 +59,22 @@ const ExitIntentPopup = () => {
             </p>
           </div>
           
-          <div className="space-y-3">
+          <form onSubmit={handleSubmit} className="space-y-3">
             <input 
               type="email" 
               placeholder="Enter your email address"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
               className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500"
             />
-            <Button className="w-full bg-gradient-to-r from-teal-600 to-teal-700 hover:from-teal-700 hover:to-teal-800 text-white py-3">
+            <Button 
+              type="submit"
+              className="w-full bg-gradient-to-r from-teal-600 to-teal-700 hover:from-teal-700 hover:to-teal-800 text-white py-3"
+            >
               Get Free Playbook + Start 5-Min Setup
               <ArrowRight className="ml-2 w-4 h-4" />
             </Button>
-          </div>
+          </form>
           
           <p className="text-xs text-center text-slate-500">
             Plus: Get early access to our new customer retention tools (value $197)

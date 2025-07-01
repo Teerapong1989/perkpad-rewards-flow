@@ -3,6 +3,10 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, Clock, Shield, Zap } from "lucide-react";
 
 const CTASection = () => {
+  const handleSignUpClick = () => {
+    window.open('https://tally.so/r/nGVLNp', '_blank', 'noopener,noreferrer');
+  };
+
   return (
     <section className="py-20 px-6 bg-gradient-to-r from-teal-600 to-teal-700 relative overflow-hidden">
       {/* Background decoration */}
@@ -40,12 +44,13 @@ const CTASection = () => {
         </div>
         
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <Button size="lg" className="bg-white text-teal-700 hover:bg-slate-50 text-lg px-8 py-6 rounded-xl shadow-2xl transform hover:scale-105 transition-all duration-300">
+          <Button 
+            size="lg" 
+            className="bg-white text-teal-700 hover:bg-slate-50 text-lg px-8 py-6 rounded-xl shadow-2xl transform hover:scale-105 transition-all duration-300"
+            onClick={handleSignUpClick}
+          >
             Start Your 5-Minute Setup (Free)
             <ArrowRight className="ml-2 w-5 h-5" />
-          </Button>
-          <Button variant="outline" size="lg" className="border-2 border-white text-white hover:bg-white hover:text-teal-700 text-lg px-8 py-6 rounded-xl">
-            See 90-Second Demo
           </Button>
         </div>
         
