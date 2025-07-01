@@ -28,7 +28,7 @@ const Footer = () => {
           <div>
             <h4 className="font-semibold text-white mb-4">Support</h4>
             <ul className="space-y-2">
-              <li><a href="mailto:support@perkpad.com" className="hover:text-teal-400 transition-colors">Contact Support</a></li>
+              <li><a href="https://tally.so/r/mRQ2Bl" target="_blank" rel="noopener noreferrer" className="hover:text-teal-400 transition-colors">Contact Support</a></li>
               <li><a href="mailto:hello@perkpad.com" className="hover:text-teal-400 transition-colors">General Inquiries</a></li>
             </ul>
           </div>
