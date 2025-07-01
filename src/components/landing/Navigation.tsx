@@ -1,6 +1,7 @@
 
 import { Button } from "@/components/ui/button";
 import { Gift } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Navigation = () => {
   const handleSignUpClick = () => {
@@ -23,6 +24,12 @@ const Navigation = () => {
         <span className="text-xl font-bold text-slate-800">Perkpad</span>
       </div>
       <div className="flex items-center space-x-6">
+        <Link 
+          to="/how-it-works"
+          className="text-slate-600 hover:text-teal-600 transition-colors cursor-pointer"
+        >
+          How It Works
+        </Link>
         <button 
           onClick={() => scrollToSection('pricing')} 
           className="text-slate-600 hover:text-teal-600 transition-colors cursor-pointer"
@@ -37,7 +44,13 @@ const Navigation = () => {
         </button>
         <Button 
           variant="outline" 
-          className="border-teal-200 text-teal-700 hover:bg-teal-50"
+          className="border-teal-200 text-teal-700 hover:bg-teal-50 cursor-pointer"
+          disabled
+        >
+          Login
+        </Button>
+        <Button 
+          className="bg-teal-600 hover:bg-teal-700"
           onClick={handleSignUpClick}
         >
           Get Started

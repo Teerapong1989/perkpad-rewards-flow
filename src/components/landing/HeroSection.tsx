@@ -1,7 +1,7 @@
-
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { QrCode, Gift, Star, ArrowRight, Users, Zap, Sparkles, Check, Clock, TrendingUp } from "lucide-react";
+import { QrCode, Gift, Star, ArrowRight, Users, Zap, Sparkles, Check, Clock, TrendingUp, Play } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const HeroSection = () => {
   const handleSignUpClick = () => {
@@ -53,6 +53,17 @@ const HeroSection = () => {
               >
                 Start Your 5-Minute Setup (Free)
                 <ArrowRight className="ml-2 w-5 h-5" />
+              </Button>
+              <Button 
+                variant="outline" 
+                size="lg"
+                className="border-teal-200 text-teal-700 hover:bg-teal-50 text-lg px-10 py-7 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300"
+                asChild
+              >
+                <Link to="/how-it-works">
+                  <Play className="mr-2 w-5 h-5" />
+                  See How It Works
+                </Link>
               </Button>
             </div>
             

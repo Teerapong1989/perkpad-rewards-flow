@@ -1,6 +1,7 @@
 
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Clock, Shield, Zap } from "lucide-react";
+import { ArrowRight, Clock, Shield, Zap, Play } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const CTASection = () => {
   const handleSignUpClick = () => {
@@ -51,6 +52,17 @@ const CTASection = () => {
           >
             Start Your 5-Minute Setup (Free)
             <ArrowRight className="ml-2 w-5 h-5" />
+          </Button>
+          <Button 
+            variant="outline" 
+            size="lg"
+            className="border-white text-white hover:bg-white hover:text-teal-700 text-lg px-8 py-6 rounded-xl transition-all duration-300"
+            asChild
+          >
+            <Link to="/how-it-works">
+              <Play className="mr-2 w-5 h-5" />
+              See How It Works
+            </Link>
           </Button>
         </div>
         
