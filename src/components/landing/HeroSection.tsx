@@ -3,6 +3,7 @@ import { Badge } from "@/components/ui/badge";
 import { QrCode, Gift, Star, ArrowRight, Users, Zap, Sparkles, Check, Clock, TrendingUp, Play } from "lucide-react";
 import { Link } from "react-router-dom";
 import { memo, useCallback } from "react";
+import { trackUserBehavior, trackConversion } from "@/utils/analytics";
 
 const FloatingElement = memo(({ className, children, delay = 0 }: { 
   className: string, 
@@ -38,7 +39,13 @@ ProgressStamp.displayName = 'ProgressStamp';
 
 const HeroSection = () => {
   const handleSignUpClick = useCallback(() => {
+    trackUserBehavior('click', 'hero_cta_primary');
+    trackConversion('signup');
     window.open('https://tally.so/r/nGVLNp', '_blank', 'noopener,noreferrer');
+  }, []);
+
+  const handleDemoClick = useCallback(() => {
+    trackUserBehavior('click', 'hero_cta_secondary');
   }, []);
 
   return (
@@ -90,6 +97,7 @@ const HeroSection = () => {
                 variant="outline" 
                 size="lg"
                 className="border-teal-200 text-teal-700 hover:bg-teal-50 text-base sm:text-lg px-6 sm:px-10 py-6 sm:py-7 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 min-h-[48px] sm:min-h-[56px] will-change-transform"
+                onClick={handleDemoClick}
                 asChild
               >
                 <Link to="/how-it-works" aria-label="Learn how our loyalty program works">

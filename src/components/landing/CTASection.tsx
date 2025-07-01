@@ -1,11 +1,17 @@
-
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Clock, Shield, Zap, Play } from "lucide-react";
 import { Link } from "react-router-dom";
+import { trackUserBehavior, trackConversion } from "@/utils/analytics";
 
 const CTASection = () => {
   const handleSignUpClick = () => {
+    trackUserBehavior('click', 'cta_section_primary');
+    trackConversion('signup');
     window.open('https://tally.so/r/nGVLNp', '_blank', 'noopener,noreferrer');
+  };
+
+  const handleDemoClick = () => {
+    trackUserBehavior('click', 'cta_section_secondary');
   };
 
   return (
@@ -57,6 +63,7 @@ const CTASection = () => {
             variant="outline" 
             size="lg"
             className="border-white text-white hover:bg-white hover:text-teal-700 text-lg px-8 py-6 rounded-xl transition-all duration-300"
+            onClick={handleDemoClick}
             asChild
           >
             <Link to="/how-it-works">

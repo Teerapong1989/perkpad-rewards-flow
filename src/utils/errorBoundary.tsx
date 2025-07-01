@@ -1,0 +1,62 @@
+
+import { Component, ErrorInfo, ReactNode } from 'react';
+
+interface Props {
+  children: ReactNode;
+  fallback?: ReactNode;
+}
+
+interface State {
+  hasError: boolean;
+  error?: Error;
+}
+
+class ErrorBoundary extends Component<Props, State> {
+  constructor(props: Props) {
+    super(props);
+    this.state = { hasError: false };
+  }
+
+  static getDerivedStateFromError(error: Error): State {
+    return { hasError: true, error };
+  }
+
+  componentDidCatch(error: Error, errorInfo: ErrorInfo) {
+    console.error('Error Boundary Caught:', error, errorInfo);
+    
+    // Track error for monitoring
+    if (typeof gtag !== 'undefined') {
+      gtag('event', 'exception', {
+        description: error.message,
+        fatal: false
+      });
+    }
+  }
+
+  render() {
+    if (this.state.hasError) {
+      return this.props.fallback || (
+        <div className="min-h-screen flex items-center justify-center bg-slate-50">
+          <div className="text-center p-8">
+            <h2 className="text-2xl font-bold text-slate-800 mb-4">
+              Something went wrong
+            </h2>
+            <p className="text-slate-600 mb-6">
+              We're sorry for the inconvenience. Please refresh the page or try again later.
+            </p>
+            <button
+              onClick={() => window.location.reload()}
+              className="bg-teal-600 text-white px-6 py-3 rounded-lg hover:bg-teal-700 transition-colors"
+            >
+              Refresh Page
+            </button>
+          </div>
+        </div>
+      );
+    }
+
+    return this.props.children;
+  }
+}
+
+export default ErrorBoundary;

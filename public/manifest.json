@@ -1,0 +1,22 @@
+
+{
+  "name": "Perkpad - Digital Loyalty Program",
+  "short_name": "Perkpad",
+  "description": "Launch your digital loyalty program in 5 minutes. Replace lost punch cards with QR codes.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#0d9488",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "type": "image/png",
+      "sizes": "180x180"
+    }
+  ]
+}
