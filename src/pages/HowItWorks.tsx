@@ -80,27 +80,27 @@ const HowItWorks = () => {
 
   const planFeatures = [
     {
-      plan: "Free",
-      price: "$0",
-      features: ["Basic loyalty program", "Up to 50 customers", "QR code generation", "Basic analytics"],
-      highlight: false
-    },
-    {
       plan: "Starter",
-      price: "$19/mo",
-      features: ["Customer data export", "Email marketing", "Advanced analytics", "Priority support"],
+      price: "$29/mo",
+      features: ["3 loyalty card programs", "Custom business logo", "Customer data export", "Up to 500 customers", "Email support"],
       highlight: false
     },
     {
       plan: "Pro",
-      price: "$49/mo",
-      features: ["Team accounts", "Custom branding", "Tier levels", "API access"],
+      price: "$59/mo",
+      features: ["Unlimited loyalty cards", "Custom branding & colors", "Staff roles & permissions", "Unlimited customers", "Priority support", "Advanced analytics"],
       highlight: true
+    },
+    {
+      plan: "Business",
+      price: "$149/mo",
+      features: ["Everything in Pro", "White-label options", "API access", "Custom integrations", "Dedicated account manager", "Phone support"],
+      highlight: false
     },
     {
       plan: "Enterprise",
       price: "Custom",
-      features: ["Unlimited everything", "White-label solution", "Custom integrations", "Dedicated support"],
+      features: ["Multi-location management", "Advanced reporting suite", "Priority implementation", "Custom feature development", "SLA guarantee", "Training & onboarding"],
       highlight: false
     }
   ];
