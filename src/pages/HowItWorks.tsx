@@ -1,7 +1,7 @@
 
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { QrCode, Gift, ArrowRight, ArrowLeft, CheckCircle } from "lucide-react";
+import { QrCode, Gift, ArrowRight, ArrowLeft, CheckCircle, Users, BarChart3, Settings, CreditCard, Upload, Monitor, Zap, Shield, Star } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const HowItWorks = () => {
@@ -9,7 +9,7 @@ const HowItWorks = () => {
     window.open('https://tally.so/r/nGVLNp', '_blank', 'noopener,noreferrer');
   };
 
-  const steps = [
+  const customerSteps = [
     {
       icon: QrCode,
       title: "Customer Scans QR Code",
@@ -30,6 +30,78 @@ const HowItWorks = () => {
       description: "When customers complete their card, they instantly unlock their reward - no waiting, no hassle!",
       benefit: "Immediate gratification drives more repeat visits",
       gradient: "from-orange-400 to-orange-500"
+    }
+  ];
+
+  const businessSteps = [
+    {
+      icon: Users,
+      title: "Quick Sign-Up & Business Info",
+      description: "Create your account in minutes with just your business name, phone number, and email address.",
+      features: ["Simple registration", "Email verification", "Instant access"],
+      gradient: "from-blue-500 to-blue-600"
+    },
+    {
+      icon: Upload,
+      title: "Brand Customization & Plan Selection",
+      description: "Upload your logo, describe your business, choose your industry, and select the perfect plan for your needs.",
+      features: ["Custom branding", "Industry categories", "Flexible pricing"],
+      gradient: "from-green-500 to-green-600"
+    },
+    {
+      icon: Gift,
+      title: "Design Your Loyalty Program",
+      description: "Set up your loyalty card structure - define stamps needed, rewards offered, and optional premium features.",
+      features: ["Custom stamp requirements", "Flexible rewards", "Tier levels & celebrations"],
+      gradient: "from-purple-500 to-purple-600"
+    },
+    {
+      icon: QrCode,
+      title: "Launch & Promote",
+      description: "Generate your unique QR code, print it for display, and start welcoming customers to your digital loyalty program.",
+      features: ["Instant QR generation", "Print-ready formats", "Easy store display"],
+      gradient: "from-teal-500 to-teal-600"
+    },
+    {
+      icon: BarChart3,
+      title: "Monitor & Analyze",
+      description: "Access your business dashboard to track visits, active customers, rewards claimed, and engagement metrics.",
+      features: ["Real-time analytics", "Customer insights", "Performance tracking"],
+      gradient: "from-orange-500 to-orange-600"
+    },
+    {
+      icon: Settings,
+      title: "Scale & Advanced Features",
+      description: "Add team members, export customer lists, upgrade plans, and unlock advanced features as you grow.",
+      features: ["Team management", "Data exports", "Plan upgrades"],
+      gradient: "from-indigo-500 to-indigo-600"
+    }
+  ];
+
+  const planFeatures = [
+    {
+      plan: "Free",
+      price: "$0",
+      features: ["Basic loyalty program", "Up to 50 customers", "QR code generation", "Basic analytics"],
+      highlight: false
+    },
+    {
+      plan: "Starter",
+      price: "$19/mo",
+      features: ["Customer data export", "Email marketing", "Advanced analytics", "Priority support"],
+      highlight: false
+    },
+    {
+      plan: "Pro",
+      price: "$49/mo",
+      features: ["Team accounts", "Custom branding", "Tier levels", "API access"],
+      highlight: true
+    },
+    {
+      plan: "Enterprise",
+      price: "Custom",
+      features: ["Unlimited everything", "White-label solution", "Custom integrations", "Dedicated support"],
+      highlight: false
     }
   ];
 
@@ -61,20 +133,23 @@ const HowItWorks = () => {
         </div>
       </section>
 
-      {/* Steps Section */}
+      {/* Customer Experience Section */}
       <section className="py-12 px-6">
         <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-slate-800 mb-4">For Your Customers</h2>
+            <p className="text-lg text-slate-600">Simple, seamless, and rewarding</p>
+          </div>
+          
           <div className="grid lg:grid-cols-3 gap-8 md:gap-12">
-            {steps.map((step, index) => {
+            {customerSteps.map((step, index) => {
               const Icon = step.icon;
               return (
                 <Card key={index} className="relative border-0 shadow-xl hover:shadow-2xl transition-all duration-500 rounded-3xl overflow-hidden group">
-                  {/* Step Number */}
                   <div className="absolute top-4 left-4 w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-lg z-10">
                     <span className="text-xl font-bold text-slate-800">{index + 1}</span>
                   </div>
                   
-                  {/* Background Gradient */}
                   <div className={`absolute inset-0 bg-gradient-to-br ${step.gradient} opacity-5 group-hover:opacity-10 transition-opacity duration-300`}></div>
                   
                   <CardContent className="p-8 text-center relative">
@@ -97,8 +172,7 @@ const HowItWorks = () => {
                     </div>
                   </CardContent>
                   
-                  {/* Arrow for non-last items */}
-                  {index < steps.length - 1 && (
+                  {index < customerSteps.length - 1 && (
                     <div className="hidden lg:block absolute -right-6 top-1/2 transform -translate-y-1/2 z-20">
                       <ArrowRight className="w-8 h-8 text-teal-400" />
                     </div>
@@ -106,6 +180,91 @@ const HowItWorks = () => {
                 </Card>
               );
             })}
+          </div>
+        </div>
+      </section>
+
+      {/* Business Owner Journey Section */}
+      <section className="py-16 px-6 bg-white">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-slate-800 mb-4">For Business Owners</h2>
+            <p className="text-lg text-slate-600">Complete setup in 5 minutes, manage with ease</p>
+          </div>
+          
+          <div className="grid lg:grid-cols-2 xl:grid-cols-3 gap-8">
+            {businessSteps.map((step, index) => {
+              const Icon = step.icon;
+              return (
+                <Card key={index} className="border-0 shadow-lg hover:shadow-xl transition-all duration-300 rounded-2xl overflow-hidden">
+                  <CardContent className="p-6">
+                    <div className="flex items-center mb-4">
+                      <div className={`w-12 h-12 bg-gradient-to-br ${step.gradient} rounded-xl flex items-center justify-center mr-4`}>
+                        <Icon className="w-6 h-6 text-white" />
+                      </div>
+                      <div className="w-8 h-8 bg-slate-100 rounded-full flex items-center justify-center">
+                        <span className="text-sm font-bold text-slate-600">{index + 1}</span>
+                      </div>
+                    </div>
+                    
+                    <h3 className="text-xl font-bold text-slate-800 mb-3">
+                      {step.title}
+                    </h3>
+                    
+                    <p className="text-slate-600 mb-4 leading-relaxed">
+                      {step.description}
+                    </p>
+                    
+                    <ul className="space-y-2">
+                      {step.features.map((feature, featureIndex) => (
+                        <li key={featureIndex} className="flex items-center text-sm text-slate-500">
+                          <CheckCircle className="w-4 h-4 text-teal-500 mr-2 flex-shrink-0" />
+                          {feature}
+                        </li>
+                      ))}
+                    </ul>
+                  </CardContent>
+                </Card>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* Pricing Plans Overview */}
+      <section className="py-16 px-6 bg-gradient-to-br from-slate-50 to-teal-50">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-slate-800 mb-4">Choose Your Plan</h2>
+            <p className="text-lg text-slate-600">Start free, upgrade as you grow</p>
+          </div>
+          
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {planFeatures.map((plan, index) => (
+              <Card key={index} className={`relative border-0 shadow-lg hover:shadow-xl transition-all duration-300 rounded-2xl overflow-hidden ${plan.highlight ? 'ring-2 ring-teal-500' : ''}`}>
+                {plan.highlight && (
+                  <div className="absolute top-0 left-0 right-0 bg-gradient-to-r from-teal-500 to-teal-600 text-white text-center py-2 text-sm font-semibold">
+                    Most Popular
+                  </div>
+                )}
+                
+                <CardContent className={`p-6 ${plan.highlight ? 'pt-12' : ''}`}>
+                  <div className="text-center mb-6">
+                    <h3 className="text-xl font-bold text-slate-800 mb-2">{plan.plan}</h3>
+                    <div className="text-3xl font-bold text-slate-800">{plan.price}</div>
+                  </div>
+                  
+                  <ul className="space-y-3">
+                    {plan.features.map((feature, featureIndex) => (
+                      <li key={featureIndex} className="flex items-center text-sm text-slate-600">
+                        <CheckCircle className="w-4 h-4 text-teal-500 mr-3 flex-shrink-0" />
+                        {feature}
+                      </li>
+                    ))}
+                  </ul>
+                </CardContent>
+              </Card>
+            ))}
           </div>
         </div>
       </section>
@@ -126,17 +285,17 @@ const HowItWorks = () => {
             </div>
             <div className="space-y-4">
               <div className="w-12 h-12 bg-gradient-to-br from-blue-400 to-blue-500 rounded-xl flex items-center justify-center mx-auto">
-                <QrCode className="w-6 h-6 text-white" />
+                <Zap className="w-6 h-6 text-white" />
               </div>
               <h3 className="text-xl font-semibold text-slate-800">5-Minute Setup</h3>
               <p className="text-slate-600">Unlike competitors who take weeks, you'll be live in minutes with our simple setup process.</p>
             </div>
             <div className="space-y-4">
               <div className="w-12 h-12 bg-gradient-to-br from-purple-400 to-purple-500 rounded-xl flex items-center justify-center mx-auto">
-                <Gift className="w-6 h-6 text-white" />
+                <Shield className="w-6 h-6 text-white" />
               </div>
-              <h3 className="text-xl font-semibold text-slate-800">Instant Rewards</h3>
-              <p className="text-slate-600">Customers get immediate satisfaction when they complete their loyalty journey.</p>
+              <h3 className="text-xl font-semibold text-slate-800">30-Day Guarantee</h3>
+              <p className="text-slate-600">If you don't see more repeat customers in 30 days, we'll refund everything + pay you $100.</p>
             </div>
           </div>
         </div>
@@ -146,10 +305,10 @@ const HowItWorks = () => {
       <section className="py-16 px-6 bg-gradient-to-r from-teal-600 to-teal-700">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl font-bold text-white mb-4">
-            Ready to Get Started?
+            Ready to Transform Your Loyalty Program?
           </h2>
           <p className="text-xl text-teal-100 mb-8">
-            Join hundreds of businesses already using Perkpad to increase customer loyalty.
+            Join hundreds of businesses already using Perkpad to increase customer loyalty and drive repeat visits.
           </p>
           
           <Button 
@@ -162,7 +321,7 @@ const HowItWorks = () => {
           </Button>
           
           <p className="text-teal-200 text-sm mt-4">
-            No setup fees • 30-day money-back guarantee
+            No setup fees • 30-day money-back guarantee • Cancel anytime
           </p>
         </div>
       </section>
