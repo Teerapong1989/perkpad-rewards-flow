@@ -5,27 +5,27 @@ import { CheckCircle } from "lucide-react";
 const PricingPlansSection = () => {
   const planFeatures = [
     {
+      plan: "Free",
+      price: "$0/mo",
+      features: ["1 loyalty card program", "Up to 5 staff members", "Basic loyalty card program", "Default branding (Perkpad only)", "Basic dashboard (visits & redemptions)"],
+      highlight: false
+    },
+    {
       plan: "Starter",
-      price: "$29/mo",
-      features: ["3 loyalty card programs", "Custom business logo", "Customer data export", "Up to 500 customers", "Email support"],
+      price: "$19/mo",
+      features: ["Up to 3 loyalty card programs", "Up to 2 staff members", "Business logo on wallet & cards", "Customer database with export", "Email support"],
       highlight: false
     },
     {
       plan: "Pro",
-      price: "$59/mo",
-      features: ["Unlimited loyalty cards", "Custom branding & colors", "Staff roles & permissions", "Unlimited customers", "Priority support", "Advanced analytics"],
+      price: "$49/mo",
+      features: ["Unlimited loyalty programs", "Up to 10 staff members", "Full custom branding", "SMS & email campaigns", "Advanced analytics"],
       highlight: true
-    },
-    {
-      plan: "Business",
-      price: "$149/mo",
-      features: ["Everything in Pro", "White-label options", "API access", "Custom integrations", "Dedicated account manager", "Phone support"],
-      highlight: false
     },
     {
       plan: "Enterprise",
       price: "Custom",
-      features: ["Multi-location management", "Advanced reporting suite", "Priority implementation", "Custom feature development", "SLA guarantee", "Training & onboarding"],
+      features: ["Unlimited loyalty programs", "Unlimited staff members", "Full custom branding", "SMS & email campaigns", "Advanced analytics", "+ 6 more features"],
       highlight: false
     }
   ];

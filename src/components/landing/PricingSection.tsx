@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -9,70 +8,68 @@ import { AnimatedCard } from "@/components/ui/AnimatedCard";
 
 const pricingPlans = [
   {
+    name: "Free", 
+    price: "$0",
+    period: "per month",
+    savings: "Get started for free",
+    features: [
+      "1 loyalty card program",
+      "Up to 5 staff members",
+      "Basic loyalty card program", 
+      "Default branding (Perkpad only)",
+      "Basic dashboard (visits & redemptions)"
+    ],
+    buttonText: "Start Free Trial",
+    buttonVariant: "outline" as const,
+    popular: false,
+    roi: "Perfect for testing"
+  },
+  {
     name: "Starter", 
-    price: "$29",
+    price: "$19",
     period: "per month",
     savings: "Less than $1/day",
     features: [
-      "3 loyalty card programs",
-      "Custom business logo", 
-      "Customer data export",
-      "Up to 500 customers",
+      "Up to 3 loyalty card programs",
+      "Up to 2 staff members", 
+      "Business logo on wallet & cards",
+      "Customer database with export",
       "Email support"
     ],
     buttonText: "Start Free 30-Day Trial",
     buttonVariant: "default" as const,
-    popular: true,
-    roi: "Typical ROI: $847/month"
+    popular: false,
+    roi: "Typical ROI: $547/month"
   },
   {
     name: "Pro",
-    price: "$59", 
+    price: "$49", 
     period: "per month",
     savings: "Save $228 vs monthly",
     features: [
-      "Unlimited loyalty cards",
-      "Custom branding & colors",
-      "Staff roles & permissions", 
-      "Unlimited customers",
-      "Priority support",
+      "Unlimited loyalty programs",
+      "Up to 10 staff members",
+      "Full custom branding",
+      "SMS & email campaigns", 
       "Advanced analytics"
     ],
     buttonText: "Start Free 30-Day Trial",
     buttonVariant: "default" as const,
-    popular: false,
-    roi: "Typical ROI: $1,847/month"
-  },
-  {
-    name: "Business",
-    price: "$149",
-    period: "per month", 
-    savings: "Best value for growth",
-    features: [
-      "Everything in Pro",
-      "White-label options",
-      "API access",
-      "Custom integrations",
-      "Dedicated account manager",
-      "Phone support"
-    ],
-    buttonText: "Schedule Demo Call",
-    buttonVariant: "outline" as const,
-    popular: false,
-    roi: "Typical ROI: $4,200+ /month"
+    popular: true,
+    roi: "Typical ROI: $1,647/month"
   },
   {
     name: "Enterprise",
     price: "Custom",
-    period: "contact us",
+    period: "pricing",
     savings: "Volume discounts available",
     features: [
-      "Multi-location management",
-      "Advanced reporting suite", 
-      "Priority implementation",
-      "Custom feature development",
-      "SLA guarantee",
-      "Training & onboarding"
+      "Unlimited loyalty programs",
+      "Unlimited staff members", 
+      "Full custom branding",
+      "SMS & email campaigns",
+      "Advanced analytics",
+      "+ 6 more features"
     ],  
     buttonText: "Contact Sales",
     buttonVariant: "outline" as const,
