@@ -22,26 +22,21 @@ const Footer = () => {
             <ul className="space-y-2">
               <li><a href="#features" className="hover:text-teal-400 transition-colors">Features</a></li>
               <li><a href="#pricing" className="hover:text-teal-400 transition-colors">Pricing</a></li>
-              <li><a href="#" className="hover:text-teal-400 transition-colors">Integrations</a></li>
-              <li><a href="#" className="hover:text-teal-400 transition-colors">API</a></li>
+              <li><a href="/how-it-works" className="hover:text-teal-400 transition-colors">How It Works</a></li>
             </ul>
           </div>
           <div>
             <h4 className="font-semibold text-white mb-4">Support</h4>
             <ul className="space-y-2">
-              <li><a href="#" className="hover:text-teal-400 transition-colors">Help Center</a></li>
-              <li><a href="#" className="hover:text-teal-400 transition-colors">Contact Us</a></li>
-              <li><a href="#" className="hover:text-teal-400 transition-colors">Status</a></li>
-              <li><a href="#" className="hover:text-teal-400 transition-colors">Community</a></li>
+              <li><a href="mailto:support@perkpad.com" className="hover:text-teal-400 transition-colors">Contact Support</a></li>
+              <li><a href="mailto:hello@perkpad.com" className="hover:text-teal-400 transition-colors">General Inquiries</a></li>
             </ul>
           </div>
           <div>
             <h4 className="font-semibold text-white mb-4">Legal</h4>
             <ul className="space-y-2">
-              <li><a href="#" className="hover:text-teal-400 transition-colors">Privacy Policy</a></li>
-              <li><a href="#" className="hover:text-teal-400 transition-colors">Terms of Service</a></li>
-              <li><a href="#" className="hover:text-teal-400 transition-colors">Cookie Policy</a></li>
-              <li><a href="#" className="hover:text-teal-400 transition-colors">GDPR</a></li>
+              <li><span className="text-slate-500">Privacy Policy - Coming Soon</span></li>
+              <li><span className="text-slate-500">Terms of Service - Coming Soon</span></li>
             </ul>
           </div>
         </div>
@@ -50,9 +45,7 @@ const Footer = () => {
             © 2024 Perkpad. All rights reserved.
           </p>
           <div className="flex space-x-6 mt-4 md:mt-0">
-            <a href="#" className="text-slate-400 hover:text-teal-400 transition-colors">Twitter</a>
-            <a href="#" className="text-slate-400 hover:text-teal-400 transition-colors">LinkedIn</a>
-            <a href="#" className="text-slate-400 hover:text-teal-400 transition-colors">Instagram</a>
+            <span className="text-slate-500">Social Media - Coming Soon</span>
           </div>
         </div>
       </div>
