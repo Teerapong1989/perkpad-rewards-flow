@@ -77,7 +77,7 @@ const ExitIntentPopup = () => {
           </form>
           
           <p className="text-xs text-center text-slate-500">
-            Plus: Get early access to our new customer retention tools (value $197)
+            Plus: Early access to new customer retention tools (value $197)
           </p>
         </CardContent>
       </Card>

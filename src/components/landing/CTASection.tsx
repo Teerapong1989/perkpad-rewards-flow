@@ -67,7 +67,7 @@ const CTASection = () => {
         </div>
         
         <p className="text-teal-200 text-sm mt-6">
-          If you don't see more repeat customers in 60 days, we'll refund everything + pay you $100
+          30-day money-back guarantee • No contracts • Cancel anytime
         </p>
       </div>
     </section>

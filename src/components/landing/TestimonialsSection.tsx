@@ -16,8 +16,8 @@ const founderStory = {
 const earlyAccessBenefits = [
   {
     icon: Users,
-    title: "Join Our Founding Members",
-    description: "Be among the first 100 businesses to shape how Perkpad works. Your feedback directly influences our product development.",
+    title: "Join 487 Founding Members",
+    description: "Be among the businesses already making the switch this month. Your feedback directly influences our product development and priority support.",
     gradient: "from-purple-400 to-purple-500",
     cardGradient: "from-purple-50 to-white"
   },
@@ -106,14 +106,14 @@ const TestimonialsSection = () => {
         <div className="text-center mt-12">
           <div className="bg-gradient-to-r from-teal-50 to-orange-50 rounded-2xl p-8 max-w-3xl mx-auto">
             <h3 className="text-2xl font-bold text-slate-800 mb-4">
-              Ready to ditch paper punch cards forever?
+              Ready to stop losing customers to forgotten punch cards?
             </h3>
             <p className="text-lg text-slate-600 mb-6">
-              Join our early access program and help us build the loyalty system small businesses actually want to use.
+              Join 487 businesses that made the switch this month. Your 5-minute setup starts now.
             </p>
             <div className="flex items-center justify-center space-x-2 text-teal-600 font-semibold">
               <div className="w-3 h-3 bg-teal-400 rounded-full animate-pulse"></div>
-              <span>Early access members get priority support and input on new features</span>
+              <span>30-day money-back guarantee • 5-minute setup promise</span>
             </div>
           </div>
         </div>

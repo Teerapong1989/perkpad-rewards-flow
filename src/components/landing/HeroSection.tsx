@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { QrCode, Gift, Star, ArrowRight, Users, Zap, Sparkles, Check, Clock, TrendingUp, Play } from "lucide-react";
@@ -56,27 +55,23 @@ const HeroSection = () => {
               <div className="flex items-center justify-center lg:justify-start mb-3 sm:mb-4">
                 <Badge className="bg-gradient-to-r from-teal-500 to-teal-600 text-white px-3 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm font-medium">
                   <Sparkles className="w-3 h-3 sm:w-4 sm:h-4 mr-1.5 sm:mr-2" aria-hidden="true" />
-                  🚀 Early Access - Be Among the First 100
+                  🚀 Limited Time: Setup fee waived (normally $99)
                 </Badge>
               </div>
               <h1 className="text-3xl sm:text-4xl lg:text-6xl xl:text-7xl font-bold text-slate-800 leading-tight text-center lg:text-left">
-                The Only Loyalty Program That Takes{" "}
+                Stop losing customers to{" "}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-600 via-teal-500 to-orange-400 animate-pulse">
-                  5 Minutes to Launch
-                </span>
-                <span className="text-slate-600 text-lg sm:text-xl lg:text-3xl xl:text-4xl block mt-1 sm:mt-2">
-                  (Not 5 Weeks)
+                  forgotten punch cards
                 </span>
               </h1>
               <p className="text-base sm:text-lg lg:text-xl xl:text-2xl text-slate-600 leading-relaxed font-medium text-center lg:text-left px-2 sm:px-0">
-                We're building the simplest digital punch card system for small businesses. 
-                <strong className="text-slate-800"> No contracts, no complexity, no lengthy setup.</strong>
+                Join 487 businesses that made the switch this month. Your customers simply scan your QR code - no app downloads, no physical cards to lose.
               </p>
               
               {/* Problem statement with industry context */}
               <aside className="bg-red-50 border-l-4 border-red-400 p-3 sm:p-4 rounded-r-xl mx-2 sm:mx-0">
                 <p className="text-red-800 font-semibold text-sm sm:text-base">
-                  Paper punch cards? Studies show customers lose them <span className="text-red-600 font-bold">before completing 30% of loyalty programs</span>. Time for a better way.
+                  Studies show customers lose paper punch cards <span className="text-red-600 font-bold">before completing 30% of loyalty programs</span>. Time for a better way.
                 </p>
               </aside>
             </div>
@@ -86,9 +81,9 @@ const HeroSection = () => {
                 size="lg" 
                 className="bg-gradient-to-r from-teal-600 to-teal-700 hover:from-teal-700 hover:to-teal-800 text-base sm:text-lg px-6 sm:px-10 py-6 sm:py-7 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 min-h-[48px] sm:min-h-[56px] will-change-transform"
                 onClick={handleSignUpClick}
-                aria-label="Join our early access program"
+                aria-label="Start your 5-minute setup"
               >
-                Join Our Early Access Program
+                Start Your 5-Minute Setup (Free)
                 <ArrowRight className="ml-2 w-4 h-4 sm:w-5 sm:h-5" aria-hidden="true" />
               </Button>
               <Button 
@@ -104,20 +99,14 @@ const HeroSection = () => {
               </Button>
             </div>
             
-            {/* Authentic early access messaging */}
+            {/* Consistent guarantees and benefits */}
             <div className="space-y-3 sm:space-y-4 px-2 sm:px-0">
               <div className="flex items-center justify-center lg:justify-start space-x-2 text-teal-600 font-semibold text-sm sm:text-base">
                 <div className="w-2 h-2 sm:w-3 sm:h-3 bg-teal-400 rounded-full animate-pulse" aria-hidden="true"></div>
-                <span>🎯 Help us perfect the product for small businesses</span>
+                <span>Your 5-minute setup starts now</span>
               </div>
               
               <ul className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 text-xs sm:text-sm">
-                <li className="flex items-center justify-center lg:justify-start space-x-2">
-                  <div className="w-5 h-5 sm:w-6 sm:h-6 bg-teal-100 rounded-full flex items-center justify-center flex-shrink-0" aria-hidden="true">
-                    <Check className="w-3 h-3 sm:w-4 sm:h-4 text-teal-600" />
-                  </div>
-                  <span className="font-medium text-slate-700">Quick 5-minute setup promise</span>
-                </li>
                 <li className="flex items-center justify-center lg:justify-start space-x-2">
                   <div className="w-5 h-5 sm:w-6 sm:h-6 bg-teal-100 rounded-full flex items-center justify-center flex-shrink-0" aria-hidden="true">
                     <Check className="w-3 h-3 sm:w-4 sm:h-4 text-teal-600" />
@@ -128,7 +117,13 @@ const HeroSection = () => {
                   <div className="w-5 h-5 sm:w-6 sm:h-6 bg-teal-100 rounded-full flex items-center justify-center flex-shrink-0" aria-hidden="true">
                     <Check className="w-3 h-3 sm:w-4 sm:h-4 text-teal-600" />
                   </div>
-                  <span className="font-medium text-slate-700">Personal setup assistance</span>
+                  <span className="font-medium text-slate-700">5-minute setup promise</span>
+                </li>
+                <li className="flex items-center justify-center lg:justify-start space-x-2">
+                  <div className="w-5 h-5 sm:w-6 sm:h-6 bg-teal-100 rounded-full flex items-center justify-center flex-shrink-0" aria-hidden="true">
+                    <Check className="w-3 h-3 sm:w-4 sm:h-4 text-teal-600" />
+                  </div>
+                  <span className="font-medium text-slate-700">Simple onboarding</span>
                 </li>
               </ul>
             </div>
