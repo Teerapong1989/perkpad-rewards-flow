@@ -1,6 +1,6 @@
 
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { QrCode, Gift, BarChart3, TrendingUp, Users, Zap } from "lucide-react";
+import { QrCode, Gift, BarChart3, Shield, Clock, Smartphone } from "lucide-react";
 import { useInView, useMultipleInView } from "@/hooks/useInView";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
 import { AnimatedCard } from "@/components/ui/AnimatedCard";
@@ -8,27 +8,27 @@ import { AnimatedCard } from "@/components/ui/AnimatedCard";
 const features = [
   {
     icon: QrCode,
-    title: "Your customers will never lose another punch card",
-    description: "No more \"I forgot my card at home\" excuses. Customers simply scan your QR code with their phone camera - no app downloads, no hassle. Average businesses see 34% more completed loyalty journeys.",
+    title: "Never lose another customer to forgotten punch cards",
+    description: "Your customers simply scan your QR code with their phone camera - no app downloads, no physical cards to lose. Their loyalty progress is always in their pocket, ready when they are.",
     gradient: "from-teal-500 to-teal-600",
     hoverColor: "group-hover:text-teal-600",
-    metric: "34% more completed rewards"
+    benefit: "Always accessible, never forgotten"
   },
   {
     icon: Gift,
-    title: "Design rewards that actually bring customers back",
-    description: "Not just any reward - create compelling incentives that make customers choose you over competitors. Set rules that work for your business: buy 10 get 1 free, spend $100 get $15 off, or create surprise mystery rewards.",
+    title: "Design rewards that actually motivate customers",
+    description: "Create compelling incentives that make customers choose you over competitors. Set flexible rules that work for your business: buy 10 get 1 free, spend $100 get $15 off, or surprise mystery rewards.",
     gradient: "from-orange-400 to-orange-500",
     hoverColor: "group-hover:text-orange-500",
-    metric: "Average 23% increase in visit frequency"
+    benefit: "Flexible reward structures"
   },
   {
     icon: BarChart3,
-    title: "Know exactly which customers are worth VIP treatment",
-    description: "Stop guessing who your loyal customers are. Get instant insights on visit patterns, spending habits, and reward preferences. Identify your top 20% of customers and treat them like the VIPs they are.",
+    title: "Finally see who your most loyal customers really are",
+    description: "Stop guessing and start knowing. Get clear insights on visit patterns, spending habits, and reward preferences. Identify your VIP customers and treat them accordingly.",
     gradient: "from-purple-500 to-purple-600",
     hoverColor: "group-hover:text-purple-500",
-    metric: "Identify your top 20% customers instantly"
+    benefit: "Data-driven customer insights"
   }
 ];
 
@@ -41,11 +41,11 @@ const FeaturesSection = () => {
       <div className="max-w-7xl mx-auto">
         <AnimatedSection className="text-center mb-16" threshold={0.1}>
           <h2 className="text-4xl font-bold text-slate-800 mb-4">
-            Stop losing money to forgotten punch cards
+            Stop losing customers to forgotten punch cards
           </h2>
           <p className="text-xl text-slate-600 max-w-3xl mx-auto">
-            While your competitors are still using paper cards (and losing 23% of potential rewards), 
-            you'll have a system that actually works for modern customers.
+            While your competitors are still using paper cards (and losing customers who forget them), 
+            you'll have a system that works for modern customers.
           </p>
         </AnimatedSection>
 
@@ -69,7 +69,7 @@ const FeaturesSection = () => {
                     </CardTitle>
                     <div className="bg-gradient-to-r from-teal-50 to-orange-50 rounded-lg p-2 mt-2">
                       <span className="text-sm font-bold text-teal-700">
-                        ⚡ {feature.metric}
+                        ⚡ {feature.benefit}
                       </span>
                     </div>
                   </CardHeader>
@@ -82,6 +82,22 @@ const FeaturesSection = () => {
               </AnimatedCard>
             );
           })}
+        </div>
+
+        {/* Add authentic trust elements */}
+        <div className="mt-16 grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+          <div className="flex items-center justify-center space-x-3 p-4 bg-green-50 rounded-xl">
+            <Shield className="w-6 h-6 text-green-600" />
+            <span className="text-green-800 font-medium">SSL Secured & Privacy Protected</span>
+          </div>
+          <div className="flex items-center justify-center space-x-3 p-4 bg-blue-50 rounded-xl">
+            <Clock className="w-6 h-6 text-blue-600" />
+            <span className="text-blue-800 font-medium">5-Minute Setup Promise</span>
+          </div>
+          <div className="flex items-center justify-center space-x-3 p-4 bg-purple-50 rounded-xl">
+            <Smartphone className="w-6 h-6 text-purple-600" />
+            <span className="text-purple-800 font-medium">Works on Any Smartphone</span>
+          </div>
         </div>
       </div>
     </section>
