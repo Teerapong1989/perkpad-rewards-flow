@@ -10,8 +10,28 @@ const faqs = [
     answer: "Yes! That's the beauty of Perkpad. Customers simply use their phone's camera to scan your QR code - no app downloads required. It works through their web browser, making it incredibly convenient for everyone."
   },
   {
-    question: "How do I upgrade or cancel my subscription?",
-    answer: "You can upgrade, downgrade, or cancel your subscription at any time through your account dashboard. There are no long-term contracts or cancellation fees. If you cancel, your account will remain active until the end of your current billing period."
+    question: "How do customers collect stamps or rewards?",
+    answer: "Customers simply scan your QR code at checkout. It opens a browser-based experience (no app needed), where they can track stamps and unlock rewards."
+  },
+  {
+    question: "Can I customize the look and feel of my loyalty card?",
+    answer: "Yes! With a paid plan, you can add your logo, brand colors, and custom messaging for your customers."
+  },
+  {
+    question: "What happens if a customer loses their phone?",
+    answer: "As long as they use the same phone number, their reward history is still saved and can be retrieved."
+  },
+  {
+    question: "How do I switch plans or cancel my subscription?",
+    answer: "You can upgrade, downgrade, or cancel your subscription at any time through your account dashboard under 'Billing & Plans.' There are no long-term contracts or cancellation fees. If you cancel, your account will remain active until the end of your current billing period."
+  },
+  {
+    question: "Can I use this for multiple business locations?",
+    answer: "Yes, our Pro plan supports multi-location loyalty programs with shared analytics and controls."
+  },
+  {
+    question: "Is customer data safe?",
+    answer: "Absolutely. We never sell or misuse customer data. Everything is securely encrypted and handled with care."
   },
   {
     question: "What happens to my customer data if I cancel?",
@@ -24,7 +44,7 @@ const faqs = [
 ];
 
 const FAQSection = () => {
-  const { containerRef: accordionRef, isInView: accordionInView } = useMultipleInView(4, { threshold: 0.2 });
+  const { containerRef: accordionRef, isInView: accordionInView } = useMultipleInView(9, { threshold: 0.2 });
 
   return (
     <section className="py-20 px-6 bg-gradient-to-br from-slate-50 to-teal-50">
