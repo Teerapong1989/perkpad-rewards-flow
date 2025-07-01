@@ -29,11 +29,14 @@
     <meta name="twitter:description" content="Launch your digital loyalty program in 5 minutes. Replace lost punch cards with QR codes. No apps needed - customers scan with their phone camera." />
     <meta name="twitter:image" content="https://perkpad.com/og-image.jpg" />
 
-    <!-- Security Headers -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://connect.facebook.net https://tally.so; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://www.google-analytics.com https://analytics.google.com;">
+    <!-- Enhanced Security Headers -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://connect.facebook.net https://tally.so; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https: blob:; connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://tally.so; frame-src 'self' https://tally.so; report-uri /csp-report;">
     <meta http-equiv="X-Content-Type-Options" content="nosniff">
     <meta http-equiv="X-Frame-Options" content="DENY">
     <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+    <meta http-equiv="Strict-Transport-Security" content="max-age=31536000; includeSubDomains; preload">
+    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+    <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), payment=()">
 
     <!-- Performance Hints -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -91,7 +94,8 @@
       gtag('js', new Date());
       gtag('config', 'GA_MEASUREMENT_ID', {
         page_title: document.title,
-        page_location: window.location.href
+        page_location: window.location.href,
+        anonymize_ip: true
       });
     </script>
 

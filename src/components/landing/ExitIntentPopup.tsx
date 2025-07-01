@@ -3,17 +3,19 @@ import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { X, Gift, ArrowRight } from "lucide-react";
+import SecureForm from "@/components/security/SecureForm";
+import { trackUserBehavior, trackConversion } from "@/utils/analytics";
 
 const ExitIntentPopup = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [hasShown, setHasShown] = useState(false);
-  const [email, setEmail] = useState("");
 
   useEffect(() => {
     const handleMouseLeave = (e: MouseEvent) => {
       if (e.clientY <= 0 && !hasShown) {
         setIsVisible(true);
         setHasShown(true);
+        trackUserBehavior('view', 'exit_intent_popup');
       }
     };
 
@@ -21,12 +23,19 @@ const ExitIntentPopup = () => {
     return () => document.removeEventListener('mouseleave', handleMouseLeave);
   }, [hasShown]);
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
+  const handleFormSubmit = ({ email }: { email: string }) => {
+    trackUserBehavior('submit', 'exit_intent_form');
+    trackConversion('signup');
+    
     // Redirect to Tally form with email pre-filled if possible
     const tallyUrl = `https://tally.so/r/nGVLNp${email ? `?email=${encodeURIComponent(email)}` : ''}`;
     window.open(tallyUrl, '_blank', 'noopener,noreferrer');
     setIsVisible(false);
+  };
+
+  const handleClose = () => {
+    setIsVisible(false);
+    trackUserBehavior('click', 'exit_intent_close');
   };
 
   if (!isVisible) return null;
@@ -36,8 +45,9 @@ const ExitIntentPopup = () => {
       <Card className="max-w-md w-full bg-white rounded-2xl shadow-2xl transform animate-scale-in">
         <CardHeader className="text-center pb-4 relative">
           <button 
-            onClick={() => setIsVisible(false)}
+            onClick={handleClose}
             className="absolute top-4 right-4 text-slate-400 hover:text-slate-600"
+            aria-label="Close popup"
           >
             <X className="w-5 h-5" />
           </button>
@@ -59,22 +69,13 @@ const ExitIntentPopup = () => {
             </p>
           </div>
           
-          <form onSubmit={handleSubmit} className="space-y-3">
-            <input 
-              type="email" 
-              placeholder="Enter your email address"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500"
-            />
-            <Button 
-              type="submit"
-              className="w-full bg-gradient-to-r from-teal-600 to-teal-700 hover:from-teal-700 hover:to-teal-800 text-white py-3"
-            >
-              Get Free Playbook + Start 5-Min Setup
-              <ArrowRight className="ml-2 w-4 h-4" />
-            </Button>
-          </form>
+          <SecureForm
+            onSubmit={handleFormSubmit}
+            placeholder="Enter your email address"
+            buttonText="Get Free Playbook + Start 5-Min Setup"
+          >
+            <ArrowRight className="ml-2 w-4 h-4" />
+          </SecureForm>
           
           <p className="text-xs text-center text-slate-500">
             Plus: Early access to new customer retention tools (value $197)
