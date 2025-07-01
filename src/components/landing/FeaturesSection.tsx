@@ -4,6 +4,7 @@ import { QrCode, Gift, BarChart3, Shield, Clock, Smartphone } from "lucide-react
 import { useInView, useMultipleInView } from "@/hooks/useInView";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
 import { AnimatedCard } from "@/components/ui/AnimatedCard";
+import { memo } from "react";
 
 const features = [
   {
@@ -32,6 +33,55 @@ const features = [
   }
 ];
 
+const FeatureCard = memo(({ feature, index, isInView }: { feature: typeof features[0], index: number, isInView: boolean }) => {
+  const Icon = feature.icon;
+  
+  return (
+    <AnimatedCard
+      isInView={isInView}
+      delay={(index + 1) * 100}
+      hoverEffect
+    >
+      <Card className="border-0 shadow-lg hover:shadow-2xl transition-all duration-500 rounded-2xl group cursor-pointer h-full">
+        <CardHeader className="text-center pb-4">
+          <div className={`w-16 h-16 bg-gradient-to-br ${feature.gradient} rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300 group-hover:rotate-3`}>
+            <Icon className="w-8 h-8 text-white" />
+          </div>
+          <CardTitle className={`text-2xl text-slate-800 ${feature.hoverColor} transition-colors duration-300`}>
+            {feature.title}
+          </CardTitle>
+          <div className="bg-gradient-to-r from-teal-50 to-orange-50 rounded-lg p-2 mt-2">
+            <span className="text-sm font-bold text-teal-700">
+              ⚡ {feature.benefit}
+            </span>
+          </div>
+        </CardHeader>
+        <CardContent className="text-center">
+          <CardDescription className="text-lg text-slate-600 leading-relaxed group-hover:text-slate-700 transition-colors duration-300">
+            {feature.description}
+          </CardDescription>
+        </CardContent>
+      </Card>
+    </AnimatedCard>
+  );
+});
+
+FeatureCard.displayName = 'FeatureCard';
+
+const TrustElement = memo(({ icon: Icon, text, bgColor, textColor }: { 
+  icon: any, 
+  text: string, 
+  bgColor: string, 
+  textColor: string 
+}) => (
+  <div className={`flex items-center justify-center space-x-3 p-4 ${bgColor} rounded-xl`}>
+    <Icon className={`w-6 h-6 ${textColor}`} />
+    <span className={`${textColor} font-medium`}>{text}</span>
+  </div>
+));
+
+TrustElement.displayName = 'TrustElement';
+
 const FeaturesSection = () => {
   const { ref: sectionRef, isInView: sectionInView } = useInView({ threshold: 0.1 });
   const { containerRef: cardsRef, isInView: cardsInView } = useMultipleInView(3, { threshold: 0.2 });
@@ -50,58 +100,40 @@ const FeaturesSection = () => {
         </AnimatedSection>
 
         <div ref={cardsRef} className="grid md:grid-cols-3 gap-8">
-          {features.map((feature, index) => {
-            const Icon = feature.icon;
-            return (
-              <AnimatedCard
-                key={feature.title}
-                isInView={cardsInView}
-                delay={(index + 1) * 100}
-                hoverEffect
-              >
-                <Card className="border-0 shadow-lg hover:shadow-2xl transition-all duration-500 rounded-2xl group cursor-pointer h-full">
-                  <CardHeader className="text-center pb-4">
-                    <div className={`w-16 h-16 bg-gradient-to-br ${feature.gradient} rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300 group-hover:rotate-3`}>
-                      <Icon className="w-8 h-8 text-white" />
-                    </div>
-                    <CardTitle className={`text-2xl text-slate-800 ${feature.hoverColor} transition-colors duration-300`}>
-                      {feature.title}
-                    </CardTitle>
-                    <div className="bg-gradient-to-r from-teal-50 to-orange-50 rounded-lg p-2 mt-2">
-                      <span className="text-sm font-bold text-teal-700">
-                        ⚡ {feature.benefit}
-                      </span>
-                    </div>
-                  </CardHeader>
-                  <CardContent className="text-center">
-                    <CardDescription className="text-lg text-slate-600 leading-relaxed group-hover:text-slate-700 transition-colors duration-300">
-                      {feature.description}
-                    </CardDescription>
-                  </CardContent>
-                </Card>
-              </AnimatedCard>
-            );
-          })}
+          {features.map((feature, index) => (
+            <FeatureCard
+              key={feature.title}
+              feature={feature}
+              index={index}
+              isInView={cardsInView}
+            />
+          ))}
         </div>
 
         {/* Add authentic trust elements */}
         <div className="mt-16 grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
-          <div className="flex items-center justify-center space-x-3 p-4 bg-green-50 rounded-xl">
-            <Shield className="w-6 h-6 text-green-600" />
-            <span className="text-green-800 font-medium">SSL Secured & Privacy Protected</span>
-          </div>
-          <div className="flex items-center justify-center space-x-3 p-4 bg-blue-50 rounded-xl">
-            <Clock className="w-6 h-6 text-blue-600" />
-            <span className="text-blue-800 font-medium">5-Minute Setup Promise</span>
-          </div>
-          <div className="flex items-center justify-center space-x-3 p-4 bg-purple-50 rounded-xl">
-            <Smartphone className="w-6 h-6 text-purple-600" />
-            <span className="text-purple-800 font-medium">Works on Any Smartphone</span>
-          </div>
+          <TrustElement
+            icon={Shield}
+            text="SSL Secured & Privacy Protected"
+            bgColor="bg-green-50"
+            textColor="text-green-800"
+          />
+          <TrustElement
+            icon={Clock}
+            text="5-Minute Setup Promise"
+            bgColor="bg-blue-50"
+            textColor="text-blue-800"
+          />
+          <TrustElement
+            icon={Smartphone}
+            text="Works on Any Smartphone"
+            bgColor="bg-purple-50"
+            textColor="text-purple-800"
+          />
         </div>
       </div>
     </section>
   );
 };
 
-export default FeaturesSection;
+export default memo(FeaturesSection);
