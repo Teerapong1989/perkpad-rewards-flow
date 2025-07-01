@@ -34,7 +34,7 @@ const CTASection = () => {
             </div>
             <div className="flex items-center space-x-2">
               <Shield className="w-5 h-5 text-teal-200" />
-              <span className="font-semibold">Free migration</span>
+              <span className="font-semibold">Simple onboarding</span>
             </div>
           </div>
         </div>

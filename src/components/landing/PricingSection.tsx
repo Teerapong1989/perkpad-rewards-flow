@@ -165,7 +165,7 @@ const PricingSection = () => {
         {/* Trust signals */}
         <div className="text-center mt-12 space-y-4">
           <p className="text-slate-600">
-            <strong>Free migration</strong> from your current system • <strong>No setup fees</strong> • <strong>Cancel anytime</strong>
+            <strong>Easy onboarding</strong> • <strong>No setup fees</strong> • <strong>Cancel anytime</strong>
           </p>
           <p className="text-sm text-slate-500">
             Join 487 businesses that switched to Perkpad this month

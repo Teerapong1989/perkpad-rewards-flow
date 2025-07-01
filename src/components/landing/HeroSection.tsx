@@ -76,7 +76,7 @@ const HeroSection = () => {
                   <div className="w-6 h-6 bg-teal-100 rounded-full flex items-center justify-center">
                     <Check className="w-4 h-4 text-teal-600" />
                   </div>
-                  <span className="font-medium text-slate-700">Free migration from your current system</span>
+                  <span className="font-medium text-slate-700">Simple onboarding process</span>
                 </div>
               </div>
             </div>
