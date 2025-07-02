@@ -53,7 +53,7 @@ const MobileNavigation = () => {
           <Button 
             variant="outline" 
             className="border-teal-200 text-teal-700 hover:bg-teal-50 cursor-pointer min-h-[44px]"
-            disabled
+            onClick={() => window.open('https://perkpad-petal-power.lovable.app/', '_blank', 'noopener,noreferrer')}
           >
             Login
           </Button>
@@ -118,7 +118,10 @@ const MobileNavigation = () => {
               <Button 
                 variant="outline" 
                 className="w-full border-teal-200 text-teal-700 hover:bg-teal-50 min-h-[44px] text-base"
-                disabled
+                onClick={() => {
+                  window.open('https://perkpad-petal-power.lovable.app/', '_blank', 'noopener,noreferrer');
+                  setIsMenuOpen(false);
+                }}
               >
                 Login
               </Button>
