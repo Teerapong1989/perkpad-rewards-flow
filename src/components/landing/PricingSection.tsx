@@ -171,7 +171,7 @@ const PricingSection = () => {
             <strong>Easy onboarding</strong> • <strong>No setup fees</strong> • <strong>Cancel anytime</strong>
           </p>
           <p className="text-sm text-slate-500">
-            Join 487 businesses that switched to Perkpad this month
+            Join forward-thinking businesses using digital loyalty
           </p>
         </div>
       </div>

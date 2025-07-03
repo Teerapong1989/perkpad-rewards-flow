@@ -14,7 +14,7 @@ const CTASection = () => {
           Ready to stop losing customers to forgotten punch cards?
         </h2>
         <p className="text-lg sm:text-xl text-teal-100 mb-6 sm:mb-8 px-2">
-          Join 487 businesses that made the switch this month. Your 5-minute setup starts now.
+          Transform your customer retention today. Your 5-minute setup starts now.
         </p>
         
         <Button 

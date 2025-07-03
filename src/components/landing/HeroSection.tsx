@@ -72,7 +72,7 @@ const HeroSection = () => {
                 </span>
               </h1>
               <p className="text-base sm:text-lg lg:text-xl xl:text-2xl text-slate-600 leading-relaxed font-medium text-center lg:text-left px-2 sm:px-0">
-                Join 487 businesses that made the switch this month. Your customers simply scan your QR code - no app downloads, no physical cards to lose.
+                Transform your business with digital loyalty cards. Your customers simply scan your QR code - no app downloads, no physical cards to lose.
               </p>
               
               {/* Problem statement with industry context */}

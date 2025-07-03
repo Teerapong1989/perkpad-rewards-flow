@@ -7,7 +7,7 @@ import { updateMetaTags } from '@/utils/seo';
 const pageConfigs = {
   '/': {
     title: 'Perkpad - Digital Loyalty Program for Small Businesses | QR Code Punch Cards',
-    description: 'Launch your digital loyalty program in 5 minutes. Replace lost punch cards with QR codes. Join 487 businesses that made the switch this month.',
+    description: 'Launch your digital loyalty program in 5 minutes. Replace lost punch cards with QR codes. Transform your customer retention today.',
     keywords: 'digital loyalty program, QR code punch cards, small business rewards, customer retention'
   },
   '/how-it-works': {

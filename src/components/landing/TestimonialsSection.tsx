@@ -109,7 +109,7 @@ const TestimonialsSection = () => {
               Ready to stop losing customers to forgotten punch cards?
             </h3>
             <p className="text-lg text-slate-600 mb-6">
-              Join 487 businesses that made the switch this month. Your 5-minute setup starts now.
+              Transform your customer retention today. Your 5-minute setup starts now.
             </p>
             <div className="flex items-center justify-center space-x-2 text-teal-600 font-semibold">
               <div className="w-3 h-3 bg-teal-400 rounded-full animate-pulse"></div>
