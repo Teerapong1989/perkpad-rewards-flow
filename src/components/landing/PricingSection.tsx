@@ -13,11 +13,10 @@ const pricingPlans = [
     period: "per month",
     savings: "Get started for free",
     features: [
-      "1 loyalty card program",
-      "Up to 5 staff members",
-      "Basic loyalty card program", 
-      "Default branding (Perkpad only)",
-      "Basic dashboard (visits & redemptions)"
+      "1 location",
+      "QR stamp card system",
+      "Basic dashboard",
+      "No customization"
     ],
     buttonText: "Start Free Trial",
     buttonVariant: "outline" as const,
@@ -25,61 +24,46 @@ const pricingPlans = [
     roi: "Perfect for testing"
   },
   {
-    name: "Starter", 
-    price: "$19",
+    name: "Pro",
+    price: "$29", 
     period: "per month",
     savings: "Less than $1/day",
     features: [
-      "Up to 3 loyalty card programs",
-      "Up to 2 staff members", 
-      "Business logo on wallet & cards",
-      "Customer database with export",
-      "Email support"
-    ],
-    buttonText: "Start Free 30-Day Trial",
-    buttonVariant: "default" as const,
-    popular: false,
-    roi: "Typical ROI: $547/month"
-  },
-  {
-    name: "Pro",
-    price: "$49", 
-    period: "per month",
-    savings: "Save $228 vs monthly",
-    features: [
-      "Unlimited loyalty programs",
-      "Up to 10 staff members",
-      "Full custom branding",
-      "SMS & email campaigns", 
-      "Advanced analytics"
+      "Everything in Free, plus:",
+      "Custom branding (logo + color)",
+      "Unlimited locations",
+      "Customer database access",
+      "Email/SMS marketing (basic)",
+      "Reward customization",
+      "Staff PIN system for redemptions",
+      "Business insights"
     ],
     buttonText: "Start Free 30-Day Trial",
     buttonVariant: "default" as const,
     popular: true,
-    roi: "Typical ROI: $1,647/month"
+    roi: "Typical ROI: $870/month"
   },
   {
-    name: "Enterprise",
-    price: "Custom",
-    period: "pricing",
-    savings: "Volume discounts available",
+    name: "Growth",
+    price: "$59",
+    period: "per month",
+    savings: "Save $348 vs monthly",
     features: [
-      "Unlimited loyalty programs",
-      "Unlimited staff members", 
-      "Full custom branding",
-      "SMS & email campaigns",
-      "Advanced analytics",
-      "+ 6 more features"
-    ],  
-    buttonText: "Contact Sales",
-    buttonVariant: "outline" as const,
+      "Everything in Pro, plus:",
+      "Multi-location dashboard",
+      "Location-based reporting", 
+      "Printed sign-ready QR downloads",
+      "VIP support"
+    ],
+    buttonText: "Start Free 30-Day Trial",
+    buttonVariant: "default" as const,
     popular: false,
-    roi: "ROI calculated for your business"
+    roi: "Typical ROI: $1,770/month"
   }
 ];
 
 const PricingSection = () => {
-  const { containerRef: cardsRef, isInView: cardsInView } = useMultipleInView(4, { threshold: 0.2 });
+  const { containerRef: cardsRef, isInView: cardsInView } = useMultipleInView(3, { threshold: 0.2 });
 
   const handlePlanClick = (planName: string) => {
     // All plans lead to Tally form for now
@@ -105,7 +89,7 @@ const PricingSection = () => {
           </div>
         </AnimatedSection>
 
-        <div ref={cardsRef} className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div ref={cardsRef} className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {pricingPlans.map((plan, index) => (
             <AnimatedCard
               key={plan.name}
