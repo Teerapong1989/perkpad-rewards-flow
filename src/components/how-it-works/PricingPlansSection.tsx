@@ -8,25 +8,19 @@ const PricingPlansSection = () => {
     {
       plan: "Free",
       price: "$0/mo",
-      features: ["1 loyalty card program", "Up to 5 staff members", "Basic loyalty card program", "Default branding (Perkpad only)", "Basic dashboard (visits & redemptions)"],
-      highlight: false
-    },
-    {
-      plan: "Starter",
-      price: "$19/mo",
-      features: ["Up to 3 loyalty card programs", "Up to 2 staff members", "Business logo on wallet & cards", "Customer database with export", "Email support"],
+      features: ["1 location", "QR stamp card system", "Basic dashboard", "No customization"],
       highlight: false
     },
     {
       plan: "Pro",
-      price: "$49/mo",
-      features: ["Unlimited loyalty programs", "Up to 10 staff members", "Full custom branding", "SMS & email campaigns", "Advanced analytics"],
+      price: "$29/mo", 
+      features: ["Everything in Free, plus:", "Custom branding (logo + color)", "Unlimited locations", "Customer database access", "Email/SMS marketing (basic)", "Reward customization", "Staff PIN system for redemptions", "Business insights"],
       highlight: true
     },
     {
-      plan: "Enterprise",
-      price: "Custom",
-      features: ["Unlimited loyalty programs", "Unlimited staff members", "Full custom branding", "SMS & email campaigns", "Advanced analytics", "+ 6 more features"],
+      plan: "Growth",
+      price: "$59/mo",
+      features: ["Everything in Pro, plus:", "Multi-location dashboard", "Location-based reporting", "Printed sign-ready QR downloads", "VIP support"],
       highlight: false
     }
   ];
@@ -43,7 +37,7 @@ const PricingPlansSection = () => {
           <p className="text-base sm:text-lg text-slate-600">Start free, upgrade as you grow</p>
         </div>
         
-        <div className="grid gap-4 sm:gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-4 sm:gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {planFeatures.map((plan, index) => (
             <Card key={index} className={`relative border-0 shadow-lg hover:shadow-xl transition-all duration-300 rounded-xl sm:rounded-2xl overflow-hidden ${plan.highlight ? 'ring-2 ring-teal-500' : ''}`}>
               {plan.highlight && (
@@ -72,7 +66,7 @@ const PricingPlansSection = () => {
                   variant={plan.highlight ? "default" : "outline"}
                   onClick={handlePlanClick}
                 >
-                  {plan.plan === "Enterprise" ? "Contact Sales" : "Start Free Trial"}
+                  Start Free Trial
                 </Button>
               </CardContent>
             </Card>
