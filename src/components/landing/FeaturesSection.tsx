@@ -97,30 +97,30 @@ const FeaturesSection = () => {
       
       <div className="max-w-7xl mx-auto">
         {/* Asymmetrical header layout */}
-        <div className="grid lg:grid-cols-5 gap-12 items-center mb-20">
+        <div className="grid lg:grid-cols-5 gap-6 lg:gap-12 items-center mb-16 lg:mb-20">
           <div className="lg:col-span-3">
             <AnimatedSection threshold={0.1}>
-              <h2 className="font-display text-4xl lg:text-5xl font-extrabold text-gray-900 mb-6 tracking-tight text-balance">
+              <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold text-gray-900 mb-4 lg:mb-6 tracking-tight text-balance">
                 We built this for the businesses everyone else ignores
               </h2>
-              <p className="text-xl text-gray-600 leading-relaxed text-balance">
+              <p className="text-lg sm:text-xl text-gray-600 leading-relaxed text-balance">
                 Sure, trendy coffee shops get all the startup attention. But what about Maria's nail salon? Tony's auto shop? The laundromat on 5th Street? They need loyal customers too.
               </p>
             </AnimatedSection>
           </div>
           
           {/* Side statistics */}
-          <div className="lg:col-span-2 space-y-6">
+          <div className="lg:col-span-2 grid grid-cols-2 lg:grid-cols-1 gap-4 lg:gap-6">
             <AnimatedSection delay={200}>
-              <div className="bg-brand-success-light border border-brand-success/20 rounded-2xl p-6 text-center">
-                <div className="text-3xl font-bold text-brand-success mb-2">87%</div>
-                <div className="text-sm text-gray-600">Customer retention increase</div>
+              <div className="bg-brand-success-light border border-brand-success/20 rounded-2xl p-4 lg:p-6 text-center">
+                <div className="text-2xl lg:text-3xl font-bold text-brand-success mb-2">87%</div>
+                <div className="text-xs lg:text-sm text-gray-600">Customer retention increase</div>
               </div>
             </AnimatedSection>
             <AnimatedSection delay={400}>
-              <div className="bg-brand-accent-light border border-brand-accent/20 rounded-2xl p-6 text-center">
-                <div className="text-3xl font-bold text-brand-accent mb-2">2 min</div>
-                <div className="text-sm text-gray-600">Average setup time</div>
+              <div className="bg-brand-accent-light border border-brand-accent/20 rounded-2xl p-4 lg:p-6 text-center">
+                <div className="text-2xl lg:text-3xl font-bold text-brand-accent mb-2">2 min</div>
+                <div className="text-xs lg:text-sm text-gray-600">Average setup time</div>
               </div>
             </AnimatedSection>
           </div>
@@ -144,35 +144,39 @@ const FeaturesSection = () => {
           </div>
         </div>
 
-        {/* Redesigned trust elements with asymmetrical layout */}
-        <div className="mt-20">
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl">
-            {/* Left column - 2 elements stacked */}
-            <div className="space-y-6 md:col-span-1">
-              <TrustElement
-                icon={Shield}
-                text="SSL Secured & Privacy Protected"
-                bgColor="bg-brand-success-light"
-                textColor="text-brand-success"
-              />
-              <TrustElement
-                icon={Clock}
-                text="2-Minute Setup Promise"
-                bgColor="bg-brand-primary"
-                textColor="text-brand-primary-dark"
-              />
-            </div>
-            
-            {/* Right side - large feature callout */}
-            <div className="md:col-span-1 lg:col-span-2">
-              <div className="bg-gradient-brand rounded-3xl p-8 text-white h-full flex items-center">
-                <div>
-                  <Smartphone className="w-12 h-12 mb-4 opacity-80" />
-                  <h3 className="text-2xl font-bold mb-3">Works on Any Smartphone</h3>
-                  <p className="text-lg opacity-90">
-                    No apps to download. Your customers scan your QR code with their phone camera. 
-                    It's that simple.
-                  </p>
+        {/* Redesigned trust elements with mobile-first layout */}
+        <div className="mt-16 lg:mt-20">
+          <div className="grid gap-4 lg:gap-6 max-w-5xl">
+            {/* Mobile: all elements stack vertically */}
+            {/* Desktop: left column has 2 stacked, right has large callout */}
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6">
+              {/* First two elements - stack on mobile, column on desktop */}
+              <div className="space-y-4 lg:space-y-6 md:col-span-1">
+                <TrustElement
+                  icon={Shield}
+                  text="SSL Secured & Privacy Protected"
+                  bgColor="bg-brand-success-light"
+                  textColor="text-brand-success"
+                />
+                <TrustElement
+                  icon={Clock}
+                  text="2-Minute Setup Promise"
+                  bgColor="bg-brand-primary"
+                  textColor="text-brand-primary-dark"
+                />
+              </div>
+              
+              {/* Large feature callout */}
+              <div className="md:col-span-1 lg:col-span-2">
+                <div className="bg-gradient-brand rounded-2xl lg:rounded-3xl p-6 lg:p-8 text-white h-full flex items-center">
+                  <div>
+                    <Smartphone className="w-8 h-8 lg:w-12 lg:h-12 mb-3 lg:mb-4 opacity-80" />
+                    <h3 className="text-lg lg:text-2xl font-bold mb-2 lg:mb-3">Works on Any Smartphone</h3>
+                    <p className="text-sm lg:text-lg opacity-90 leading-relaxed">
+                      No apps to download. Your customers scan your QR code with their phone camera. 
+                      It's that simple.
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
