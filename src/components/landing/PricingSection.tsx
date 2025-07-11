@@ -15,11 +15,10 @@ const pricingPlans = [
     addon: "Upgrade to unlock full features",
     savings: "Perfect for getting started",
     features: [
-      "1 location included",
-      "Basic QR stamp card system",
-      "Simple dashboard",
-      "Basic customer tracking",
-      "Standard support"
+      "1 location",
+      "QR stamp card system",
+      "Basic dashboard",
+      "No customization"
     ],
     buttonText: "Start Free",
     buttonVariant: "outline" as const,
