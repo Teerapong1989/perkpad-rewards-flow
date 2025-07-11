@@ -103,28 +103,28 @@ const FeaturesSection = () => {
             </p>
           </AnimatedSection>
           
-          {/* Side statistics - now below header */}
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6 mt-12 max-w-4xl mx-auto">
+          {/* Statistics - now properly aligned */}
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6 mt-12 max-w-5xl mx-auto">
             <AnimatedSection delay={200}>
-              <div className="bg-brand-success-light border border-brand-success/20 rounded-2xl p-4 lg:p-6 text-center">
+              <div className="bg-brand-success-light border border-brand-success/20 rounded-2xl p-4 lg:p-6 text-center h-full flex flex-col justify-center">
                 <div className="text-2xl lg:text-3xl font-bold text-brand-success mb-2">87%</div>
                 <div className="text-xs lg:text-sm text-gray-600">Customer retention increase</div>
               </div>
             </AnimatedSection>
             <AnimatedSection delay={400}>
-              <div className="bg-brand-accent-light border border-brand-accent/20 rounded-2xl p-4 lg:p-6 text-center">
+              <div className="bg-brand-accent-light border border-brand-accent/20 rounded-2xl p-4 lg:p-6 text-center h-full flex flex-col justify-center">
                 <div className="text-2xl lg:text-3xl font-bold text-brand-accent mb-2">2 min</div>
                 <div className="text-xs lg:text-sm text-gray-600">Average setup time</div>
               </div>
             </AnimatedSection>
             <AnimatedSection delay={600}>
-              <div className="bg-brand-primary border border-brand-primary-dark/20 rounded-2xl p-4 lg:p-6 text-center">
+              <div className="bg-brand-primary border border-brand-primary-dark/20 rounded-2xl p-4 lg:p-6 text-center h-full flex flex-col justify-center">
                 <div className="text-2xl lg:text-3xl font-bold text-brand-primary-dark mb-2">5k+</div>
                 <div className="text-xs lg:text-sm text-gray-600">Businesses served</div>
               </div>
             </AnimatedSection>
             <AnimatedSection delay={800}>
-              <div className="bg-gray-100 border border-gray-200 rounded-2xl p-4 lg:p-6 text-center">
+              <div className="bg-gray-100 border border-gray-200 rounded-2xl p-4 lg:p-6 text-center h-full flex flex-col justify-center">
                 <div className="text-2xl lg:text-3xl font-bold text-gray-700 mb-2">24/7</div>
                 <div className="text-xs lg:text-sm text-gray-600">Always available</div>
               </div>
@@ -132,22 +132,11 @@ const FeaturesSection = () => {
           </div>
         </div>
 
-        {/* Staggered feature cards layout */}
-        <div ref={cardsRef} className="grid lg:grid-cols-3 gap-8 lg:gap-12">
-          {/* First card - normal position */}
-          <div className="lg:mt-0">
-            <FeatureCard feature={features[0]} index={0} isInView={cardsInView} />
-          </div>
-          
-          {/* Second card - raised */}
-          <div className="lg:-mt-12">
-            <FeatureCard feature={features[1]} index={1} isInView={cardsInView} />
-          </div>
-          
-          {/* Third card - normal position */}
-          <div className="lg:mt-0">
-            <FeatureCard feature={features[2]} index={2} isInView={cardsInView} />
-          </div>
+        {/* Clean aligned feature cards */}
+        <div ref={cardsRef} className="grid md:grid-cols-3 gap-6 lg:gap-8">
+          {features.map((feature, index) => (
+            <FeatureCard key={feature.title} feature={feature} index={index} isInView={cardsInView} />
+          ))}
         </div>
 
         {/* Redesigned trust elements with mobile-first layout */}
