@@ -24,7 +24,7 @@ const Index = () => {
       <CTASection />
       <Footer />
       <ExitIntentPopup />
-      <ChatWidget />
+      {/* <ChatWidget /> */}
     </div>
   );
 };
