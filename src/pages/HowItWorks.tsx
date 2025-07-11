@@ -9,7 +9,7 @@ import CTASection from "@/components/how-it-works/CTASection";
 
 const HowItWorks = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-teal-50">
+    <div className="min-h-screen bg-gradient-hero">
       <Navigation />
       <HeroSection />
       <CustomerExperienceSection />

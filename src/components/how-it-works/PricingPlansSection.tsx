@@ -57,48 +57,48 @@ const PricingPlansSection = () => {
   };
 
   return (
-    <section className="py-12 sm:py-16 px-4 sm:px-6 bg-gradient-to-br from-slate-50 to-teal-50">
-      <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-8 sm:mb-12">
-          <h2 className="text-2xl sm:text-3xl font-bold text-slate-800 mb-3 sm:mb-4">Choose Your Plan</h2>
-          <p className="text-base sm:text-lg text-slate-600">Start free, upgrade as you grow</p>
+    <section className="py-16 lg:py-20 px-6 bg-gradient-subtle">
+      <div className="max-w-7xl mx-auto">
+        <div className="text-center mb-12 lg:mb-16">
+          <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold text-gray-900 mb-6 tracking-tight">Choose Your Plan</h2>
+          <p className="text-xl sm:text-2xl text-gray-600 max-w-3xl mx-auto leading-relaxed">Start free, upgrade as you grow</p>
         </div>
         
-        <div className="grid gap-4 sm:gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-6 lg:gap-8 md:grid-cols-2 lg:grid-cols-3">
           {planFeatures.map((plan, index) => (
-            <Card key={index} className={`relative border-0 shadow-lg hover:shadow-xl transition-all duration-300 rounded-xl sm:rounded-2xl overflow-hidden ${plan.highlight ? 'ring-2 ring-teal-500' : ''}`}>
+            <Card key={index} className={`relative border-2 ${plan.highlight ? 'border-brand-accent bg-gradient-to-br from-white to-brand-accent-light ring-2 ring-brand-accent/20' : 'border-gray-200'} rounded-2xl shadow-elegant hover:shadow-brand transition-all duration-500 h-full flex flex-col`}>
               {plan.highlight && (
-                <div className="absolute top-0 left-0 right-0 bg-gradient-to-r from-teal-500 to-teal-600 text-white text-center py-1.5 sm:py-2 text-xs sm:text-sm font-semibold">
+                <div className="absolute top-0 left-0 right-0 bg-gradient-brand text-white text-center py-2 text-sm font-semibold rounded-t-2xl">
                   Most Popular
                 </div>
               )}
               
-              <CardContent className={`p-4 sm:p-6 ${plan.highlight ? 'pt-8 sm:pt-12' : ''}`}>
-                <div className="text-center mb-4 sm:mb-6">
-                  <h3 className="text-lg sm:text-xl font-bold text-slate-800 mb-2">{plan.plan}</h3>
-                  <div className="text-2xl sm:text-3xl font-bold text-slate-800">{plan.price}</div>
-                  <p className="text-xs sm:text-sm text-slate-600 mt-2">{plan.description}</p>
+              <CardContent className={`p-6 ${plan.highlight ? 'pt-12' : ''} flex-grow flex flex-col`}>
+                <div className="text-center mb-6">
+                  <h3 className="text-xl font-bold text-gray-900 mb-2">{plan.plan}</h3>
+                  <div className="text-3xl font-bold text-gray-900">{plan.price}</div>
+                  <p className="text-sm text-gray-600 mt-2">{plan.description}</p>
                   
                   {/* Location information */}
-                  <div className="bg-blue-50 border border-blue-200 rounded-lg p-2 sm:p-3 mt-3 sm:mt-4">
+                  <div className="bg-brand-primary border border-brand-primary-dark/20 rounded-lg p-3 mt-4">
                     <div className="text-center space-y-1">
-                      <div className="font-semibold text-blue-800 text-xs sm:text-sm">{plan.locations}</div>
-                      <div className="text-xs text-blue-600">{plan.addon}</div>
+                      <div className="font-semibold text-brand-primary-dark text-sm">{plan.locations}</div>
+                      <div className="text-xs text-gray-600">{plan.addon}</div>
                     </div>
                   </div>
                 </div>
                 
-                <ul className="space-y-2 sm:space-y-3 mb-4 sm:mb-6">
+                <ul className="space-y-3 mb-6 flex-grow">
                   {plan.features.map((feature, featureIndex) => (
-                    <li key={featureIndex} className="flex items-start text-xs sm:text-sm text-slate-600">
-                      <CheckCircle className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-teal-500 mr-2 sm:mr-3 flex-shrink-0 mt-0.5" />
+                    <li key={featureIndex} className="flex items-start text-sm text-gray-600">
+                      <CheckCircle className="w-4 h-4 text-brand-success mr-3 flex-shrink-0 mt-0.5" />
                       <span className="leading-relaxed">{feature}</span>
                     </li>
                   ))}
                 </ul>
                 
                 <Button 
-                  className={`w-full min-h-[44px] text-sm sm:text-base ${plan.highlight ? 'bg-teal-600 hover:bg-teal-700' : ''}`}
+                  className={`w-full min-h-[44px] text-base mt-auto ${plan.highlight ? 'bg-gradient-brand text-white shadow-brand' : ''}`}
                   variant={plan.highlight ? "default" : "outline"}
                   onClick={handlePlanClick}
                 >
