@@ -119,8 +119,8 @@ const FeaturesSection = () => {
             </AnimatedSection>
             <AnimatedSection delay={600}>
               <div className="bg-brand-primary border border-brand-primary-dark/20 rounded-2xl p-4 lg:p-6 text-center h-full flex flex-col justify-center">
-                <div className="text-2xl lg:text-3xl font-bold text-brand-primary-dark mb-2">5k+</div>
-                <div className="text-xs lg:text-sm text-gray-600">Businesses served</div>
+                <div className="text-2xl lg:text-3xl font-bold text-brand-primary-dark mb-2">NEW</div>
+                <div className="text-xs lg:text-sm text-gray-600">Fresh launch</div>
               </div>
             </AnimatedSection>
             <AnimatedSection delay={800}>
