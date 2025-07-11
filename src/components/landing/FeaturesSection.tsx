@@ -61,7 +61,7 @@ const showcaseFeatures = [
   {
     icon: Clock,
     title: "📊 Advanced Analytics",
-    description: "ROI tracking, profit analytics, and API access",
+    description: "ROI tracking and profit analytics for data-driven decisions",
     gradient: "from-indigo-500 to-purple-600",
     plan: "Growth"
   }
@@ -249,7 +249,7 @@ const FeaturesSection = () => {
                 <p className="text-2xl font-bold text-gray-900 mb-1">$60</p>
                 <p className="text-sm text-gray-600 mb-4">Advanced features for established businesses</p>
                 <div className="text-xs text-gray-500">
-                  Advanced analytics • API access • White label
+                  Advanced analytics • Multi-location • Priority support
                 </div>
               </div>
             </div>
@@ -316,7 +316,7 @@ const FeaturesSection = () => {
                   </div>
                   <div>
                     <h4 className="font-semibold text-gray-900">📊 Advanced ROI & Profit Analytics</h4>
-                    <p className="text-gray-600">Full API access, integrations, and white label solutions</p>
+                    <p className="text-gray-600">Deep insights into your business performance and customer behavior</p>
                   </div>
                 </div>
               </div>

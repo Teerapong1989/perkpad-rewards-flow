@@ -60,11 +60,10 @@ const pricingPlans = [
       "🧠 Advanced AI with predictive analytics",
       "👥 Unlimited staff members",
       "📊 Advanced ROI & profit analytics",
-      "🔌 Full API access & integrations",
-      "🏷️ White label solution",
       "Multi-user access with role-based permissions",
       "See data across all locations",
-      "Compare location performance"
+      "Compare location performance",
+      "Priority support"
     ],
     buttonText: "Start 30-Day Trial",
     buttonVariant: "default" as const,
