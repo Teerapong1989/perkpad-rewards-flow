@@ -55,6 +55,8 @@ export const ChatWidget = () => {
     setIsLoading(true);
 
     try {
+      console.log('Sending message to AI chat support:', inputMessage);
+      
       const { data, error } = await supabase.functions.invoke('ai-chat-support', {
         body: {
           message: inputMessage,
@@ -62,7 +64,17 @@ export const ChatWidget = () => {
         }
       });
 
-      if (error) throw error;
+      console.log('Response from AI chat support:', { data, error });
+
+      if (error) {
+        console.error('Supabase function error:', error);
+        throw error;
+      }
+
+      if (!data || !data.message) {
+        console.error('Invalid response format:', data);
+        throw new Error('Invalid response from AI service');
+      }
 
       const aiMessage: Message = {
         id: crypto.randomUUID(),
