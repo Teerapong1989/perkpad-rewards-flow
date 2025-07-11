@@ -25,7 +25,12 @@ serve(async (req) => {
     
     if (!openAIApiKey) {
       console.error('OpenAI API key not configured');
-      throw new Error('OpenAI API key not configured');
+      return new Response(JSON.stringify({ 
+        message: 'Sorry, I am having trouble processing your request right now. Please try again in a moment.'
+      }), {
+        status: 200,
+        headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+      });
     }
 
     const requestBody = await req.json();
@@ -34,34 +39,58 @@ serve(async (req) => {
     const { message, sessionId } = requestBody;
     
     if (!message || !sessionId) {
-      throw new Error('Message and session ID are required');
+      console.error('Missing required fields:', { message: !!message, sessionId: !!sessionId });
+      return new Response(JSON.stringify({ 
+        message: 'Please provide both a message and session ID.'
+      }), {
+        status: 200,
+        headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+      });
     }
 
     const supabase = createClient(supabaseUrl, supabaseServiceKey);
+    console.log('Supabase client created successfully');
 
-    // Store user message
-    await supabase
-      .from('chat_messages')
-      .insert({
-        session_id: sessionId,
-        message: message,
-        is_ai_response: false
-      });
+    // Store user message (non-blocking)
+    console.log('Storing user message...');
+    try {
+      await supabase
+        .from('chat_messages')
+        .insert({
+          session_id: sessionId,
+          message: message,
+          is_ai_response: false
+        });
+      console.log('User message stored successfully');
+    } catch (dbError) {
+      console.error('Error storing user message (continuing):', dbError);
+    }
 
     // Get recent conversation history for context
-    const { data: recentMessages } = await supabase
-      .from('chat_messages')
-      .select('message, is_ai_response')
-      .eq('session_id', sessionId)
-      .order('created_at', { ascending: true })
-      .limit(10);
+    console.log('Fetching conversation history...');
+    let conversationHistory = [];
+    try {
+      const { data: recentMessages, error: fetchError } = await supabase
+        .from('chat_messages')
+        .select('message, is_ai_response')
+        .eq('session_id', sessionId)
+        .order('created_at', { ascending: true })
+        .limit(8);
 
-    // Build conversation context
-    const conversationHistory = recentMessages?.map(msg => ({
-      role: msg.is_ai_response ? 'assistant' : 'user',
-      content: msg.message
-    })) || [];
+      if (fetchError) {
+        console.error('Error fetching conversation history (continuing):', fetchError);
+      } else {
+        console.log('Conversation history fetched:', recentMessages?.length || 0, 'messages');
+        conversationHistory = recentMessages?.map(msg => ({
+          role: msg.is_ai_response ? 'assistant' : 'user',
+          content: msg.message
+        })) || [];
+      }
+    } catch (historyError) {
+      console.error('Error in conversation history fetch (continuing):', historyError);
+    }
 
+    console.log('Calling OpenAI API...');
     // Create AI response
     const response = await fetch('https://api.openai.com/v1/chat/completions', {
       method: 'POST',
@@ -89,7 +118,7 @@ YOUR ROLE:
 - Help troubleshoot common issues with loyalty programs
 - Explain features like earning stamps, redeeming rewards, streak bonuses, and challenges
 - Provide guidance on setting up loyalty programs for business owners
-- Be friendly, helpful, and concise
+- Be friendly, helpful, and concise (max 2-3 sentences per response)
 - If you don't know something specific, offer to connect them with our support team
 
 TONE: Professional yet friendly, like a knowledgeable support representative.`
@@ -101,26 +130,45 @@ TONE: Professional yet friendly, like a knowledgeable support representative.`
           }
         ],
         temperature: 0.7,
-        max_tokens: 500
+        max_tokens: 300
       }),
     });
 
+    console.log('OpenAI API response status:', response.status);
+
     if (!response.ok) {
-      throw new Error(`OpenAI API error: ${response.status}`);
+      const errorText = await response.text();
+      console.error('OpenAI API error:', response.status, errorText);
+      
+      return new Response(JSON.stringify({ 
+        message: 'Sorry, I am having trouble processing your request right now. Please try again in a moment.'
+      }), {
+        status: 200,
+        headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+      });
     }
 
     const aiResponse = await response.json();
+    console.log('OpenAI response received successfully');
+    
     const aiMessage = aiResponse.choices[0].message.content;
 
-    // Store AI response
-    await supabase
-      .from('chat_messages')
-      .insert({
-        session_id: sessionId,
-        message: aiMessage,
-        is_ai_response: true
-      });
+    // Store AI response (non-blocking)
+    console.log('Storing AI response...');
+    try {
+      await supabase
+        .from('chat_messages')
+        .insert({
+          session_id: sessionId,
+          message: aiMessage,
+          is_ai_response: true
+        });
+      console.log('AI response stored successfully');
+    } catch (dbError) {
+      console.error('Error storing AI response (continuing):', dbError);
+    }
 
+    console.log('Returning successful response');
     return new Response(JSON.stringify({ 
       message: aiMessage,
       sessionId: sessionId 
@@ -129,12 +177,13 @@ TONE: Professional yet friendly, like a knowledgeable support representative.`
     });
 
   } catch (error) {
-    console.error('Error in AI chat support:', error);
-    return new Response(JSON.stringify({ 
-      error: 'Failed to process chat message',
-      details: error.message 
+    console.error('Error in AI chat support function:', error);
+    
+    // Return a user-friendly error message
+    return new Response(JSON.stringify({
+      message: 'Sorry, I am having trouble processing your request right now. Please try again in a moment.'
     }), {
-      status: 500,
+      status: 200, // Return 200 to avoid triggering client-side error handling
       headers: { ...corsHeaders, 'Content-Type': 'application/json' },
     });
   }
