@@ -90,27 +90,21 @@ const FeaturesSection = () => {
   const { containerRef: cardsRef, isInView: cardsInView } = useMultipleInView(3, { threshold: 0.2 });
 
   return (
-    <section id="features" className="py-20 px-6 bg-white relative" ref={sectionRef}>
-      {/* Floating geometric elements */}
-      <div className="absolute top-20 right-10 w-32 h-32 bg-brand-primary/5 rounded-full blur-xl"></div>
-      <div className="absolute bottom-20 left-10 w-24 h-24 bg-brand-accent/5 rounded-full blur-lg"></div>
-      
+    <section id="features" className="py-16 lg:py-20 px-6 bg-white relative" ref={sectionRef}>
       <div className="max-w-7xl mx-auto">
-        {/* Asymmetrical header layout */}
-        <div className="grid lg:grid-cols-5 gap-6 lg:gap-12 items-center mb-16 lg:mb-20">
-          <div className="lg:col-span-3">
-            <AnimatedSection threshold={0.1}>
-              <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold text-gray-900 mb-4 lg:mb-6 tracking-tight text-balance">
-                We built this for the businesses everyone else ignores
-              </h2>
-              <p className="text-lg sm:text-xl text-gray-600 leading-relaxed text-balance">
-                Sure, trendy coffee shops get all the startup attention. But what about Maria's nail salon? Tony's auto shop? The laundromat on 5th Street? They need loyal customers too.
-              </p>
-            </AnimatedSection>
-          </div>
+        {/* Cleaner header layout */}
+        <div className="text-center mb-16 lg:mb-20">
+          <AnimatedSection threshold={0.1}>
+            <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold text-gray-900 mb-6 tracking-tight text-balance max-w-4xl mx-auto">
+              We built this for the businesses everyone else ignores
+            </h2>
+            <p className="text-lg sm:text-xl text-gray-600 leading-relaxed text-balance max-w-3xl mx-auto">
+              Sure, trendy coffee shops get all the startup attention. But what about Maria's nail salon? Tony's auto shop? The laundromat on 5th Street? They need loyal customers too.
+            </p>
+          </AnimatedSection>
           
-          {/* Side statistics */}
-          <div className="lg:col-span-2 grid grid-cols-2 lg:grid-cols-1 gap-4 lg:gap-6">
+          {/* Side statistics - now below header */}
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6 mt-12 max-w-4xl mx-auto">
             <AnimatedSection delay={200}>
               <div className="bg-brand-success-light border border-brand-success/20 rounded-2xl p-4 lg:p-6 text-center">
                 <div className="text-2xl lg:text-3xl font-bold text-brand-success mb-2">87%</div>
@@ -121,6 +115,18 @@ const FeaturesSection = () => {
               <div className="bg-brand-accent-light border border-brand-accent/20 rounded-2xl p-4 lg:p-6 text-center">
                 <div className="text-2xl lg:text-3xl font-bold text-brand-accent mb-2">2 min</div>
                 <div className="text-xs lg:text-sm text-gray-600">Average setup time</div>
+              </div>
+            </AnimatedSection>
+            <AnimatedSection delay={600}>
+              <div className="bg-brand-primary border border-brand-primary-dark/20 rounded-2xl p-4 lg:p-6 text-center">
+                <div className="text-2xl lg:text-3xl font-bold text-brand-primary-dark mb-2">5k+</div>
+                <div className="text-xs lg:text-sm text-gray-600">Businesses served</div>
+              </div>
+            </AnimatedSection>
+            <AnimatedSection delay={800}>
+              <div className="bg-gray-100 border border-gray-200 rounded-2xl p-4 lg:p-6 text-center">
+                <div className="text-2xl lg:text-3xl font-bold text-gray-700 mb-2">24/7</div>
+                <div className="text-xs lg:text-sm text-gray-600">Always available</div>
               </div>
             </AnimatedSection>
           </div>
