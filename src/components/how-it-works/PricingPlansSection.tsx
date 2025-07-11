@@ -10,7 +10,8 @@ const PricingPlansSection = () => {
       price: "$0/mo",
       locations: "1 location (limited features)",
       addon: "Upgrade to unlock full features",
-      features: ["1 location", "QR stamp card system", "Basic dashboard", "No customization"],
+      description: "Perfect for small businesses getting started",
+      features: ["1 location", "QR stamp card system", "Basic dashboard", "No customization", "Limited features"],
       highlight: false
     },
     {
@@ -18,7 +19,17 @@ const PricingPlansSection = () => {
       price: "$30/mo", 
       locations: "1 location included",
       addon: "+$10/month per extra location",
-      features: ["1 location included", "Everything in Free, plus:", "Custom branding (logo + color)", "Customer database access", "Email/SMS marketing (basic)", "Reward customization", "Staff PIN system for redemptions", "Business insights"],
+      description: "Most popular for growing businesses + AI & SMS",
+      features: [
+        "Everything in Free, plus:",
+        "🤖 AI customer retention insights",
+        "📱 SMS & email marketing campaigns", 
+        "👥 Staff roles & access control (up to 10)",
+        "Add your logo and colors",
+        "Customer contact info",
+        "Create custom rewards",
+        "Automated campaigns & customer engagement tools"
+      ],
       highlight: true
     },
     {
@@ -26,7 +37,17 @@ const PricingPlansSection = () => {
       price: "$60/mo",
       locations: "3 locations included",
       addon: "+$8/month per extra location",
-      features: ["3 locations included", "Everything in Pro, plus:", "Multi-location dashboard", "Location-based reporting", "Advanced analytics", "Printed sign-ready QR downloads", "Priority support"],
+      description: "Advanced features for established businesses",
+      features: [
+        "Everything in Pro, plus:",
+        "🧠 Advanced AI with predictive analytics",
+        "👥 Unlimited staff members",
+        "📊 Advanced ROI & profit analytics",
+        "Multi-user access with role-based permissions",
+        "See data across all locations",
+        "Compare location performance",
+        "Priority support"
+      ],
       highlight: false
     }
   ];
@@ -56,6 +77,7 @@ const PricingPlansSection = () => {
                 <div className="text-center mb-4 sm:mb-6">
                   <h3 className="text-lg sm:text-xl font-bold text-slate-800 mb-2">{plan.plan}</h3>
                   <div className="text-2xl sm:text-3xl font-bold text-slate-800">{plan.price}</div>
+                  <p className="text-xs sm:text-sm text-slate-600 mt-2">{plan.description}</p>
                   
                   {/* Location information */}
                   <div className="bg-blue-50 border border-blue-200 rounded-lg p-2 sm:p-3 mt-3 sm:mt-4">
