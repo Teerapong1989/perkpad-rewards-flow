@@ -49,36 +49,36 @@ const HeroSection = () => {
   }, []);
 
   return (
-    <section className="hero-section relative overflow-hidden py-8 sm:py-12 lg:py-20 px-4 sm:px-6" role="main">
-      {/* Background decoration - optimized with will-change */}
-      <div className="absolute inset-0 bg-gradient-to-r from-teal-50/50 to-orange-50/30 blur-3xl will-change-transform" aria-hidden="true"></div>
-      <div className="absolute top-10 sm:top-20 left-4 sm:left-10 w-48 sm:w-72 h-48 sm:h-72 bg-teal-200/20 rounded-full blur-3xl animate-pulse will-change-transform" aria-hidden="true"></div>
-      <div className="absolute bottom-10 sm:bottom-20 right-4 sm:right-10 w-64 sm:w-96 h-64 sm:h-96 bg-orange-200/20 rounded-full blur-3xl animate-pulse delay-1000 will-change-transform" aria-hidden="true"></div>
+    <section className="hero-section relative overflow-hidden py-8 sm:py-12 lg:py-20 px-4 sm:px-6 bg-gradient-hero" role="main">
+      {/* Background decoration - sophisticated layered gradients */}
+      <div className="absolute inset-0 bg-gradient-to-r from-brand-primary/30 to-brand-accent-light/20 blur-3xl will-change-transform" aria-hidden="true"></div>
+      <div className="absolute top-10 sm:top-20 left-4 sm:left-10 w-48 sm:w-72 h-48 sm:h-72 bg-brand-primary-dark/10 rounded-full blur-3xl animate-pulse will-change-transform" aria-hidden="true"></div>
+      <div className="absolute bottom-10 sm:bottom-20 right-4 sm:right-10 w-64 sm:w-96 h-64 sm:h-96 bg-brand-accent/10 rounded-full blur-3xl animate-pulse delay-1000 will-change-transform" aria-hidden="true"></div>
       
       <div className="max-w-7xl mx-auto relative">
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           <header className="space-y-6 sm:space-y-8 fade-in">
             <div className="space-y-4 sm:space-y-6">
               <div className="flex items-center justify-center lg:justify-start mb-3 sm:mb-4">
-                <Badge className="bg-gradient-to-r from-teal-500 to-teal-600 text-white px-3 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm font-medium">
+                <Badge className="bg-gradient-brand text-white px-3 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm font-medium shadow-brand">
                   <Sparkles className="w-3 h-3 sm:w-4 sm:h-4 mr-1.5 sm:mr-2" aria-hidden="true" />
                   🚀 Limited Time: Setup fee waived (normally $99)
                 </Badge>
               </div>
-              <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-extrabold text-slate-900 leading-[1.1] text-center lg:text-left tracking-tight">
+              <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-extrabold text-gray-900 leading-[1.1] text-center lg:text-left tracking-tight text-balance">
                 Every local business deserves{" "}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-600 via-teal-500 to-orange-400">
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-primary-dark via-brand-accent to-brand-accent">
                   loyal customers
                 </span>
               </h1>
-              <p className="text-lg sm:text-xl lg:text-2xl text-slate-600 leading-relaxed font-medium text-center lg:text-left max-w-2xl">
+              <p className="text-lg sm:text-xl lg:text-2xl text-gray-600 leading-relaxed font-medium text-center lg:text-left max-w-2xl text-balance">
                 Whether you run a nail salon, auto shop, café, or laundromat — get digital loyalty cards that actually work. Customers scan, you grow.
               </p>
               
               {/* Problem statement with industry context */}
-              <aside className="bg-red-50 border-l-4 border-red-400 p-3 sm:p-4 rounded-r-xl mx-2 sm:mx-0">
-                <p className="text-red-800 font-semibold text-sm sm:text-base">
-                  Studies show <span className="text-red-600 font-bold">70% of customers never complete</span> traditional punch card programs. Every business type faces this problem.
+              <aside className="bg-brand-accent-light border-l-4 border-brand-accent p-3 sm:p-4 rounded-r-xl mx-2 sm:mx-0 shadow-md">
+                <p className="text-gray-800 font-semibold text-sm sm:text-base">
+                  Studies show <span className="text-brand-accent font-bold">70% of customers never complete</span> traditional punch card programs. Every business type faces this problem.
                 </p>
               </aside>
             </div>
@@ -86,7 +86,7 @@ const HeroSection = () => {
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 px-2 sm:px-0">
                 <Button 
                 size="lg" 
-                className="bg-gradient-to-r from-teal-600 to-teal-700 hover:from-teal-700 hover:to-teal-800 text-base sm:text-lg px-6 sm:px-10 py-6 sm:py-7 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 min-h-[48px] sm:min-h-[56px] will-change-transform"
+                className="bg-gradient-brand hover:shadow-brand text-base sm:text-lg px-6 sm:px-10 py-6 sm:py-7 rounded-2xl shadow-elegant hover:shadow-xl transition-all duration-300 transform hover:scale-105 min-h-[48px] sm:min-h-[56px] will-change-transform text-white font-semibold"
                 onClick={handleSignUpClick}
                 aria-label="Start free today"
               >
@@ -96,7 +96,7 @@ const HeroSection = () => {
               <Button 
                 variant="outline" 
                 size="lg"
-                className="border-teal-200 text-teal-700 hover:bg-teal-50 text-base sm:text-lg px-6 sm:px-10 py-6 sm:py-7 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 min-h-[48px] sm:min-h-[56px] will-change-transform"
+                className="border-gray-300 text-gray-700 hover:bg-gray-50 hover:border-brand-primary-dark text-base sm:text-lg px-6 sm:px-10 py-6 sm:py-7 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 min-h-[48px] sm:min-h-[56px] will-change-transform font-semibold"
                 onClick={handleDemoClick}
                 asChild
               >
@@ -109,8 +109,8 @@ const HeroSection = () => {
             
             {/* Consistent guarantees and benefits */}
             <div className="space-y-3 sm:space-y-4 px-2 sm:px-0">
-              <div className="flex items-center justify-center lg:justify-start space-x-2 text-teal-600 font-semibold text-sm sm:text-base">
-                <div className="w-2 h-2 sm:w-3 sm:h-3 bg-teal-400 rounded-full animate-pulse" aria-hidden="true"></div>
+              <div className="flex items-center justify-center lg:justify-start space-x-2 text-brand-primary-dark font-semibold text-sm sm:text-base">
+                <div className="w-2 h-2 sm:w-3 sm:h-3 bg-brand-accent rounded-full animate-pulse" aria-hidden="true"></div>
                 <span>Your 2-minute setup starts now</span>
               </div>
               
