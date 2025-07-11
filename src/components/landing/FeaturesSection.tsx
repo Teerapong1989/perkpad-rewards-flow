@@ -198,62 +198,6 @@ const FeaturesSection = () => {
               </AnimatedCard>
             ))}
           </div>
-
-          {/* Quick Pricing Overview */}
-          <div className="bg-gradient-to-br from-white to-brand-primary/5 rounded-3xl p-8 border border-gray-200">
-            <div className="text-center mb-8">
-              <h4 className="font-display text-2xl lg:text-3xl font-bold text-gray-900 mb-2">
-                Choose your plan
-              </h4>
-              <p className="text-gray-600">Start free, upgrade when you're ready</p>
-            </div>
-            
-            <div className="grid md:grid-cols-3 gap-6">
-              {/* Free Plan */}
-              <div className="text-center p-6 bg-white rounded-2xl border border-gray-200">
-                <div className="w-12 h-12 bg-gray-100 rounded-xl flex items-center justify-center mx-auto mb-4">
-                  <QrCode className="w-6 h-6 text-gray-600" />
-                </div>
-                <h5 className="font-bold text-gray-900 mb-2">Free</h5>
-                <p className="text-2xl font-bold text-gray-900 mb-1">$0</p>
-                <p className="text-sm text-gray-600 mb-4">Perfect for small businesses getting started</p>
-                <div className="text-xs text-gray-500">
-                  Basic loyalty • 1 location • Limited features
-                </div>
-              </div>
-
-              {/* Pro Plan */}
-              <div className="text-center p-6 bg-gradient-to-br from-brand-accent-light to-white rounded-2xl border-2 border-brand-accent relative">
-                <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
-                  <span className="bg-brand-accent text-white px-3 py-1 rounded-full text-xs font-bold">
-                    Most Popular
-                  </span>
-                </div>
-                <div className="w-12 h-12 bg-brand-accent rounded-xl flex items-center justify-center mx-auto mb-4">
-                  <Crown className="w-6 h-6 text-white" />
-                </div>
-                <h5 className="font-bold text-gray-900 mb-2">Pro</h5>
-                <p className="text-2xl font-bold text-gray-900 mb-1">$30</p>
-                <p className="text-sm text-gray-600 mb-4">Most popular for growing businesses + AI & SMS</p>
-                <div className="text-xs text-gray-500">
-                  AI insights • SMS marketing • Staff management
-                </div>
-              </div>
-
-              {/* Growth Plan */}
-              <div className="text-center p-6 bg-white rounded-2xl border border-gray-200">
-                <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-indigo-600 rounded-xl flex items-center justify-center mx-auto mb-4">
-                  <BarChart3 className="w-6 h-6 text-white" />
-                </div>
-                <h5 className="font-bold text-gray-900 mb-2">Growth</h5>
-                <p className="text-2xl font-bold text-gray-900 mb-1">$60</p>
-                <p className="text-sm text-gray-600 mb-4">Advanced features for established businesses</p>
-                <div className="text-xs text-gray-500">
-                  Advanced analytics • Multi-location • Priority support
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
 
         {/* Real Product Features Showcase */}
