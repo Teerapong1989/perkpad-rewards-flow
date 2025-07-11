@@ -1,0 +1,1739 @@
+export type Json =
+  | string
+  | number
+  | boolean
+  | null
+  | { [key: string]: Json | undefined }
+  | Json[]
+
+export type Database = {
+  // Allows to automatically instanciate createClient with right options
+  // instead of createClient<Database, { PostgrestVersion: 'XX' }>(URL, KEY)
+  __InternalSupabase: {
+    PostgrestVersion: "12.2.3 (519615d)"
+  }
+  public: {
+    Tables: {
+      ai_recommendations: {
+        Row: {
+          business_id: string
+          confidence_score: number
+          created_at: string
+          data_source: Json
+          description: string
+          expected_impact: string | null
+          expires_at: string | null
+          id: string
+          implementation_difficulty: string | null
+          implemented_at: string | null
+          is_implemented: boolean
+          priority: string
+          recommendation_type: string
+          suggested_actions: Json
+          title: string
+          updated_at: string
+        }
+        Insert: {
+          business_id: string
+          confidence_score?: number
+          created_at?: string
+          data_source?: Json
+          description: string
+          expected_impact?: string | null
+          expires_at?: string | null
+          id?: string
+          implementation_difficulty?: string | null
+          implemented_at?: string | null
+          is_implemented?: boolean
+          priority?: string
+          recommendation_type: string
+          suggested_actions?: Json
+          title: string
+          updated_at?: string
+        }
+        Update: {
+          business_id?: string
+          confidence_score?: number
+          created_at?: string
+          data_source?: Json
+          description?: string
+          expected_impact?: string | null
+          expires_at?: string | null
+          id?: string
+          implementation_difficulty?: string | null
+          implemented_at?: string | null
+          is_implemented?: boolean
+          priority?: string
+          recommendation_type?: string
+          suggested_actions?: Json
+          title?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      application_health: {
+        Row: {
+          additional_info: Json | null
+          check_name: string
+          checked_at: string
+          error_message: string | null
+          id: string
+          response_time_ms: number | null
+          status: string
+        }
+        Insert: {
+          additional_info?: Json | null
+          check_name: string
+          checked_at?: string
+          error_message?: string | null
+          id?: string
+          response_time_ms?: number | null
+          status: string
+        }
+        Update: {
+          additional_info?: Json | null
+          check_name?: string
+          checked_at?: string
+          error_message?: string | null
+          id?: string
+          response_time_ms?: number | null
+          status?: string
+        }
+        Relationships: []
+      }
+      business_location_usage: {
+        Row: {
+          additional_locations: number | null
+          business_id: string | null
+          created_at: string | null
+          id: string
+          monthly_cost_cents: number | null
+          updated_at: string | null
+        }
+        Insert: {
+          additional_locations?: number | null
+          business_id?: string | null
+          created_at?: string | null
+          id?: string
+          monthly_cost_cents?: number | null
+          updated_at?: string | null
+        }
+        Update: {
+          additional_locations?: number | null
+          business_id?: string | null
+          created_at?: string | null
+          id?: string
+          monthly_cost_cents?: number | null
+          updated_at?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "business_location_usage_business_id_fkey"
+            columns: ["business_id"]
+            isOneToOne: false
+            referencedRelation: "businesses"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      business_locations: {
+        Row: {
+          address: string | null
+          business_id: string
+          created_at: string
+          email: string | null
+          id: string
+          is_active: boolean
+          is_primary: boolean
+          name: string
+          phone: string | null
+          updated_at: string
+        }
+        Insert: {
+          address?: string | null
+          business_id: string
+          created_at?: string
+          email?: string | null
+          id?: string
+          is_active?: boolean
+          is_primary?: boolean
+          name: string
+          phone?: string | null
+          updated_at?: string
+        }
+        Update: {
+          address?: string | null
+          business_id?: string
+          created_at?: string
+          email?: string | null
+          id?: string
+          is_active?: boolean
+          is_primary?: boolean
+          name?: string
+          phone?: string | null
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "business_locations_business_id_fkey"
+            columns: ["business_id"]
+            isOneToOne: false
+            referencedRelation: "businesses"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      business_reward_configs: {
+        Row: {
+          business_id: string
+          created_at: string
+          id: string
+          is_active: boolean
+          probability_weight: number
+          reward_description: string | null
+          reward_name: string
+          reward_type: string
+          reward_value: string
+          stamps_required: number
+          updated_at: string
+        }
+        Insert: {
+          business_id: string
+          created_at?: string
+          id?: string
+          is_active?: boolean
+          probability_weight?: number
+          reward_description?: string | null
+          reward_name: string
+          reward_type?: string
+          reward_value: string
+          stamps_required?: number
+          updated_at?: string
+        }
+        Update: {
+          business_id?: string
+          created_at?: string
+          id?: string
+          is_active?: boolean
+          probability_weight?: number
+          reward_description?: string | null
+          reward_name?: string
+          reward_type?: string
+          reward_value?: string
+          stamps_required?: number
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "business_reward_configs_business_id_fkey"
+            columns: ["business_id"]
+            isOneToOne: false
+            referencedRelation: "businesses"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      business_subscriptions: {
+        Row: {
+          business_id: string
+          created_at: string
+          current_period_end: string | null
+          current_period_start: string | null
+          id: string
+          last_trial_reminder_sent: string | null
+          mailerlite_synced_at: string | null
+          plan_id: string
+          status: string
+          stripe_subscription_id: string | null
+          trial_end: string | null
+          trial_start: string | null
+          updated_at: string
+        }
+        Insert: {
+          business_id: string
+          created_at?: string
+          current_period_end?: string | null
+          current_period_start?: string | null
+          id?: string
+          last_trial_reminder_sent?: string | null
+          mailerlite_synced_at?: string | null
+          plan_id: string
+          status?: string
+          stripe_subscription_id?: string | null
+          trial_end?: string | null
+          trial_start?: string | null
+          updated_at?: string
+        }
+        Update: {
+          business_id?: string
+          created_at?: string
+          current_period_end?: string | null
+          current_period_start?: string | null
+          id?: string
+          last_trial_reminder_sent?: string | null
+          mailerlite_synced_at?: string | null
+          plan_id?: string
+          status?: string
+          stripe_subscription_id?: string | null
+          trial_end?: string | null
+          trial_start?: string | null
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "business_subscriptions_business_id_fkey"
+            columns: ["business_id"]
+            isOneToOne: true
+            referencedRelation: "businesses"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "business_subscriptions_plan_id_fkey"
+            columns: ["plan_id"]
+            isOneToOne: false
+            referencedRelation: "subscription_plans"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      businesses: {
+        Row: {
+          brand_colors: Json | null
+          brand_fonts: Json | null
+          business_type:
+            | Database["public"]["Enums"]["business_type_enum"]
+            | null
+          created_at: string
+          description: string | null
+          google_review_url: string | null
+          id: string
+          logo_url: string | null
+          name: string
+          owner_id: string
+          reward_game_type: string | null
+          staff_pin: string
+          updated_at: string
+        }
+        Insert: {
+          brand_colors?: Json | null
+          brand_fonts?: Json | null
+          business_type?:
+            | Database["public"]["Enums"]["business_type_enum"]
+            | null
+          created_at?: string
+          description?: string | null
+          google_review_url?: string | null
+          id?: string
+          logo_url?: string | null
+          name: string
+          owner_id: string
+          reward_game_type?: string | null
+          staff_pin?: string
+          updated_at?: string
+        }
+        Update: {
+          brand_colors?: Json | null
+          brand_fonts?: Json | null
+          business_type?:
+            | Database["public"]["Enums"]["business_type_enum"]
+            | null
+          created_at?: string
+          description?: string | null
+          google_review_url?: string | null
+          id?: string
+          logo_url?: string | null
+          name?: string
+          owner_id?: string
+          reward_game_type?: string | null
+          staff_pin?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      customer_business_memberships: {
+        Row: {
+          business_id: string
+          current_stamps: number
+          customer_id: string
+          id: string
+          joined_at: string
+          last_visit_at: string | null
+          location_id: string | null
+          tier: string
+          total_rewards_earned: number
+        }
+        Insert: {
+          business_id: string
+          current_stamps?: number
+          customer_id: string
+          id?: string
+          joined_at?: string
+          last_visit_at?: string | null
+          location_id?: string | null
+          tier?: string
+          total_rewards_earned?: number
+        }
+        Update: {
+          business_id?: string
+          current_stamps?: number
+          customer_id?: string
+          id?: string
+          joined_at?: string
+          last_visit_at?: string | null
+          location_id?: string | null
+          tier?: string
+          total_rewards_earned?: number
+        }
+        Relationships: [
+          {
+            foreignKeyName: "customer_business_memberships_business_id_fkey"
+            columns: ["business_id"]
+            isOneToOne: false
+            referencedRelation: "businesses"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "customer_business_memberships_location_id_fkey"
+            columns: ["location_id"]
+            isOneToOne: false
+            referencedRelation: "business_locations"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      customer_challenge_progress: {
+        Row: {
+          challenge_id: string
+          completed_at: string | null
+          created_at: string
+          customer_id: string
+          id: string
+          progress_count: number
+          reward_claimed: boolean
+          updated_at: string
+        }
+        Insert: {
+          challenge_id: string
+          completed_at?: string | null
+          created_at?: string
+          customer_id: string
+          id?: string
+          progress_count?: number
+          reward_claimed?: boolean
+          updated_at?: string
+        }
+        Update: {
+          challenge_id?: string
+          completed_at?: string | null
+          created_at?: string
+          customer_id?: string
+          id?: string
+          progress_count?: number
+          reward_claimed?: boolean
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "customer_challenge_progress_challenge_id_fkey"
+            columns: ["challenge_id"]
+            isOneToOne: false
+            referencedRelation: "weekly_challenges"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      customer_streaks: {
+        Row: {
+          best_streak: number
+          business_id: string
+          created_at: string
+          current_streak: number
+          customer_id: string
+          id: string
+          last_visit_date: string | null
+          streak_start_date: string | null
+          updated_at: string
+        }
+        Insert: {
+          best_streak?: number
+          business_id: string
+          created_at?: string
+          current_streak?: number
+          customer_id: string
+          id?: string
+          last_visit_date?: string | null
+          streak_start_date?: string | null
+          updated_at?: string
+        }
+        Update: {
+          best_streak?: number
+          business_id?: string
+          created_at?: string
+          current_streak?: number
+          customer_id?: string
+          id?: string
+          last_visit_date?: string | null
+          streak_start_date?: string | null
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "customer_streaks_business_id_fkey"
+            columns: ["business_id"]
+            isOneToOne: false
+            referencedRelation: "businesses"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      customer_xp: {
+        Row: {
+          business_id: string
+          created_at: string
+          current_level: number
+          customer_id: string
+          id: string
+          total_xp: number
+          updated_at: string
+          xp_to_next_level: number
+        }
+        Insert: {
+          business_id: string
+          created_at?: string
+          current_level?: number
+          customer_id: string
+          id?: string
+          total_xp?: number
+          updated_at?: string
+          xp_to_next_level?: number
+        }
+        Update: {
+          business_id?: string
+          created_at?: string
+          current_level?: number
+          customer_id?: string
+          id?: string
+          total_xp?: number
+          updated_at?: string
+          xp_to_next_level?: number
+        }
+        Relationships: [
+          {
+            foreignKeyName: "customer_xp_business_id_fkey"
+            columns: ["business_id"]
+            isOneToOne: false
+            referencedRelation: "businesses"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      email_automation_log: {
+        Row: {
+          business_id: string | null
+          created_at: string | null
+          email_type: string
+          id: string
+          mailerlite_campaign_id: string | null
+          metadata: Json | null
+          sent_at: string | null
+          status: string | null
+          user_id: string | null
+        }
+        Insert: {
+          business_id?: string | null
+          created_at?: string | null
+          email_type: string
+          id?: string
+          mailerlite_campaign_id?: string | null
+          metadata?: Json | null
+          sent_at?: string | null
+          status?: string | null
+          user_id?: string | null
+        }
+        Update: {
+          business_id?: string | null
+          created_at?: string | null
+          email_type?: string
+          id?: string
+          mailerlite_campaign_id?: string | null
+          metadata?: Json | null
+          sent_at?: string | null
+          status?: string | null
+          user_id?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "email_automation_log_business_id_fkey"
+            columns: ["business_id"]
+            isOneToOne: false
+            referencedRelation: "businesses"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      error_reports: {
+        Row: {
+          additional_context: Json | null
+          build_version: string | null
+          component_name: string | null
+          created_at: string
+          error_message: string
+          error_stack: string
+          id: string
+          resolved: boolean | null
+          resolved_at: string | null
+          resolved_by: string | null
+          route: string
+          session_id: string
+          severity: string
+          timestamp: string
+          user_agent: string
+          user_email: string | null
+          user_id: string | null
+        }
+        Insert: {
+          additional_context?: Json | null
+          build_version?: string | null
+          component_name?: string | null
+          created_at?: string
+          error_message: string
+          error_stack: string
+          id?: string
+          resolved?: boolean | null
+          resolved_at?: string | null
+          resolved_by?: string | null
+          route: string
+          session_id: string
+          severity: string
+          timestamp?: string
+          user_agent: string
+          user_email?: string | null
+          user_id?: string | null
+        }
+        Update: {
+          additional_context?: Json | null
+          build_version?: string | null
+          component_name?: string | null
+          created_at?: string
+          error_message?: string
+          error_stack?: string
+          id?: string
+          resolved?: boolean | null
+          resolved_at?: string | null
+          resolved_by?: string | null
+          route?: string
+          session_id?: string
+          severity?: string
+          timestamp?: string
+          user_agent?: string
+          user_email?: string | null
+          user_id?: string | null
+        }
+        Relationships: []
+      }
+      failed_login_attempts: {
+        Row: {
+          attempt_time: string
+          email: string
+          failure_reason: string | null
+          id: string
+          ip_address: unknown
+          metadata: Json | null
+          user_agent: string | null
+        }
+        Insert: {
+          attempt_time?: string
+          email: string
+          failure_reason?: string | null
+          id?: string
+          ip_address: unknown
+          metadata?: Json | null
+          user_agent?: string | null
+        }
+        Update: {
+          attempt_time?: string
+          email?: string
+          failure_reason?: string | null
+          id?: string
+          ip_address?: unknown
+          metadata?: Json | null
+          user_agent?: string | null
+        }
+        Relationships: []
+      }
+      gift_box_rewards: {
+        Row: {
+          business_id: string
+          created_at: string
+          emoji: string | null
+          id: string
+          is_active: boolean
+          probability_weight: number
+          rarity: string
+          reward_description: string | null
+          reward_name: string
+          reward_type: string
+          reward_value: string
+          updated_at: string
+        }
+        Insert: {
+          business_id: string
+          created_at?: string
+          emoji?: string | null
+          id?: string
+          is_active?: boolean
+          probability_weight?: number
+          rarity?: string
+          reward_description?: string | null
+          reward_name: string
+          reward_type?: string
+          reward_value: string
+          updated_at?: string
+        }
+        Update: {
+          business_id?: string
+          created_at?: string
+          emoji?: string | null
+          id?: string
+          is_active?: boolean
+          probability_weight?: number
+          rarity?: string
+          reward_description?: string | null
+          reward_name?: string
+          reward_type?: string
+          reward_value?: string
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "gift_box_rewards_business_id_fkey"
+            columns: ["business_id"]
+            isOneToOne: false
+            referencedRelation: "businesses"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      ip_blocklist: {
+        Row: {
+          blocked_at: string
+          blocked_by: string | null
+          expires_at: string | null
+          id: string
+          ip_address: unknown
+          is_active: boolean | null
+          metadata: Json | null
+          reason: string
+        }
+        Insert: {
+          blocked_at?: string
+          blocked_by?: string | null
+          expires_at?: string | null
+          id?: string
+          ip_address: unknown
+          is_active?: boolean | null
+          metadata?: Json | null
+          reason: string
+        }
+        Update: {
+          blocked_at?: string
+          blocked_by?: string | null
+          expires_at?: string | null
+          id?: string
+          ip_address?: unknown
+          is_active?: boolean | null
+          metadata?: Json | null
+          reason?: string
+        }
+        Relationships: []
+      }
+      performance_metrics: {
+        Row: {
+          additional_data: Json | null
+          created_at: string
+          id: string
+          metric_name: string
+          metric_value: number
+          route: string
+          session_id: string
+          timestamp: string
+          user_id: string | null
+        }
+        Insert: {
+          additional_data?: Json | null
+          created_at?: string
+          id?: string
+          metric_name: string
+          metric_value: number
+          route: string
+          session_id: string
+          timestamp?: string
+          user_id?: string | null
+        }
+        Update: {
+          additional_data?: Json | null
+          created_at?: string
+          id?: string
+          metric_name?: string
+          metric_value?: number
+          route?: string
+          session_id?: string
+          timestamp?: string
+          user_id?: string | null
+        }
+        Relationships: []
+      }
+      phone_verification_codes: {
+        Row: {
+          code: string
+          created_at: string
+          expires_at: string
+          id: string
+          phone: string
+          user_id: string
+        }
+        Insert: {
+          code: string
+          created_at?: string
+          expires_at: string
+          id?: string
+          phone: string
+          user_id: string
+        }
+        Update: {
+          code?: string
+          created_at?: string
+          expires_at?: string
+          id?: string
+          phone?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      profiles: {
+        Row: {
+          birthday: string | null
+          created_at: string
+          email_preferences: Json | null
+          first_name: string | null
+          id: string
+          last_name: string | null
+          mailerlite_subscriber_id: string | null
+          mailerlite_synced_at: string | null
+          phone: string | null
+          phone_verified: boolean | null
+          sms_marketing_consent: boolean | null
+          updated_at: string
+          wants_text_rewards: boolean | null
+        }
+        Insert: {
+          birthday?: string | null
+          created_at?: string
+          email_preferences?: Json | null
+          first_name?: string | null
+          id: string
+          last_name?: string | null
+          mailerlite_subscriber_id?: string | null
+          mailerlite_synced_at?: string | null
+          phone?: string | null
+          phone_verified?: boolean | null
+          sms_marketing_consent?: boolean | null
+          updated_at?: string
+          wants_text_rewards?: boolean | null
+        }
+        Update: {
+          birthday?: string | null
+          created_at?: string
+          email_preferences?: Json | null
+          first_name?: string | null
+          id?: string
+          last_name?: string | null
+          mailerlite_subscriber_id?: string | null
+          mailerlite_synced_at?: string | null
+          phone?: string | null
+          phone_verified?: boolean | null
+          sms_marketing_consent?: boolean | null
+          updated_at?: string
+          wants_text_rewards?: boolean | null
+        }
+        Relationships: []
+      }
+      recommendation_feedback: {
+        Row: {
+          business_id: string
+          created_at: string
+          feedback_text: string | null
+          id: string
+          is_helpful: boolean | null
+          rating: number | null
+          recommendation_id: string
+        }
+        Insert: {
+          business_id: string
+          created_at?: string
+          feedback_text?: string | null
+          id?: string
+          is_helpful?: boolean | null
+          rating?: number | null
+          recommendation_id: string
+        }
+        Update: {
+          business_id?: string
+          created_at?: string
+          feedback_text?: string | null
+          id?: string
+          is_helpful?: boolean | null
+          rating?: number | null
+          recommendation_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "recommendation_feedback_recommendation_id_fkey"
+            columns: ["recommendation_id"]
+            isOneToOne: false
+            referencedRelation: "ai_recommendations"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      rewards: {
+        Row: {
+          business_id: string
+          claimed_at: string
+          customer_id: string
+          id: string
+          location_id: string | null
+          reward_type: string
+        }
+        Insert: {
+          business_id: string
+          claimed_at?: string
+          customer_id: string
+          id?: string
+          location_id?: string | null
+          reward_type?: string
+        }
+        Update: {
+          business_id?: string
+          claimed_at?: string
+          customer_id?: string
+          id?: string
+          location_id?: string | null
+          reward_type?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "rewards_business_id_fkey"
+            columns: ["business_id"]
+            isOneToOne: false
+            referencedRelation: "businesses"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "rewards_location_id_fkey"
+            columns: ["location_id"]
+            isOneToOne: false
+            referencedRelation: "business_locations"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      security_alerts: {
+        Row: {
+          alert_type: string
+          created_at: string
+          description: string
+          id: string
+          ip_address: unknown | null
+          metadata: Json | null
+          resolved: boolean | null
+          resolved_at: string | null
+          resolved_by: string | null
+          severity: string
+          title: string
+          user_id: string | null
+        }
+        Insert: {
+          alert_type: string
+          created_at?: string
+          description: string
+          id?: string
+          ip_address?: unknown | null
+          metadata?: Json | null
+          resolved?: boolean | null
+          resolved_at?: string | null
+          resolved_by?: string | null
+          severity: string
+          title: string
+          user_id?: string | null
+        }
+        Update: {
+          alert_type?: string
+          created_at?: string
+          description?: string
+          id?: string
+          ip_address?: unknown | null
+          metadata?: Json | null
+          resolved?: boolean | null
+          resolved_at?: string | null
+          resolved_by?: string | null
+          severity?: string
+          title?: string
+          user_id?: string | null
+        }
+        Relationships: []
+      }
+      security_audit_log: {
+        Row: {
+          action_type: string
+          created_at: string
+          id: string
+          ip_address: unknown | null
+          metadata: Json | null
+          resource_id: string | null
+          resource_type: string | null
+          session_id: string | null
+          severity: string | null
+          timestamp: string
+          user_agent: string | null
+          user_email: string | null
+          user_id: string | null
+        }
+        Insert: {
+          action_type: string
+          created_at?: string
+          id?: string
+          ip_address?: unknown | null
+          metadata?: Json | null
+          resource_id?: string | null
+          resource_type?: string | null
+          session_id?: string | null
+          severity?: string | null
+          timestamp?: string
+          user_agent?: string | null
+          user_email?: string | null
+          user_id?: string | null
+        }
+        Update: {
+          action_type?: string
+          created_at?: string
+          id?: string
+          ip_address?: unknown | null
+          metadata?: Json | null
+          resource_id?: string | null
+          resource_type?: string | null
+          session_id?: string | null
+          severity?: string | null
+          timestamp?: string
+          user_agent?: string | null
+          user_email?: string | null
+          user_id?: string | null
+        }
+        Relationships: []
+      }
+      sms_campaign_recipients: {
+        Row: {
+          campaign_id: string
+          created_at: string
+          customer_id: string
+          error_message: string | null
+          id: string
+          phone_number: string
+          sent_at: string | null
+          status: string
+          twilio_message_sid: string | null
+        }
+        Insert: {
+          campaign_id: string
+          created_at?: string
+          customer_id: string
+          error_message?: string | null
+          id?: string
+          phone_number: string
+          sent_at?: string | null
+          status?: string
+          twilio_message_sid?: string | null
+        }
+        Update: {
+          campaign_id?: string
+          created_at?: string
+          customer_id?: string
+          error_message?: string | null
+          id?: string
+          phone_number?: string
+          sent_at?: string | null
+          status?: string
+          twilio_message_sid?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "sms_campaign_recipients_campaign_id_fkey"
+            columns: ["campaign_id"]
+            isOneToOne: false
+            referencedRelation: "sms_campaigns"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      sms_campaigns: {
+        Row: {
+          business_id: string
+          campaign_name: string
+          created_at: string
+          failed_count: number | null
+          id: string
+          message_content: string
+          scheduled_at: string | null
+          sender_name: string | null
+          sent_at: string | null
+          sent_count: number | null
+          status: string
+          total_recipients: number | null
+          updated_at: string
+        }
+        Insert: {
+          business_id: string
+          campaign_name: string
+          created_at?: string
+          failed_count?: number | null
+          id?: string
+          message_content: string
+          scheduled_at?: string | null
+          sender_name?: string | null
+          sent_at?: string | null
+          sent_count?: number | null
+          status?: string
+          total_recipients?: number | null
+          updated_at?: string
+        }
+        Update: {
+          business_id?: string
+          campaign_name?: string
+          created_at?: string
+          failed_count?: number | null
+          id?: string
+          message_content?: string
+          scheduled_at?: string | null
+          sender_name?: string | null
+          sent_at?: string | null
+          sent_count?: number | null
+          status?: string
+          total_recipients?: number | null
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      subscription_plans: {
+        Row: {
+          billing_period: string
+          created_at: string
+          description: string | null
+          features: Json
+          id: string
+          is_active: boolean
+          max_locations: number | null
+          max_loyalty_cards: number | null
+          max_staff_members: number | null
+          name: string
+          price_cents: number
+          stripe_price_id: string | null
+          trial_days: number | null
+          updated_at: string
+        }
+        Insert: {
+          billing_period?: string
+          created_at?: string
+          description?: string | null
+          features?: Json
+          id?: string
+          is_active?: boolean
+          max_locations?: number | null
+          max_loyalty_cards?: number | null
+          max_staff_members?: number | null
+          name: string
+          price_cents?: number
+          stripe_price_id?: string | null
+          trial_days?: number | null
+          updated_at?: string
+        }
+        Update: {
+          billing_period?: string
+          created_at?: string
+          description?: string | null
+          features?: Json
+          id?: string
+          is_active?: boolean
+          max_locations?: number | null
+          max_loyalty_cards?: number | null
+          max_staff_members?: number | null
+          name?: string
+          price_cents?: number
+          stripe_price_id?: string | null
+          trial_days?: number | null
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      user_roles: {
+        Row: {
+          created_at: string
+          id: string
+          role: Database["public"]["Enums"]["app_role"]
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          role: Database["public"]["Enums"]["app_role"]
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          role?: Database["public"]["Enums"]["app_role"]
+          user_id?: string
+        }
+        Relationships: []
+      }
+      user_sessions: {
+        Row: {
+          device_info: Json | null
+          ended_at: string | null
+          id: string
+          ip_address: string | null
+          last_activity_at: string
+          pages_visited: number | null
+          session_id: string
+          started_at: string
+          total_time_seconds: number | null
+          user_agent: string | null
+          user_id: string | null
+        }
+        Insert: {
+          device_info?: Json | null
+          ended_at?: string | null
+          id?: string
+          ip_address?: string | null
+          last_activity_at?: string
+          pages_visited?: number | null
+          session_id: string
+          started_at?: string
+          total_time_seconds?: number | null
+          user_agent?: string | null
+          user_id?: string | null
+        }
+        Update: {
+          device_info?: Json | null
+          ended_at?: string | null
+          id?: string
+          ip_address?: string | null
+          last_activity_at?: string
+          pages_visited?: number | null
+          session_id?: string
+          started_at?: string
+          total_time_seconds?: number | null
+          user_agent?: string | null
+          user_id?: string | null
+        }
+        Relationships: []
+      }
+      visits: {
+        Row: {
+          business_id: string
+          customer_id: string
+          id: string
+          location_id: string | null
+          stamps_earned: number
+          visited_at: string
+        }
+        Insert: {
+          business_id: string
+          customer_id: string
+          id?: string
+          location_id?: string | null
+          stamps_earned?: number
+          visited_at?: string
+        }
+        Update: {
+          business_id?: string
+          customer_id?: string
+          id?: string
+          location_id?: string | null
+          stamps_earned?: number
+          visited_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "visits_business_id_fkey"
+            columns: ["business_id"]
+            isOneToOne: false
+            referencedRelation: "businesses"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "visits_location_id_fkey"
+            columns: ["location_id"]
+            isOneToOne: false
+            referencedRelation: "business_locations"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      weekly_challenges: {
+        Row: {
+          business_id: string
+          challenge_type: string
+          created_at: string
+          description: string
+          end_date: string
+          id: string
+          is_active: boolean
+          reward_type: string
+          reward_value: number
+          start_date: string
+          target_value: number
+          title: string
+          updated_at: string
+          xp_reward: number
+        }
+        Insert: {
+          business_id: string
+          challenge_type: string
+          created_at?: string
+          description: string
+          end_date: string
+          id?: string
+          is_active?: boolean
+          reward_type?: string
+          reward_value?: number
+          start_date: string
+          target_value: number
+          title: string
+          updated_at?: string
+          xp_reward?: number
+        }
+        Update: {
+          business_id?: string
+          challenge_type?: string
+          created_at?: string
+          description?: string
+          end_date?: string
+          id?: string
+          is_active?: boolean
+          reward_type?: string
+          reward_value?: number
+          start_date?: string
+          target_value?: number
+          title?: string
+          updated_at?: string
+          xp_reward?: number
+        }
+        Relationships: [
+          {
+            foreignKeyName: "weekly_challenges_business_id_fkey"
+            columns: ["business_id"]
+            isOneToOne: false
+            referencedRelation: "businesses"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      xp_activities: {
+        Row: {
+          activity_description: string | null
+          activity_type: string
+          business_id: string
+          created_at: string
+          customer_id: string
+          id: string
+          metadata: Json | null
+          xp_earned: number
+        }
+        Insert: {
+          activity_description?: string | null
+          activity_type: string
+          business_id: string
+          created_at?: string
+          customer_id: string
+          id?: string
+          metadata?: Json | null
+          xp_earned?: number
+        }
+        Update: {
+          activity_description?: string | null
+          activity_type?: string
+          business_id?: string
+          created_at?: string
+          customer_id?: string
+          id?: string
+          metadata?: Json | null
+          xp_earned?: number
+        }
+        Relationships: [
+          {
+            foreignKeyName: "xp_activities_business_id_fkey"
+            columns: ["business_id"]
+            isOneToOne: false
+            referencedRelation: "businesses"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+    }
+    Views: {
+      [_ in never]: never
+    }
+    Functions: {
+      add_customer_xp: {
+        Args: {
+          p_customer_id: string
+          p_business_id: string
+          p_xp_amount: number
+          p_activity_type: string
+          p_description?: string
+        }
+        Returns: Json
+      }
+      bytea_to_text: {
+        Args: { data: string }
+        Returns: string
+      }
+      cleanup_old_monitoring_data: {
+        Args: Record<PropertyKey, never>
+        Returns: undefined
+      }
+      cleanup_security_logs: {
+        Args: Record<PropertyKey, never>
+        Returns: undefined
+      }
+      generate_customer_retention_recommendations: {
+        Args: { p_business_id: string }
+        Returns: Json
+      }
+      get_platform_metrics: {
+        Args: Record<PropertyKey, never>
+        Returns: {
+          total_businesses: number
+          total_customers: number
+          monthly_active_users: number
+          monthly_rewards_claimed: number
+        }[]
+      }
+      get_random_gift_box_reward: {
+        Args: { p_business_id: string }
+        Returns: Json
+      }
+      get_system_health_summary: {
+        Args: Record<PropertyKey, never>
+        Returns: {
+          total_errors_24h: number
+          critical_errors_24h: number
+          avg_page_load_time_24h: number
+          active_sessions: number
+          error_rate_24h: number
+        }[]
+      }
+      get_user_role: {
+        Args: { user_id: string }
+        Returns: Database["public"]["Enums"]["app_role"]
+      }
+      handle_failed_login: {
+        Args: {
+          p_email: string
+          p_ip_address: unknown
+          p_user_agent?: string
+          p_failure_reason?: string
+        }
+        Returns: boolean
+      }
+      has_premium_subscription: {
+        Args: { p_business_id: string }
+        Returns: boolean
+      }
+      has_role: {
+        Args: {
+          user_id: string
+          check_role: Database["public"]["Enums"]["app_role"]
+        }
+        Returns: boolean
+      }
+      http: {
+        Args: { request: Database["public"]["CompositeTypes"]["http_request"] }
+        Returns: Database["public"]["CompositeTypes"]["http_response"]
+      }
+      http_delete: {
+        Args:
+          | { uri: string }
+          | { uri: string; content: string; content_type: string }
+        Returns: Database["public"]["CompositeTypes"]["http_response"]
+      }
+      http_get: {
+        Args: { uri: string } | { uri: string; data: Json }
+        Returns: Database["public"]["CompositeTypes"]["http_response"]
+      }
+      http_head: {
+        Args: { uri: string }
+        Returns: Database["public"]["CompositeTypes"]["http_response"]
+      }
+      http_header: {
+        Args: { field: string; value: string }
+        Returns: Database["public"]["CompositeTypes"]["http_header"]
+      }
+      http_list_curlopt: {
+        Args: Record<PropertyKey, never>
+        Returns: {
+          curlopt: string
+          value: string
+        }[]
+      }
+      http_patch: {
+        Args: { uri: string; content: string; content_type: string }
+        Returns: Database["public"]["CompositeTypes"]["http_response"]
+      }
+      http_post: {
+        Args:
+          | { uri: string; content: string; content_type: string }
+          | { uri: string; data: Json }
+        Returns: Database["public"]["CompositeTypes"]["http_response"]
+      }
+      http_put: {
+        Args: { uri: string; content: string; content_type: string }
+        Returns: Database["public"]["CompositeTypes"]["http_response"]
+      }
+      http_reset_curlopt: {
+        Args: Record<PropertyKey, never>
+        Returns: boolean
+      }
+      http_set_curlopt: {
+        Args: { curlopt: string; value: string }
+        Returns: boolean
+      }
+      is_ip_blocked: {
+        Args: { p_ip_address: unknown }
+        Returns: boolean
+      }
+      log_security_event: {
+        Args: {
+          p_user_id: string
+          p_user_email: string
+          p_action_type: string
+          p_resource_type?: string
+          p_resource_id?: string
+          p_ip_address?: unknown
+          p_user_agent?: string
+          p_session_id?: string
+          p_metadata?: Json
+          p_severity?: string
+        }
+        Returns: string
+      }
+      make_user_admin: {
+        Args: { user_email: string }
+        Returns: undefined
+      }
+      start_trial_for_business: {
+        Args: { business_id_param: string; plan_id_param: string }
+        Returns: undefined
+      }
+      text_to_bytea: {
+        Args: { data: string }
+        Returns: string
+      }
+      update_challenge_progress: {
+        Args: {
+          p_customer_id: string
+          p_business_id: string
+          p_challenge_type: string
+          p_increment?: number
+        }
+        Returns: Json
+      }
+      update_customer_streak: {
+        Args: {
+          p_customer_id: string
+          p_business_id: string
+          p_visit_date?: string
+        }
+        Returns: Json
+      }
+      urlencode: {
+        Args: { data: Json } | { string: string } | { string: string }
+        Returns: string
+      }
+    }
+    Enums: {
+      app_role: "admin" | "business" | "customer"
+      business_type_enum:
+        | "cafe"
+        | "restaurant"
+        | "retail"
+        | "nail_salon"
+        | "laundromat"
+        | "auto_repair"
+        | "pet_groomer"
+        | "dry_cleaner"
+        | "barber_shop"
+        | "fitness_studio"
+        | "beauty_salon"
+        | "other_service"
+    }
+    CompositeTypes: {
+      http_header: {
+        field: string | null
+        value: string | null
+      }
+      http_request: {
+        method: unknown | null
+        uri: string | null
+        headers: Database["public"]["CompositeTypes"]["http_header"][] | null
+        content_type: string | null
+        content: string | null
+      }
+      http_response: {
+        status: number | null
+        content_type: string | null
+        headers: Database["public"]["CompositeTypes"]["http_header"][] | null
+        content: string | null
+      }
+    }
+  }
+}
+
+type DatabaseWithoutInternals = Omit<Database, "__InternalSupabase">
+
+type DefaultSchema = DatabaseWithoutInternals[Extract<keyof Database, "public">]
+
+export type Tables<
+  DefaultSchemaTableNameOrOptions extends
+    | keyof (DefaultSchema["Tables"] & DefaultSchema["Views"])
+    | { schema: keyof DatabaseWithoutInternals },
+  TableName extends DefaultSchemaTableNameOrOptions extends {
+    schema: keyof DatabaseWithoutInternals
+  }
+    ? keyof (DatabaseWithoutInternals[DefaultSchemaTableNameOrOptions["schema"]]["Tables"] &
+        DatabaseWithoutInternals[DefaultSchemaTableNameOrOptions["schema"]]["Views"])
+    : never = never,
+> = DefaultSchemaTableNameOrOptions extends {
+  schema: keyof DatabaseWithoutInternals
+}
+  ? (DatabaseWithoutInternals[DefaultSchemaTableNameOrOptions["schema"]]["Tables"] &
+      DatabaseWithoutInternals[DefaultSchemaTableNameOrOptions["schema"]]["Views"])[TableName] extends {
+      Row: infer R
+    }
+    ? R
+    : never
+  : DefaultSchemaTableNameOrOptions extends keyof (DefaultSchema["Tables"] &
+        DefaultSchema["Views"])
+    ? (DefaultSchema["Tables"] &
+        DefaultSchema["Views"])[DefaultSchemaTableNameOrOptions] extends {
+        Row: infer R
+      }
+      ? R
+      : never
+    : never
+
+export type TablesInsert<
+  DefaultSchemaTableNameOrOptions extends
+    | keyof DefaultSchema["Tables"]
+    | { schema: keyof DatabaseWithoutInternals },
+  TableName extends DefaultSchemaTableNameOrOptions extends {
+    schema: keyof DatabaseWithoutInternals
+  }
+    ? keyof DatabaseWithoutInternals[DefaultSchemaTableNameOrOptions["schema"]]["Tables"]
+    : never = never,
+> = DefaultSchemaTableNameOrOptions extends {
+  schema: keyof DatabaseWithoutInternals
+}
+  ? DatabaseWithoutInternals[DefaultSchemaTableNameOrOptions["schema"]]["Tables"][TableName] extends {
+      Insert: infer I
+    }
+    ? I
+    : never
+  : DefaultSchemaTableNameOrOptions extends keyof DefaultSchema["Tables"]
+    ? DefaultSchema["Tables"][DefaultSchemaTableNameOrOptions] extends {
+        Insert: infer I
+      }
+      ? I
+      : never
+    : never
+
+export type TablesUpdate<
+  DefaultSchemaTableNameOrOptions extends
+    | keyof DefaultSchema["Tables"]
+    | { schema: keyof DatabaseWithoutInternals },
+  TableName extends DefaultSchemaTableNameOrOptions extends {
+    schema: keyof DatabaseWithoutInternals
+  }
+    ? keyof DatabaseWithoutInternals[DefaultSchemaTableNameOrOptions["schema"]]["Tables"]
+    : never = never,
+> = DefaultSchemaTableNameOrOptions extends {
+  schema: keyof DatabaseWithoutInternals
+}
+  ? DatabaseWithoutInternals[DefaultSchemaTableNameOrOptions["schema"]]["Tables"][TableName] extends {
+      Update: infer U
+    }
+    ? U
+    : never
+  : DefaultSchemaTableNameOrOptions extends keyof DefaultSchema["Tables"]
+    ? DefaultSchema["Tables"][DefaultSchemaTableNameOrOptions] extends {
+        Update: infer U
+      }
+      ? U
+      : never
+    : never
+
+export type Enums<
+  DefaultSchemaEnumNameOrOptions extends
+    | keyof DefaultSchema["Enums"]
+    | { schema: keyof DatabaseWithoutInternals },
+  EnumName extends DefaultSchemaEnumNameOrOptions extends {
+    schema: keyof DatabaseWithoutInternals
+  }
+    ? keyof DatabaseWithoutInternals[DefaultSchemaEnumNameOrOptions["schema"]]["Enums"]
+    : never = never,
+> = DefaultSchemaEnumNameOrOptions extends {
+  schema: keyof DatabaseWithoutInternals
+}
+  ? DatabaseWithoutInternals[DefaultSchemaEnumNameOrOptions["schema"]]["Enums"][EnumName]
+  : DefaultSchemaEnumNameOrOptions extends keyof DefaultSchema["Enums"]
+    ? DefaultSchema["Enums"][DefaultSchemaEnumNameOrOptions]
+    : never
+
+export type CompositeTypes<
+  PublicCompositeTypeNameOrOptions extends
+    | keyof DefaultSchema["CompositeTypes"]
+    | { schema: keyof DatabaseWithoutInternals },
+  CompositeTypeName extends PublicCompositeTypeNameOrOptions extends {
+    schema: keyof DatabaseWithoutInternals
+  }
+    ? keyof DatabaseWithoutInternals[PublicCompositeTypeNameOrOptions["schema"]]["CompositeTypes"]
+    : never = never,
+> = PublicCompositeTypeNameOrOptions extends {
+  schema: keyof DatabaseWithoutInternals
+}
+  ? DatabaseWithoutInternals[PublicCompositeTypeNameOrOptions["schema"]]["CompositeTypes"][CompositeTypeName]
+  : PublicCompositeTypeNameOrOptions extends keyof DefaultSchema["CompositeTypes"]
+    ? DefaultSchema["CompositeTypes"][PublicCompositeTypeNameOrOptions]
+    : never
+
+export const Constants = {
+  public: {
+    Enums: {
+      app_role: ["admin", "business", "customer"],
+      business_type_enum: [
+        "cafe",
+        "restaurant",
+        "retail",
+        "nail_salon",
+        "laundromat",
+        "auto_repair",
+        "pet_groomer",
+        "dry_cleaner",
+        "barber_shop",
+        "fitness_studio",
+        "beauty_salon",
+        "other_service",
+      ],
+    },
+  },
+} as const
