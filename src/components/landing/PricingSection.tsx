@@ -8,21 +8,40 @@ import { AnimatedCard } from "@/components/ui/AnimatedCard";
 
 const pricingPlans = [
   {
+    name: "Free",
+    price: "$0", 
+    period: "per month",
+    locations: "1 location (limited features)",
+    addon: "Upgrade to unlock full features",
+    savings: "Perfect for getting started",
+    features: [
+      "1 location included",
+      "Basic QR stamp card system",
+      "Simple dashboard",
+      "Basic customer tracking",
+      "Standard support"
+    ],
+    buttonText: "Start Free",
+    buttonVariant: "outline" as const,
+    popular: false,
+    roi: "Perfect for testing"
+  },
+  {
     name: "Pro",
     price: "$30", 
     period: "per month",
     locations: "1 location included",
-    addon: "+$10/month per additional location",
+    addon: "+$10/month per extra location",
     savings: "Perfect for single locations",
     features: [
       "1 location included",
-      "QR stamp card system",
+      "Everything in Free, plus:",
       "Custom branding (logo + color)",
-      "Customer database access",
+      "Advanced customer database",
       "Email/SMS marketing (basic)",
       "Reward customization",
       "Staff PIN system for redemptions",
-      "Business insights"
+      "Business insights & analytics"
     ],
     buttonText: "Start Free 30-Day Trial",
     buttonVariant: "default" as const,
@@ -34,7 +53,7 @@ const pricingPlans = [
     price: "$60",
     period: "per month",
     locations: "3 locations included",
-    addon: "+$8/month per additional location",
+    addon: "+$8/month per extra location",
     savings: "Best for growing businesses",
     features: [
       "3 locations included",
@@ -49,27 +68,6 @@ const pricingPlans = [
     buttonVariant: "default" as const,
     popular: false,
     roi: "Typical ROI: $1,770/month"
-  },
-  {
-    name: "Enterprise",
-    price: "Custom",
-    period: "pricing",
-    locations: "4+ locations",
-    addon: "Custom plan & support available",
-    savings: "Tailored for large operations",
-    features: [
-      "4+ locations included",
-      "Everything in Growth, plus:",
-      "White-label solution",
-      "Advanced integrations",
-      "Dedicated account manager",
-      "Custom reporting",
-      "24/7 priority support"
-    ],
-    buttonText: "Contact Sales",
-    buttonVariant: "outline" as const,
-    popular: false,
-    roi: "Custom ROI analysis"
   }
 ];
 
