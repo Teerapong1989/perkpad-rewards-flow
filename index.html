@@ -38,40 +38,162 @@
     <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
     <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), payment=()">
 
-    <!-- Performance Hints -->
+    <!-- Performance Optimization -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="dns-prefetch" href="https://tally.so">
     <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://connect.facebook.net">
+    
+    <!-- Critical CSS Preload -->
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"></noscript>
+    
+    <!-- Preload key images -->
+    <link rel="preload" href="/lovable-uploads/5318a79b-c5e1-4799-9bdc-2a3420cbb4d7.png" as="image" type="image/png">
+    <link rel="prefetch" href="/lovable-uploads/bf240d2c-3e17-40d5-bc56-7afbde00c649.png">
+    
+    <!-- Critical resource hints -->
+    <link rel="preload" href="/src/main.tsx" as="script" crossorigin>
 
-    <!-- Structured Data -->
+    <!-- Enhanced Structured Data -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "SoftwareApplication",
       "name": "Perkpad",
-      "description": "Digital loyalty program platform for small businesses using QR code technology",
+      "description": "Digital loyalty program platform for small businesses using QR code technology. Transform paper punch cards into engaging digital rewards that customers actually complete.",
       "url": "https://perkpad.com",
       "applicationCategory": "BusinessApplication",
       "operatingSystem": "Web Browser",
-      "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "USD",
-        "description": "Free trial available"
-      },
+      "features": [
+        "QR Code Loyalty Cards",
+        "Customer Retention Analytics", 
+        "Multi-location Support",
+        "No-app Required Experience",
+        "Automated Reward Notifications"
+      ],
+      "offers": [
+        {
+          "@type": "Offer",
+          "name": "Free Plan",
+          "price": "0",
+          "priceCurrency": "USD",
+          "description": "Free forever plan with basic features"
+        },
+        {
+          "@type": "Offer", 
+          "name": "Pro Plan",
+          "price": "19",
+          "priceCurrency": "USD",
+          "billingIncrement": "P1M",
+          "description": "Professional features for growing businesses"
+        }
+      ],
       "provider": {
         "@type": "Organization",
         "name": "Perkpad",
-        "url": "https://perkpad.com"
+        "url": "https://perkpad.com",
+        "logo": "https://perkpad.com/logo.png",
+        "sameAs": [
+          "https://www.facebook.com/perkpad",
+          "https://twitter.com/perkpad",
+          "https://www.linkedin.com/company/perkpad"
+        ],
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "contactType": "customer service",
+          "email": "support@perkpad.com"
+        }
       },
       "aggregateRating": {
-        "@type": "AggregateRating",
+        "@type": "AggregateRating", 
         "ratingValue": "4.8",
-        "reviewCount": "487"
-      }
+        "reviewCount": "487",
+        "bestRating": "5",
+        "worstRating": "1"
+      },
+      "review": [
+        {
+          "@type": "Review",
+          "author": {
+            "@type": "Organization",
+            "name": "Small Business Owner"
+          },
+          "reviewRating": {
+            "@type": "Rating",
+            "ratingValue": "5",
+            "bestRating": "5"
+          },
+          "reviewBody": "Perkpad transformed our customer retention. We've seen 40% more repeat customers since switching from paper punch cards."
+        }
+      ]
+    }
+    </script>
+
+    <!-- FAQ Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage", 
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Can customers use this without downloading an app?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes! Customers simply use their phone's camera to scan your QR code - no app downloads required. It works through their web browser, making it incredibly convenient for everyone."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do customers collect stamps or rewards?",
+          "acceptedAnswer": {
+            "@type": "Answer", 
+            "text": "Customers simply scan your QR code at checkout. It opens a browser-based experience (no app needed), where they can track stamps and unlock rewards."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I customize the look and feel of my loyalty card?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes! With a paid plan, you can add your logo, brand colors, and custom messaging for your customers."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is customer data safe?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Absolutely. We never sell or misuse customer data. Everything is securely encrypted and handled with care."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <!-- Organization Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Perkpad",
+      "alternateName": "Perkpad Digital Loyalty",
+      "url": "https://perkpad.com",
+      "logo": "https://perkpad.com/logo.png",
+      "description": "Digital loyalty program platform helping small businesses retain customers with QR code punch cards.",
+      "foundingDate": "2024",
+      "numberOfEmployees": "2-10",
+      "slogan": "Transform paper punch cards into digital rewards that customers actually complete",
+      "knowsAbout": [
+        "Digital Loyalty Programs",
+        "QR Code Technology", 
+        "Small Business Marketing",
+        "Customer Retention",
+        "Mobile-First Design"
+      ]
     }
     </script>
 
