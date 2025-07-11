@@ -22,11 +22,13 @@ serve(async (req) => {
 
   try {
     console.log('OpenAI API key status:', openAIApiKey ? 'Present' : 'Missing');
+    console.log('OpenAI API key length:', openAIApiKey ? openAIApiKey.length : 0);
+    console.log('OpenAI API key starts with sk-:', openAIApiKey ? openAIApiKey.startsWith('sk-') : false);
     
     if (!openAIApiKey) {
       console.error('OpenAI API key not configured');
       return new Response(JSON.stringify({ 
-        message: 'Sorry, I am having trouble processing your request right now. Please try again in a moment.'
+        message: 'OpenAI API key is not configured. Please check your Supabase secrets.'
       }), {
         status: 200,
         headers: { ...corsHeaders, 'Content-Type': 'application/json' },
