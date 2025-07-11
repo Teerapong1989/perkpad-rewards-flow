@@ -1,6 +1,6 @@
 
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { QrCode, Gift, BarChart3, Shield, Clock, Smartphone, Check } from "lucide-react";
+import { QrCode, Gift, BarChart3, Shield, Clock, Smartphone, Check, Crown } from "lucide-react";
 import { useInView, useMultipleInView } from "@/hooks/useInView";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
 import { AnimatedCard } from "@/components/ui/AnimatedCard";
@@ -33,6 +33,37 @@ const features = [
     hoverColor: "group-hover:text-brand-success",
     benefit: "Real customer insights",
     bgAccent: "bg-brand-success-light"
+  }
+];
+
+const showcaseFeatures = [
+  {
+    icon: BarChart3,
+    title: "🤖 AI Customer Insights",
+    description: "Predictive analytics and retention insights powered by AI",
+    gradient: "from-purple-500 to-blue-600",
+    plan: "Pro & Growth"
+  },
+  {
+    icon: Smartphone,
+    title: "📱 SMS Marketing",
+    description: "Automated campaigns and customer engagement tools",
+    gradient: "from-green-500 to-teal-600",
+    plan: "Pro & Growth"
+  },
+  {
+    icon: Shield,
+    title: "👥 Staff Control",
+    description: "Role-based permissions and multi-user access",
+    gradient: "from-orange-500 to-red-600",
+    plan: "Pro & Growth"
+  },
+  {
+    icon: Clock,
+    title: "📊 Advanced Analytics",
+    description: "ROI tracking, profit analytics, and API access",
+    gradient: "from-indigo-500 to-purple-600",
+    plan: "Growth"
   }
 ];
 
@@ -139,6 +170,92 @@ const FeaturesSection = () => {
           ))}
         </div>
 
+        {/* Welcome Screen Feature Showcase */}
+        <div className="mt-16 lg:mt-20">
+          <div className="text-center mb-12">
+            <h3 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+              Everything you need to grow
+            </h3>
+            <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto">
+              From basic loyalty to advanced AI insights - choose the plan that fits your business
+            </p>
+          </div>
+
+          {/* Feature Showcase Cards */}
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6 mb-12">
+            {showcaseFeatures.map((feature, index) => (
+              <AnimatedCard key={feature.title} isInView={sectionInView} delay={(index + 1) * 100} hoverEffect>
+                <div className="bg-white rounded-2xl p-6 text-center shadow-elegant hover:shadow-brand transition-all duration-300 group cursor-pointer border border-gray-100">
+                  <div className={`w-12 h-12 bg-gradient-to-br ${feature.gradient} rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300`}>
+                    <feature.icon className="w-6 h-6 text-white" />
+                  </div>
+                  <h4 className="font-semibold text-gray-900 mb-2 text-sm lg:text-base">{feature.title}</h4>
+                  <p className="text-xs lg:text-sm text-gray-600 mb-3">{feature.description}</p>
+                  <span className="text-xs font-bold text-brand-accent bg-brand-accent-light px-2 py-1 rounded-full">
+                    {feature.plan}
+                  </span>
+                </div>
+              </AnimatedCard>
+            ))}
+          </div>
+
+          {/* Quick Pricing Overview */}
+          <div className="bg-gradient-to-br from-white to-brand-primary/5 rounded-3xl p-8 border border-gray-200">
+            <div className="text-center mb-8">
+              <h4 className="font-display text-2xl lg:text-3xl font-bold text-gray-900 mb-2">
+                Choose your plan
+              </h4>
+              <p className="text-gray-600">Start free, upgrade when you're ready</p>
+            </div>
+            
+            <div className="grid md:grid-cols-3 gap-6">
+              {/* Free Plan */}
+              <div className="text-center p-6 bg-white rounded-2xl border border-gray-200">
+                <div className="w-12 h-12 bg-gray-100 rounded-xl flex items-center justify-center mx-auto mb-4">
+                  <QrCode className="w-6 h-6 text-gray-600" />
+                </div>
+                <h5 className="font-bold text-gray-900 mb-2">Free</h5>
+                <p className="text-2xl font-bold text-gray-900 mb-1">$0</p>
+                <p className="text-sm text-gray-600 mb-4">Perfect for small businesses getting started</p>
+                <div className="text-xs text-gray-500">
+                  Basic loyalty • 1 location • Limited features
+                </div>
+              </div>
+
+              {/* Pro Plan */}
+              <div className="text-center p-6 bg-gradient-to-br from-brand-accent-light to-white rounded-2xl border-2 border-brand-accent relative">
+                <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
+                  <span className="bg-brand-accent text-white px-3 py-1 rounded-full text-xs font-bold">
+                    Most Popular
+                  </span>
+                </div>
+                <div className="w-12 h-12 bg-brand-accent rounded-xl flex items-center justify-center mx-auto mb-4">
+                  <Crown className="w-6 h-6 text-white" />
+                </div>
+                <h5 className="font-bold text-gray-900 mb-2">Pro</h5>
+                <p className="text-2xl font-bold text-gray-900 mb-1">$30</p>
+                <p className="text-sm text-gray-600 mb-4">Most popular for growing businesses + AI & SMS</p>
+                <div className="text-xs text-gray-500">
+                  AI insights • SMS marketing • Staff management
+                </div>
+              </div>
+
+              {/* Growth Plan */}
+              <div className="text-center p-6 bg-white rounded-2xl border border-gray-200">
+                <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-indigo-600 rounded-xl flex items-center justify-center mx-auto mb-4">
+                  <BarChart3 className="w-6 h-6 text-white" />
+                </div>
+                <h5 className="font-bold text-gray-900 mb-2">Growth</h5>
+                <p className="text-2xl font-bold text-gray-900 mb-1">$60</p>
+                <p className="text-sm text-gray-600 mb-4">Advanced features for established businesses</p>
+                <div className="text-xs text-gray-500">
+                  Advanced analytics • API access • White label
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
         {/* Real Product Features Showcase */}
         <div className="mt-16 lg:mt-20">
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
@@ -171,8 +288,8 @@ const FeaturesSection = () => {
                     <Check className="w-4 h-4 text-white" />
                   </div>
                   <div>
-                    <h4 className="font-semibold text-gray-900">Gamified Rewards</h4>
-                    <p className="text-gray-600">Scratch cards, spin wheels, and mystery boxes that make earning rewards fun</p>
+                    <h4 className="font-semibold text-gray-900">🤖 AI Customer Retention Insights</h4>
+                    <p className="text-gray-600">Advanced AI with predictive analytics helps you keep customers coming back</p>
                   </div>
                 </div>
                 <div className="flex items-start space-x-3">
@@ -180,8 +297,8 @@ const FeaturesSection = () => {
                     <Check className="w-4 h-4 text-white" />
                   </div>
                   <div>
-                    <h4 className="font-semibold text-gray-900">Business Intelligence</h4>
-                    <p className="text-gray-600">Deep analytics, staff management, and POS integrations for serious growth</p>
+                    <h4 className="font-semibold text-gray-900">📱 SMS & Email Marketing Campaigns</h4>
+                    <p className="text-gray-600">Automated campaigns and customer engagement tools that actually work</p>
                   </div>
                 </div>
                 <div className="flex items-start space-x-3">
@@ -189,8 +306,17 @@ const FeaturesSection = () => {
                     <Check className="w-4 h-4 text-white" />
                   </div>
                   <div>
-                    <h4 className="font-semibold text-gray-900">Marketing Automation</h4>
-                    <p className="text-gray-600">SMS campaigns, email marketing, and AI-powered customer insights</p>
+                    <h4 className="font-semibold text-gray-900">👥 Staff Roles & Access Control</h4>
+                    <p className="text-gray-600">Multi-user access with role-based permissions for your entire team</p>
+                  </div>
+                </div>
+                <div className="flex items-start space-x-3">
+                  <div className="w-6 h-6 bg-brand-success rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                    <Check className="w-4 h-4 text-white" />
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-gray-900">📊 Advanced ROI & Profit Analytics</h4>
+                    <p className="text-gray-600">Full API access, integrations, and white label solutions</p>
                   </div>
                 </div>
               </div>

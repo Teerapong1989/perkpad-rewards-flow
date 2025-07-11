@@ -13,12 +13,13 @@ const pricingPlans = [
     period: "per month",
     locations: "1 location (limited features)",
     addon: "Upgrade to unlock full features",
-    savings: "Try it out, see if it works",
+    savings: "Perfect for small businesses getting started",
     features: [
       "1 location",
       "QR stamp card system",
       "Basic dashboard",
-      "No customization"
+      "No customization",
+      "Limited features"
     ],
     buttonText: "Start Free",
     buttonVariant: "outline" as const,
@@ -31,16 +32,16 @@ const pricingPlans = [
     period: "per month",
     locations: "1 location included",
     addon: "+$10/month per extra location",
-    savings: "For most single-location businesses",
+    savings: "Most popular for growing businesses + AI & SMS",
     features: [
-      "1 location included",
       "Everything in Free, plus:",
+      "🤖 AI customer retention insights",
+      "📱 SMS & email marketing campaigns",
+      "👥 Staff roles & access control (up to 10)",
       "Add your logo and colors",
       "Customer contact info",
-      "Send simple email campaigns",
       "Create custom rewards",
-      "Staff can redeem rewards",
-      "See customer visit patterns"
+      "Automated campaigns & customer engagement tools"
     ],
     buttonText: "Start 30-Day Trial",
     buttonVariant: "default" as const,
@@ -53,15 +54,17 @@ const pricingPlans = [
     period: "per month",
     locations: "3 locations included",
     addon: "+$8/month per extra location",
-    savings: "For businesses with multiple locations",
+    savings: "Advanced features for established businesses",
     features: [
-      "3 locations included",
       "Everything in Pro, plus:",
+      "🧠 Advanced AI with predictive analytics",
+      "👥 Unlimited staff members",
+      "📊 Advanced ROI & profit analytics",
+      "🔌 Full API access & integrations",
+      "🏷️ White label solution",
+      "Multi-user access with role-based permissions",
       "See data across all locations",
-      "Compare location performance", 
-      "Better analytics",
-      "Print QR codes for signs",
-      "Faster support response"
+      "Compare location performance"
     ],
     buttonText: "Start 30-Day Trial",
     buttonVariant: "default" as const,
