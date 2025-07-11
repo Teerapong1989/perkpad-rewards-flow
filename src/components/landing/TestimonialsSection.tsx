@@ -6,9 +6,9 @@ import { AnimatedSection } from "@/components/ui/AnimatedSection";
 import { AnimatedCard } from "@/components/ui/AnimatedCard";
 
 const founderStory = {
-  quote: "As a small coffee shop owner, I watched customers dig through wallets looking for punch cards they'd forgotten at home. Meanwhile, my drawer was full of half-completed cards from customers who never returned. I knew there had to be a better way - something as simple as scanning a QR code with their phone camera.",
+  quote: "We've talked to hundreds of small business owners - from nail salon owners to auto mechanics to café managers. They all face the same problem: customers love loyalty programs but hate keeping track of physical cards. We built Perkpad for every business that serves their community, not just the trendy ones.",
   author: "The Perkpad Team",
-  role: "Building for Small Business Owners",
+  role: "Building for All Small Businesses",
   gradient: "from-teal-400 to-teal-500",
   cardGradient: "from-teal-50 to-white"
 };
@@ -16,15 +16,15 @@ const founderStory = {
 const earlyAccessBenefits = [
   {
     icon: Users,
-    title: "Join 487 Founding Members",
-    description: "Be among the businesses already making the switch this month. Your feedback directly influences our product development and priority support.",
+    title: "Join 487+ Local Businesses",
+    description: "From nail salons in Brooklyn to auto shops in Austin - diverse businesses are already making the switch. Your feedback helps us serve your industry better.",
     gradient: "from-purple-400 to-purple-500",
     cardGradient: "from-purple-50 to-white"
   },
   {
     icon: Target,
-    title: "Built for Real Problems",
-    description: "We're solving the actual pain points small businesses face with loyalty programs - lost cards, complex setups, and expensive monthly fees.",
+    title: "Built for All Business Types",
+    description: "Whether you serve customers daily (like a café), weekly (like a barbershop), or monthly (like a nail salon) - our system adapts to your customer patterns.",
     gradient: "from-orange-400 to-orange-500",
     cardGradient: "from-orange-50 to-white"
   }
@@ -106,14 +106,14 @@ const TestimonialsSection = () => {
         <div className="text-center mt-12">
           <div className="bg-gradient-to-r from-teal-50 to-orange-50 rounded-2xl p-8 max-w-3xl mx-auto">
             <h3 className="text-2xl font-bold text-slate-800 mb-4">
-              Ready to stop losing customers to forgotten punch cards?
+              Ready to keep customers coming back?
             </h3>
             <p className="text-lg text-slate-600 mb-6">
-              Transform your customer retention today. Your 5-minute setup starts now.
+              Join nail salons, auto shops, cafés, and more. Your 2-minute setup starts now.
             </p>
             <div className="flex items-center justify-center space-x-2 text-teal-600 font-semibold">
               <div className="w-3 h-3 bg-teal-400 rounded-full animate-pulse"></div>
-              <span>30-day money-back guarantee • 5-minute setup promise</span>
+              <span>30-day money-back guarantee • 2-minute setup promise</span>
             </div>
           </div>
         </div>

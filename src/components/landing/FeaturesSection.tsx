@@ -9,27 +9,27 @@ import { memo } from "react";
 const features = [
   {
     icon: QrCode,
-    title: "Never lose another customer to forgotten punch cards",
-    description: "Your customers simply scan your QR code with their phone camera - no app downloads, no physical cards to lose. Their loyalty progress is always in their pocket, ready when they are.",
+    title: "Works for any business - from nail salons to auto shops",
+    description: "Your customers simply scan your QR code with their phone camera - no app downloads, no physical cards to lose. Whether they're getting their nails done, car serviced, or buying coffee - their loyalty progress is always accessible.",
     gradient: "from-teal-500 to-teal-600",
     hoverColor: "group-hover:text-teal-600",
-    benefit: "Always accessible, never forgotten"
+    benefit: "Universal compatibility, zero friction"
   },
   {
     icon: Gift,
-    title: "Design rewards that actually motivate customers",
-    description: "Create compelling incentives that make customers choose you over competitors. Set flexible rules that work for your business: buy 10 get 1 free, spend $100 get $15 off, or surprise mystery rewards.",
+    title: "Flexible rewards that fit your business model",
+    description: "Nail salon offering the 10th manicure free? Auto shop with service discounts? Café with buy-9-get-1-free? Create rewards that actually make sense for your business and keep customers coming back.",
     gradient: "from-orange-400 to-orange-500",
     hoverColor: "group-hover:text-orange-500",
-    benefit: "Flexible reward structures"
+    benefit: "Customizable for any industry"
   },
   {
     icon: BarChart3,
-    title: "Finally see who your most loyal customers really are",
-    description: "Stop guessing and start knowing. Get clear insights on visit patterns, spending habits, and reward preferences. Identify your VIP customers and treat them accordingly.",
+    title: "Know your customers better than ever",
+    description: "Stop guessing who your regulars are. Whether you're tracking haircut frequency, oil change intervals, or coffee habits - get clear insights on visit patterns and spending to build stronger relationships.",
     gradient: "from-purple-500 to-purple-600",
     hoverColor: "group-hover:text-purple-500",
-    benefit: "Data-driven customer insights"
+    benefit: "Customer insights for every business type"
   }
 ];
 
@@ -91,11 +91,11 @@ const FeaturesSection = () => {
       <div className="max-w-7xl mx-auto">
         <AnimatedSection className="text-center mb-16" threshold={0.1}>
           <h2 className="text-4xl font-bold text-slate-800 mb-4">
-            Stop losing customers to forgotten punch cards
+            Built for real businesses, not just trendy cafés
           </h2>
           <p className="text-xl text-slate-600 max-w-3xl mx-auto">
-            While your competitors are still using paper cards (and losing customers who forget them), 
-            you'll have a system that works for modern customers.
+            Whether you run a nail salon, auto repair shop, laundromat, barbershop, or café - 
+            our digital loyalty system works for businesses that serve real communities.
           </p>
         </AnimatedSection>
 
@@ -120,7 +120,7 @@ const FeaturesSection = () => {
           />
           <TrustElement
             icon={Clock}
-            text="5-Minute Setup Promise"
+            text="2-Minute Setup Promise"
             bgColor="bg-blue-50"
             textColor="text-blue-800"
           />

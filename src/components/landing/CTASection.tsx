@@ -26,10 +26,10 @@ const CTASection = () => {
         </div>
         
         <h2 className="text-4xl font-bold text-white mb-6">
-          Ready to stop losing customers to forgotten punch cards?
+          Ready to keep customers coming back to your business?
         </h2>
         <p className="text-xl text-teal-100 mb-8 max-w-2xl mx-auto">
-          Transform your customer retention today. Your 5-minute setup starts now.
+          Join nail salons, auto shops, cafés, and more. Your 2-minute setup starts now.
         </p>
         
         {/* Risk reversal prominently displayed */}
@@ -41,7 +41,7 @@ const CTASection = () => {
             </div>
             <div className="flex items-center space-x-2">
               <Zap className="w-5 h-5 text-teal-200" />
-              <span className="font-semibold">5-minute setup</span>
+              <span className="font-semibold">2-minute setup</span>
             </div>
             <div className="flex items-center space-x-2">
               <Shield className="w-5 h-5 text-teal-200" />
@@ -56,7 +56,7 @@ const CTASection = () => {
             className="bg-white text-teal-700 hover:bg-slate-50 text-lg px-8 py-6 rounded-xl shadow-2xl transform hover:scale-105 transition-all duration-300"
             onClick={handleSignUpClick}
           >
-            Start Your 5-Minute Setup (Free)
+            Start Free (2-minute setup)
             <ArrowRight className="ml-2 w-5 h-5" />
           </Button>
           <Button 
