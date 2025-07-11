@@ -160,33 +160,27 @@ const HeroSection = () => {
               <Users className="w-4 h-4 sm:w-6 sm:h-6 text-white" />
             </FloatingElement>
             
-            {/* Enhanced phone mockup with brand colors */}
-            <figure className="relative bg-white rounded-3xl shadow-elegant p-4 sm:p-6 lg:p-8 max-w-xs sm:max-w-sm mx-auto transform hover:scale-105 transition-transform duration-300 will-change-transform">
-              <div className="bg-gradient-brand rounded-2xl p-4 sm:p-6 lg:p-8 text-white text-center mb-4 sm:mb-6 relative overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent animate-pulse" aria-hidden="true"></div>
-                <QrCode className="w-16 h-16 sm:w-20 sm:h-20 lg:w-28 lg:h-28 mx-auto mb-2 sm:mb-4 animate-pulse" aria-label="QR Code for digital loyalty program" />
-                <p className="font-bold text-sm sm:text-base lg:text-lg">No more lost punch cards!</p>
+            {/* Real Product Dashboard Screenshot */}
+            <figure className="relative bg-white rounded-3xl shadow-elegant p-3 sm:p-4 lg:p-6 max-w-lg mx-auto transform hover:scale-105 transition-transform duration-300 will-change-transform">
+              <div className="relative overflow-hidden rounded-2xl">
+                <img 
+                  src="/lovable-uploads/5318a79b-c5e1-4799-9bdc-2a3420cbb4d7.png" 
+                  alt="Perkpad Business Dashboard - Loyalty Program Overview showing customer analytics, rewards tracking, and security features"
+                  className="w-full h-auto object-cover"
+                  loading="eager"
+                />
                 <div className="absolute top-2 right-2 w-2 h-2 sm:w-3 sm:h-3 bg-brand-success rounded-full animate-ping" aria-hidden="true"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/5 to-transparent pointer-events-none"></div>
               </div>
-              <div className="space-y-4 sm:space-y-6">
-                <div className="flex justify-between items-center">
-                  <span className="font-bold text-gray-700 text-sm sm:text-base lg:text-lg">Progress</span>
-                  <span className="text-brand-primary-dark font-bold text-sm sm:text-base lg:text-lg bg-brand-primary px-2 sm:px-3 py-1 rounded-full">7/10 stamps</span>
-                </div>
-                <div className="grid grid-cols-5 gap-2 sm:gap-3" role="progressbar" aria-label="Loyalty progress: 7 out of 10 stamps collected">
-                  {Array.from({ length: 10 }, (_, i) => (
-                    <ProgressStamp key={i + 1} index={i + 1} isCompleted={i < 7} />
-                  ))}
-                </div>
-                <div className="bg-brand-accent-light border-2 border-brand-accent/30 rounded-2xl p-3 sm:p-4 lg:p-6 text-center relative overflow-hidden">
-                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-brand-accent/10 to-transparent animate-pulse" aria-hidden="true"></div>
-                  <p className="text-gray-800 font-bold text-xs sm:text-sm lg:text-lg relative">🎁 3 more visits to unlock your reward!</p>
-                  <div className="w-full bg-gray-200 rounded-full h-1.5 sm:h-2 mt-2 sm:mt-3 relative" role="progressbar" aria-label="Progress to next reward">
-                    <div className="bg-gradient-to-r from-brand-accent to-brand-primary-dark h-1.5 sm:h-2 rounded-full transition-all duration-300" style={{width: '70%'}}></div>
-                  </div>
-                </div>
+              
+              {/* Real product callout */}
+              <div className="absolute -bottom-2 -right-2 sm:-bottom-3 sm:-right-3 bg-brand-success text-white px-2 sm:px-3 py-1 sm:py-2 rounded-full text-xs sm:text-sm font-bold shadow-lg">
+                ✨ Live Dashboard
               </div>
-              <figcaption className="sr-only">Example of digital loyalty card showing customer progress with 7 out of 10 stamps collected</figcaption>
+              
+              <figcaption className="sr-only">
+                Real Perkpad dashboard interface showing loyalty program management, customer analytics, security status, and business tools for local businesses
+              </figcaption>
             </figure>
           </div>
         </div>

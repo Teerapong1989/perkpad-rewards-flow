@@ -1,6 +1,6 @@
 
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { QrCode, Gift, BarChart3, Shield, Clock, Smartphone } from "lucide-react";
+import { QrCode, Gift, BarChart3, Shield, Clock, Smartphone, Check } from "lucide-react";
 import { useInView, useMultipleInView } from "@/hooks/useInView";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
 import { AnimatedCard } from "@/components/ui/AnimatedCard";
@@ -139,38 +139,58 @@ const FeaturesSection = () => {
           ))}
         </div>
 
-        {/* Redesigned trust elements with mobile-first layout */}
+        {/* Real Product Features Showcase */}
         <div className="mt-16 lg:mt-20">
-          <div className="grid gap-4 lg:gap-6 max-w-5xl">
-            {/* Mobile: all elements stack vertically */}
-            {/* Desktop: left column has 2 stacked, right has large callout */}
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6">
-              {/* First two elements - stack on mobile, column on desktop */}
-              <div className="space-y-4 lg:space-y-6 md:col-span-1">
-                <TrustElement
-                  icon={Shield}
-                  text="SSL Secured & Privacy Protected"
-                  bgColor="bg-brand-success-light"
-                  textColor="text-brand-success"
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+            {/* Product Screenshot */}
+            <div className="order-2 lg:order-1">
+              <figure className="relative bg-white rounded-2xl shadow-elegant p-3 sm:p-4 overflow-hidden">
+                <img 
+                  src="/lovable-uploads/bf240d2c-3e17-40d5-bc56-7afbde00c649.png" 
+                  alt="Perkpad Advanced Features - Gamified rewards, analytics tools, staff management, and business integrations dashboard"
+                  className="w-full h-auto object-cover rounded-xl"
+                  loading="lazy"
                 />
-                <TrustElement
-                  icon={Clock}
-                  text="2-Minute Setup Promise"
-                  bgColor="bg-brand-primary"
-                  textColor="text-brand-primary-dark"
-                />
-              </div>
-              
-              {/* Large feature callout */}
-              <div className="md:col-span-1 lg:col-span-2">
-                <div className="bg-gradient-brand rounded-2xl lg:rounded-3xl p-6 lg:p-8 text-white h-full flex items-center">
+                <div className="absolute top-4 right-4 bg-brand-accent text-white px-2 py-1 rounded-full text-xs font-bold">
+                  🎮 Gamified
+                </div>
+                <figcaption className="sr-only">
+                  Advanced Perkpad features including reward game settings, business tools, analytics, staff management, and upcoming integrations
+                </figcaption>
+              </figure>
+            </div>
+            
+            {/* Feature Description */}
+            <div className="order-1 lg:order-2 space-y-6">
+              <h3 className="font-display text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900">
+                Advanced tools when you're ready to grow
+              </h3>
+              <div className="space-y-4">
+                <div className="flex items-start space-x-3">
+                  <div className="w-6 h-6 bg-brand-success rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                    <Check className="w-4 h-4 text-white" />
+                  </div>
                   <div>
-                    <Smartphone className="w-8 h-8 lg:w-12 lg:h-12 mb-3 lg:mb-4 opacity-80" />
-                    <h3 className="text-lg lg:text-2xl font-bold mb-2 lg:mb-3">Works on Any Smartphone</h3>
-                    <p className="text-sm lg:text-lg opacity-90 leading-relaxed">
-                      No apps to download. Your customers scan your QR code with their phone camera. 
-                      It's that simple.
-                    </p>
+                    <h4 className="font-semibold text-gray-900">Gamified Rewards</h4>
+                    <p className="text-gray-600">Scratch cards, spin wheels, and mystery boxes that make earning rewards fun</p>
+                  </div>
+                </div>
+                <div className="flex items-start space-x-3">
+                  <div className="w-6 h-6 bg-brand-success rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                    <Check className="w-4 h-4 text-white" />
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-gray-900">Business Intelligence</h4>
+                    <p className="text-gray-600">Deep analytics, staff management, and POS integrations for serious growth</p>
+                  </div>
+                </div>
+                <div className="flex items-start space-x-3">
+                  <div className="w-6 h-6 bg-brand-success rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                    <Check className="w-4 h-4 text-white" />
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-gray-900">Marketing Automation</h4>
+                    <p className="text-gray-600">SMS campaigns, email marketing, and AI-powered customer insights</p>
                   </div>
                 </div>
               </div>
