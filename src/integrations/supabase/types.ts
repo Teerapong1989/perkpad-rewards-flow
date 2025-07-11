@@ -350,6 +350,36 @@ export type Database = {
         }
         Relationships: []
       }
+      chat_messages: {
+        Row: {
+          created_at: string
+          customer_id: string | null
+          id: string
+          is_ai_response: boolean
+          message: string
+          metadata: Json | null
+          session_id: string
+        }
+        Insert: {
+          created_at?: string
+          customer_id?: string | null
+          id?: string
+          is_ai_response?: boolean
+          message: string
+          metadata?: Json | null
+          session_id: string
+        }
+        Update: {
+          created_at?: string
+          customer_id?: string | null
+          id?: string
+          is_ai_response?: boolean
+          message?: string
+          metadata?: Json | null
+          session_id?: string
+        }
+        Relationships: []
+      }
       customer_business_memberships: {
         Row: {
           business_id: string
