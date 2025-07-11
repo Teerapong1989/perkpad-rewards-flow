@@ -24,13 +24,13 @@ FloatingElement.displayName = 'FloatingElement';
 const ProgressStamp = memo(({ index, isCompleted }: { index: number, isCompleted: boolean }) => (
   <div className={`w-6 h-6 sm:w-8 sm:h-8 lg:w-10 lg:h-10 ${
     isCompleted 
-      ? 'bg-gradient-to-br from-teal-100 to-teal-200' 
-      : 'bg-slate-100 border-2 border-dashed border-slate-300'
+      ? 'bg-gradient-to-br from-brand-success-light to-brand-success' 
+      : 'bg-gray-100 border-2 border-dashed border-gray-300'
   } rounded-full flex items-center justify-center transform hover:scale-110 transition-transform duration-200`}>
     {isCompleted ? (
-      <Check className="w-3 h-3 sm:w-4 sm:h-4 lg:w-5 lg:h-5 text-teal-600" aria-label={`Stamp ${index} collected`} />
+      <Check className="w-3 h-3 sm:w-4 sm:h-4 lg:w-5 lg:h-5 text-white" aria-label={`Stamp ${index} collected`} />
     ) : (
-      <div className="w-1 h-1 sm:w-2 sm:h-2 bg-slate-400 rounded-full" aria-label={`Stamp ${index} needed`}></div>
+      <div className="w-1 h-1 sm:w-2 sm:h-2 bg-gray-400 rounded-full" aria-label={`Stamp ${index} needed`}></div>
     )}
   </div>
 ));
@@ -49,14 +49,14 @@ const HeroSection = () => {
   }, []);
 
   return (
-    <section className="hero-section relative overflow-hidden py-8 sm:py-12 lg:py-20 px-4 sm:px-6 bg-gradient-hero" role="main">
+    <section className="hero-section relative overflow-hidden py-12 sm:py-16 lg:py-20 px-4 sm:px-6 bg-gradient-hero min-h-[90vh] sm:min-h-[80vh] lg:min-h-screen" role="main">
       {/* Background decoration - sophisticated layered gradients */}
       <div className="absolute inset-0 bg-gradient-to-r from-brand-primary/30 to-brand-accent-light/20 blur-3xl will-change-transform" aria-hidden="true"></div>
-      <div className="absolute top-10 sm:top-20 left-4 sm:left-10 w-48 sm:w-72 h-48 sm:h-72 bg-brand-primary-dark/10 rounded-full blur-3xl animate-pulse will-change-transform" aria-hidden="true"></div>
-      <div className="absolute bottom-10 sm:bottom-20 right-4 sm:right-10 w-64 sm:w-96 h-64 sm:h-96 bg-brand-accent/10 rounded-full blur-3xl animate-pulse delay-1000 will-change-transform" aria-hidden="true"></div>
+      <div className="absolute top-10 sm:top-20 left-4 sm:left-10 w-32 sm:w-48 h-32 sm:h-48 lg:w-72 lg:h-72 bg-brand-primary-dark/10 rounded-full blur-3xl animate-pulse will-change-transform" aria-hidden="true"></div>
+      <div className="absolute bottom-10 sm:bottom-20 right-4 sm:right-10 w-40 sm:w-64 h-40 sm:h-64 lg:w-96 lg:h-96 bg-brand-accent/10 rounded-full blur-3xl animate-pulse delay-1000 will-change-transform" aria-hidden="true"></div>
       
-      <div className="max-w-7xl mx-auto relative">
-        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+      <div className="max-w-7xl mx-auto relative flex items-center min-h-[80vh] sm:min-h-[70vh] lg:min-h-[85vh]">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center w-full">
           <header className="space-y-6 sm:space-y-8 fade-in">
             <div className="space-y-4 sm:space-y-6">
               <div className="flex items-center justify-center lg:justify-start mb-3 sm:mb-4">
@@ -160,29 +160,29 @@ const HeroSection = () => {
               <Users className="w-4 h-4 sm:w-6 sm:h-6 text-white" />
             </FloatingElement>
             
-            {/* Enhanced phone mockup with performance optimization */}
-            <figure className="relative bg-white rounded-3xl shadow-2xl p-4 sm:p-6 lg:p-8 max-w-xs sm:max-w-sm mx-auto transform hover:scale-105 transition-transform duration-300 will-change-transform">
-              <div className="bg-gradient-to-br from-teal-500 to-teal-600 rounded-2xl p-4 sm:p-6 lg:p-8 text-white text-center mb-4 sm:mb-6 relative overflow-hidden">
+            {/* Enhanced phone mockup with brand colors */}
+            <figure className="relative bg-white rounded-3xl shadow-elegant p-4 sm:p-6 lg:p-8 max-w-xs sm:max-w-sm mx-auto transform hover:scale-105 transition-transform duration-300 will-change-transform">
+              <div className="bg-gradient-brand rounded-2xl p-4 sm:p-6 lg:p-8 text-white text-center mb-4 sm:mb-6 relative overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent animate-pulse" aria-hidden="true"></div>
                 <QrCode className="w-16 h-16 sm:w-20 sm:h-20 lg:w-28 lg:h-28 mx-auto mb-2 sm:mb-4 animate-pulse" aria-label="QR Code for digital loyalty program" />
                 <p className="font-bold text-sm sm:text-base lg:text-lg">No more lost punch cards!</p>
-                <div className="absolute top-2 right-2 w-2 h-2 sm:w-3 sm:h-3 bg-green-400 rounded-full animate-ping" aria-hidden="true"></div>
+                <div className="absolute top-2 right-2 w-2 h-2 sm:w-3 sm:h-3 bg-brand-success rounded-full animate-ping" aria-hidden="true"></div>
               </div>
               <div className="space-y-4 sm:space-y-6">
                 <div className="flex justify-between items-center">
-                  <span className="font-bold text-slate-700 text-sm sm:text-base lg:text-lg">Progress</span>
-                  <span className="text-teal-600 font-bold text-sm sm:text-base lg:text-lg bg-teal-50 px-2 sm:px-3 py-1 rounded-full">7/10 stamps</span>
+                  <span className="font-bold text-gray-700 text-sm sm:text-base lg:text-lg">Progress</span>
+                  <span className="text-brand-primary-dark font-bold text-sm sm:text-base lg:text-lg bg-brand-primary px-2 sm:px-3 py-1 rounded-full">7/10 stamps</span>
                 </div>
                 <div className="grid grid-cols-5 gap-2 sm:gap-3" role="progressbar" aria-label="Loyalty progress: 7 out of 10 stamps collected">
                   {Array.from({ length: 10 }, (_, i) => (
                     <ProgressStamp key={i + 1} index={i + 1} isCompleted={i < 7} />
                   ))}
                 </div>
-                <div className="bg-gradient-to-r from-orange-50 to-orange-100 border-2 border-orange-200 rounded-2xl p-3 sm:p-4 lg:p-6 text-center relative overflow-hidden">
-                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-orange-200/30 to-transparent animate-pulse" aria-hidden="true"></div>
-                  <p className="text-orange-700 font-bold text-xs sm:text-sm lg:text-lg relative">🎁 3 more visits to unlock your reward!</p>
-                  <div className="w-full bg-orange-200 rounded-full h-1.5 sm:h-2 mt-2 sm:mt-3 relative" role="progressbar" aria-label="Progress to next reward">
-                    <div className="bg-gradient-to-r from-orange-400 to-orange-500 h-1.5 sm:h-2 rounded-full transition-all duration-300" style={{width: '70%'}}></div>
+                <div className="bg-brand-accent-light border-2 border-brand-accent/30 rounded-2xl p-3 sm:p-4 lg:p-6 text-center relative overflow-hidden">
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-brand-accent/10 to-transparent animate-pulse" aria-hidden="true"></div>
+                  <p className="text-gray-800 font-bold text-xs sm:text-sm lg:text-lg relative">🎁 3 more visits to unlock your reward!</p>
+                  <div className="w-full bg-gray-200 rounded-full h-1.5 sm:h-2 mt-2 sm:mt-3 relative" role="progressbar" aria-label="Progress to next reward">
+                    <div className="bg-gradient-to-r from-brand-accent to-brand-primary-dark h-1.5 sm:h-2 rounded-full transition-all duration-300" style={{width: '70%'}}></div>
                   </div>
                 </div>
               </div>
