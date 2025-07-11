@@ -135,10 +135,16 @@ TONE: Professional yet friendly, like a knowledgeable support representative.`
     });
 
     console.log('OpenAI API response status:', response.status);
+    console.log('OpenAI API response headers:', Object.fromEntries(response.headers.entries()));
 
     if (!response.ok) {
       const errorText = await response.text();
-      console.error('OpenAI API error:', response.status, errorText);
+      console.error('OpenAI API error details:', {
+        status: response.status,
+        statusText: response.statusText,
+        errorText: errorText,
+        headers: Object.fromEntries(response.headers.entries())
+      });
       
       return new Response(JSON.stringify({ 
         message: 'Sorry, I am having trouble processing your request right now. Please try again in a moment.'

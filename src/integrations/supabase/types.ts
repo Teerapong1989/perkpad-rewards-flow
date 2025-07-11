@@ -1464,7 +1464,7 @@ export type Database = {
         }[]
       }
       get_user_role: {
-        Args: { user_id: string }
+        Args: { user_id: string } | { user_id: string }
         Returns: Database["public"]["Enums"]["app_role"]
       }
       handle_failed_login: {
@@ -1481,10 +1481,15 @@ export type Database = {
         Returns: boolean
       }
       has_role: {
-        Args: {
-          user_id: string
-          check_role: Database["public"]["Enums"]["app_role"]
-        }
+        Args:
+          | {
+              user_id: string
+              check_role: Database["public"]["Enums"]["app_role"]
+            }
+          | {
+              user_id: string
+              check_role: Database["public"]["Enums"]["app_role"]
+            }
         Returns: boolean
       }
       http: {
