@@ -62,23 +62,23 @@ const HeroSection = () => {
               <div className="flex items-center justify-center lg:justify-start mb-3 sm:mb-4">
                 <Badge className="bg-gradient-brand text-white px-3 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm font-medium shadow-brand">
                   <Sparkles className="w-3 h-3 sm:w-4 sm:h-4 mr-1.5 sm:mr-2" aria-hidden="true" />
-                  🚀 Limited Time: Setup fee waived (normally $99)
+                  New: No setup fees for the first 100 businesses
                 </Badge>
               </div>
               <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-extrabold text-gray-900 leading-[1.1] text-center lg:text-left tracking-tight text-balance">
-                Every local business deserves{" "}
+                Stop losing customers to{" "}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-primary-dark via-brand-accent to-brand-accent">
-                  loyal customers
+                  forgotten punch cards
                 </span>
               </h1>
               <p className="text-lg sm:text-xl lg:text-2xl text-gray-600 leading-relaxed font-medium text-center lg:text-left max-w-2xl text-balance">
-                Whether you run a nail salon, auto shop, café, or laundromat — get digital loyalty cards that actually work. Customers scan, you grow.
+                Your customers scan a QR code. Their progress saves automatically. No apps, no lost cards, no frustration. Works for nail salons, auto shops, cafés — any local business.
               </p>
               
               {/* Problem statement with industry context */}
               <aside className="bg-brand-accent-light border-l-4 border-brand-accent p-3 sm:p-4 rounded-r-xl mx-2 sm:mx-0 shadow-md">
                 <p className="text-gray-800 font-semibold text-sm sm:text-base">
-                  Studies show <span className="text-brand-accent font-bold">70% of customers never complete</span> traditional punch card programs. Every business type faces this problem.
+                  Real talk: <span className="text-brand-accent font-bold">Most punch cards get lost or forgotten</span>. We built this because we were tired of carrying 12 different loyalty cards in our wallets.
                 </p>
               </aside>
             </div>
@@ -90,7 +90,7 @@ const HeroSection = () => {
                 onClick={handleSignUpClick}
                 aria-label="Start free today"
               >
-                Start Free (2-minute setup)
+                Get Started Free
                 <ArrowRight className="ml-2 w-4 h-4 sm:w-5 sm:h-5" aria-hidden="true" />
               </Button>
               <Button 
@@ -107,31 +107,31 @@ const HeroSection = () => {
               </Button>
             </div>
             
-            {/* Consistent guarantees and benefits */}
+            {/* More honest guarantees */}
             <div className="space-y-3 sm:space-y-4 px-2 sm:px-0">
               <div className="flex items-center justify-center lg:justify-start space-x-2 text-brand-primary-dark font-semibold text-sm sm:text-base">
                 <div className="w-2 h-2 sm:w-3 sm:h-3 bg-brand-accent rounded-full animate-pulse" aria-hidden="true"></div>
-                <span>Your 2-minute setup starts now</span>
+                <span>Takes 2 minutes to set up</span>
               </div>
               
               <ul className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 text-xs sm:text-sm">
                 <li className="flex items-center justify-center lg:justify-start space-x-2">
-                  <div className="w-5 h-5 sm:w-6 sm:h-6 bg-teal-100 rounded-full flex items-center justify-center flex-shrink-0" aria-hidden="true">
-                    <Check className="w-3 h-3 sm:w-4 sm:h-4 text-teal-600" />
+                  <div className="w-5 h-5 sm:w-6 sm:h-6 bg-brand-success-light rounded-full flex items-center justify-center flex-shrink-0" aria-hidden="true">
+                    <Check className="w-3 h-3 sm:w-4 sm:h-4 text-brand-success" />
                   </div>
-                  <span className="font-medium text-slate-700">30-day money-back guarantee</span>
+                  <span className="font-medium text-gray-700">Free to try</span>
                 </li>
                 <li className="flex items-center justify-center lg:justify-start space-x-2">
-                  <div className="w-5 h-5 sm:w-6 sm:h-6 bg-teal-100 rounded-full flex items-center justify-center flex-shrink-0" aria-hidden="true">
-                    <Check className="w-3 h-3 sm:w-4 sm:h-4 text-teal-600" />
+                  <div className="w-5 h-5 sm:w-6 sm:h-6 bg-brand-success-light rounded-full flex items-center justify-center flex-shrink-0" aria-hidden="true">
+                    <Check className="w-3 h-3 sm:w-4 sm:h-4 text-brand-success" />
                   </div>
-                  <span className="font-medium text-slate-700">2-minute setup promise</span>
+                  <span className="font-medium text-gray-700">Cancel anytime</span>
                 </li>
                 <li className="flex items-center justify-center lg:justify-start space-x-2">
-                  <div className="w-5 h-5 sm:w-6 sm:h-6 bg-teal-100 rounded-full flex items-center justify-center flex-shrink-0" aria-hidden="true">
-                    <Check className="w-3 h-3 sm:w-4 sm:h-4 text-teal-600" />
+                  <div className="w-5 h-5 sm:w-6 sm:h-6 bg-brand-success-light rounded-full flex items-center justify-center flex-shrink-0" aria-hidden="true">
+                    <Check className="w-3 h-3 sm:w-4 sm:h-4 text-brand-success" />
                   </div>
-                  <span className="font-medium text-slate-700">Simple onboarding</span>
+                  <span className="font-medium text-gray-700">No long-term contracts</span>
                 </li>
               </ul>
             </div>

@@ -13,7 +13,7 @@ const pricingPlans = [
     period: "per month",
     locations: "1 location (limited features)",
     addon: "Upgrade to unlock full features",
-    savings: "Perfect for getting started",
+    savings: "Try it out, see if it works",
     features: [
       "1 location",
       "QR stamp card system",
@@ -23,7 +23,7 @@ const pricingPlans = [
     buttonText: "Start Free",
     buttonVariant: "outline" as const,
     popular: false,
-    roi: "Perfect for testing"
+    roi: "Test it with real customers"
   },
   {
     name: "Pro",
@@ -31,21 +31,21 @@ const pricingPlans = [
     period: "per month",
     locations: "1 location included",
     addon: "+$10/month per extra location",
-    savings: "Perfect for single locations",
+    savings: "For most single-location businesses",
     features: [
       "1 location included",
       "Everything in Free, plus:",
-      "Custom branding (logo + color)",
-      "Advanced customer database",
-      "Email/SMS marketing (basic)",
-      "Reward customization",
-      "Staff PIN system for redemptions",
-      "Business insights & analytics"
+      "Add your logo and colors",
+      "Customer contact info",
+      "Send simple email campaigns",
+      "Create custom rewards",
+      "Staff can redeem rewards",
+      "See customer visit patterns"
     ],
-    buttonText: "Start Free 30-Day Trial",
+    buttonText: "Start 30-Day Trial",
     buttonVariant: "default" as const,
     popular: true,
-    roi: "Typical ROI: $870/month"
+    roi: "Usually pays for itself quickly"
   },
   {
     name: "Growth",
@@ -53,20 +53,20 @@ const pricingPlans = [
     period: "per month",
     locations: "3 locations included",
     addon: "+$8/month per extra location",
-    savings: "Best for growing businesses",
+    savings: "For businesses with multiple locations",
     features: [
       "3 locations included",
       "Everything in Pro, plus:",
-      "Multi-location dashboard",
-      "Location-based reporting", 
-      "Advanced analytics",
-      "Printed sign-ready QR downloads",
-      "Priority support"
+      "See data across all locations",
+      "Compare location performance", 
+      "Better analytics",
+      "Print QR codes for signs",
+      "Faster support response"
     ],
-    buttonText: "Start Free 30-Day Trial",
+    buttonText: "Start 30-Day Trial",
     buttonVariant: "default" as const,
     popular: false,
-    roi: "Typical ROI: $1,770/month"
+    roi: "Great for multi-location owners"
   }
 ];
 
@@ -79,22 +79,15 @@ const PricingSection = () => {
   };
 
   return (
-    <section id="pricing" className="py-20 px-6 bg-gradient-to-br from-slate-50 to-teal-50">
+    <section id="pricing" className="py-20 px-6 bg-gradient-subtle">
       <div className="max-w-7xl mx-auto">
         <AnimatedSection className="text-center mb-16" threshold={0.1}>
-          <h2 className="font-display text-4xl lg:text-5xl font-extrabold text-slate-900 mb-6 tracking-tight">
-            Pricing that pays for itself in week 1
+          <h2 className="font-display text-4xl lg:text-5xl font-extrabold text-gray-900 mb-6 tracking-tight">
+            Honest pricing, no surprises
           </h2>
-          <p className="text-xl lg:text-2xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
-            If you don't see more repeat customers in 60 days, we'll refund everything + pay you $100
+          <p className="text-xl lg:text-2xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            Most businesses see their investment back in the first month. If you don't, we'll make it right.
           </p>
-          
-          {/* Urgency element */}
-          <div className="bg-red-50 border border-red-200 rounded-lg p-4 mt-6 max-w-md mx-auto">
-            <p className="text-red-800 font-semibold">
-              ⏰ Only 47 new businesses accepted this week
-            </p>
-          </div>
         </AnimatedSection>
 
         <div ref={cardsRef} className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -105,34 +98,34 @@ const PricingSection = () => {
               delay={(index + 1) * 100}
               hoverEffect
             >
-              <Card className={`border-2 ${plan.popular ? 'border-teal-300 bg-gradient-to-br from-white to-teal-50 ring-2 ring-teal-200' : 'border-slate-200'} rounded-2xl relative transform transition-all duration-500 h-full flex flex-col`}>
+              <Card className={`border-2 ${plan.popular ? 'border-brand-accent bg-gradient-to-br from-white to-brand-accent-light ring-2 ring-brand-accent/20' : 'border-gray-200'} rounded-2xl relative transform transition-all duration-500 h-full flex flex-col shadow-lg`}>
                 {plan.popular && (
-                  <Badge className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-teal-600 hover:bg-teal-700">
+                  <Badge className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-gradient-brand text-white">
                     <Crown className="w-3 h-3 mr-1" />
                     Most Popular
                   </Badge>
                 )}
                 <CardHeader className="flex-grow">
-                  <CardTitle className="text-2xl">{plan.name}</CardTitle>
+                  <CardTitle className="text-2xl font-semibold text-gray-900">{plan.name}</CardTitle>
                   <div className="space-y-2">
-                    <div className="text-4xl font-bold">{plan.price}</div>
-                    <div className="text-slate-600">{plan.period}</div>
-                    <div className="text-sm font-medium text-teal-600">{plan.savings}</div>
+                    <div className="text-4xl font-bold text-gray-900">{plan.price}</div>
+                    <div className="text-gray-600">{plan.period}</div>
+                    <div className="text-sm font-medium text-brand-primary-dark">{plan.savings}</div>
                   </div>
                   
                   {/* Location information */}
-                  <div className="bg-blue-50 border border-blue-200 rounded-lg p-3 mt-4">
+                  <div className="bg-brand-primary border border-brand-primary-dark/20 rounded-lg p-3 mt-4">
                     <div className="text-center space-y-1">
-                      <div className="font-semibold text-blue-800">{plan.locations}</div>
-                      <div className="text-xs text-blue-600">{plan.addon}</div>
+                      <div className="font-semibold text-brand-primary-dark">{plan.locations}</div>
+                      <div className="text-xs text-gray-600">{plan.addon}</div>
                     </div>
                   </div>
                   
                   {/* ROI indicator */}
-                  <div className="bg-green-50 border border-green-200 rounded-lg p-3 mt-3">
+                  <div className="bg-brand-success-light border border-brand-success/20 rounded-lg p-3 mt-3">
                     <div className="flex items-center space-x-2">
-                      <Calculator className="w-4 h-4 text-green-600" />
-                      <span className="text-green-800 font-bold text-sm">{plan.roi}</span>
+                      <Calculator className="w-4 h-4 text-brand-success" />
+                      <span className="text-brand-success font-bold text-sm">{plan.roi}</span>
                     </div>
                   </div>
                 </CardHeader>
@@ -140,38 +133,36 @@ const PricingSection = () => {
                   <ul className="space-y-3 flex-grow">
                     {plan.features.map((feature) => (
                       <li key={feature} className="flex items-center space-x-2">
-                        <Check className="w-4 h-4 text-teal-600 flex-shrink-0" />
-                        <span className="text-slate-600">{feature}</span>
+                        <Check className="w-4 h-4 text-brand-success flex-shrink-0" />
+                        <span className="text-gray-600">{feature}</span>
                       </li>
                     ))}
                   </ul>
                   <Button 
-                    className={`w-full mt-auto ${plan.popular ? 'bg-teal-600 hover:bg-teal-700 text-white' : ''}`} 
+                    className={`w-full mt-auto ${plan.popular ? 'bg-gradient-brand text-white shadow-brand' : ''}`} 
                     variant={plan.buttonVariant}
                     onClick={() => handlePlanClick(plan.name)}
                   >
                     {plan.buttonText}
                   </Button>
                   
-                  {/* Risk reversal */}
-                  {plan.name !== "Enterprise" && (
-                    <p className="text-xs text-center text-slate-500 mt-2">
-                      30-day money-back guarantee
-                    </p>
-                  )}
+                  {/* Honest guarantee */}
+                  <p className="text-xs text-center text-gray-500 mt-2">
+                    No long-term contracts
+                  </p>
                 </CardContent>
               </Card>
             </AnimatedCard>
           ))}
         </div>
         
-        {/* Trust signals */}
+        {/* Simpler trust signals */}
         <div className="text-center mt-12 space-y-4">
-          <p className="text-slate-600">
-            <strong>Easy onboarding</strong> • <strong>No setup fees</strong> • <strong>Cancel anytime</strong>
+          <p className="text-gray-600 text-lg">
+            <strong>Free to try</strong> • <strong>No setup fees</strong> • <strong>Cancel anytime</strong>
           </p>
-          <p className="text-sm text-slate-500">
-            Join forward-thinking businesses using digital loyalty
+          <p className="text-sm text-gray-500">
+            Used by local businesses across the country
           </p>
         </div>
       </div>

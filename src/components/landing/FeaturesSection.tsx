@@ -9,29 +9,29 @@ import { memo } from "react";
 const features = [
   {
     icon: QrCode,
-    title: "Works for any business - from nail salons to auto shops",
-    description: "Your customers simply scan your QR code with their phone camera - no app downloads, no physical cards to lose. Whether they're getting their nails done, car serviced, or buying coffee - their loyalty progress is always accessible.",
+    title: "Your customers already know how to use it",
+    description: "They scan your QR code with their phone camera. That's it. No app downloads, no account creation, no confusing onboarding. Whether they're getting their car fixed or nails done, it just works.",
     gradient: "from-brand-primary-dark to-brand-accent",
     hoverColor: "group-hover:text-brand-primary-dark",
-    benefit: "Universal compatibility, zero friction",
+    benefit: "Zero learning curve",
     bgAccent: "bg-brand-primary"
   },
   {
     icon: Gift,
-    title: "Flexible rewards that fit your business model",
-    description: "Nail salon offering the 10th manicure free? Auto shop with service discounts? Café with buy-9-get-1-free? Create rewards that actually make sense for your business and keep customers coming back.",
+    title: "Rewards that actually make sense for your business",
+    description: "Hair salon? 10th cut free. Auto shop? $50 off after 5 oil changes. Coffee shop? Buy 9, get 1. Create rewards that fit how your business actually works, not some generic template.",
     gradient: "from-brand-accent to-brand-accent",
     hoverColor: "group-hover:text-brand-accent",
-    benefit: "Customizable for any industry",
+    benefit: "Fits your business model",
     bgAccent: "bg-brand-accent-light"
   },
   {
     icon: BarChart3,
-    title: "Know your customers better than ever",
-    description: "Stop guessing who your regulars are. Whether you're tracking haircut frequency, oil change intervals, or coffee habits - get clear insights on visit patterns and spending to build stronger relationships.",
+    title: "Finally know who your regulars actually are",
+    description: "Stop wondering if Maria comes in twice a week or twice a month. See which customers are worth keeping, when they usually visit, and what keeps them coming back. Data that actually helps.",
     gradient: "from-brand-success to-brand-primary-dark",
     hoverColor: "group-hover:text-brand-success",
-    benefit: "Customer insights for every business type",
+    benefit: "Real customer insights",
     bgAccent: "bg-brand-success-light"
   }
 ];
@@ -101,11 +101,10 @@ const FeaturesSection = () => {
           <div className="lg:col-span-3">
             <AnimatedSection threshold={0.1}>
               <h2 className="font-display text-4xl lg:text-5xl font-extrabold text-gray-900 mb-6 tracking-tight text-balance">
-                Built for real businesses, not just trendy cafés
+                We built this for the businesses everyone else ignores
               </h2>
               <p className="text-xl text-gray-600 leading-relaxed text-balance">
-                Whether you run a nail salon, auto repair shop, laundromat, barbershop, or café — 
-                our digital loyalty system works for businesses that serve real communities.
+                Sure, trendy coffee shops get all the startup attention. But what about Maria's nail salon? Tony's auto shop? The laundromat on 5th Street? They need loyal customers too.
               </p>
             </AnimatedSection>
           </div>
