@@ -65,14 +65,14 @@ const HeroSection = () => {
                   🚀 Limited Time: Setup fee waived (normally $99)
                 </Badge>
               </div>
-              <h1 className="text-3xl sm:text-4xl lg:text-6xl xl:text-7xl font-bold text-slate-800 leading-tight text-center lg:text-left">
+              <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-extrabold text-slate-900 leading-[1.1] text-center lg:text-left tracking-tight">
                 Every local business deserves{" "}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-600 via-teal-500 to-orange-400 animate-pulse">
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-600 via-teal-500 to-orange-400">
                   loyal customers
                 </span>
               </h1>
-              <p className="text-base sm:text-lg lg:text-xl xl:text-2xl text-slate-600 leading-relaxed font-medium text-center lg:text-left px-2 sm:px-0">
-                Whether you run a nail salon, auto shop, café, or laundromat - digital loyalty cards that actually work. Your customers simply scan your QR code. No apps, no lost cards.
+              <p className="text-lg sm:text-xl lg:text-2xl text-slate-600 leading-relaxed font-medium text-center lg:text-left max-w-2xl">
+                Whether you run a nail salon, auto shop, café, or laundromat — get digital loyalty cards that actually work. Customers scan, you grow.
               </p>
               
               {/* Problem statement with industry context */}

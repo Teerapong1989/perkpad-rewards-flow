@@ -82,10 +82,10 @@ const PricingSection = () => {
     <section id="pricing" className="py-20 px-6 bg-gradient-to-br from-slate-50 to-teal-50">
       <div className="max-w-7xl mx-auto">
         <AnimatedSection className="text-center mb-16" threshold={0.1}>
-          <h2 className="text-4xl font-bold text-slate-800 mb-4">
+          <h2 className="font-display text-4xl lg:text-5xl font-extrabold text-slate-900 mb-6 tracking-tight">
             Pricing that pays for itself in week 1
           </h2>
-          <p className="text-xl text-slate-600">
+          <p className="text-xl lg:text-2xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
             If you don't see more repeat customers in 60 days, we'll refund everything + pay you $100
           </p>
           
