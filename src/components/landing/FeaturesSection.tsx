@@ -107,8 +107,8 @@ const FeaturesSection = () => {
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6 mt-12 max-w-5xl mx-auto">
             <AnimatedSection delay={200}>
               <div className="bg-brand-success-light border border-brand-success/20 rounded-2xl p-4 lg:p-6 text-center h-full flex flex-col justify-center">
-                <div className="text-2xl lg:text-3xl font-bold text-brand-success mb-2">87%</div>
-                <div className="text-xs lg:text-sm text-gray-600">Customer retention increase</div>
+                <div className="text-2xl lg:text-3xl font-bold text-brand-success mb-2">100%</div>
+                <div className="text-xs lg:text-sm text-gray-600">Digital loyalty</div>
               </div>
             </AnimatedSection>
             <AnimatedSection delay={400}>
