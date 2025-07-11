@@ -66,13 +66,13 @@ const BusinessTypeSection = () => {
   };
 
   return (
-    <section className="py-20 px-6 bg-gradient-to-br from-slate-50 to-teal-50">
+    <section className="py-16 sm:py-20 px-4 sm:px-6 bg-white relative z-10">
       <div className="max-w-7xl mx-auto">
-        <AnimatedSection className="text-center mb-16" threshold={0.1}>
-          <h2 className="text-4xl font-bold text-slate-800 mb-4">
+        <AnimatedSection className="text-center mb-12 sm:mb-16" threshold={0.1}>
+          <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold text-gray-900 mb-4 sm:mb-6 tracking-tight text-balance">
             Perfect for your type of business
           </h2>
-          <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+          <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed text-balance">
             See how Perkpad works for businesses like yours. Click any business type to see a customized loyalty program example.
           </p>
         </AnimatedSection>
@@ -92,30 +92,30 @@ const BusinessTypeSection = () => {
                 <Card 
                   className={`cursor-pointer transition-all duration-300 border-2 h-full ${
                     isSelected 
-                      ? 'border-teal-400 shadow-lg ring-2 ring-teal-200' 
-                      : 'border-slate-200 hover:border-teal-300 hover:shadow-md'
+                      ? 'border-brand-accent shadow-brand ring-2 ring-brand-accent/20' 
+                      : 'border-gray-200 hover:border-brand-primary-dark hover:shadow-md'
                   } bg-gradient-to-br ${business.bgGradient}`}
                   onClick={() => setSelectedType(isSelected ? null : business.type)}
                 >
-                  <CardContent className="p-6">
-                    <div className="text-center space-y-4">
-                      <div className={`w-16 h-16 bg-gradient-to-br ${business.gradient} rounded-2xl flex items-center justify-center mx-auto mb-4 transform transition-transform duration-300 ${isSelected ? 'scale-110 rotate-3' : ''}`}>
-                        <Icon className="w-8 h-8 text-white" />
+                  <CardContent className="p-4 sm:p-6">
+                    <div className="text-center space-y-3 sm:space-y-4">
+                      <div className={`w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-br ${business.gradient} rounded-2xl flex items-center justify-center mx-auto mb-3 sm:mb-4 transform transition-transform duration-300 ${isSelected ? 'scale-110 rotate-3' : ''}`}>
+                        <Icon className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
                       </div>
                       
-                      <h3 className="text-xl font-bold text-slate-800">{business.type}</h3>
+                      <h3 className="text-lg sm:text-xl font-bold text-gray-900">{business.type}</h3>
                       
-                      <div className={`p-3 rounded-lg transition-all duration-300 ${
-                        isSelected ? 'bg-teal-100 border-2 border-teal-300' : 'bg-slate-100'
+                      <div className={`p-2 sm:p-3 rounded-lg transition-all duration-300 ${
+                        isSelected ? 'bg-brand-accent-light border-2 border-brand-accent/30' : 'bg-gray-100'
                       }`}>
-                        <p className={`font-semibold text-sm ${isSelected ? 'text-teal-700' : 'text-slate-700'}`}>
+                        <p className={`font-semibold text-xs sm:text-sm ${isSelected ? 'text-brand-accent' : 'text-gray-700'}`}>
                           Example: {business.description}
                         </p>
                       </div>
                       
                       <div className="space-y-1">
                         {business.examples.map((example, idx) => (
-                          <span key={idx} className="inline-block bg-white/70 text-slate-600 text-xs px-2 py-1 rounded-full mr-1 mb-1">
+                          <span key={idx} className="inline-block bg-white/70 text-gray-600 text-xs px-2 py-1 rounded-full mr-1 mb-1">
                             {example}
                           </span>
                         ))}
@@ -129,22 +129,22 @@ const BusinessTypeSection = () => {
         </div>
 
         {selectedType && (
-          <div className="bg-white rounded-2xl shadow-lg p-8 max-w-2xl mx-auto border-2 border-teal-200 animate-fade-in">
+          <div className="bg-white rounded-2xl shadow-elegant p-6 sm:p-8 max-w-2xl mx-auto border-2 border-brand-accent/30 animate-fade-in">
             <div className="text-center space-y-4">
-              <h3 className="text-2xl font-bold text-teal-700">Perfect! Let's set up your {selectedType.toLowerCase()}</h3>
-              <p className="text-slate-600">
+              <h3 className="text-xl sm:text-2xl font-bold text-brand-primary-dark">Perfect! Let's set up your {selectedType.toLowerCase()}</h3>
+              <p className="text-gray-600">
                 Our 2-minute setup will create a loyalty program specifically designed for businesses like yours.
               </p>
               <Button 
                 size="lg"
-                className="bg-gradient-to-r from-teal-600 to-teal-700 hover:from-teal-700 hover:to-teal-800 text-lg px-8 py-6 rounded-xl shadow-lg transform hover:scale-105 transition-all duration-300"
+                className="bg-gradient-brand text-white shadow-brand hover:shadow-elegant text-base sm:text-lg px-6 sm:px-8 py-4 sm:py-6 rounded-xl transform hover:scale-105 transition-all duration-300 w-full sm:w-auto"
                 onClick={handleGetStarted}
               >
                 Start Free Setup for {selectedType}
-                <ArrowRight className="ml-2 w-5 h-5" />
+                <ArrowRight className="ml-2 w-4 h-4 sm:w-5 sm:h-5" />
               </Button>
-              <p className="text-sm text-slate-500">
-                No credit card required • 30-day money-back guarantee
+              <p className="text-xs sm:text-sm text-gray-500">
+                No credit card required • No long-term contracts
               </p>
             </div>
           </div>
@@ -152,15 +152,15 @@ const BusinessTypeSection = () => {
 
         {!selectedType && (
           <div className="text-center">
-            <p className="text-slate-600 mb-6">Don't see your business type? No problem!</p>
+            <p className="text-gray-600 mb-6">Don't see your business type? No problem!</p>
             <Button 
               variant="outline"
               size="lg"
-              className="border-teal-300 text-teal-700 hover:bg-teal-50 text-lg px-8 py-6 rounded-xl"
+              className="border-brand-primary-dark text-brand-primary-dark hover:bg-brand-primary hover:border-brand-primary-dark text-base sm:text-lg px-6 sm:px-8 py-4 sm:py-6 rounded-xl"
               onClick={handleGetStarted}
             >
               Set Up For Any Business Type
-              <ArrowRight className="ml-2 w-5 h-5" />
+              <ArrowRight className="ml-2 w-4 h-4 sm:w-5 sm:h-5" />
             </Button>
           </div>
         )}
