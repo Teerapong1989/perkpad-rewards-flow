@@ -8,30 +8,16 @@ import { AnimatedCard } from "@/components/ui/AnimatedCard";
 
 const pricingPlans = [
   {
-    name: "Free", 
-    price: "$0",
-    period: "per month",
-    savings: "Get started for free",
-    features: [
-      "1 location",
-      "QR stamp card system",
-      "Basic dashboard",
-      "No customization"
-    ],
-    buttonText: "Start Free Trial",
-    buttonVariant: "outline" as const,
-    popular: false,
-    roi: "Perfect for testing"
-  },
-  {
     name: "Pro",
-    price: "$29", 
+    price: "$30", 
     period: "per month",
-    savings: "Less than $1/day",
+    locations: "1 location included",
+    addon: "+$10/month per additional location",
+    savings: "Perfect for single locations",
     features: [
-      "Everything in Free, plus:",
+      "1 location included",
+      "QR stamp card system",
       "Custom branding (logo + color)",
-      "Unlimited locations",
       "Customer database access",
       "Email/SMS marketing (basic)",
       "Reward customization",
@@ -45,20 +31,45 @@ const pricingPlans = [
   },
   {
     name: "Growth",
-    price: "$59",
+    price: "$60",
     period: "per month",
-    savings: "Save $348 vs monthly",
+    locations: "3 locations included",
+    addon: "+$8/month per additional location",
+    savings: "Best for growing businesses",
     features: [
+      "3 locations included",
       "Everything in Pro, plus:",
       "Multi-location dashboard",
       "Location-based reporting", 
+      "Advanced analytics",
       "Printed sign-ready QR downloads",
-      "VIP support"
+      "Priority support"
     ],
     buttonText: "Start Free 30-Day Trial",
     buttonVariant: "default" as const,
     popular: false,
     roi: "Typical ROI: $1,770/month"
+  },
+  {
+    name: "Enterprise",
+    price: "Custom",
+    period: "pricing",
+    locations: "4+ locations",
+    addon: "Custom plan & support available",
+    savings: "Tailored for large operations",
+    features: [
+      "4+ locations included",
+      "Everything in Growth, plus:",
+      "White-label solution",
+      "Advanced integrations",
+      "Dedicated account manager",
+      "Custom reporting",
+      "24/7 priority support"
+    ],
+    buttonText: "Contact Sales",
+    buttonVariant: "outline" as const,
+    popular: false,
+    roi: "Custom ROI analysis"
   }
 ];
 
@@ -112,8 +123,16 @@ const PricingSection = () => {
                     <div className="text-sm font-medium text-teal-600">{plan.savings}</div>
                   </div>
                   
+                  {/* Location information */}
+                  <div className="bg-blue-50 border border-blue-200 rounded-lg p-3 mt-4">
+                    <div className="text-center space-y-1">
+                      <div className="font-semibold text-blue-800">{plan.locations}</div>
+                      <div className="text-xs text-blue-600">{plan.addon}</div>
+                    </div>
+                  </div>
+                  
                   {/* ROI indicator */}
-                  <div className="bg-green-50 border border-green-200 rounded-lg p-3 mt-4">
+                  <div className="bg-green-50 border border-green-200 rounded-lg p-3 mt-3">
                     <div className="flex items-center space-x-2">
                       <Calculator className="w-4 h-4 text-green-600" />
                       <span className="text-green-800 font-bold text-sm">{plan.roi}</span>
