@@ -43,7 +43,7 @@ const pricingPlans = [
       "Create custom rewards",
       "Automated campaigns & customer engagement tools"
     ],
-    buttonText: "Get Started",
+    buttonText: "Start 30-Day Free Trial",
     buttonVariant: "default" as const,
     popular: true,
     roi: "Usually pays for itself quickly"
@@ -65,7 +65,7 @@ const pricingPlans = [
       "Compare location performance",
       "Priority support"
     ],
-    buttonText: "Get Started",
+    buttonText: "Start 30-Day Free Trial",
     buttonVariant: "default" as const,
     popular: false,
     roi: "Great for multi-location owners"
