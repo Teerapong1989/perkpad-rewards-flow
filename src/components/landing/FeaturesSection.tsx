@@ -27,11 +27,11 @@ const features = [
   },
   {
     icon: BarChart3,
-    title: "Finally know who your regulars actually are",
-    description: "Stop wondering if Maria comes in twice a week or twice a month. See which customers are worth keeping, when they usually visit, and what keeps them coming back. Data that actually helps.",
+    title: "See your customer visit patterns",
+    description: "Track who visits when, how often they come back, and which rewards they claim. See seasonal trends and identify your most loyal customers with clear, simple analytics.",
     gradient: "from-brand-success to-brand-primary-dark",
     hoverColor: "group-hover:text-brand-success",
-    benefit: "Real customer insights",
+    benefit: "Visit & loyalty tracking",
     bgAccent: "bg-brand-success-light"
   }
 ];

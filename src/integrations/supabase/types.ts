@@ -1381,6 +1381,53 @@ export type Database = {
         }
         Relationships: []
       }
+      sms_billing: {
+        Row: {
+          billing_month: number
+          billing_year: number
+          business_id: string
+          created_at: string
+          id: string
+          overage_amount_cents: number
+          overage_credits: number
+          status: string
+          stripe_invoice_id: string | null
+          updated_at: string
+        }
+        Insert: {
+          billing_month: number
+          billing_year: number
+          business_id: string
+          created_at?: string
+          id?: string
+          overage_amount_cents?: number
+          overage_credits?: number
+          status?: string
+          stripe_invoice_id?: string | null
+          updated_at?: string
+        }
+        Update: {
+          billing_month?: number
+          billing_year?: number
+          business_id?: string
+          created_at?: string
+          id?: string
+          overage_amount_cents?: number
+          overage_credits?: number
+          status?: string
+          stripe_invoice_id?: string | null
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "sms_billing_business_id_fkey"
+            columns: ["business_id"]
+            isOneToOne: false
+            referencedRelation: "businesses"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       sms_campaign_recipients: {
         Row: {
           campaign_id: string
@@ -1473,6 +1520,116 @@ export type Database = {
         }
         Relationships: []
       }
+      sms_logs: {
+        Row: {
+          business_id: string
+          campaign_id: string | null
+          cost_cents: number | null
+          created_at: string
+          credits_used: number
+          customer_id: string | null
+          error_message: string | null
+          id: string
+          message_content: string
+          phone_number: string
+          sent_at: string | null
+          status: string
+          twilio_message_sid: string | null
+        }
+        Insert: {
+          business_id: string
+          campaign_id?: string | null
+          cost_cents?: number | null
+          created_at?: string
+          credits_used?: number
+          customer_id?: string | null
+          error_message?: string | null
+          id?: string
+          message_content: string
+          phone_number: string
+          sent_at?: string | null
+          status?: string
+          twilio_message_sid?: string | null
+        }
+        Update: {
+          business_id?: string
+          campaign_id?: string | null
+          cost_cents?: number | null
+          created_at?: string
+          credits_used?: number
+          customer_id?: string | null
+          error_message?: string | null
+          id?: string
+          message_content?: string
+          phone_number?: string
+          sent_at?: string | null
+          status?: string
+          twilio_message_sid?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "sms_logs_business_id_fkey"
+            columns: ["business_id"]
+            isOneToOne: false
+            referencedRelation: "businesses"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "sms_logs_campaign_id_fkey"
+            columns: ["campaign_id"]
+            isOneToOne: false
+            referencedRelation: "sms_campaigns"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      sms_usage: {
+        Row: {
+          business_id: string
+          created_at: string
+          id: string
+          included_credits: number
+          month: number
+          overage_credits: number
+          purchased_credits: number
+          updated_at: string
+          used_credits: number
+          year: number
+        }
+        Insert: {
+          business_id: string
+          created_at?: string
+          id?: string
+          included_credits?: number
+          month: number
+          overage_credits?: number
+          purchased_credits?: number
+          updated_at?: string
+          used_credits?: number
+          year: number
+        }
+        Update: {
+          business_id?: string
+          created_at?: string
+          id?: string
+          included_credits?: number
+          month?: number
+          overage_credits?: number
+          purchased_credits?: number
+          updated_at?: string
+          used_credits?: number
+          year?: number
+        }
+        Relationships: [
+          {
+            foreignKeyName: "sms_usage_business_id_fkey"
+            columns: ["business_id"]
+            isOneToOne: false
+            referencedRelation: "businesses"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       subscription_plans: {
         Row: {
           billing_period: string
@@ -1480,11 +1637,13 @@ export type Database = {
           description: string | null
           features: Json
           id: string
+          included_sms_credits: number | null
           is_active: boolean
           max_locations: number | null
           max_loyalty_cards: number | null
           max_staff_members: number | null
           name: string
+          overage_rate_cents: number | null
           price_cents: number
           stripe_price_id: string | null
           trial_days: number | null
@@ -1496,11 +1655,13 @@ export type Database = {
           description?: string | null
           features?: Json
           id?: string
+          included_sms_credits?: number | null
           is_active?: boolean
           max_locations?: number | null
           max_loyalty_cards?: number | null
           max_staff_members?: number | null
           name: string
+          overage_rate_cents?: number | null
           price_cents?: number
           stripe_price_id?: string | null
           trial_days?: number | null
@@ -1512,11 +1673,13 @@ export type Database = {
           description?: string | null
           features?: Json
           id?: string
+          included_sms_credits?: number | null
           is_active?: boolean
           max_locations?: number | null
           max_loyalty_cards?: number | null
           max_staff_members?: number | null
           name?: string
+          overage_rate_cents?: number | null
           price_cents?: number
           stripe_price_id?: string | null
           trial_days?: number | null
@@ -1796,6 +1959,16 @@ export type Database = {
         Args: { p_business_id: string }
         Returns: Json
       }
+      get_current_sms_usage: {
+        Args: { p_business_id: string }
+        Returns: {
+          included_credits: number
+          used_credits: number
+          remaining_credits: number
+          overage_credits: number
+          overage_cost_cents: number
+        }[]
+      }
       get_enhanced_platform_metrics: {
         Args: Record<PropertyKey, never>
         Returns: {
@@ -1946,6 +2119,19 @@ export type Database = {
       text_to_bytea: {
         Args: { data: string }
         Returns: string
+      }
+      track_sms_usage: {
+        Args: {
+          p_business_id: string
+          p_phone_number: string
+          p_message_content: string
+          p_customer_id?: string
+          p_campaign_id?: string
+          p_credits_used?: number
+          p_cost_cents?: number
+          p_twilio_message_sid?: string
+        }
+        Returns: Json
       }
       update_achievement_progress: {
         Args: {
