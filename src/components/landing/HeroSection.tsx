@@ -4,6 +4,7 @@ import { QrCode, Gift, Star, ArrowRight, Users, Zap, Sparkles, Check, Clock, Tre
 import { Link } from "react-router-dom";
 import { memo, useCallback } from "react";
 import { trackUserBehavior, trackConversion } from "@/utils/analytics";
+import { AnimatedSection } from "@/components/ui/AnimatedSection";
 
 const FloatingElement = memo(({ className, children, delay = 0 }: { 
   className: string, 
@@ -57,87 +58,101 @@ const HeroSection = () => {
       
       <div className="max-w-7xl mx-auto relative flex items-center min-h-[80vh] sm:min-h-[70vh] lg:min-h-[85vh]">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center w-full">
-          <header className="space-y-6 sm:space-y-8 fade-in">
+          <header className="space-y-6 sm:space-y-8">
             <div className="space-y-4 sm:space-y-6">
-              <div className="flex items-center justify-center lg:justify-start mb-3 sm:mb-4">
-                <Badge className="bg-gradient-brand text-white px-3 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm font-medium shadow-brand">
-                  <Sparkles className="w-3 h-3 sm:w-4 sm:h-4 mr-1.5 sm:mr-2" aria-hidden="true" />
-                  New: No setup fees for the first 100 businesses
-                </Badge>
-              </div>
-              <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-extrabold text-gray-900 leading-[1.1] text-center lg:text-left tracking-tight text-balance">
-                The complete loyalty platform{" "}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-primary-dark via-brand-accent to-brand-accent">
-                  built for every business
-                </span>
-              </h1>
-              <p className="text-lg sm:text-xl lg:text-2xl text-gray-600 leading-relaxed font-medium text-center lg:text-left max-w-2xl text-balance">
-                From QR code scanning to AI insights. Multi-location support, SMS campaigns, real-time analytics. Everything you need to turn first-time customers into regulars.
-              </p>
+              <AnimatedSection animation="fade-in" delay={100}>
+                <div className="flex items-center justify-center lg:justify-start mb-3 sm:mb-4">
+                  <Badge className="bg-gradient-brand text-white px-3 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm font-medium shadow-brand">
+                    <Sparkles className="w-3 h-3 sm:w-4 sm:h-4 mr-1.5 sm:mr-2" aria-hidden="true" />
+                    New: No setup fees for the first 100 businesses
+                  </Badge>
+                </div>
+              </AnimatedSection>
+              
+              <AnimatedSection animation="fade-up" delay={200}>
+                <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-extrabold text-gray-900 leading-[1.1] text-center lg:text-left tracking-tight text-balance">
+                  The complete loyalty platform{" "}
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-primary-dark via-brand-accent to-brand-accent">
+                    built for every business
+                  </span>
+                </h1>
+              </AnimatedSection>
+              
+              <AnimatedSection animation="fade-up" delay={400}>
+                <p className="text-lg sm:text-xl lg:text-2xl text-gray-600 leading-relaxed font-medium text-center lg:text-left max-w-2xl text-balance">
+                  From QR code scanning to AI insights. Multi-location support, SMS campaigns, real-time analytics. Everything you need to turn first-time customers into regulars.
+                </p>
+              </AnimatedSection>
               
               {/* Platform capabilities highlight */}
-              <aside className="bg-brand-accent-light border-l-4 border-brand-accent p-3 sm:p-4 rounded-r-xl mx-2 sm:mx-0 shadow-md">
-                <p className="text-gray-800 font-semibold text-sm sm:text-base">
-                  <span className="text-brand-accent font-bold">Enterprise-grade platform</span> designed for small business budgets. 12 business types supported, unlimited locations, AI-powered insights, and advanced security features.
-                </p>
-              </aside>
+              <AnimatedSection animation="fade-up" delay={600}>
+                <aside className="bg-brand-accent-light border-l-4 border-brand-accent p-3 sm:p-4 rounded-r-xl mx-2 sm:mx-0 shadow-md">
+                  <p className="text-gray-800 font-semibold text-sm sm:text-base">
+                    <span className="text-brand-accent font-bold">Enterprise-grade platform</span> designed for small business budgets. 12 business types supported, unlimited locations, AI-powered insights, and advanced security features.
+                  </p>
+                </aside>
+              </AnimatedSection>
             </div>
             
-            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 px-2 sm:px-0">
+            <AnimatedSection animation="fade-up" delay={800}>
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 px-2 sm:px-0">
+                  <Button 
+                  size="lg" 
+                  className="bg-gradient-brand hover:shadow-brand text-base sm:text-lg px-6 sm:px-10 py-6 sm:py-7 rounded-2xl shadow-elegant hover:shadow-xl transition-all duration-300 transform hover:scale-105 min-h-[48px] sm:min-h-[56px] will-change-transform text-white font-semibold"
+                  onClick={handleSignUpClick}
+                  aria-label="Start free today"
+                >
+                  Get Started Free
+                  <ArrowRight className="ml-2 w-4 h-4 sm:w-5 sm:h-5" aria-hidden="true" />
+                </Button>
                 <Button 
-                size="lg" 
-                className="bg-gradient-brand hover:shadow-brand text-base sm:text-lg px-6 sm:px-10 py-6 sm:py-7 rounded-2xl shadow-elegant hover:shadow-xl transition-all duration-300 transform hover:scale-105 min-h-[48px] sm:min-h-[56px] will-change-transform text-white font-semibold"
-                onClick={handleSignUpClick}
-                aria-label="Start free today"
-              >
-                Get Started Free
-                <ArrowRight className="ml-2 w-4 h-4 sm:w-5 sm:h-5" aria-hidden="true" />
-              </Button>
-              <Button 
-                variant="outline" 
-                size="lg"
-                className="border-gray-300 text-gray-700 hover:bg-gray-50 hover:border-brand-primary-dark text-base sm:text-lg px-6 sm:px-10 py-6 sm:py-7 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 min-h-[48px] sm:min-h-[56px] will-change-transform font-semibold"
-                onClick={handleDemoClick}
-                asChild
-              >
-                <Link to="/how-it-works" aria-label="Learn how our loyalty program works">
-                  <Play className="mr-2 w-4 h-4 sm:w-5 sm:h-5" aria-hidden="true" />
-                  See How It Works
-                </Link>
-              </Button>
-            </div>
+                  variant="outline" 
+                  size="lg"
+                  className="border-gray-300 text-gray-700 hover:bg-gray-50 hover:border-brand-primary-dark text-base sm:text-lg px-6 sm:px-10 py-6 sm:py-7 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 min-h-[48px] sm:min-h-[56px] will-change-transform font-semibold"
+                  onClick={handleDemoClick}
+                  asChild
+                >
+                  <Link to="/how-it-works" aria-label="Learn how our loyalty program works">
+                    <Play className="mr-2 w-4 h-4 sm:w-5 sm:h-5" aria-hidden="true" />
+                    See How It Works
+                  </Link>
+                </Button>
+              </div>
+            </AnimatedSection>
             
             {/* More honest guarantees */}
-            <div className="space-y-3 sm:space-y-4 px-2 sm:px-0">
-              <div className="flex items-center justify-center lg:justify-start space-x-2 text-brand-primary-dark font-semibold text-sm sm:text-base">
-                <div className="w-2 h-2 sm:w-3 sm:h-3 bg-brand-accent rounded-full animate-pulse" aria-hidden="true"></div>
-                <span>Production-ready platform • Advanced security included</span>
+            <AnimatedSection animation="fade-up" delay={1000}>
+              <div className="space-y-3 sm:space-y-4 px-2 sm:px-0">
+                <div className="flex items-center justify-center lg:justify-start space-x-2 text-brand-primary-dark font-semibold text-sm sm:text-base">
+                  <div className="w-2 h-2 sm:w-3 sm:h-3 bg-brand-accent rounded-full animate-pulse" aria-hidden="true"></div>
+                  <span>Production-ready platform • Advanced security included</span>
+                </div>
+                
+                <ul className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 text-xs sm:text-sm">
+                  <li className="flex items-center justify-center lg:justify-start space-x-2">
+                    <div className="w-5 h-5 sm:w-6 sm:h-6 bg-brand-success-light rounded-full flex items-center justify-center flex-shrink-0" aria-hidden="true">
+                      <Check className="w-3 h-3 sm:w-4 sm:h-4 text-brand-success" />
+                    </div>
+                    <span className="font-medium text-gray-700">Multi-location ready</span>
+                  </li>
+                  <li className="flex items-center justify-center lg:justify-start space-x-2">
+                    <div className="w-5 h-5 sm:w-6 sm:h-6 bg-brand-success-light rounded-full flex items-center justify-center flex-shrink-0" aria-hidden="true">
+                      <Check className="w-3 h-3 sm:w-4 sm:h-4 text-brand-success" />
+                    </div>
+                    <span className="font-medium text-gray-700">AI insights included</span>
+                  </li>
+                  <li className="flex items-center justify-center lg:justify-start space-x-2">
+                    <div className="w-5 h-5 sm:w-6 sm:h-6 bg-brand-success-light rounded-full flex items-center justify-center flex-shrink-0" aria-hidden="true">
+                      <Check className="w-3 h-3 sm:w-4 sm:h-4 text-brand-success" />
+                    </div>
+                    <span className="font-medium text-gray-700">Enterprise security</span>
+                  </li>
+                </ul>
               </div>
-              
-              <ul className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 text-xs sm:text-sm">
-                <li className="flex items-center justify-center lg:justify-start space-x-2">
-                  <div className="w-5 h-5 sm:w-6 sm:h-6 bg-brand-success-light rounded-full flex items-center justify-center flex-shrink-0" aria-hidden="true">
-                    <Check className="w-3 h-3 sm:w-4 sm:h-4 text-brand-success" />
-                  </div>
-                  <span className="font-medium text-gray-700">Multi-location ready</span>
-                </li>
-                <li className="flex items-center justify-center lg:justify-start space-x-2">
-                  <div className="w-5 h-5 sm:w-6 sm:h-6 bg-brand-success-light rounded-full flex items-center justify-center flex-shrink-0" aria-hidden="true">
-                    <Check className="w-3 h-3 sm:w-4 sm:h-4 text-brand-success" />
-                  </div>
-                  <span className="font-medium text-gray-700">AI insights included</span>
-                </li>
-                <li className="flex items-center justify-center lg:justify-start space-x-2">
-                  <div className="w-5 h-5 sm:w-6 sm:h-6 bg-brand-success-light rounded-full flex items-center justify-center flex-shrink-0" aria-hidden="true">
-                    <Check className="w-3 h-3 sm:w-4 sm:h-4 text-brand-success" />
-                  </div>
-                  <span className="font-medium text-gray-700">Enterprise security</span>
-                </li>
-              </ul>
-            </div>
+            </AnimatedSection>
           </header>
           
-          <div className="relative fade-in mt-8 lg:mt-0" style={{ animationDelay: '300ms' }}>
+          <AnimatedSection animation="fade-up" delay={500} className="relative mt-8 lg:mt-0">
             {/* Floating elements with performance optimization */}
             <FloatingElement 
               className="absolute -top-2 sm:-top-4 -left-2 sm:-left-4 w-12 h-12 sm:w-20 sm:h-20 bg-gradient-to-br from-orange-400 to-orange-500 rounded-2xl shadow-lg flex items-center justify-center"
@@ -182,7 +197,7 @@ const HeroSection = () => {
                 Real Perkpad dashboard interface showing loyalty program management, customer analytics, security status, and business tools for local businesses
               </figcaption>
             </figure>
-          </div>
+          </AnimatedSection>
         </div>
       </div>
     </section>
