@@ -65,8 +65,8 @@ const securityFeatures = [
     description: "Daily encrypted backups ensure your data is never lost"
   },
   {
-    title: "SOC2 Compliance",
-    description: "Same security standards as Fortune 500 companies"
+    title: "Customer Trust Guaranteed",
+    description: "Your customers' personal information is always protected and private"
   }
 ];
 
