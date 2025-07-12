@@ -1,9 +1,8 @@
 
 import { Button } from "@/components/ui/button";
-import { Menu, X } from "lucide-react";
+import { Gift, Menu, X } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import perkpadLogo from "@/assets/perkpad-logo.png";
 
 const MobileNavigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -24,12 +23,11 @@ const MobileNavigation = () => {
     <>
       {/* Navigation Bar */}
       <nav className="flex items-center justify-between p-4 sm:p-6 max-w-7xl mx-auto">
-        <div className="flex items-center space-x-3">
-          <img 
-            src={perkpadLogo} 
-            alt="Perkpad" 
-            className="w-10 h-10"
-          />
+        <div className="flex items-center space-x-2">
+          <div className="w-8 h-8 bg-gradient-brand rounded-lg flex items-center justify-center">
+            <Gift className="w-5 h-5 text-white" />
+          </div>
+          <span className="font-display text-lg sm:text-xl font-bold text-gray-900 tracking-tight">Perkpad</span>
         </div>
         
         {/* Desktop Navigation */}
@@ -81,12 +79,11 @@ const MobileNavigation = () => {
       {isMenuOpen && (
         <div className="lg:hidden fixed inset-0 z-50 bg-white">
           <div className="flex items-center justify-between p-4 border-b border-gray-200">
-            <div className="flex items-center space-x-3">
-              <img 
-                src={perkpadLogo} 
-                alt="Perkpad" 
-                className="w-10 h-10"
-              />
+            <div className="flex items-center space-x-2">
+              <div className="w-8 h-8 bg-gradient-brand rounded-lg flex items-center justify-center">
+                <Gift className="w-5 h-5 text-white" />
+              </div>
+              <span className="font-display text-xl font-bold text-gray-900 tracking-tight">Perkpad</span>
             </div>
             <button
               onClick={() => setIsMenuOpen(false)}
