@@ -4,11 +4,6 @@ import { Link } from "react-router-dom";
 import { trackUserBehavior, trackConversion } from "@/utils/analytics";
 
 const CTASection = () => {
-  const handleSignUpClick = () => {
-    trackUserBehavior('click', 'cta_section_primary');
-    trackConversion('signup');
-    window.open('https://tally.so/r/nGVLNp', '_blank', 'noopener,noreferrer');
-  };
 
   const handleDemoClick = () => {
     trackUserBehavior('click', 'cta_section_secondary');
@@ -54,7 +49,7 @@ const CTASection = () => {
           <Button 
             size="lg" 
             className="bg-white text-brand-primary-dark hover:bg-gray-50 hover:shadow-xl text-base sm:text-lg px-6 sm:px-8 py-4 sm:py-6 rounded-xl shadow-2xl transform hover:scale-105 transition-all duration-300 font-semibold"
-            onClick={handleSignUpClick}
+            onClick={() => window.open('https://app.perkpad.io', '_blank', 'noopener,noreferrer')}
           >
             Get Started Free
             <ArrowRight className="ml-2 w-4 h-4 sm:w-5 sm:h-5" />

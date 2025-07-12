@@ -43,7 +43,7 @@ const pricingPlans = [
       "Create custom rewards",
       "Automated campaigns & customer engagement tools"
     ],
-    buttonText: "Start 30-Day Trial",
+    buttonText: "Get Started",
     buttonVariant: "default" as const,
     popular: true,
     roi: "Usually pays for itself quickly"
@@ -65,7 +65,7 @@ const pricingPlans = [
       "Compare location performance",
       "Priority support"
     ],
-    buttonText: "Start 30-Day Trial",
+    buttonText: "Get Started",
     buttonVariant: "default" as const,
     popular: false,
     roi: "Great for multi-location owners"
@@ -76,8 +76,7 @@ const PricingSection = () => {
   const { containerRef: cardsRef, isInView: cardsInView } = useMultipleInView(3, { threshold: 0.2 });
 
   const handlePlanClick = (planName: string) => {
-    // All plans lead to Tally form for now
-    window.open('https://tally.so/r/nGVLNp', '_blank', 'noopener,noreferrer');
+    window.open('https://app.perkpad.io', '_blank', 'noopener,noreferrer');
   };
 
   return (

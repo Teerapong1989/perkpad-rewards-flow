@@ -96,10 +96,10 @@ const HeroSection = () => {
             
             <AnimatedSection animation="fade-up" delay={800}>
               <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 px-2 sm:px-0">
-                  <Button 
+                <Button 
                   size="lg" 
                   className="bg-gradient-brand hover:shadow-brand text-base sm:text-lg px-6 sm:px-10 py-6 sm:py-7 rounded-2xl shadow-elegant hover:shadow-xl transition-all duration-300 transform hover:scale-105 min-h-[48px] sm:min-h-[56px] will-change-transform text-white font-semibold"
-                  onClick={handleSignUpClick}
+                  onClick={() => window.open('https://app.perkpad.io', '_blank', 'noopener,noreferrer')}
                   aria-label="Start free today"
                 >
                   Get Started Free

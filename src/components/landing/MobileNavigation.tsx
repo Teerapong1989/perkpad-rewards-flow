@@ -7,9 +7,6 @@ import { useState } from "react";
 const MobileNavigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const handleSignUpClick = () => {
-    window.open('https://tally.so/r/nGVLNp', '_blank', 'noopener,noreferrer');
-  };
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
@@ -51,15 +48,8 @@ const MobileNavigation = () => {
             Features
           </button>
           <Button 
-            variant="outline" 
-            className="border-gray-300 text-gray-700 hover:bg-gray-50 hover:border-brand-primary-dark cursor-pointer min-h-[44px]"
-            onClick={() => window.open('https://perkpad-petal-power.lovable.app/', '_blank', 'noopener,noreferrer')}
-          >
-            Login
-          </Button>
-          <Button 
             className="bg-gradient-brand text-white shadow-brand hover:shadow-elegant min-h-[44px] px-6 font-semibold"
-            onClick={handleSignUpClick}
+            onClick={() => window.open('https://app.perkpad.io', '_blank', 'noopener,noreferrer')}
           >
             Get Started
           </Button>
@@ -116,19 +106,9 @@ const MobileNavigation = () => {
             </button>
             <div className="pt-4 space-y-3">
               <Button 
-                variant="outline" 
-                className="w-full border-gray-300 text-gray-700 hover:bg-gray-50 hover:border-brand-primary-dark min-h-[44px] text-base"
-                onClick={() => {
-                  window.open('https://perkpad-petal-power.lovable.app/', '_blank', 'noopener,noreferrer');
-                  setIsMenuOpen(false);
-                }}
-              >
-                Login
-              </Button>
-              <Button 
                 className="w-full bg-gradient-brand text-white shadow-brand min-h-[44px] text-base font-semibold"
                 onClick={() => {
-                  handleSignUpClick();
+                  window.open('https://app.perkpad.io', '_blank', 'noopener,noreferrer');
                   setIsMenuOpen(false);
                 }}
               >
