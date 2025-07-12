@@ -127,10 +127,10 @@ const FeaturesSection = () => {
         <div className="text-center mb-16 lg:mb-20">
           <AnimatedSection threshold={0.1}>
             <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold text-gray-900 mb-6 tracking-tight text-balance max-w-4xl mx-auto">
-              Enterprise features designed for local businesses
+              Professional tools that work for your business
             </h2>
             <p className="text-lg sm:text-xl text-gray-600 leading-relaxed text-balance max-w-3xl mx-auto">
-              From geofenced location verification to AI-powered retention insights. Multi-location management, advanced analytics, and enterprise security. Everything Fortune 500 companies use, built for small business budgets.
+              From automatic customer check-ins to smart business insights. Manage multiple locations, understand your customers better, and keep their data secure. Powerful features that are simple to use and affordable for small businesses.
             </p>
           </AnimatedSection>
           
@@ -151,13 +151,13 @@ const FeaturesSection = () => {
             <AnimatedSection delay={600}>
               <div className="bg-brand-primary border border-brand-primary-dark/20 rounded-2xl p-4 lg:p-6 text-center h-full flex flex-col justify-center">
                 <div className="text-2xl lg:text-3xl font-bold text-brand-primary-dark mb-2">AI</div>
-                <div className="text-xs lg:text-sm text-gray-600">Powered insights</div>
+                <div className="text-xs lg:text-sm text-gray-600">Smart insights</div>
               </div>
             </AnimatedSection>
             <AnimatedSection delay={800}>
               <div className="bg-gray-100 border border-gray-200 rounded-2xl p-4 lg:p-6 text-center h-full flex flex-col justify-center">
-                <div className="text-2xl lg:text-3xl font-bold text-gray-700 mb-2">SOC2</div>
-                <div className="text-xs lg:text-sm text-gray-600">Enterprise security</div>
+                <div className="text-2xl lg:text-3xl font-bold text-gray-700 mb-2">🔒</div>
+                <div className="text-xs lg:text-sm text-gray-600">Secure & private</div>
               </div>
             </AnimatedSection>
           </div>
