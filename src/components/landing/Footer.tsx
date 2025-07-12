@@ -4,49 +4,49 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <footer className="bg-slate-900 text-slate-300 py-16 px-6">
+    <footer className="bg-gray-900 text-gray-300 py-16 px-6">
       <div className="max-w-7xl mx-auto">
         <div className="grid md:grid-cols-4 gap-8 mb-12">
           <div>
             <div className="flex items-center space-x-2 mb-6">
-              <div className="w-8 h-8 bg-gradient-to-br from-teal-500 to-teal-600 rounded-lg flex items-center justify-center">
+              <div className="w-8 h-8 bg-gradient-brand rounded-lg flex items-center justify-center">
                 <Gift className="w-5 h-5 text-white" />
               </div>
               <span className="text-xl font-bold text-white">Perkpad</span>
             </div>
-            <p className="text-slate-400 leading-relaxed">
+            <p className="text-gray-400 leading-relaxed">
               The easiest way for small businesses to build customer loyalty with digital punch cards and rewards.
             </p>
           </div>
           <div>
             <h4 className="font-semibold text-white mb-4">Product</h4>
             <ul className="space-y-2">
-              <li><a href="#features" className="hover:text-teal-400 transition-colors">Features</a></li>
-              <li><a href="#pricing" className="hover:text-teal-400 transition-colors">Pricing</a></li>
-              <li><a href="/how-it-works" className="hover:text-teal-400 transition-colors">How It Works</a></li>
+              <li><a href="#features" className="hover:text-brand-accent transition-colors">Features</a></li>
+              <li><a href="#pricing" className="hover:text-brand-accent transition-colors">Pricing</a></li>
+              <li><a href="/how-it-works" className="hover:text-brand-accent transition-colors">How It Works</a></li>
             </ul>
           </div>
           <div>
             <h4 className="font-semibold text-white mb-4">Support</h4>
             <ul className="space-y-2">
-              <li><a href="https://tally.so/r/mRQ2Bl" target="_blank" rel="noopener noreferrer" className="hover:text-teal-400 transition-colors">Contact Support</a></li>
-              <li><a href="https://tally.so/r/mRQ2Bl" target="_blank" rel="noopener noreferrer" className="hover:text-teal-400 transition-colors">General Inquiries</a></li>
+              <li><a href="https://tally.so/r/mRQ2Bl" target="_blank" rel="noopener noreferrer" className="hover:text-brand-accent transition-colors">Contact Support</a></li>
+              <li><a href="https://tally.so/r/mRQ2Bl" target="_blank" rel="noopener noreferrer" className="hover:text-brand-accent transition-colors">General Inquiries</a></li>
             </ul>
           </div>
           <div>
             <h4 className="font-semibold text-white mb-4">Legal</h4>
             <ul className="space-y-2">
-              <li><Link to="/privacy-policy" className="hover:text-teal-400 transition-colors">Privacy Policy</Link></li>
-              <li><Link to="/terms-of-service" className="hover:text-teal-400 transition-colors">Terms of Service</Link></li>
+              <li><Link to="/privacy-policy" className="hover:text-brand-accent transition-colors">Privacy Policy</Link></li>
+              <li><Link to="/terms-of-service" className="hover:text-brand-accent transition-colors">Terms of Service</Link></li>
             </ul>
           </div>
         </div>
-        <div className="border-t border-slate-700 pt-8 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-slate-400">
+        <div className="border-t border-gray-700 pt-8 flex flex-col md:flex-row justify-between items-center">
+          <p className="text-gray-400">
             © 2024 Perkpad. All rights reserved.
           </p>
           <div className="flex space-x-6 mt-4 md:mt-0">
-            <span className="text-slate-500">Social Media - Coming Soon</span>
+            <span className="text-gray-500">Social Media - Coming Soon</span>
           </div>
         </div>
       </div>

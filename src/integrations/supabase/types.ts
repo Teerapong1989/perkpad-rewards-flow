@@ -14,6 +14,69 @@ export type Database = {
   }
   public: {
     Tables: {
+      achievements: {
+        Row: {
+          badge_color: string
+          business_id: string
+          category: string
+          created_at: string
+          description: string
+          icon: string
+          id: string
+          is_active: boolean
+          is_hidden: boolean
+          name: string
+          points: number
+          rarity: string
+          requirement_type: string
+          requirement_value: number
+          reward_type: string | null
+          reward_value: string | null
+          type: string
+          updated_at: string
+        }
+        Insert: {
+          badge_color?: string
+          business_id: string
+          category: string
+          created_at?: string
+          description: string
+          icon: string
+          id?: string
+          is_active?: boolean
+          is_hidden?: boolean
+          name: string
+          points?: number
+          rarity?: string
+          requirement_type: string
+          requirement_value: number
+          reward_type?: string | null
+          reward_value?: string | null
+          type: string
+          updated_at?: string
+        }
+        Update: {
+          badge_color?: string
+          business_id?: string
+          category?: string
+          created_at?: string
+          description?: string
+          icon?: string
+          id?: string
+          is_active?: boolean
+          is_hidden?: boolean
+          name?: string
+          points?: number
+          rarity?: string
+          requirement_type?: string
+          requirement_value?: number
+          reward_type?: string | null
+          reward_value?: string | null
+          type?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
       ai_recommendations: {
         Row: {
           business_id: string
@@ -142,9 +205,12 @@ export type Database = {
           business_id: string
           created_at: string
           email: string | null
+          geofence_radius_meters: number | null
           id: string
           is_active: boolean
           is_primary: boolean
+          latitude: number | null
+          longitude: number | null
           name: string
           phone: string | null
           updated_at: string
@@ -154,9 +220,12 @@ export type Database = {
           business_id: string
           created_at?: string
           email?: string | null
+          geofence_radius_meters?: number | null
           id?: string
           is_active?: boolean
           is_primary?: boolean
+          latitude?: number | null
+          longitude?: number | null
           name: string
           phone?: string | null
           updated_at?: string
@@ -166,9 +235,12 @@ export type Database = {
           business_id?: string
           created_at?: string
           email?: string | null
+          geofence_radius_meters?: number | null
           id?: string
           is_active?: boolean
           is_primary?: boolean
+          latitude?: number | null
+          longitude?: number | null
           name?: string
           phone?: string | null
           updated_at?: string
@@ -380,6 +452,53 @@ export type Database = {
         }
         Relationships: []
       }
+      customer_achievements: {
+        Row: {
+          achievement_id: string
+          business_id: string
+          claimed_at: string | null
+          completed_at: string | null
+          customer_id: string
+          id: string
+          is_completed: boolean
+          progress: number
+          reward_claimed: boolean
+          unlocked_at: string
+        }
+        Insert: {
+          achievement_id: string
+          business_id: string
+          claimed_at?: string | null
+          completed_at?: string | null
+          customer_id: string
+          id?: string
+          is_completed?: boolean
+          progress?: number
+          reward_claimed?: boolean
+          unlocked_at?: string
+        }
+        Update: {
+          achievement_id?: string
+          business_id?: string
+          claimed_at?: string | null
+          completed_at?: string | null
+          customer_id?: string
+          id?: string
+          is_completed?: boolean
+          progress?: number
+          reward_claimed?: boolean
+          unlocked_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "customer_achievements_achievement_id_fkey"
+            columns: ["achievement_id"]
+            isOneToOne: false
+            referencedRelation: "achievements"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       customer_business_memberships: {
         Row: {
           business_id: string
@@ -471,6 +590,87 @@ export type Database = {
             referencedColumns: ["id"]
           },
         ]
+      }
+      customer_levels: {
+        Row: {
+          achievements_unlocked: number
+          business_id: string
+          created_at: string
+          current_level: number
+          customer_id: string
+          id: string
+          points_to_next_level: number
+          total_points: number
+          updated_at: string
+        }
+        Insert: {
+          achievements_unlocked?: number
+          business_id: string
+          created_at?: string
+          current_level?: number
+          customer_id: string
+          id?: string
+          points_to_next_level?: number
+          total_points?: number
+          updated_at?: string
+        }
+        Update: {
+          achievements_unlocked?: number
+          business_id?: string
+          created_at?: string
+          current_level?: number
+          customer_id?: string
+          id?: string
+          points_to_next_level?: number
+          total_points?: number
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      customer_sessions: {
+        Row: {
+          business_id: string
+          created_at: string
+          customer_id: string
+          customer_latitude: number
+          customer_longitude: number
+          expires_at: string
+          id: string
+          is_active: boolean
+          location_accuracy_meters: number | null
+          location_verified_at: string
+          session_token: string
+          updated_at: string
+        }
+        Insert: {
+          business_id: string
+          created_at?: string
+          customer_id: string
+          customer_latitude: number
+          customer_longitude: number
+          expires_at?: string
+          id?: string
+          is_active?: boolean
+          location_accuracy_meters?: number | null
+          location_verified_at?: string
+          session_token: string
+          updated_at?: string
+        }
+        Update: {
+          business_id?: string
+          created_at?: string
+          customer_id?: string
+          customer_latitude?: number
+          customer_longitude?: number
+          expires_at?: string
+          id?: string
+          is_active?: boolean
+          location_accuracy_meters?: number | null
+          location_verified_at?: string
+          session_token?: string
+          updated_at?: string
+        }
+        Relationships: []
       }
       customer_streaks: {
         Row: {
@@ -777,6 +977,84 @@ export type Database = {
         }
         Relationships: []
       }
+      notification_logs: {
+        Row: {
+          business_id: string
+          clicked: boolean
+          clicked_at: string | null
+          customer_id: string
+          id: string
+          message: string
+          metadata: Json | null
+          notification_type: string
+          sent_at: string
+          title: string
+        }
+        Insert: {
+          business_id: string
+          clicked?: boolean
+          clicked_at?: string | null
+          customer_id: string
+          id?: string
+          message: string
+          metadata?: Json | null
+          notification_type: string
+          sent_at?: string
+          title: string
+        }
+        Update: {
+          business_id?: string
+          clicked?: boolean
+          clicked_at?: string | null
+          customer_id?: string
+          id?: string
+          message?: string
+          metadata?: Json | null
+          notification_type?: string
+          sent_at?: string
+          title?: string
+        }
+        Relationships: []
+      }
+      notification_preferences: {
+        Row: {
+          business_id: string
+          created_at: string
+          customer_id: string
+          friend_activity: boolean
+          id: string
+          new_challenges: boolean
+          reward_ready: boolean
+          special_offers: boolean
+          updated_at: string
+          visit_reminders: boolean
+        }
+        Insert: {
+          business_id: string
+          created_at?: string
+          customer_id: string
+          friend_activity?: boolean
+          id?: string
+          new_challenges?: boolean
+          reward_ready?: boolean
+          special_offers?: boolean
+          updated_at?: string
+          visit_reminders?: boolean
+        }
+        Update: {
+          business_id?: string
+          created_at?: string
+          customer_id?: string
+          friend_activity?: boolean
+          id?: string
+          new_challenges?: boolean
+          reward_ready?: boolean
+          special_offers?: boolean
+          updated_at?: string
+          visit_reminders?: boolean
+        }
+        Relationships: []
+      }
       performance_metrics: {
         Row: {
           additional_data: Json | null
@@ -885,6 +1163,45 @@ export type Database = {
           sms_marketing_consent?: boolean | null
           updated_at?: string
           wants_text_rewards?: boolean | null
+        }
+        Relationships: []
+      }
+      push_subscriptions: {
+        Row: {
+          auth_key: string
+          business_id: string
+          created_at: string
+          customer_id: string
+          endpoint: string
+          id: string
+          is_active: boolean
+          p256dh_key: string
+          updated_at: string
+          user_agent: string | null
+        }
+        Insert: {
+          auth_key: string
+          business_id: string
+          created_at?: string
+          customer_id: string
+          endpoint: string
+          id?: string
+          is_active?: boolean
+          p256dh_key: string
+          updated_at?: string
+          user_agent?: string | null
+        }
+        Update: {
+          auth_key?: string
+          business_id?: string
+          created_at?: string
+          customer_id?: string
+          endpoint?: string
+          id?: string
+          is_active?: boolean
+          p256dh_key?: string
+          updated_at?: string
+          user_agent?: string | null
         }
         Relationships: []
       }
@@ -1271,25 +1588,46 @@ export type Database = {
         Row: {
           business_id: string
           customer_id: string
+          customer_latitude: number | null
+          customer_longitude: number | null
+          distance_from_business_meters: number | null
           id: string
+          location_accuracy_meters: number | null
           location_id: string | null
+          location_verified: boolean | null
+          session_id: string | null
           stamps_earned: number
+          verification_method: string | null
           visited_at: string
         }
         Insert: {
           business_id: string
           customer_id: string
+          customer_latitude?: number | null
+          customer_longitude?: number | null
+          distance_from_business_meters?: number | null
           id?: string
+          location_accuracy_meters?: number | null
           location_id?: string | null
+          location_verified?: boolean | null
+          session_id?: string | null
           stamps_earned?: number
+          verification_method?: string | null
           visited_at?: string
         }
         Update: {
           business_id?: string
           customer_id?: string
+          customer_latitude?: number | null
+          customer_longitude?: number | null
+          distance_from_business_meters?: number | null
           id?: string
+          location_accuracy_meters?: number | null
           location_id?: string | null
+          location_verified?: boolean | null
+          session_id?: string | null
           stamps_earned?: number
+          verification_method?: string | null
           visited_at?: string
         }
         Relationships: [
@@ -1305,6 +1643,13 @@ export type Database = {
             columns: ["location_id"]
             isOneToOne: false
             referencedRelation: "business_locations"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "visits_session_id_fkey"
+            columns: ["session_id"]
+            isOneToOne: false
+            referencedRelation: "customer_sessions"
             referencedColumns: ["id"]
           },
         ]
@@ -1414,6 +1759,10 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
+      add_achievement_points: {
+        Args: { p_customer_id: string; p_business_id: string; p_points: number }
+        Returns: Json
+      }
       add_customer_xp: {
         Args: {
           p_customer_id: string
@@ -1427,6 +1776,10 @@ export type Database = {
       bytea_to_text: {
         Args: { data: string }
         Returns: string
+      }
+      cleanup_expired_sessions: {
+        Args: Record<PropertyKey, never>
+        Returns: undefined
       }
       cleanup_old_monitoring_data: {
         Args: Record<PropertyKey, never>
@@ -1573,6 +1926,15 @@ export type Database = {
       text_to_bytea: {
         Args: { data: string }
         Returns: string
+      }
+      update_achievement_progress: {
+        Args: {
+          p_customer_id: string
+          p_business_id: string
+          p_requirement_type: string
+          p_current_value: number
+        }
+        Returns: Json
       }
       update_challenge_progress: {
         Args: {
