@@ -6,9 +6,9 @@ import { AnimatedSection } from "@/components/ui/AnimatedSection";
 import { AnimatedCard } from "@/components/ui/AnimatedCard";
 
 const founderStory = {
-  quote: "We've talked to hundreds of small business owners - from nail salon owners to auto mechanics to café managers. They all face the same problem: customers love loyalty programs but hate keeping track of physical cards. We built Perkpad for every business that serves their community, not just the trendy ones.",
+  quote: "After seeing successful franchises with sophisticated loyalty systems, we asked: why can't every local business have enterprise-grade features? We built a platform with AI insights, multi-location management, advanced security, and powerful analytics - all at small business prices.",
   author: "The Perkpad Team",
-  role: "Building for All Small Businesses",
+  role: "Enterprise Features for Everyone",
   gradient: "from-teal-400 to-teal-500",
   cardGradient: "from-teal-50 to-white"
 };
@@ -16,15 +16,15 @@ const founderStory = {
 const earlyAccessBenefits = [
   {
     icon: Users,
-    title: "Join 487+ Local Businesses",
-    description: "From nail salons in Brooklyn to auto shops in Austin - diverse businesses are already making the switch. Your feedback helps us serve your industry better.",
+    title: "Production-Ready Platform",
+    description: "Built with the same infrastructure standards as Fortune 500 companies. Real-time sync, automated backups, 99.9% uptime SLA, and enterprise-grade security features that protect your customer data.",
     gradient: "from-purple-400 to-purple-500",
     cardGradient: "from-purple-50 to-white"
   },
   {
     icon: Target,
-    title: "Built for All Business Types",
-    description: "Whether you serve customers daily (like a café), weekly (like a barbershop), or monthly (like a nail salon) - our system adapts to your customer patterns.",
+    title: "Complete Business Intelligence",
+    description: "AI-powered customer retention insights, predictive analytics, ROI tracking, and automated campaign management. Get the same insights as big chains, tailored for your local business.",
     gradient: "from-orange-400 to-orange-500",
     cardGradient: "from-orange-50 to-white"
   }
@@ -38,10 +38,10 @@ const TestimonialsSection = () => {
       <div className="max-w-7xl mx-auto">
         <AnimatedSection className="text-center mb-16" threshold={0.1}>
           <h2 className="text-4xl font-bold text-slate-800 mb-4">
-            Why We're Building Perkpad
+            Enterprise Technology for Local Business
           </h2>
           <p className="text-xl text-slate-600">
-            A simple solution born from real small business frustrations
+            Built by experienced engineers who understand both technology and small business needs
           </p>
         </AnimatedSection>
 
@@ -106,14 +106,14 @@ const TestimonialsSection = () => {
         <div className="text-center mt-12">
           <div className="bg-gradient-to-r from-teal-50 to-orange-50 rounded-2xl p-8 max-w-3xl mx-auto">
             <h3 className="text-2xl font-bold text-slate-800 mb-4">
-              Ready to keep customers coming back?
+              Start with enterprise-grade tools today
             </h3>
             <p className="text-lg text-slate-600 mb-6">
-              Join nail salons, auto shops, cafés, and more. Your 2-minute setup starts now.
+              Multi-location management, AI insights, advanced security, SMS campaigns, and comprehensive analytics. Everything you need to compete with the big chains.
             </p>
             <div className="flex items-center justify-center space-x-2 text-teal-600 font-semibold">
               <div className="w-3 h-3 bg-teal-400 rounded-full animate-pulse"></div>
-              <span>30-day money-back guarantee • 2-minute setup promise</span>
+              <span>Free trial • Cancel anytime • No setup fees</span>
             </div>
           </div>
         </div>

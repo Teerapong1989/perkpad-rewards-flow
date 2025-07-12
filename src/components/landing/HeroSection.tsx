@@ -66,19 +66,19 @@ const HeroSection = () => {
                 </Badge>
               </div>
               <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-extrabold text-gray-900 leading-[1.1] text-center lg:text-left tracking-tight text-balance">
-                Stop losing customers to{" "}
+                The complete loyalty platform{" "}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-primary-dark via-brand-accent to-brand-accent">
-                  forgotten punch cards
+                  built for every business
                 </span>
               </h1>
               <p className="text-lg sm:text-xl lg:text-2xl text-gray-600 leading-relaxed font-medium text-center lg:text-left max-w-2xl text-balance">
-                Your customers scan a QR code. Their progress saves automatically. No apps, no lost cards, no frustration. Works for nail salons, auto shops, cafés — any local business.
+                From QR code scanning to AI insights. Multi-location support, SMS campaigns, real-time analytics. Everything you need to turn first-time customers into regulars.
               </p>
               
-              {/* Problem statement with industry context */}
+              {/* Platform capabilities highlight */}
               <aside className="bg-brand-accent-light border-l-4 border-brand-accent p-3 sm:p-4 rounded-r-xl mx-2 sm:mx-0 shadow-md">
                 <p className="text-gray-800 font-semibold text-sm sm:text-base">
-                  Real talk: <span className="text-brand-accent font-bold">Most punch cards get lost or forgotten</span>. We built this because we were tired of carrying 12 different loyalty cards in our wallets.
+                  <span className="text-brand-accent font-bold">Enterprise-grade platform</span> designed for small business budgets. 12 business types supported, unlimited locations, AI-powered insights, and advanced security features.
                 </p>
               </aside>
             </div>
@@ -111,7 +111,7 @@ const HeroSection = () => {
             <div className="space-y-3 sm:space-y-4 px-2 sm:px-0">
               <div className="flex items-center justify-center lg:justify-start space-x-2 text-brand-primary-dark font-semibold text-sm sm:text-base">
                 <div className="w-2 h-2 sm:w-3 sm:h-3 bg-brand-accent rounded-full animate-pulse" aria-hidden="true"></div>
-                <span>Takes 2 minutes to set up</span>
+                <span>Production-ready platform • Advanced security included</span>
               </div>
               
               <ul className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 text-xs sm:text-sm">
@@ -119,19 +119,19 @@ const HeroSection = () => {
                   <div className="w-5 h-5 sm:w-6 sm:h-6 bg-brand-success-light rounded-full flex items-center justify-center flex-shrink-0" aria-hidden="true">
                     <Check className="w-3 h-3 sm:w-4 sm:h-4 text-brand-success" />
                   </div>
-                  <span className="font-medium text-gray-700">Free to try</span>
+                  <span className="font-medium text-gray-700">Multi-location ready</span>
                 </li>
                 <li className="flex items-center justify-center lg:justify-start space-x-2">
                   <div className="w-5 h-5 sm:w-6 sm:h-6 bg-brand-success-light rounded-full flex items-center justify-center flex-shrink-0" aria-hidden="true">
                     <Check className="w-3 h-3 sm:w-4 sm:h-4 text-brand-success" />
                   </div>
-                  <span className="font-medium text-gray-700">Cancel anytime</span>
+                  <span className="font-medium text-gray-700">AI insights included</span>
                 </li>
                 <li className="flex items-center justify-center lg:justify-start space-x-2">
                   <div className="w-5 h-5 sm:w-6 sm:h-6 bg-brand-success-light rounded-full flex items-center justify-center flex-shrink-0" aria-hidden="true">
                     <Check className="w-3 h-3 sm:w-4 sm:h-4 text-brand-success" />
                   </div>
-                  <span className="font-medium text-gray-700">No long-term contracts</span>
+                  <span className="font-medium text-gray-700">Enterprise security</span>
                 </li>
               </ul>
             </div>

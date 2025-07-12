@@ -127,10 +127,10 @@ const FeaturesSection = () => {
         <div className="text-center mb-16 lg:mb-20">
           <AnimatedSection threshold={0.1}>
             <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold text-gray-900 mb-6 tracking-tight text-balance max-w-4xl mx-auto">
-              We built this for the businesses everyone else ignores
+              Enterprise features designed for local businesses
             </h2>
             <p className="text-lg sm:text-xl text-gray-600 leading-relaxed text-balance max-w-3xl mx-auto">
-              Sure, trendy coffee shops get all the startup attention. But what about Maria's nail salon? Tony's auto shop? The laundromat on 5th Street? They need loyal customers too.
+              From geofenced location verification to AI-powered retention insights. Multi-location management, advanced analytics, and enterprise security. Everything Fortune 500 companies use, built for small business budgets.
             </p>
           </AnimatedSection>
           
@@ -138,26 +138,26 @@ const FeaturesSection = () => {
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6 mt-12 max-w-5xl mx-auto">
             <AnimatedSection delay={200}>
               <div className="bg-brand-success-light border border-brand-success/20 rounded-2xl p-4 lg:p-6 text-center h-full flex flex-col justify-center">
-                <div className="text-2xl lg:text-3xl font-bold text-brand-success mb-2">100%</div>
-                <div className="text-xs lg:text-sm text-gray-600">Digital loyalty</div>
+                <div className="text-2xl lg:text-3xl font-bold text-brand-success mb-2">12</div>
+                <div className="text-xs lg:text-sm text-gray-600">Business types supported</div>
               </div>
             </AnimatedSection>
             <AnimatedSection delay={400}>
               <div className="bg-brand-accent-light border border-brand-accent/20 rounded-2xl p-4 lg:p-6 text-center h-full flex flex-col justify-center">
-                <div className="text-2xl lg:text-3xl font-bold text-brand-accent mb-2">2 min</div>
-                <div className="text-xs lg:text-sm text-gray-600">Average setup time</div>
+                <div className="text-2xl lg:text-3xl font-bold text-brand-accent mb-2">∞</div>
+                <div className="text-xs lg:text-sm text-gray-600">Multi-location support</div>
               </div>
             </AnimatedSection>
             <AnimatedSection delay={600}>
               <div className="bg-brand-primary border border-brand-primary-dark/20 rounded-2xl p-4 lg:p-6 text-center h-full flex flex-col justify-center">
-                <div className="text-2xl lg:text-3xl font-bold text-brand-primary-dark mb-2">NEW</div>
-                <div className="text-xs lg:text-sm text-gray-600">Fresh launch</div>
+                <div className="text-2xl lg:text-3xl font-bold text-brand-primary-dark mb-2">AI</div>
+                <div className="text-xs lg:text-sm text-gray-600">Powered insights</div>
               </div>
             </AnimatedSection>
             <AnimatedSection delay={800}>
               <div className="bg-gray-100 border border-gray-200 rounded-2xl p-4 lg:p-6 text-center h-full flex flex-col justify-center">
-                <div className="text-2xl lg:text-3xl font-bold text-gray-700 mb-2">24/7</div>
-                <div className="text-xs lg:text-sm text-gray-600">Always available</div>
+                <div className="text-2xl lg:text-3xl font-bold text-gray-700 mb-2">SOC2</div>
+                <div className="text-xs lg:text-sm text-gray-600">Enterprise security</div>
               </div>
             </AnimatedSection>
           </div>

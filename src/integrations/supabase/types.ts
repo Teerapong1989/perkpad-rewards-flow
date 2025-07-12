@@ -311,6 +311,7 @@ export type Database = {
           created_at: string
           current_period_end: string | null
           current_period_start: string | null
+          has_used_trial: boolean | null
           id: string
           last_trial_reminder_sent: string | null
           mailerlite_synced_at: string | null
@@ -326,6 +327,7 @@ export type Database = {
           created_at?: string
           current_period_end?: string | null
           current_period_start?: string | null
+          has_used_trial?: boolean | null
           id?: string
           last_trial_reminder_sent?: string | null
           mailerlite_synced_at?: string | null
@@ -341,6 +343,7 @@ export type Database = {
           created_at?: string
           current_period_end?: string | null
           current_period_start?: string | null
+          has_used_trial?: boolean | null
           id?: string
           last_trial_reminder_sent?: string | null
           mailerlite_synced_at?: string | null
@@ -1792,6 +1795,23 @@ export type Database = {
       generate_customer_retention_recommendations: {
         Args: { p_business_id: string }
         Returns: Json
+      }
+      get_enhanced_platform_metrics: {
+        Args: Record<PropertyKey, never>
+        Returns: {
+          total_businesses: number
+          total_customers: number
+          monthly_active_users: number
+          monthly_rewards_claimed: number
+          active_trials: number
+          total_trials_started: number
+          trial_conversion_rate: number
+          recent_errors: number
+          unresolved_security_alerts: number
+          customer_signups_today: number
+          customer_signups_this_week: number
+          customer_signups_this_month: number
+        }[]
       }
       get_platform_metrics: {
         Args: Record<PropertyKey, never>

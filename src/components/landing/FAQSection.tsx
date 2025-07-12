@@ -6,40 +6,40 @@ import { AnimatedCard } from "@/components/ui/AnimatedCard";
 
 const faqs = [
   {
+    question: "What business types do you support?",
+    answer: "We support 12 different business types including nail salons, auto repair shops, cafés, restaurants, retail stores, laundromats, pet groomers, dry cleaners, barber shops, fitness studios, beauty salons, and other service businesses. Our system adapts to your specific industry needs."
+  },
+  {
     question: "Can customers use this without downloading an app?",
-    answer: "Yes! That's the beauty of Perkpad. Customers simply use their phone's camera to scan your QR code - no app downloads required. It works through their web browser, making it incredibly convenient for everyone."
+    answer: "Yes! Customers simply scan your QR code with their phone camera - no app downloads required. It works through their web browser with advanced features like location verification and real-time progress tracking."
   },
   {
-    question: "How do customers collect stamps or rewards?",
-    answer: "Customers simply scan your QR code at checkout. It opens a browser-based experience (no app needed), where they can track stamps and unlock rewards."
+    question: "What advanced features do you offer?",
+    answer: "Enterprise-grade features include: AI-powered customer retention insights, multi-location management, geofenced location verification, SMS and email marketing campaigns, advanced analytics and ROI tracking, staff role management, automated rewards, and comprehensive security features."
   },
   {
-    question: "Can I customize the look and feel of my loyalty card?",
-    answer: "Yes! With a paid plan, you can add your logo, brand colors, and custom messaging for your customers."
+    question: "How does multi-location management work?",
+    answer: "Our Pro and Growth plans support unlimited locations with centralized management. Each location gets its own QR codes and staff PINs, while you maintain unified customer data, analytics, and reward configurations across all locations."
   },
   {
-    question: "What happens if a customer loses their phone?",
-    answer: "As long as they use the same phone number, their reward history is still saved and can be retrieved."
+    question: "What kind of analytics and insights do you provide?",
+    answer: "Advanced analytics include: real-time customer visit tracking, retention rate analysis, revenue impact metrics, AI-powered recommendations for improving loyalty, customer lifetime value calculations, and predictive insights about customer behavior patterns."
   },
   {
-    question: "How do I switch plans or cancel my subscription?",
-    answer: "You can upgrade, downgrade, or cancel your subscription at any time through your account dashboard under 'Billing & Plans.' There are no long-term contracts or cancellation fees. If you cancel, your account will remain active until the end of your current billing period."
+    question: "How secure is the platform?",
+    answer: "Enterprise-grade security with encryption at rest and in transit, automated security monitoring, fraud detection algorithms, IP blocking capabilities, comprehensive audit logs, and SOC2-compliant infrastructure. Your customer data is protected with the same standards as Fortune 500 companies."
   },
   {
-    question: "Can I use this for multiple business locations?",
-    answer: "Yes, our Pro plan supports multi-location loyalty programs with shared analytics and controls."
+    question: "Can I integrate with my existing POS system?",
+    answer: "Yes! We provide API endpoints for POS integration, webhook support for real-time updates, and automated data sync capabilities. Our technical team can help with custom integrations for Pro and Growth plan customers."
   },
   {
-    question: "Is customer data safe?",
-    answer: "Absolutely. We never sell or misuse customer data. Everything is securely encrypted and handled with care."
+    question: "What marketing tools are included?",
+    answer: "SMS and email campaign automation, customer segmentation tools, automated re-engagement campaigns, birthday and anniversary rewards, visit reminder notifications, and comprehensive campaign performance tracking with ROI metrics."
   },
   {
-    question: "What happens to my customer data if I cancel?",
-    answer: "Your customer data is always yours. Before canceling, you can export all your customer information and loyalty program data. We'll keep your data secure for 30 days after cancellation in case you decide to reactivate your account."
-  },
-  {
-    question: "Do you offer support for setting up my loyalty program?",
-    answer: "Absolutely! All paid plans include email support, and we have extensive setup guides and video tutorials. Pro and Enterprise customers get priority support, and Enterprise customers can schedule one-on-one setup calls with our team."
+    question: "How does the AI customer retention feature work?",
+    answer: "Our AI analyzes customer visit patterns, spending behavior, and engagement metrics to identify at-risk customers and suggest targeted retention strategies. It provides automated recommendations for rewards, timing, and messaging to maximize customer lifetime value."
   }
 ];
 
