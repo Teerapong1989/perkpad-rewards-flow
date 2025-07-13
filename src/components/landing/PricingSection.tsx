@@ -70,7 +70,7 @@ const PricingSection = () => {
   };
 
   return (
-    <section className="section-spacing container-padding bg-gradient-to-br from-slate-50 to-white">
+    <section id="pricing" className="section-spacing container-padding bg-gradient-to-br from-slate-50 to-white">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div ref={ref}>
