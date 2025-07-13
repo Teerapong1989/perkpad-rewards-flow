@@ -84,12 +84,66 @@ const PricingSection = () => {
           </AnimatedSection>
         </div>
 
-        {/* Pricing Table */}
-        <div className={`transition-all duration-1000 relative ${isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-          <div className="bg-white rounded-2xl shadow-lg border border-slate-200 overflow-visible relative">
+        {/* Mobile-First Pricing Cards */}
+        <div className={`transition-all duration-1000 ${isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+          {/* Mobile: Stacked Cards */}
+          <div className="lg:hidden space-y-6">
+            {pricingPlans.map((plan) => (
+              <div key={plan.name} className={`bg-white rounded-2xl shadow-lg border relative overflow-hidden ${plan.popular ? 'border-brand-primary ring-2 ring-brand-primary/20' : 'border-slate-200'}`}>
+                {plan.popular && (
+                  <div className="bg-gradient-to-r from-orange-400 to-orange-500 text-white px-4 py-2 text-center text-sm font-semibold">
+                    Most Popular
+                  </div>
+                )}
+                <div className="p-6">
+                  <div className="text-center mb-6">
+                    <h3 className="text-2xl font-bold text-slate-800 mb-2">{plan.name}</h3>
+                    <div className="text-4xl font-bold text-slate-800 mb-1">{plan.price}</div>
+                    <div className="text-slate-600 mb-2">{plan.period}</div>
+                    {plan.addon && (
+                      <div className="text-sm text-slate-500">{plan.addon}</div>
+                    )}
+                  </div>
+                  
+                  <div className="space-y-4 mb-6">
+                    {plan.features.map((feature, index) => (
+                      <div key={index} className="flex items-start gap-3">
+                        <Check className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
+                        <span className="text-slate-700">{feature}</span>
+                      </div>
+                    ))}
+                    
+                    {plan.limitations && (
+                      <div className="pt-4 border-t border-slate-200">
+                        <div className="text-sm text-slate-500 mb-2">Not included:</div>
+                        {plan.limitations.map((limitation, index) => (
+                          <div key={index} className="flex items-start gap-3 text-slate-400">
+                            <span className="w-5 h-5 flex-shrink-0 text-center mt-0.5">—</span>
+                            <span className="text-sm">{limitation}</span>
+                          </div>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                  
+                  <Button
+                    onClick={handlePlanClick}
+                    variant={plan.popular ? "default" : "outline"}
+                    className={`w-full mb-3 ${plan.popular ? 'bg-brand-primary hover:bg-brand-primary-dark' : ''}`}
+                  >
+                    {plan.buttonText}
+                  </Button>
+                  <p className="text-xs text-slate-500 text-center">{plan.description}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Desktop: Table Layout */}
+          <div className="hidden lg:block bg-white rounded-2xl shadow-lg border border-slate-200 overflow-visible relative">
             {/* Table Header */}
-            <div className="grid grid-cols-1 lg:grid-cols-4 bg-slate-50 border-b border-slate-200 relative">
-              <div className="p-4 lg:p-6 hidden lg:block">
+            <div className="grid grid-cols-4 bg-slate-50 border-b border-slate-200 relative">
+              <div className="p-6">
                 <h3 className="text-lg font-semibold text-slate-800">Features</h3>
               </div>
               {pricingPlans.map((plan) => (
@@ -121,89 +175,46 @@ const PricingSection = () => {
 
             {/* Feature Rows */}
             <div className="divide-y divide-slate-200">
-              {/* Main Features */}
-              <div className="grid md:grid-cols-4 py-4">
-                <div className="p-4 font-medium text-slate-700">
-                  Core Features
-                </div>
-                <div className="p-4 text-center">
-                  <Check className="w-5 h-5 text-green-500 mx-auto" />
-                </div>
-                <div className="p-4 text-center">
-                  <Check className="w-5 h-5 text-green-500 mx-auto" />
-                </div>
-                <div className="p-4 text-center">
-                  <Check className="w-5 h-5 text-green-500 mx-auto" />
-                </div>
+              <div className="grid grid-cols-4 py-4">
+                <div className="p-4 font-medium text-slate-700">Core Features</div>
+                <div className="p-4 text-center"><Check className="w-5 h-5 text-green-500 mx-auto" /></div>
+                <div className="p-4 text-center"><Check className="w-5 h-5 text-green-500 mx-auto" /></div>
+                <div className="p-4 text-center"><Check className="w-5 h-5 text-green-500 mx-auto" /></div>
               </div>
 
-              <div className="grid md:grid-cols-4 py-4">
-                <div className="p-4 font-medium text-slate-700">
-                  AI Customer Insights
-                </div>
-                <div className="p-4 text-center">
-                  <span className="text-slate-400">—</span>
-                </div>
-                <div className="p-4 text-center">
-                  <Check className="w-5 h-5 text-green-500 mx-auto" />
-                </div>
-                <div className="p-4 text-center">
-                  <Check className="w-5 h-5 text-green-500 mx-auto" />
-                </div>
+              <div className="grid grid-cols-4 py-4">
+                <div className="p-4 font-medium text-slate-700">AI Customer Insights</div>
+                <div className="p-4 text-center"><span className="text-slate-400">—</span></div>
+                <div className="p-4 text-center"><Check className="w-5 h-5 text-green-500 mx-auto" /></div>
+                <div className="p-4 text-center"><Check className="w-5 h-5 text-green-500 mx-auto" /></div>
               </div>
 
-              <div className="grid md:grid-cols-4 py-4">
-                <div className="p-4 font-medium text-slate-700">
-                  SMS Marketing
-                </div>
-                <div className="p-4 text-center">
-                  <span className="text-slate-400">—</span>
-                </div>
-                <div className="p-4 text-center">
-                  <Check className="w-5 h-5 text-green-500 mx-auto" />
-                </div>
-                <div className="p-4 text-center">
-                  <Check className="w-5 h-5 text-green-500 mx-auto" />
-                </div>
+              <div className="grid grid-cols-4 py-4">
+                <div className="p-4 font-medium text-slate-700">SMS Marketing</div>
+                <div className="p-4 text-center"><span className="text-slate-400">—</span></div>
+                <div className="p-4 text-center"><Check className="w-5 h-5 text-green-500 mx-auto" /></div>
+                <div className="p-4 text-center"><Check className="w-5 h-5 text-green-500 mx-auto" /></div>
               </div>
 
-              <div className="grid md:grid-cols-4 py-4">
-                <div className="p-4 font-medium text-slate-700">
-                  Staff Management
-                </div>
-                <div className="p-4 text-center">
-                  <span className="text-slate-400">—</span>
-                </div>
-                <div className="p-4 text-center">
-                  <span className="text-slate-600 text-sm">Up to 10</span>
-                </div>
-                <div className="p-4 text-center">
-                  <span className="text-slate-600 text-sm">Unlimited</span>
-                </div>
+              <div className="grid grid-cols-4 py-4">
+                <div className="p-4 font-medium text-slate-700">Staff Management</div>
+                <div className="p-4 text-center"><span className="text-slate-400">—</span></div>
+                <div className="p-4 text-center"><span className="text-slate-600 text-sm">Up to 10</span></div>
+                <div className="p-4 text-center"><span className="text-slate-600 text-sm">Unlimited</span></div>
               </div>
 
-              <div className="grid md:grid-cols-4 py-4">
-                <div className="p-4 font-medium text-slate-700">
-                  Advanced Analytics
-                </div>
-                <div className="p-4 text-center">
-                  <span className="text-slate-400">—</span>
-                </div>
-                <div className="p-4 text-center">
-                  <span className="text-slate-400">—</span>
-                </div>
-                <div className="p-4 text-center">
-                  <Check className="w-5 h-5 text-green-500 mx-auto" />
-                </div>
+              <div className="grid grid-cols-4 py-4">
+                <div className="p-4 font-medium text-slate-700">Advanced Analytics</div>
+                <div className="p-4 text-center"><span className="text-slate-400">—</span></div>
+                <div className="p-4 text-center"><span className="text-slate-400">—</span></div>
+                <div className="p-4 text-center"><Check className="w-5 h-5 text-green-500 mx-auto" /></div>
               </div>
             </div>
 
             {/* CTA Buttons */}
-            <div className="grid md:grid-cols-4 bg-slate-50 border-t border-slate-200">
+            <div className="grid grid-cols-4 bg-slate-50 border-t border-slate-200">
               <div className="p-6">
-                <div className="text-sm text-slate-600">
-                  Choose the plan that fits your business
-                </div>
+                <div className="text-sm text-slate-600">Choose the plan that fits your business</div>
               </div>
               {pricingPlans.map((plan) => (
                 <div key={plan.name} className="p-6">
@@ -214,9 +225,7 @@ const PricingSection = () => {
                   >
                     {plan.buttonText}
                   </Button>
-                  <p className="text-xs text-slate-500 text-center">
-                    {plan.description}
-                  </p>
+                  <p className="text-xs text-slate-500 text-center">{plan.description}</p>
                 </div>
               ))}
             </div>
