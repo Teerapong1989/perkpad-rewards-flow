@@ -1,166 +1,185 @@
-import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Scissors, Wrench, Coffee, Shirt, Car, UserCheck, ArrowRight } from "lucide-react";
+import { Badge } from "@/components/ui/badge";
+import { 
+  Coffee, 
+  Scissors, 
+  Car, 
+  Dumbbell, 
+  Pizza, 
+  Stethoscope, 
+  ShoppingBag, 
+  Palette,
+  ArrowRight,
+  Check 
+} from "lucide-react";
 import { useState } from "react";
+import { useInView } from "@/hooks/useInView";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
-import { AnimatedCard } from "@/components/ui/AnimatedCard";
-import { useMultipleInView } from "@/hooks/useInView";
 
 const businessTypes = [
   {
-    icon: Scissors,
-    type: "Nail Salon / Barbershop",
-    description: "10 services = 1 free manicure/haircut",
-    gradient: "from-pink-400 to-pink-500",
-    bgGradient: "from-pink-50 to-white",
-    examples: ["Nail salons", "Barbershops", "Hair salons", "Spas"]
-  },
-  {
-    icon: Wrench,
-    type: "Auto / Repair Shop",
-    description: "5 oil changes = 1 free service",
-    gradient: "from-blue-400 to-blue-500", 
-    bgGradient: "from-blue-50 to-white",
-    examples: ["Auto repair", "Oil change", "Tire shops", "Mechanics"]
-  },
-  {
     icon: Coffee,
-    type: "Café / Food Service",
-    description: "Buy 9 drinks, get the 10th free",
-    gradient: "from-amber-400 to-amber-500",
-    bgGradient: "from-amber-50 to-white",
-    examples: ["Cafés", "Restaurants", "Bakeries", "Juice bars"]
+    name: "Coffee Shops",
+    description: "Buy 9 coffees, get the 10th free",
+    color: "text-amber-600",
+    bgColor: "bg-amber-50"
   },
   {
-    icon: Shirt,
-    type: "Laundromat / Dry Cleaning",
-    description: "10 loads = $10 off next visit",
-    gradient: "from-green-400 to-green-500",
-    bgGradient: "from-green-50 to-white",
-    examples: ["Laundromats", "Dry cleaners", "Tailors", "Cleaners"]
+    icon: Scissors,
+    name: "Hair Salons",
+    description: "Every 10th haircut is complimentary",
+    color: "text-pink-600",
+    bgColor: "bg-pink-50"
   },
   {
     icon: Car,
-    type: "Car Wash / Detailing",
-    description: "8 washes = 1 free premium wash",
-    gradient: "from-cyan-400 to-cyan-500",
-    bgGradient: "from-cyan-50 to-white",
-    examples: ["Car washes", "Detailing", "Mobile washing", "Valet services"]
+    name: "Auto Shops",
+    description: "$50 off after 5 oil changes",
+    color: "text-blue-600",
+    bgColor: "bg-blue-50"
   },
   {
-    icon: UserCheck,
-    type: "Other Service Business",
-    description: "Custom rewards for your business",
-    gradient: "from-purple-400 to-purple-500",
-    bgGradient: "from-purple-50 to-white",
-    examples: ["Gyms", "Pet grooming", "Tutoring", "Personal services"]
+    icon: Dumbbell,
+    name: "Fitness Studios",
+    description: "Free session after 10 visits",
+    color: "text-green-600",
+    bgColor: "bg-green-50"
+  },
+  {
+    icon: Pizza,
+    name: "Restaurants",
+    description: "Free appetizer after 8 meals",
+    color: "text-red-600",
+    bgColor: "bg-red-50"
+  },
+  {
+    icon: Stethoscope,
+    name: "Healthcare",
+    description: "Wellness rewards for regular visits",
+    color: "text-teal-600",
+    bgColor: "bg-teal-50"
+  },
+  {
+    icon: ShoppingBag,
+    name: "Retail Stores",
+    description: "Points for every purchase",
+    color: "text-purple-600",
+    bgColor: "bg-purple-50"
+  },
+  {
+    icon: Palette,
+    name: "Beauty Services",
+    description: "Loyalty rewards for treatments",
+    color: "text-indigo-600",
+    bgColor: "bg-indigo-50"
   }
 ];
 
 const BusinessTypeSection = () => {
-  const [selectedType, setSelectedType] = useState<string | null>(null);
-  const { containerRef, isInView } = useMultipleInView(6, { threshold: 0.1 });
+  const [selectedType, setSelectedType] = useState<typeof businessTypes[0] | null>(null);
+  const { ref, isInView } = useInView({ threshold: 0.1 });
 
   const handleGetStarted = () => {
-    window.open('https://tally.so/r/nGVLNp', '_blank', 'noopener,noreferrer');
+    window.open('https://app.perkpad.io', '_blank');
   };
 
   return (
-    <section className="py-16 sm:py-20 px-4 sm:px-6 bg-white relative z-10">
+    <section className="py-20 px-6 bg-gradient-to-br from-slate-50 to-white">
       <div className="max-w-7xl mx-auto">
-        <AnimatedSection className="text-center mb-12 sm:mb-16" threshold={0.1}>
-          <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold text-gray-900 mb-4 sm:mb-6 tracking-tight text-balance">
-            Perfect for your type of business
-          </h2>
-          <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed text-balance">
-            See how Perkpad works for businesses like yours. Click any business type to see a customized loyalty program example.
-          </p>
-        </AnimatedSection>
+        <div ref={ref}>
+          <AnimatedSection className="text-center mb-16" threshold={0.1}>
+            <Badge variant="secondary" className="mb-6 px-4 py-2 text-sm">
+              Works for Any Business
+            </Badge>
+            <h2 className="text-4xl md:text-5xl font-bold text-slate-800 mb-6">
+              Perfect for Your Business Type
+            </h2>
+            <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+              Whether you serve coffee or fix cars, PerkPad adapts to your business model
+            </p>
+          </AnimatedSection>
+        </div>
 
-        <div ref={containerRef} className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+        {/* Business Types Grid */}
+        <div className={`grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 mb-12 transition-all duration-1000 ${isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
           {businessTypes.map((business, index) => {
             const Icon = business.icon;
-            const isSelected = selectedType === business.type;
+            const isSelected = selectedType?.name === business.name;
             
             return (
-              <AnimatedCard
-                key={business.type}
-                isInView={isInView}
-                delay={index * 100}
-                hoverEffect
+              <div
+                key={business.name}
+                onClick={() => setSelectedType(isSelected ? null : business)}
+                className={`group relative p-6 rounded-2xl border-2 cursor-pointer transition-all duration-300 hover:shadow-lg transform hover:-translate-y-1 ${
+                  isSelected 
+                    ? `border-brand-primary bg-white shadow-lg` 
+                    : 'border-slate-200 bg-white hover:border-slate-300'
+                }`}
+                style={{
+                  transitionDelay: isInView ? `${index * 50}ms` : '0ms'
+                }}
               >
-                <Card 
-                  className={`cursor-pointer transition-all duration-300 border-2 h-full ${
-                    isSelected 
-                      ? 'border-brand-accent shadow-brand ring-2 ring-brand-accent/20' 
-                      : 'border-gray-200 hover:border-brand-primary-dark hover:shadow-md'
-                  } bg-gradient-to-br ${business.bgGradient}`}
-                  onClick={() => setSelectedType(isSelected ? null : business.type)}
-                >
-                  <CardContent className="p-4 sm:p-6">
-                    <div className="text-center space-y-3 sm:space-y-4">
-                      <div className={`w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-br ${business.gradient} rounded-2xl flex items-center justify-center mx-auto mb-3 sm:mb-4 transform transition-transform duration-300 ${isSelected ? 'scale-110 rotate-3' : ''}`}>
-                        <Icon className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
-                      </div>
-                      
-                      <h3 className="text-lg sm:text-xl font-bold text-gray-900">{business.type}</h3>
-                      
-                      <div className={`p-2 sm:p-3 rounded-lg transition-all duration-300 ${
-                        isSelected ? 'bg-brand-accent-light border-2 border-brand-accent/30' : 'bg-gray-100'
-                      }`}>
-                        <p className={`font-semibold text-xs sm:text-sm ${isSelected ? 'text-brand-accent' : 'text-gray-700'}`}>
-                          Example: {business.description}
-                        </p>
-                      </div>
-                      
-                      <div className="space-y-1">
-                        {business.examples.map((example, idx) => (
-                          <span key={idx} className="inline-block bg-white/70 text-gray-600 text-xs px-2 py-1 rounded-full mr-1 mb-1">
-                            {example}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-              </AnimatedCard>
+                <div className={`w-12 h-12 rounded-xl ${business.bgColor} flex items-center justify-center mb-4 mx-auto`}>
+                  <Icon className={`w-6 h-6 ${business.color}`} />
+                </div>
+                <h3 className="font-semibold text-slate-800 text-center text-sm md:text-base mb-2">
+                  {business.name}
+                </h3>
+                <p className="text-xs md:text-sm text-slate-600 text-center leading-relaxed">
+                  {business.description}
+                </p>
+                
+                {isSelected && (
+                  <div className="absolute -top-2 -right-2 w-6 h-6 bg-brand-primary rounded-full flex items-center justify-center">
+                    <Check className="w-4 h-4 text-white" />
+                  </div>
+                )}
+              </div>
             );
           })}
         </div>
 
+        {/* Selected Business Details */}
         {selectedType && (
-          <div className="bg-white rounded-2xl shadow-elegant p-6 sm:p-8 max-w-2xl mx-auto border-2 border-brand-accent/30 animate-fade-in">
-            <div className="text-center space-y-4">
-              <h3 className="text-xl sm:text-2xl font-bold text-brand-primary-dark">Perfect! Let's set up your {selectedType.toLowerCase()}</h3>
-              <p className="text-gray-600">
-                Our 2-minute setup will create a loyalty program specifically designed for businesses like yours.
-              </p>
-              <Button 
-                size="lg"
-                className="bg-gradient-brand text-white shadow-brand hover:shadow-elegant text-base sm:text-lg px-6 sm:px-8 py-4 sm:py-6 rounded-xl transform hover:scale-105 transition-all duration-300 w-full sm:w-auto"
-                onClick={handleGetStarted}
-              >
-                Start Free Setup for {selectedType}
-                <ArrowRight className="ml-2 w-4 h-4 sm:w-5 sm:h-5" />
-              </Button>
-              <p className="text-xs sm:text-sm text-gray-500">
-                No credit card required • No long-term contracts
-              </p>
+          <div className="bg-white border border-slate-200 rounded-2xl p-8 mb-8 shadow-lg animate-fade-in">
+            <div className="flex flex-col md:flex-row items-center gap-6">
+              <div className={`w-16 h-16 rounded-2xl ${selectedType.bgColor} flex items-center justify-center`}>
+                <selectedType.icon className={`w-8 h-8 ${selectedType.color}`} />
+              </div>
+              <div className="flex-1 text-center md:text-left">
+                <h3 className="text-2xl font-bold text-slate-800 mb-2">
+                  {selectedType.name}
+                </h3>
+                <p className="text-slate-600 text-lg mb-4">
+                  {selectedType.description}
+                </p>
+                <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+                  <Button 
+                    onClick={handleGetStarted}
+                    size="lg"
+                    className="bg-brand-primary hover:bg-brand-primary-dark text-white"
+                  >
+                    Start 30-Day Free Trial
+                    <ArrowRight className="ml-2 w-5 h-5" />
+                  </Button>
+                </div>
+              </div>
             </div>
           </div>
         )}
 
+        {/* General CTA */}
         {!selectedType && (
           <div className="text-center">
-            <p className="text-gray-600 mb-6">Don't see your business type? No problem!</p>
+            <p className="text-slate-600 mb-6">Don't see your business type? No problem!</p>
             <Button 
               variant="outline"
               size="lg"
-              className="border-brand-primary-dark text-brand-primary-dark hover:bg-brand-primary hover:border-brand-primary-dark text-base sm:text-lg px-6 sm:px-8 py-4 sm:py-6 rounded-xl"
+              className="border-brand-primary text-brand-primary hover:bg-brand-primary hover:text-white text-lg px-8 py-6 rounded-xl"
               onClick={handleGetStarted}
             >
               Set Up For Any Business Type
-              <ArrowRight className="ml-2 w-4 h-4 sm:w-5 sm:h-5" />
+              <ArrowRight className="ml-2 w-5 h-5" />
             </Button>
           </div>
         )}

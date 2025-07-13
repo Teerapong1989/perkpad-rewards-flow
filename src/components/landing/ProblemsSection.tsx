@@ -8,51 +8,30 @@ import { AnimatedCard } from "@/components/ui/AnimatedCard";
 const problems = [
   {
     icon: TrendingDown,
-    problem: "Customers visit once and never return",
-    description: "70% of customers never come back after their first visit. You have no way to follow up or remind them about your business.",
-    solution: "PerkPad sends automated reminders and creates compelling reasons to return with personalized rewards",
-    stats: "Increase repeat visits by 40%"
+    problem: "Customers visit once and disappear forever",
+    description: "70% of customers never return after their first visit. You have no follow-up system, no way to remind them, and no compelling reason for them to come back.",
+    solution: "Automated loyalty program with personalized rewards and smart reminders",
+    stats: "40% increase in repeat visits"
   },
   {
     icon: Users,
-    problem: "Big chains have better loyalty programs",
-    description: "Customers choose Starbucks over your coffee shop because they get points, rewards, and recognition. You can't compete.",
-    solution: "Get the same enterprise-grade loyalty features as Fortune 500 companies, tailored for your local business",
+    problem: "Can't compete with big chain loyalty programs",
+    description: "Customers choose Starbucks over your coffee shop because they get points and rewards. Your paper punch cards can't match their sophisticated systems.",
+    solution: "Enterprise-grade loyalty features designed for local businesses",
     stats: "Level the playing field"
   },
   {
     icon: Target,
-    problem: "No idea which marketing actually works",
-    description: "You spend money on Facebook ads, flyers, and promotions but have no clue what brings customers back or drives revenue.",
-    solution: "Track exactly which campaigns drive visits, retention, and revenue with detailed analytics and AI insights",
-    stats: "See clear ROI on every dollar spent"
-  },
-  {
-    icon: Clock,
-    problem: "Manual processes waste precious time",
-    description: "Tracking customer visits, managing punch cards, and running promotions eats up hours you should spend growing your business.",
-    solution: "Everything runs automatically - from stamp collection to reward delivery to customer communications",
-    stats: "Save 10+ hours per week"
-  },
-  {
-    icon: Shield,
-    problem: "Paper cards get lost and forgotten",
-    description: "Customers lose punch cards, forget to bring them, or you forget to stamp them. Loyalty efforts become frustrating for everyone.",
-    solution: "Digital loyalty cards that customers always have on their phone, with automatic stamp collection via QR code",
-    stats: "Zero lost rewards"
-  },
-  {
-    icon: Users,
-    problem: "Can't identify at-risk customers",
-    description: "Your best customers quietly stop coming and you only notice months later when it's too late to win them back.",
-    solution: "AI alerts you when loyal customers haven't visited recently and suggests personalized win-back campaigns",
-    stats: "Recover 25% of at-risk customers"
+    problem: "Zero insight into what actually works",
+    description: "You spend on ads and promotions but have no clue what brings customers back or drives revenue. Flying blind with your marketing budget.",
+    solution: "Detailed analytics showing exactly which campaigns drive results",
+    stats: "Clear ROI on every marketing dollar"
   }
 ];
 
 const ProblemsSection = () => {
   const { ref: headerRef, isInView: headerInView } = useInView({ threshold: 0.1 });
-  const { containerRef: problemsRef, isInView: problemsInView } = useMultipleInView(6, { threshold: 0.1 });
+  const { containerRef: problemsRef, isInView: problemsInView } = useMultipleInView(3, { threshold: 0.1 });
 
   const handleGetStarted = () => {
     window.open('https://app.perkpad.io', '_blank');
@@ -78,7 +57,7 @@ const ProblemsSection = () => {
         </div>
 
         {/* Problems Grid */}
-        <div ref={problemsRef} className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+        <div ref={problemsRef} className="grid md:grid-cols-3 gap-8 mb-16">
           {problems.map((item, index) => {
             const Icon = item.icon;
             return (
