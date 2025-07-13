@@ -19,7 +19,7 @@ const faqs = [
   },
   {
     question: "How does multi-location management work?",
-    answer: "Our Pro and Growth plans support unlimited locations with centralized management. Each location gets its own QR codes and staff PINs, while you maintain unified customer data, analytics, and reward configurations across all locations."
+    answer: "Our Pro plan supports multiple locations (+$10/month per extra location), and Growth plan includes 3 locations (+$8/month per extra). Each location gets its own QR codes and staff PINs, while you maintain unified customer data, analytics, and reward configurations across all locations."
   },
   {
     question: "What kind of analytics and insights do you provide?",
@@ -27,7 +27,7 @@ const faqs = [
   },
   {
     question: "How secure is the platform?",
-    answer: "Professional-grade security with encryption at rest and in transit, automated security monitoring, fraud detection algorithms, IP blocking capabilities, comprehensive audit logs, and SOC2-compliant infrastructure. Your customer data is protected with the same standards as Fortune 500 companies."
+    answer: "Security features include encryption at rest and in transit, automated security monitoring, fraud detection algorithms, IP blocking capabilities, and comprehensive audit logs. Your customer data is protected with modern security practices."
   },
   {
     question: "Can I integrate with my existing POS system?",

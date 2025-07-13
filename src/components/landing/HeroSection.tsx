@@ -88,7 +88,7 @@ const HeroSection = () => {
               <AnimatedSection animation="fade-up" delay={600}>
                 <aside className="bg-brand-accent-light border-l-4 border-brand-accent p-3 sm:p-4 rounded-r-xl mx-2 sm:mx-0 shadow-md">
                   <p className="text-gray-800 font-semibold text-sm sm:text-base">
-                    <span className="text-brand-accent font-bold">Professional-grade platform</span> designed for small business budgets. 12 business types supported, unlimited locations, AI-powered insights, and advanced security features.
+                    <span className="text-brand-accent font-bold">Modern platform</span> designed for small business budgets. 12 business types supported, unlimited locations, AI-powered insights, and security features.
                   </p>
                 </aside>
               </AnimatedSection>
@@ -125,7 +125,7 @@ const HeroSection = () => {
               <div className="space-y-3 sm:space-y-4 px-2 sm:px-0">
                 <div className="flex items-center justify-center lg:justify-start space-x-2 text-brand-primary-dark font-semibold text-sm sm:text-base">
                   <div className="w-2 h-2 sm:w-3 sm:h-3 bg-brand-accent rounded-full animate-pulse" aria-hidden="true"></div>
-                  <span>Production-ready platform • Advanced security included</span>
+                  <span>Production-ready platform • Security included</span>
                 </div>
                 
                 <ul className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 text-xs sm:text-sm">
@@ -145,7 +145,7 @@ const HeroSection = () => {
                     <div className="w-5 h-5 sm:w-6 sm:h-6 bg-brand-success-light rounded-full flex items-center justify-center flex-shrink-0" aria-hidden="true">
                       <Check className="w-3 h-3 sm:w-4 sm:h-4 text-brand-success" />
                     </div>
-                    <span className="font-medium text-gray-700">Professional security</span>
+                    <span className="font-medium text-gray-700">Security features</span>
                   </li>
                 </ul>
               </div>
