@@ -99,12 +99,6 @@ const FeaturesSection = () => {
                   <p className="text-base lg:text-lg text-slate-600 leading-relaxed mb-8">
                     {feature.description}
                   </p>
-                  <Button 
-                    onClick={handleGetStarted}
-                    className="bg-brand-primary hover:bg-brand-primary-dark text-white"
-                  >
-                    Try This Feature Free
-                  </Button>
                 </div>
 
                 {/* Image */}
