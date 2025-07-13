@@ -1,171 +1,234 @@
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
 import { Check, Calculator, Crown } from "lucide-react";
-import { useInView, useMultipleInView } from "@/hooks/useInView";
+import { useInView } from "@/hooks/useInView";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
-import { AnimatedCard } from "@/components/ui/AnimatedCard";
 
 const pricingPlans = [
   {
     name: "Free",
     price: "$0", 
     period: "per month",
-    locations: "1 location (limited features)",
-    addon: "Upgrade to unlock full features",
-    savings: "Perfect for small businesses getting started",
     features: [
       "1 location",
-      "QR stamp card system",
+      "QR stamp card system", 
       "Basic dashboard",
-      "No customization",
-      "Limited features"
+      "Limited customization"
+    ],
+    limitations: [
+      "No AI insights",
+      "No SMS marketing",
+      "No staff management",
+      "Basic features only"
     ],
     buttonText: "Start Free",
-    buttonVariant: "outline" as const,
-    popular: false,
-    roi: "Test it with real customers"
+    description: "Perfect for testing with real customers"
   },
   {
     name: "Pro",
     price: "$30", 
     period: "per month",
-    locations: "1 location included",
-    addon: "+$10/month per extra location",
-    savings: "Most popular for growing businesses + AI & SMS",
+    popular: true,
     features: [
       "Everything in Free, plus:",
       "🤖 AI customer retention insights",
-      "📱 SMS & email marketing campaigns",
+      "📱 SMS & email marketing campaigns", 
       "👥 Staff roles & access control (up to 10)",
       "Add your logo and colors",
       "Customer contact info",
       "Create custom rewards",
-      "Automated campaigns & customer engagement tools"
+      "Automated campaigns"
     ],
+    addon: "+$10/month per extra location",
     buttonText: "Start 30-Day Free Trial",
-    buttonVariant: "default" as const,
-    popular: true,
-    roi: "Usually pays for itself quickly"
+    description: "Most popular for growing businesses"
   },
   {
     name: "Growth",
     price: "$60",
-    period: "per month",
-    locations: "3 locations included",
-    addon: "+$8/month per extra location",
-    savings: "Advanced features for established businesses",
+    period: "per month", 
     features: [
       "Everything in Pro, plus:",
       "🧠 Advanced AI with predictive analytics",
       "👥 Unlimited staff members",
       "📊 Advanced ROI & profit analytics",
-      "Multi-user access with role-based permissions",
-      "See data across all locations",
-      "Compare location performance",
+      "Multi-user access with role permissions",
+      "Cross-location data insights",
+      "Location performance comparison",
       "Priority support"
     ],
-    buttonText: "Start 30-Day Free Trial",
-    buttonVariant: "default" as const,
-    popular: false,
-    roi: "Great for multi-location owners"
+    addon: "3 locations included, +$8/month per extra",
+    buttonText: "Start 30-Day Free Trial", 
+    description: "Advanced features for established businesses"
   }
 ];
 
 const PricingSection = () => {
-  const { containerRef: cardsRef, isInView: cardsInView } = useMultipleInView(3, { threshold: 0.2 });
+  const { ref, isInView } = useInView({ threshold: 0.1 });
 
-  const handlePlanClick = (planName: string) => {
-    window.open('https://app.perkpad.io', '_blank', 'noopener,noreferrer');
+  const handlePlanClick = () => {
+    window.open('https://app.perkpad.io', '_blank');
   };
 
   return (
-    <section id="pricing" className="py-20 px-6 bg-gradient-subtle">
-      <div className="max-w-7xl mx-auto">
-        <AnimatedSection className="text-center mb-16" threshold={0.1}>
-          <h2 className="font-display text-4xl lg:text-5xl font-extrabold text-gray-900 mb-6 tracking-tight">
-            Honest pricing, no surprises
-          </h2>
-          <p className="text-xl lg:text-2xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Most businesses see their investment back in the first month. If you don't, we'll make it right.
-          </p>
-        </AnimatedSection>
+    <section className="py-20 px-6 bg-gradient-to-br from-slate-50 to-white">
+      <div className="max-w-6xl mx-auto">
+        {/* Header */}
+        <div ref={ref}>
+          <AnimatedSection className="text-center mb-16" threshold={0.1}>
+            <h2 className="text-4xl md:text-5xl font-bold text-slate-800 mb-6">
+              Simple, Transparent Pricing
+            </h2>
+            <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+              Start free, upgrade when you're ready. No hidden fees, no long-term contracts.
+            </p>
+          </AnimatedSection>
+        </div>
 
-        <div ref={cardsRef} className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {pricingPlans.map((plan, index) => (
-            <AnimatedCard
-              key={plan.name}
-              isInView={cardsInView}
-              delay={(index + 1) * 100}
-              hoverEffect
-            >
-              <Card className={`border-2 ${plan.popular ? 'border-brand-accent bg-gradient-to-br from-white to-brand-accent-light ring-2 ring-brand-accent/20' : 'border-gray-200'} rounded-2xl relative transform transition-all duration-500 h-full flex flex-col shadow-lg`}>
-                {plan.popular && (
-                  <Badge className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-gradient-brand text-white">
-                    <Crown className="w-3 h-3 mr-1" />
-                    Most Popular
-                  </Badge>
-                )}
-                <CardHeader className="flex-grow">
-                  <CardTitle className="text-2xl font-semibold text-gray-900">{plan.name}</CardTitle>
-                  <div className="space-y-2">
-                    <div className="text-4xl font-bold text-gray-900">{plan.price}</div>
-                    <div className="text-gray-600">{plan.period}</div>
-                    <div className="text-sm font-medium text-brand-primary-dark">{plan.savings}</div>
-                  </div>
-                  
-                  {/* Location information */}
-                  <div className="bg-brand-primary border border-brand-primary-dark/20 rounded-lg p-3 mt-4">
-                    <div className="text-center space-y-1">
-                      <div className="font-semibold text-brand-primary-dark">{plan.locations}</div>
-                      <div className="text-xs text-gray-600">{plan.addon}</div>
+        {/* Pricing Table */}
+        <div className={`transition-all duration-1000 ${isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+          <div className="bg-white rounded-2xl shadow-lg border border-slate-200 overflow-hidden">
+            {/* Table Header */}
+            <div className="grid md:grid-cols-4 bg-slate-50 border-b border-slate-200">
+              <div className="p-6">
+                <h3 className="text-lg font-semibold text-slate-800">Features</h3>
+              </div>
+              {pricingPlans.map((plan) => (
+                <div key={plan.name} className={`p-6 text-center relative ${plan.popular ? 'bg-brand-primary text-white' : ''}`}>
+                  {plan.popular && (
+                    <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
+                      <div className="bg-brand-accent text-white px-4 py-1 rounded-full text-sm font-semibold">
+                        Most Popular
+                      </div>
                     </div>
+                  )}
+                  <h3 className={`text-xl font-bold mb-2 ${plan.popular ? 'text-white' : 'text-slate-800'}`}>
+                    {plan.name}
+                  </h3>
+                  <div className={`text-3xl font-bold mb-1 ${plan.popular ? 'text-white' : 'text-slate-800'}`}>
+                    {plan.price}
                   </div>
-                  
-                  {/* ROI indicator */}
-                  <div className="bg-brand-success-light border border-brand-success/20 rounded-lg p-3 mt-3">
-                    <div className="flex items-center space-x-2">
-                      <Calculator className="w-4 h-4 text-brand-success" />
-                      <span className="text-brand-success font-bold text-sm">{plan.roi}</span>
+                  <div className={`text-sm ${plan.popular ? 'text-white/80' : 'text-slate-600'}`}>
+                    {plan.period}
+                  </div>
+                  {plan.addon && (
+                    <div className={`text-xs mt-2 ${plan.popular ? 'text-white/70' : 'text-slate-500'}`}>
+                      {plan.addon}
                     </div>
-                  </div>
-                </CardHeader>
-                <CardContent className="space-y-4 flex-grow flex flex-col">
-                  <ul className="space-y-3 flex-grow">
-                    {plan.features.map((feature) => (
-                      <li key={feature} className="flex items-center space-x-2">
-                        <Check className="w-4 h-4 text-brand-success flex-shrink-0" />
-                        <span className="text-gray-600">{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
-                  <Button 
-                    className={`w-full mt-auto ${plan.popular ? 'bg-gradient-brand text-white shadow-brand' : ''}`} 
-                    variant={plan.buttonVariant}
-                    onClick={() => handlePlanClick(plan.name)}
+                  )}
+                </div>
+              ))}
+            </div>
+
+            {/* Feature Rows */}
+            <div className="divide-y divide-slate-200">
+              {/* Main Features */}
+              <div className="grid md:grid-cols-4 py-4">
+                <div className="p-4 font-medium text-slate-700">
+                  Core Features
+                </div>
+                <div className="p-4 text-center">
+                  <Check className="w-5 h-5 text-green-500 mx-auto" />
+                </div>
+                <div className="p-4 text-center">
+                  <Check className="w-5 h-5 text-green-500 mx-auto" />
+                </div>
+                <div className="p-4 text-center">
+                  <Check className="w-5 h-5 text-green-500 mx-auto" />
+                </div>
+              </div>
+
+              <div className="grid md:grid-cols-4 py-4">
+                <div className="p-4 font-medium text-slate-700">
+                  AI Customer Insights
+                </div>
+                <div className="p-4 text-center">
+                  <span className="text-slate-400">—</span>
+                </div>
+                <div className="p-4 text-center">
+                  <Check className="w-5 h-5 text-green-500 mx-auto" />
+                </div>
+                <div className="p-4 text-center">
+                  <Check className="w-5 h-5 text-green-500 mx-auto" />
+                </div>
+              </div>
+
+              <div className="grid md:grid-cols-4 py-4">
+                <div className="p-4 font-medium text-slate-700">
+                  SMS Marketing
+                </div>
+                <div className="p-4 text-center">
+                  <span className="text-slate-400">—</span>
+                </div>
+                <div className="p-4 text-center">
+                  <Check className="w-5 h-5 text-green-500 mx-auto" />
+                </div>
+                <div className="p-4 text-center">
+                  <Check className="w-5 h-5 text-green-500 mx-auto" />
+                </div>
+              </div>
+
+              <div className="grid md:grid-cols-4 py-4">
+                <div className="p-4 font-medium text-slate-700">
+                  Staff Management
+                </div>
+                <div className="p-4 text-center">
+                  <span className="text-slate-400">—</span>
+                </div>
+                <div className="p-4 text-center">
+                  <span className="text-slate-600 text-sm">Up to 10</span>
+                </div>
+                <div className="p-4 text-center">
+                  <span className="text-slate-600 text-sm">Unlimited</span>
+                </div>
+              </div>
+
+              <div className="grid md:grid-cols-4 py-4">
+                <div className="p-4 font-medium text-slate-700">
+                  Advanced Analytics
+                </div>
+                <div className="p-4 text-center">
+                  <span className="text-slate-400">—</span>
+                </div>
+                <div className="p-4 text-center">
+                  <span className="text-slate-400">—</span>
+                </div>
+                <div className="p-4 text-center">
+                  <Check className="w-5 h-5 text-green-500 mx-auto" />
+                </div>
+              </div>
+            </div>
+
+            {/* CTA Buttons */}
+            <div className="grid md:grid-cols-4 bg-slate-50 border-t border-slate-200">
+              <div className="p-6">
+                <div className="text-sm text-slate-600">
+                  Choose the plan that fits your business
+                </div>
+              </div>
+              {pricingPlans.map((plan) => (
+                <div key={plan.name} className="p-6">
+                  <Button
+                    onClick={handlePlanClick}
+                    variant={plan.popular ? "default" : "outline"}
+                    className={`w-full mb-3 ${plan.popular ? 'bg-brand-primary hover:bg-brand-primary-dark' : ''}`}
                   >
                     {plan.buttonText}
                   </Button>
-                  
-                  {/* Honest guarantee */}
-                  <p className="text-xs text-center text-gray-500 mt-2">
-                    No long-term contracts
+                  <p className="text-xs text-slate-500 text-center">
+                    {plan.description}
                   </p>
-                </CardContent>
-              </Card>
-            </AnimatedCard>
-          ))}
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
-        
-        {/* Simpler trust signals */}
-        <div className="text-center mt-12 space-y-4">
-          <p className="text-gray-600 text-lg">
-            <strong>Free to try</strong> • <strong>No setup fees</strong> • <strong>Cancel anytime</strong>
+
+        {/* Bottom Note */}
+        <AnimatedSection className="text-center mt-12" threshold={0.1}>
+          <p className="text-slate-600">
+            All plans include 30-day free trial • No credit card required • Cancel anytime
           </p>
-          <p className="text-sm text-gray-500">
-            Used by local businesses across the country
-          </p>
-        </div>
+        </AnimatedSection>
       </div>
     </section>
   );

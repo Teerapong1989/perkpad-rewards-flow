@@ -1,132 +1,131 @@
-import { Card, CardContent } from "@/components/ui/card";
+import { ArrowRight, CheckCircle, XCircle, ArrowDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { X, Check, TrendingDown, Users, Clock, Target, Shield, ArrowRight } from "lucide-react";
-import { useInView, useMultipleInView } from "@/hooks/useInView";
+import { useInView } from "@/hooks/useInView";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
-import { AnimatedCard } from "@/components/ui/AnimatedCard";
 
 const problems = [
   {
-    icon: TrendingDown,
-    problem: "Customers visit once and disappear forever",
-    description: "70% of customers never return after their first visit. You have no follow-up system, no way to remind them, and no compelling reason for them to come back.",
-    solution: "Automated loyalty program with personalized rewards and smart reminders",
-    stats: "40% increase in repeat visits"
+    before: "Customers visit once and disappear forever",
+    beforeDetail: "70% never return after their first visit. No follow-up system, no reminders, no reason to come back.",
+    after: "Automated loyalty program brings customers back",
+    afterDetail: "Smart reminders, personalized rewards, and compelling reasons to return increase repeat visits by 40%.",
+    impact: "40% increase in repeat visits"
   },
   {
-    icon: Users,
-    problem: "Can't compete with big chain loyalty programs",
-    description: "Customers choose Starbucks over your coffee shop because they get points and rewards. Your paper punch cards can't match their sophisticated systems.",
-    solution: "Professional-grade loyalty features designed for local businesses",
-    stats: "Level the playing field"
+    before: "Can't compete with big chain loyalty programs", 
+    beforeDetail: "Customers choose Starbucks over your coffee shop because they get points and rewards. Your paper punch cards can't compete.",
+    after: "Professional-grade loyalty system levels the playing field",
+    afterDetail: "The same powerful features that big chains use, designed specifically for local businesses.",
+    impact: "Compete with any chain"
   },
   {
-    icon: Target,
-    problem: "Zero insight into what actually works",
-    description: "You spend on ads and promotions but have no clue what brings customers back or drives revenue. Flying blind with your marketing budget.",
-    solution: "Detailed analytics showing exactly which campaigns drive results",
-    stats: "Clear ROI on every marketing dollar"
+    before: "Zero insight into what actually works",
+    beforeDetail: "You spend on ads and promotions but have no clue what brings customers back or drives revenue. Flying blind.",
+    after: "Clear data shows exactly what drives results",
+    afterDetail: "Track which campaigns work, identify your best customers, and see clear ROI on every marketing dollar.",
+    impact: "Clear ROI on every marketing dollar"
   }
 ];
 
 const ProblemsSection = () => {
-  const { ref: headerRef, isInView: headerInView } = useInView({ threshold: 0.1 });
-  const { containerRef: problemsRef, isInView: problemsInView } = useMultipleInView(3, { threshold: 0.1 });
+  const { ref, isInView } = useInView({ threshold: 0.1 });
 
   const handleGetStarted = () => {
     window.open('https://app.perkpad.io', '_blank');
   };
 
   return (
-    <section className="py-20 px-6 bg-gradient-to-br from-slate-50 to-white">
-      <div className="max-w-7xl mx-auto">
+    <section className="py-20 px-6 bg-gradient-to-br from-red-50 via-white to-green-50">
+      <div className="max-w-6xl mx-auto">
         {/* Header */}
-        <div ref={headerRef}>
+        <div ref={ref}>
           <AnimatedSection className="text-center mb-16" threshold={0.1}>
-            <div className="inline-flex items-center gap-2 bg-red-50 text-red-600 px-4 py-2 rounded-full text-sm font-medium mb-6">
-              <X className="w-4 h-4" />
-              Common Business Problems
-            </div>
             <h2 className="text-4xl md:text-5xl font-bold text-slate-800 mb-6">
-              Why Local Businesses <span className="text-red-500">Lose Customers</span>
+              From Problem to Solution
             </h2>
             <p className="text-xl text-slate-600 max-w-3xl mx-auto">
-              These problems cost you thousands in lost revenue every month. But they don't have to.
+              See how local businesses transform their customer relationships
             </p>
           </AnimatedSection>
         </div>
 
-        {/* Problems Grid */}
-        <div ref={problemsRef} className="grid md:grid-cols-3 gap-8 mb-16">
-          {problems.map((item, index) => {
-            const Icon = item.icon;
-            return (
-              <AnimatedCard
-                key={item.problem}
-                isInView={problemsInView}
-                delay={index * 100}
-                hoverEffect
-              >
-                <Card className="border-0 shadow-lg rounded-2xl bg-white hover:shadow-xl transition-all duration-700 h-full">
-                  <CardContent className="p-8 flex flex-col h-full">
-                    {/* Problem Header */}
-                    <div className="flex items-start gap-3 mb-4">
-                      <div className="w-12 h-12 bg-red-50 rounded-xl flex items-center justify-center flex-shrink-0">
-                        <Icon className="w-6 h-6 text-red-500" />
-                      </div>
-                      <div className="flex-1">
-                        <h3 className="text-lg font-bold text-slate-800 mb-2 leading-tight">
-                          {item.problem}
-                        </h3>
+        {/* Before/After Comparisons */}
+        <div className="space-y-16">
+          {problems.map((problem, index) => (
+            <div 
+              key={index}
+              className={`transition-all duration-1000 delay-${index * 200} ${isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+            >
+              <div className="grid md:grid-cols-2 gap-8 items-center">
+                {/* Before */}
+                <div className="bg-red-50 border-l-4 border-red-400 rounded-r-2xl p-8">
+                  <div className="flex items-start gap-4">
+                    <div className="w-8 h-8 bg-red-100 rounded-full flex items-center justify-center flex-shrink-0">
+                      <XCircle className="w-5 h-5 text-red-500" />
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-bold text-red-800 mb-3">
+                        Before: {problem.before}
+                      </h3>
+                      <p className="text-red-700 leading-relaxed">
+                        {problem.beforeDetail}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Arrow */}
+                <div className="hidden md:flex justify-center">
+                  <ArrowRight className="w-12 h-12 text-slate-400" />
+                </div>
+                <div className="md:hidden flex justify-center">
+                  <ArrowDown className="w-8 h-8 text-slate-400" />
+                </div>
+
+                {/* After */}
+                <div className="bg-green-50 border-l-4 border-green-400 rounded-r-2xl p-8">
+                  <div className="flex items-start gap-4">
+                    <div className="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0">
+                      <CheckCircle className="w-5 h-5 text-green-500" />
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-bold text-green-800 mb-3">
+                        After: {problem.after}
+                      </h3>
+                      <p className="text-green-700 leading-relaxed mb-4">
+                        {problem.afterDetail}
+                      </p>
+                      <div className="bg-green-100 text-green-800 px-4 py-2 rounded-lg text-sm font-semibold inline-block">
+                        🎯 {problem.impact}
                       </div>
                     </div>
-
-                    {/* Problem Description */}
-                    <p className="text-slate-600 mb-6 flex-grow leading-relaxed">
-                      {item.description}
-                    </p>
-
-                    {/* Solution */}
-                    <div className="border-t border-slate-100 pt-4">
-                      <div className="flex items-start gap-2 mb-3">
-                        <Check className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
-                        <p className="text-slate-700 text-sm leading-relaxed">
-                          {item.solution}
-                        </p>
-                      </div>
-                      <div className="bg-green-50 text-green-700 px-3 py-2 rounded-lg text-sm font-medium">
-                        {item.stats}
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-              </AnimatedCard>
-            );
-          })}
-        </div>
-
-        {/* Call to Action */}
-        <AnimatedSection className="text-center" threshold={0.1}>
-          <div className="bg-gradient-to-r from-slate-800 to-slate-900 rounded-2xl p-8 md:p-12 text-white max-w-4xl mx-auto">
-            <h3 className="text-3xl md:text-4xl font-bold mb-4">
-              Stop Losing Customers Today
-            </h3>
-            <p className="text-xl mb-8 opacity-90">
-              Start building customer loyalty with a proven system designed for local businesses
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <Button 
-                onClick={handleGetStarted}
-                size="lg"
-                className="bg-white text-slate-800 hover:bg-gray-50 text-lg px-8 py-6 rounded-xl font-semibold"
-              >
-                Start 30-Day Free Trial
-                <ArrowRight className="ml-2 w-5 h-5" />
-              </Button>
-              <div className="text-white/80 text-sm">
-                No credit card required • Setup in 5 minutes
+                  </div>
+                </div>
               </div>
             </div>
+          ))}
+        </div>
+
+        {/* CTA */}
+        <AnimatedSection className="text-center mt-16" threshold={0.1}>
+          <div className="bg-white rounded-2xl shadow-lg p-8 max-w-2xl mx-auto border border-slate-200">
+            <h3 className="text-2xl font-bold text-slate-800 mb-4">
+              Ready to Transform Your Business?
+            </h3>
+            <p className="text-slate-600 mb-6">
+              Join local businesses already seeing these results with PerkPad
+            </p>
+            <Button 
+              onClick={handleGetStarted}
+              size="lg"
+              className="bg-brand-primary hover:bg-brand-primary-dark text-white text-lg px-8 py-6 rounded-xl"
+            >
+              Start 30-Day Free Trial
+              <ArrowRight className="ml-2 w-5 h-5" />
+            </Button>
+            <p className="text-sm text-slate-500 mt-4">
+              No credit card required • Setup in 5 minutes
+            </p>
           </div>
         </AnimatedSection>
       </div>
