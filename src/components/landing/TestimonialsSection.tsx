@@ -33,10 +33,10 @@ const testimonials = [
 ];
 
 const stats = [
-  { number: "99.9%", label: "Uptime SLA", icon: Shield },
+  { number: "99%+", label: "Uptime", icon: Shield },
   { number: "5 min", label: "Setup time", icon: Zap },
-  { number: "24/7", label: "Support", icon: Users },
-  { number: "SOC2", label: "Compliant", icon: Star }
+  { number: "Email", label: "Support", icon: Users },
+  { number: "Secure", label: "Platform", icon: Star }
 ];
 
 const TestimonialsSection = () => {
