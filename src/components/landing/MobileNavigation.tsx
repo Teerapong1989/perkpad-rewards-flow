@@ -41,12 +41,18 @@ const MobileNavigation = () => {
           >
             Pricing
           </button>
-          <button 
-            onClick={() => scrollToSection('features')} 
-            className="text-gray-600 hover:text-brand-primary-dark transition-colors cursor-pointer min-h-[44px] font-medium"
+          <Link 
+            to="/about"
+            className="text-gray-600 hover:text-brand-primary-dark transition-colors cursor-pointer min-h-[44px] flex items-center font-medium"
           >
-            Features
-          </button>
+            About
+          </Link>
+          <Link 
+            to="/contact"
+            className="text-gray-600 hover:text-brand-primary-dark transition-colors cursor-pointer min-h-[44px] flex items-center font-medium"
+          >
+            Contact
+          </Link>
           <Button 
             className="bg-gradient-brand text-white shadow-brand hover:shadow-elegant min-h-[44px] px-6 font-semibold"
             onClick={() => window.open('https://app.perkpad.io', '_blank', 'noopener,noreferrer')}
@@ -98,12 +104,20 @@ const MobileNavigation = () => {
             >
               Pricing
             </button>
-            <button 
-              onClick={() => scrollToSection('features')} 
-              className="w-full text-left p-4 rounded-lg hover:bg-gray-50 transition-colors text-gray-800 font-medium min-h-[44px] flex items-center"
+            <Link 
+              to="/about"
+              className="block p-4 rounded-lg hover:bg-gray-50 transition-colors text-gray-800 font-medium min-h-[44px] flex items-center"
+              onClick={() => setIsMenuOpen(false)}
             >
-              Features
-            </button>
+              About
+            </Link>
+            <Link 
+              to="/contact"
+              className="block p-4 rounded-lg hover:bg-gray-50 transition-colors text-gray-800 font-medium min-h-[44px] flex items-center"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Contact
+            </Link>
             <div className="pt-4 space-y-3">
               <Button 
                 className="w-full bg-gradient-brand text-white shadow-brand min-h-[44px] text-base font-semibold"
