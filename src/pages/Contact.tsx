@@ -247,9 +247,8 @@ const Contact = () => {
                 </CardHeader>
                 <CardContent>
                   <div className="space-y-2">
-                    <p className="font-semibold text-slate-800">Perkpad Headquarters</p>
-                    <p className="text-slate-600">123 Innovation Drive</p>
-                    <p className="text-slate-600">San Francisco, CA 94105</p>
+                    <p className="font-semibold text-slate-800">Perkpad</p>
+                    <p className="text-slate-600">Boston, MA</p>
                     <p className="text-slate-600">United States</p>
                   </div>
                 </CardContent>
