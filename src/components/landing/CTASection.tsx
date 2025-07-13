@@ -51,7 +51,7 @@ const CTASection = () => {
             className="bg-white text-brand-primary-dark hover:bg-gray-50 hover:shadow-xl text-base sm:text-lg px-6 sm:px-8 py-4 sm:py-6 rounded-xl shadow-2xl transform hover:scale-105 transition-all duration-300 font-semibold"
             onClick={() => window.open('https://app.perkpad.io', '_blank', 'noopener,noreferrer')}
           >
-            Get Started Free
+            Start Your 5-Minute Setup (Free)
             <ArrowRight className="ml-2 w-4 h-4 sm:w-5 sm:h-5" />
           </Button>
           <Button 
