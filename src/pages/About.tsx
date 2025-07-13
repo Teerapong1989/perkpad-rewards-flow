@@ -13,18 +13,18 @@ const About = () => {
       <Navigation />
       
       {/* Hero Section */}
-      <section className="py-16 sm:py-20 px-4 sm:px-6">
+      <section className="py-16 sm:py-20 px-4 sm:px-6 bg-gradient-to-r from-slate-900 to-slate-800">
         <div className="max-w-4xl mx-auto text-center">
           <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white mb-6 tracking-tight">
             Building the Future of Customer Loyalty
           </h1>
-          <p className="text-xl text-white/90 mb-8 max-w-3xl mx-auto leading-relaxed">
-            We're on a mission to help small businesses create meaningful connections with their customers through modern, engaging loyalty programs.
+          <p className="text-xl text-slate-200 mb-8 max-w-3xl mx-auto leading-relaxed">
+            We help small businesses create meaningful connections with their customers through modern, engaging loyalty programs.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button 
               size="lg" 
-              className="bg-white text-brand-primary-dark hover:bg-gray-50 hover:shadow-xl text-lg px-8 py-6 rounded-xl shadow-2xl transform hover:scale-105 transition-all duration-300 font-semibold"
+              className="bg-white text-slate-900 hover:bg-gray-50 hover:shadow-xl text-lg px-8 py-6 rounded-xl shadow-2xl transform hover:scale-105 transition-all duration-300 font-semibold"
               onClick={() => window.open('https://app.perkpad.io', '_blank', 'noopener,noreferrer')}
             >
               Start Your Journey
@@ -33,7 +33,7 @@ const About = () => {
             <Button 
               variant="outline" 
               size="lg"
-              className="border-white text-white hover:bg-white hover:text-brand-primary-dark text-lg px-8 py-6 rounded-xl transition-all duration-300 font-semibold"
+              className="border-white text-white hover:bg-white hover:text-slate-900 text-lg px-8 py-6 rounded-xl transition-all duration-300 font-semibold"
               asChild
             >
               <Link to="/contact">
@@ -100,13 +100,13 @@ const About = () => {
               </h2>
               <div className="space-y-4 text-slate-600 leading-relaxed">
                 <p>
-                  Perkpad was born from a simple observation: small businesses were losing customers to forgotten punch cards and outdated loyalty systems. We saw amazing local businesses struggling to compete with big chains that had sophisticated customer retention programs.
+                  Perkpad was created to solve a common problem: small businesses were losing customers due to forgotten punch cards and outdated loyalty systems. We noticed local businesses struggling to compete with larger chains that had digital customer retention programs.
                 </p>
                 <p>
-                  Our founder, while visiting his favorite coffee shop, watched the owner throw away dozens of forgotten punch cards. That moment sparked an idea: what if loyalty could be digital, engaging, and actually fun for customers?
+                  Our team observed the frustration of both business owners and customers dealing with lost punch cards and missed rewards. This led us to develop a simple, digital solution that works for businesses of all sizes.
                 </p>
                 <p>
-                  Today, we're proud to help hundreds of small businesses create stronger relationships with their customers through innovative loyalty experiences that customers actually love to use.
+                  Today, we help small businesses modernize their customer loyalty approach through easy-to-use digital tools that customers enjoy using.
                 </p>
               </div>
             </div>
@@ -119,8 +119,8 @@ const About = () => {
               />
               <div className="absolute -bottom-6 -right-6 bg-white p-6 rounded-2xl shadow-lg">
                 <div className="text-center">
-                  <div className="text-2xl font-bold text-brand-primary">500+</div>
-                  <div className="text-sm text-slate-600">Happy Businesses</div>
+                  <div className="text-2xl font-bold text-brand-primary">Growing</div>
+                  <div className="text-sm text-slate-600">Business Network</div>
                 </div>
               </div>
             </div>
@@ -191,12 +191,12 @@ const About = () => {
             Ready to Transform Your Customer Relationships?
           </h2>
           <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
-            Join hundreds of businesses already using Perkpad to create meaningful customer connections.
+            Join businesses already using Perkpad to create meaningful customer connections.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button 
               size="lg" 
-              className="bg-white text-brand-primary-dark hover:bg-gray-50 hover:shadow-xl text-lg px-8 py-6 rounded-xl shadow-2xl transform hover:scale-105 transition-all duration-300 font-semibold"
+              className="bg-white text-slate-900 hover:bg-gray-50 hover:shadow-xl text-lg px-8 py-6 rounded-xl shadow-2xl transform hover:scale-105 transition-all duration-300 font-semibold"
               onClick={() => window.open('https://app.perkpad.io', '_blank', 'noopener,noreferrer')}
             >
               Start Your 5-Minute Setup (Free)
@@ -205,7 +205,7 @@ const About = () => {
             <Button 
               variant="outline" 
               size="lg"
-              className="border-white text-white hover:bg-white hover:text-brand-primary-dark text-lg px-8 py-6 rounded-xl transition-all duration-300 font-semibold"
+              className="border-white text-white hover:bg-white hover:text-slate-900 text-lg px-8 py-6 rounded-xl transition-all duration-300 font-semibold"
               asChild
             >
               <Link to="/contact">
