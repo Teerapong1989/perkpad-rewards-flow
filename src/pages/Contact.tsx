@@ -58,12 +58,12 @@ const Contact = () => {
       <Navigation />
       
       {/* Hero Section */}
-      <section className="py-16 sm:py-20 px-4 sm:px-6">
+      <section className="py-16 sm:py-20 px-4 sm:px-6 bg-gradient-to-r from-slate-900 to-slate-800">
         <div className="max-w-4xl mx-auto text-center">
           <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white mb-6 tracking-tight">
             Get in Touch
           </h1>
-          <p className="text-xl text-white/90 mb-8 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl text-slate-200 mb-8 max-w-3xl mx-auto leading-relaxed">
             Have questions about Perkpad? Need help setting up your loyalty program? We're here to help you succeed.
           </p>
         </div>
