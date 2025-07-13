@@ -185,4 +185,13 @@ All colors MUST be HSL.
   .rotate-y-180 {
     transform: rotateY(180deg);
   }
+  
+  /* Testimonial Card Animations */
+  .testimonial-card {
+    transform-origin: center;
+  }
+  
+  .testimonial-card:hover {
+    transform: translateY(-4px);
+  }
 }
