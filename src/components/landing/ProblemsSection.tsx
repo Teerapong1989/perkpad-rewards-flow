@@ -231,7 +231,7 @@ const ProblemsSection = () => {
                 
                 <div className="text-center">
                   <div className="text-white/90 text-sm">
-                    ✓ No credit card required
+                    ✓ 30-day free trial available
                   </div>
                   <div className="text-white/90 text-sm">
                     ✓ Setup in 5 minutes

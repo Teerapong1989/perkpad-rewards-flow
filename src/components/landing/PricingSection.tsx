@@ -235,7 +235,7 @@ const PricingSection = () => {
         {/* Bottom Note */}
         <AnimatedSection className="text-center mt-12" threshold={0.1}>
           <p className="text-slate-600">
-            All plans include 30-day free trial • No credit card required • Cancel anytime
+            All plans include 30-day free trial • Credit card required for Pro & Growth plans • Cancel anytime
           </p>
         </AnimatedSection>
       </div>

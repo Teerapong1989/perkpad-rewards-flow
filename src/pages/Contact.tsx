@@ -310,7 +310,7 @@ const Contact = () => {
             <div className="space-y-6">
               <div className="bg-white p-6 rounded-xl shadow-sm">
                 <h3 className="font-semibold text-slate-800 mb-2">Is there a free trial?</h3>
-                <p className="text-slate-600">Yes! We offer a 30-day free trial for all paid plans. No credit card required to start.</p>
+                <p className="text-slate-600">Yes! We offer a 30-day free trial. The Free plan requires no credit card, while Pro and Growth plans require a credit card to start the trial.</p>
               </div>
 
               <div className="bg-white p-6 rounded-xl shadow-sm">
