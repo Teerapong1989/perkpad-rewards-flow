@@ -31,12 +31,17 @@ const Contact = () => {
     setIsSubmitting(true);
 
     try {
+      console.log('Submitting form data:', formData);
+      
       // Call the edge function to send emails
       const { data, error } = await supabase.functions.invoke('send-contact-email', {
         body: formData
       });
 
+      console.log('Edge function response:', { data, error });
+
       if (error) {
+        console.error('Edge function error:', error);
         throw error;
       }
 

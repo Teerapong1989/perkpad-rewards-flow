@@ -30,7 +30,7 @@ const handler = async (req: Request): Promise<Response> => {
 
     // Email to support@perkpad.io (notification)
     const supportEmailResponse = await resend.emails.send({
-      from: "Perkpad Contact Form <noreply@perkpad.io>",
+      from: "Perkpad Contact Form <onboarding@resend.dev>",
       to: ["support@perkpad.io"],
       subject: `New Contact Form Submission: ${subject}`,
       html: `
@@ -74,7 +74,7 @@ const handler = async (req: Request): Promise<Response> => {
 
     // Confirmation email to customer
     const customerEmailResponse = await resend.emails.send({
-      from: "Perkpad Support <support@perkpad.io>",
+      from: "Perkpad Support <onboarding@resend.dev>",
       to: [email],
       subject: "We received your message - Perkpad Support",
       html: `
