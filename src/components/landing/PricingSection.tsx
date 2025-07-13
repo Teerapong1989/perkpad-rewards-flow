@@ -107,11 +107,11 @@ const PricingSection = () => {
                   <div className={`text-3xl font-bold mb-1 ${plan.popular ? 'text-white' : 'text-slate-800'}`}>
                     {plan.price}
                   </div>
-                  <div className={`text-sm ${plan.popular ? 'text-white/80' : 'text-slate-600'}`}>
+                  <div className={`text-sm mb-2 ${plan.popular ? 'text-white/95' : 'text-slate-600'}`}>
                     {plan.period}
                   </div>
                   {plan.addon && (
-                    <div className={`text-xs mt-2 ${plan.popular ? 'text-white/70' : 'text-slate-500'}`}>
+                    <div className={`text-xs leading-tight ${plan.popular ? 'text-white font-medium bg-white/20 px-2 py-1 rounded mt-1' : 'text-slate-500 mt-2'}`}>
                       {plan.addon}
                     </div>
                   )}
