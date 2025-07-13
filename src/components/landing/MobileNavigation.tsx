@@ -1,12 +1,35 @@
 
 import { Button } from "@/components/ui/button";
 import { Gift, Menu, X } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import { useState } from "react";
 
 const MobileNavigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
 
+  const handlePricingClick = () => {
+    setIsMenuOpen(false);
+    
+    if (location.pathname === '/') {
+      // If we're on the homepage, just scroll to pricing section
+      const element = document.getElementById('pricing');
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    } else {
+      // If we're on another page, navigate to homepage with pricing hash
+      navigate('/#pricing');
+      // Add a small delay to ensure navigation completes before scrolling
+      setTimeout(() => {
+        const element = document.getElementById('pricing');
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 100);
+    }
+  };
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
@@ -36,7 +59,7 @@ const MobileNavigation = () => {
             How It Works
           </Link>
           <button 
-            onClick={() => scrollToSection('pricing')} 
+            onClick={handlePricingClick}
             className="text-gray-600 hover:text-brand-primary-dark transition-colors cursor-pointer min-h-[44px] font-medium"
           >
             Pricing
@@ -99,7 +122,7 @@ const MobileNavigation = () => {
               How It Works
             </Link>
             <button 
-              onClick={() => scrollToSection('pricing')} 
+              onClick={handlePricingClick}
               className="w-full text-left p-4 rounded-lg hover:bg-gray-50 transition-colors text-gray-800 font-medium min-h-[44px] flex items-center"
             >
               Pricing
