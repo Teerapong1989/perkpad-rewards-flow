@@ -88,8 +88,8 @@ const Contact = () => {
       {/* Contact Methods */}
       <section className="py-16 bg-white">
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
-          <div className="grid md:grid-cols-3 gap-8 mb-16">
-            <Card className="text-center border-none shadow-lg hover:shadow-xl transition-all duration-300">
+          <div className="flex justify-center mb-16">
+            <Card className="text-center border-none shadow-lg hover:shadow-xl transition-all duration-300 max-w-sm">
               <CardHeader>
                 <div className="w-16 h-16 bg-brand-primary rounded-2xl flex items-center justify-center mx-auto mb-4">
                   <Mail className="w-8 h-8 text-white" />
@@ -100,45 +100,6 @@ const Contact = () => {
               <CardContent>
                 <p className="text-brand-primary font-semibold mb-4">support@perkpad.io</p>
                 <p className="text-slate-600 text-sm">Response within 24 hours</p>
-              </CardContent>
-            </Card>
-
-            <Card className="text-center border-none shadow-lg hover:shadow-xl transition-all duration-300">
-              <CardHeader>
-                <div className="w-16 h-16 bg-brand-primary rounded-2xl flex items-center justify-center mx-auto mb-4">
-                  <MessageCircle className="w-8 h-8 text-white" />
-                </div>
-                <CardTitle className="text-xl text-slate-800">Live Chat</CardTitle>
-                <CardDescription>Chat with our support team in real-time</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <Button 
-                  className="bg-brand-primary hover:bg-brand-primary-dark mb-4"
-                  onClick={() => window.open('https://app.perkpad.io', '_blank')}
-                >
-                  Start Chat
-                </Button>
-                <p className="text-slate-600 text-sm">Available 9 AM - 6 PM PST</p>
-              </CardContent>
-            </Card>
-
-            <Card className="text-center border-none shadow-lg hover:shadow-xl transition-all duration-300">
-              <CardHeader>
-                <div className="w-16 h-16 bg-brand-primary rounded-2xl flex items-center justify-center mx-auto mb-4">
-                  <Clock className="w-8 h-8 text-white" />
-                </div>
-                <CardTitle className="text-xl text-slate-800">Book a Demo</CardTitle>
-                <CardDescription>Schedule a personalized walkthrough</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <Button 
-                  variant="outline" 
-                  className="border-brand-primary text-brand-primary hover:bg-brand-primary hover:text-white mb-4"
-                  onClick={() => window.open('https://app.perkpad.io', '_blank')}
-                >
-                  Schedule Demo
-                </Button>
-                <p className="text-slate-600 text-sm">30-minute sessions available</p>
               </CardContent>
             </Card>
           </div>
