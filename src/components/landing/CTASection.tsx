@@ -24,7 +24,7 @@ const CTASection = () => {
           Ready to stop losing customers to forgotten punch cards?
         </h2>
         <p className="text-lg sm:text-xl text-white/90 mb-8 max-w-2xl mx-auto leading-relaxed text-balance">
-          Join nail salons, auto shops, cafés, and more. Your 2-minute setup starts now.
+          Join nail salons, auto shops, cafés, and more. Your 5-minute setup starts now.
         </p>
         
         {/* Simple guarantees */}
@@ -36,7 +36,7 @@ const CTASection = () => {
             </div>
             <div className="flex items-center justify-center space-x-2">
               <Zap className="w-4 h-4 sm:w-5 sm:h-5 text-white/80" />
-              <span className="font-semibold text-sm sm:text-base">2-minute setup</span>
+              <span className="font-semibold text-sm sm:text-base">5-minute setup</span>
             </div>
             <div className="flex items-center justify-center space-x-2">
               <Shield className="w-4 h-4 sm:w-5 sm:h-5 text-white/80" />
