@@ -13,7 +13,7 @@ const testimonials = [
     accent: "emerald"
   },
   {
-    quote: "Built with the same infrastructure standards as Fortune 500 companies. Real-time sync, automated backups, 99.9% uptime SLA, and professional-grade security features that protect your customer data.",
+    quote: "Built with modern infrastructure and reliable technology. Real-time sync, automated backups, high uptime, and security features that protect your customer data.",
     author: "Technical Excellence",
     role: "Production-Ready Platform",
     icon: Shield,
@@ -56,7 +56,7 @@ const TestimonialsSection = () => {
               Built for Local Business Excellence
             </h2>
             <p className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
-              Engineered by experienced developers who understand both enterprise-grade technology and the unique challenges of local businesses
+              Developed by experienced engineers who understand modern technology and the real challenges of running a local business
             </p>
           </AnimatedSection>
         </div>
@@ -113,10 +113,10 @@ const TestimonialsSection = () => {
           <div className="bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 rounded-3xl p-8 lg:p-12 mb-20">
             <div className="text-center mb-12">
               <h3 className="text-3xl font-bold text-white mb-4">
-                Enterprise-Grade Reliability
+                Reliable & Professional Platform
               </h3>
               <p className="text-slate-300 text-lg">
-                Built with the same standards as Fortune 500 companies
+                Built with modern technology and best practices you can trust
               </p>
             </div>
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
