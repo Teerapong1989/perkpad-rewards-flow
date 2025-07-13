@@ -23,7 +23,7 @@ const features = [
     title: "See your customer visit patterns",
     description: "Track who visits when, how often they come back, and which rewards they claim. See seasonal trends and identify your most loyal customers with clear, simple analytics.",
     benefit: "Visit & loyalty tracking",
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&h=400&fit=crop"
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop"
   }
 ];
 
