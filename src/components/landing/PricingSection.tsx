@@ -85,10 +85,10 @@ const PricingSection = () => {
         </div>
 
         {/* Pricing Table */}
-        <div className={`transition-all duration-1000 ${isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-          <div className="bg-white rounded-2xl shadow-lg border border-slate-200 overflow-hidden">
+        <div className={`transition-all duration-1000 relative ${isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+          <div className="bg-white rounded-2xl shadow-lg border border-slate-200 overflow-visible relative">
             {/* Table Header */}
-            <div className="grid grid-cols-1 lg:grid-cols-4 bg-slate-50 border-b border-slate-200">
+            <div className="grid grid-cols-1 lg:grid-cols-4 bg-slate-50 border-b border-slate-200 relative">
               <div className="p-4 lg:p-6 hidden lg:block">
                 <h3 className="text-lg font-semibold text-slate-800">Features</h3>
               </div>
