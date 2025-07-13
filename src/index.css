@@ -8,13 +8,14 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* Brand Colors - Modern SaaS palette */
-    --brand-primary: 249 91% 95%;          /* Soft lavender background */
-    --brand-primary-dark: 249 91% 15%;     /* Deep navy primary */
-    --brand-accent: 20 95% 60%;            /* Coral accent */
-    --brand-accent-light: 20 95% 95%;      /* Light coral */
-    --brand-success: 150 75% 42%;          /* Emerald green */
-    --brand-success-light: 150 75% 95%;    /* Light emerald */
+    /* Brand Colors - Strong contrast SaaS palette */
+    --brand-primary: 240 75% 58%;             /* Strong blue primary */
+    --brand-primary-dark: 240 80% 25%;       /* Deep navy primary */
+    --brand-primary-light: 240 75% 95%;      /* Light blue background */
+    --brand-accent: 20 90% 55%;              /* Strong coral accent */
+    --brand-accent-light: 20 90% 95%;        /* Light coral */
+    --brand-success: 150 70% 40%;            /* Strong emerald green */
+    --brand-success-light: 150 70% 95%;      /* Light emerald */
     
     /* Neutral Grays - Premium feel */
     --gray-50: 210 20% 98%;
@@ -30,8 +31,8 @@ All colors MUST be HSL.
 
     /* Gradients */
     --gradient-brand: linear-gradient(135deg, hsl(var(--brand-primary-dark)), hsl(var(--brand-accent)));
-    --gradient-subtle: linear-gradient(135deg, hsl(var(--brand-primary)), hsl(var(--gray-50)));
-    --gradient-hero: linear-gradient(135deg, hsl(var(--brand-primary)) 0%, hsl(var(--brand-accent-light)) 100%);
+    --gradient-subtle: linear-gradient(135deg, hsl(var(--brand-primary-light)), hsl(var(--gray-50)));
+    --gradient-hero: linear-gradient(135deg, hsl(var(--brand-primary-light)) 0%, hsl(var(--brand-accent-light)) 100%);
     
     /* Shadows */
     --shadow-sm: 0 1px 2px 0 hsl(var(--gray-900) / 0.05);
@@ -50,7 +51,7 @@ All colors MUST be HSL.
     --popover: 0 0% 100%;
     --popover-foreground: var(--gray-900);
 
-    --primary: var(--brand-primary-dark);
+    --primary: var(--brand-primary);
     --primary-foreground: 0 0% 100%;
 
     --secondary: var(--gray-100);
