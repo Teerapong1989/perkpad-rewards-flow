@@ -70,7 +70,7 @@ const PricingSection = () => {
   };
 
   return (
-    <section className="py-20 px-6 bg-gradient-to-br from-slate-50 to-white">
+    <section className="section-spacing container-padding bg-gradient-to-br from-slate-50 to-white">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div ref={ref}>
@@ -88,8 +88,8 @@ const PricingSection = () => {
         <div className={`transition-all duration-1000 ${isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
           <div className="bg-white rounded-2xl shadow-lg border border-slate-200 overflow-hidden">
             {/* Table Header */}
-            <div className="grid md:grid-cols-4 bg-slate-50 border-b border-slate-200">
-              <div className="p-6">
+            <div className="grid grid-cols-1 lg:grid-cols-4 bg-slate-50 border-b border-slate-200">
+              <div className="p-4 lg:p-6 hidden lg:block">
                 <h3 className="text-lg font-semibold text-slate-800">Features</h3>
               </div>
               {pricingPlans.map((plan) => (

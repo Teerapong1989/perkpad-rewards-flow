@@ -58,7 +58,7 @@ const FeaturesSection = () => {
   };
 
   return (
-    <section className="py-20 px-6 bg-white">
+    <section className="section-spacing container-padding bg-white">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div ref={ref}>
@@ -81,10 +81,10 @@ const FeaturesSection = () => {
             return (
               <div 
                 key={feature.title}
-                className={`grid md:grid-cols-2 gap-12 items-center transition-all duration-1000 delay-${index * 200} ${isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+                className={`grid lg:grid-cols-2 gap-8 lg:gap-12 items-center transition-all duration-1000 delay-${index * 200} ${isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
               >
                 {/* Content */}
-                <div className={`${isEven ? 'md:order-1' : 'md:order-2'}`}>
+                <div className={`${isEven ? 'lg:order-1' : 'lg:order-2'}`}>
                   <div className="flex items-center gap-4 mb-6">
                     <div className="w-12 h-12 bg-brand-primary-dark rounded-xl flex items-center justify-center">
                       <Icon className="w-6 h-6 text-white" />
@@ -93,10 +93,10 @@ const FeaturesSection = () => {
                       {feature.benefit}
                     </div>
                   </div>
-                  <h3 className="text-3xl font-bold text-slate-800 mb-6">
+                  <h3 className="text-2xl lg:text-3xl font-bold text-slate-800 mb-6">
                     {feature.title}
                   </h3>
-                  <p className="text-lg text-slate-600 leading-relaxed mb-8">
+                  <p className="text-base lg:text-lg text-slate-600 leading-relaxed mb-8">
                     {feature.description}
                   </p>
                   <Button 
@@ -108,12 +108,12 @@ const FeaturesSection = () => {
                 </div>
 
                 {/* Image */}
-                <div className={`${isEven ? 'md:order-2' : 'md:order-1'}`}>
+                <div className={`${isEven ? 'lg:order-2' : 'lg:order-1'}`}>
                   <div className="relative">
                     <img 
                       src={feature.image}
                       alt={feature.title}
-                      className="w-full h-80 object-cover rounded-2xl shadow-lg"
+                      className="w-full h-64 lg:h-80 object-cover rounded-2xl shadow-lg"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-2xl"></div>
                   </div>
@@ -134,7 +134,7 @@ const FeaturesSection = () => {
             </p>
           </AnimatedSection>
           
-          <div className={`grid md:grid-cols-2 lg:grid-cols-4 gap-8 transition-all duration-1000 ${isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+          <div className={`grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 transition-all duration-1000 ${isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
             {advancedFeatures.map((feature, index) => {
               const Icon = feature.icon;
               return (

@@ -8,13 +8,13 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* Brand Colors - Sophisticated startup palette */
-    --brand-primary: 251 91% 95%;          /* Light periwinkle background */
-    --brand-primary-dark: 251 91% 17%;     /* Deep indigo primary */
-    --brand-accent: 14 100% 57%;           /* Vibrant orange accent */
-    --brand-accent-light: 14 100% 95%;     /* Light orange */
-    --brand-success: 142 76% 36%;          /* Forest green */
-    --brand-success-light: 142 76% 94%;    /* Light green */
+    /* Brand Colors - Modern SaaS palette */
+    --brand-primary: 249 91% 95%;          /* Soft lavender background */
+    --brand-primary-dark: 249 91% 15%;     /* Deep navy primary */
+    --brand-accent: 20 95% 60%;            /* Coral accent */
+    --brand-accent-light: 20 95% 95%;      /* Light coral */
+    --brand-success: 150 75% 42%;          /* Emerald green */
+    --brand-success-light: 150 75% 95%;    /* Light emerald */
     
     /* Neutral Grays - Premium feel */
     --gray-50: 210 20% 98%;
@@ -157,5 +157,14 @@ All colors MUST be HSL.
   /* Typography Utilities */
   .text-balance {
     text-wrap: balance;
+  }
+  
+  /* Responsive utilities */
+  .container-padding {
+    @apply px-4 sm:px-6 lg:px-8;
+  }
+  
+  .section-spacing {
+    @apply py-16 sm:py-20 lg:py-24;
   }
 }

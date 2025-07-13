@@ -37,7 +37,7 @@ const TestimonialsSection = () => {
   const { ref, isInView } = useInView({ threshold: 0.1 });
 
   return (
-    <section className="py-20 px-6 bg-gradient-to-br from-slate-50 to-white">
+    <section className="section-spacing container-padding bg-gradient-to-br from-slate-50 to-white">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div ref={ref}>
@@ -60,9 +60,9 @@ const TestimonialsSection = () => {
             >
               <div className={`${index % 2 === 0 ? 'text-left' : 'text-right'}`}>
                 <div className={`inline-block max-w-4xl ${index % 2 === 0 ? 'mr-auto' : 'ml-auto'}`}>
-                  <div className="relative bg-white rounded-2xl p-8 shadow-lg border border-slate-200">
+                  <div className="relative bg-white rounded-2xl p-6 lg:p-8 shadow-lg border border-slate-200">
                     <Quote className={`w-8 h-8 text-slate-300 mb-4 ${index % 2 === 0 ? '' : 'ml-auto'}`} />
-                    <blockquote className="text-lg text-slate-700 leading-relaxed mb-6 italic">
+                    <blockquote className="text-base lg:text-lg text-slate-700 leading-relaxed mb-6 italic">
                       "{testimonial.quote}"
                     </blockquote>
                     <div className={`flex items-center gap-4 ${index % 2 === 0 ? '' : 'justify-end'}`}>

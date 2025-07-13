@@ -35,7 +35,7 @@ const ProblemsSection = () => {
   };
 
   return (
-    <section className="py-20 px-6 bg-gradient-to-br from-red-50 via-white to-green-50">
+    <section className="section-spacing container-padding bg-gradient-to-br from-red-50 via-white to-green-50">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div ref={ref}>
@@ -56,18 +56,18 @@ const ProblemsSection = () => {
               key={index}
               className={`transition-all duration-1000 delay-${index * 200} ${isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
             >
-              <div className="grid md:grid-cols-2 gap-8 items-center">
+              <div className="grid lg:grid-cols-3 gap-8 items-center">
                 {/* Before */}
-                <div className="bg-red-50 border-l-4 border-red-400 rounded-r-2xl p-8">
+                <div className="bg-red-50 border-l-4 border-red-400 rounded-r-2xl p-6 lg:p-8">
                   <div className="flex items-start gap-4">
                     <div className="w-8 h-8 bg-red-100 rounded-full flex items-center justify-center flex-shrink-0">
                       <XCircle className="w-5 h-5 text-red-500" />
                     </div>
                     <div>
-                      <h3 className="text-xl font-bold text-red-800 mb-3">
+                      <h3 className="text-lg lg:text-xl font-bold text-red-800 mb-3">
                         Before: {problem.before}
                       </h3>
-                      <p className="text-red-700 leading-relaxed">
+                      <p className="text-red-700 leading-relaxed text-sm lg:text-base">
                         {problem.beforeDetail}
                       </p>
                     </div>
@@ -75,24 +75,24 @@ const ProblemsSection = () => {
                 </div>
 
                 {/* Arrow */}
-                <div className="hidden md:flex justify-center">
-                  <ArrowRight className="w-12 h-12 text-slate-400" />
+                <div className="hidden lg:flex justify-center">
+                  <ArrowRight className="w-8 h-8 text-slate-400" />
                 </div>
-                <div className="md:hidden flex justify-center">
-                  <ArrowDown className="w-8 h-8 text-slate-400" />
+                <div className="lg:hidden flex justify-center">
+                  <ArrowDown className="w-6 h-6 text-slate-400" />
                 </div>
 
                 {/* After */}
-                <div className="bg-green-50 border-l-4 border-green-400 rounded-r-2xl p-8">
+                <div className="bg-green-50 border-l-4 border-green-400 rounded-r-2xl p-6 lg:p-8">
                   <div className="flex items-start gap-4">
                     <div className="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0">
                       <CheckCircle className="w-5 h-5 text-green-500" />
                     </div>
                     <div>
-                      <h3 className="text-xl font-bold text-green-800 mb-3">
+                      <h3 className="text-lg lg:text-xl font-bold text-green-800 mb-3">
                         After: {problem.after}
                       </h3>
-                      <p className="text-green-700 leading-relaxed mb-4">
+                      <p className="text-green-700 leading-relaxed mb-4 text-sm lg:text-base">
                         {problem.afterDetail}
                       </p>
                       <div className="bg-green-100 text-green-800 px-4 py-2 rounded-lg text-sm font-semibold inline-block">
