@@ -1,6 +1,7 @@
 
 import Navigation from "@/components/landing/Navigation";
 import HeroSection from "@/components/landing/HeroSection";
+import ProblemsSection from "@/components/landing/ProblemsSection";
 import FeaturesSection from "@/components/landing/FeaturesSection";
 import BusinessTypeSection from "@/components/landing/BusinessTypeSection";
 import HowItWorksSection from "@/components/landing/HowItWorksSection";
@@ -17,6 +18,7 @@ const Index = () => {
     <div className="min-h-screen bg-gradient-hero">
       <Navigation />
       <HeroSection />
+      <ProblemsSection />
       <FeaturesSection />
       <BusinessTypeSection />
       <HowItWorksSection />
