@@ -31,9 +31,8 @@ const About = () => {
               <ArrowRight className="ml-2 w-5 h-5" />
             </Button>
             <Button 
-              variant="outline" 
               size="lg"
-              className="border-white text-white hover:bg-white hover:text-slate-900 text-lg px-8 py-6 rounded-xl transition-all duration-300 font-semibold"
+              className="bg-white/10 backdrop-blur-sm border-2 border-white text-white hover:bg-white hover:text-slate-900 text-lg px-8 py-6 rounded-xl transition-all duration-300 font-semibold"
               asChild
             >
               <Link to="/contact">
@@ -203,9 +202,8 @@ const About = () => {
               <ArrowRight className="ml-2 w-5 h-5" />
             </Button>
             <Button 
-              variant="outline" 
               size="lg"
-              className="border-white text-white hover:bg-white hover:text-slate-900 text-lg px-8 py-6 rounded-xl transition-all duration-300 font-semibold"
+              className="bg-white/10 backdrop-blur-sm border-2 border-white text-white hover:bg-white hover:text-slate-900 text-lg px-8 py-6 rounded-xl transition-all duration-300 font-semibold"
               asChild
             >
               <Link to="/contact">
