@@ -12,9 +12,9 @@ const problems = [
     before: "Customers visit once and disappear forever",
     beforeDetail: "70% never return after their first visit. No follow-up system, no reminders, no reason to come back.",
     after: "Automated loyalty program brings customers back",
-    afterDetail: "Smart reminders, personalized rewards, and compelling reasons to return increase repeat visits by 40%.",
-    impact: "40% increase in repeat visits",
-    impactNumber: "+40%"
+    afterDetail: "Smart reminders, personalized rewards, and compelling reasons to return help increase repeat visits.",
+    impact: "More repeat customers",
+    impactNumber: "Repeat Visits"
   },
   {
     id: 2,
@@ -24,8 +24,8 @@ const problems = [
     beforeDetail: "Customers choose Starbucks over your coffee shop because they get points and rewards. Your paper punch cards can't compete.",
     after: "Professional-grade loyalty system levels the playing field",
     afterDetail: "The same powerful features that big chains use, designed specifically for local businesses.",
-    impact: "Compete with any chain",
-    impactNumber: "100%"
+    impact: "Level playing field",
+    impactNumber: "Compete"
   },
   {
     id: 3,
@@ -172,30 +172,30 @@ const ProblemsSection = () => {
           <div className="bg-white rounded-3xl shadow-xl border border-slate-200 p-8 lg:p-12">
             <div className="text-center mb-8">
               <h3 className="text-3xl font-bold text-slate-800 mb-4">
-                Real Results from Real Businesses
+                Why Loyalty Programs Work
               </h3>
               <p className="text-slate-600 text-lg">
-                These aren't just promises - they're proven outcomes
+                The fundamentals that drive customer retention
               </p>
             </div>
             
             <div className="grid md:grid-cols-3 gap-8">
               <div className="text-center p-6 bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl">
-                <div className="text-4xl font-bold text-blue-600 mb-2">40%</div>
-                <div className="text-blue-800 font-semibold">More Repeat Visits</div>
-                <div className="text-blue-600 text-sm mt-1">Average increase across all business types</div>
+                <div className="text-2xl font-bold text-blue-600 mb-2">Repeat Visits</div>
+                <div className="text-blue-800 font-semibold">Build Customer Habits</div>
+                <div className="text-blue-600 text-sm mt-1">Incentivize customers to return regularly</div>
               </div>
               
               <div className="text-center p-6 bg-gradient-to-br from-purple-50 to-purple-100 rounded-2xl">
-                <div className="text-4xl font-bold text-purple-600 mb-2">3x</div>
-                <div className="text-purple-800 font-semibold">Customer Lifetime Value</div>
-                <div className="text-purple-600 text-sm mt-1">Through strategic reward programs</div>
+                <div className="text-2xl font-bold text-purple-600 mb-2">Engagement</div>
+                <div className="text-purple-800 font-semibold">Stronger Relationships</div>
+                <div className="text-purple-600 text-sm mt-1">Create emotional connections with rewards</div>
               </div>
               
               <div className="text-center p-6 bg-gradient-to-br from-green-50 to-green-100 rounded-2xl">
-                <div className="text-4xl font-bold text-green-600 mb-2">85%</div>
-                <div className="text-green-800 font-semibold">Setup Success Rate</div>
-                <div className="text-green-600 text-sm mt-1">Businesses see results within 30 days</div>
+                <div className="text-2xl font-bold text-green-600 mb-2">Data Insights</div>
+                <div className="text-green-800 font-semibold">Know Your Customers</div>
+                <div className="text-green-600 text-sm mt-1">Track patterns and preferences</div>
               </div>
             </div>
           </div>
@@ -216,7 +216,7 @@ const ProblemsSection = () => {
                 Ready to Transform Your Business?
               </h3>
               <p className="text-xl mb-8 text-white/90 max-w-2xl mx-auto leading-relaxed">
-                Join 500+ local businesses already seeing these results. Start your transformation today.
+                Join local businesses using modern loyalty technology. Start your transformation today.
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
