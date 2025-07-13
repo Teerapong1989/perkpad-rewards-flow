@@ -93,10 +93,10 @@ const PricingSection = () => {
                 <h3 className="text-lg font-semibold text-slate-800">Features</h3>
               </div>
               {pricingPlans.map((plan) => (
-                <div key={plan.name} className={`p-6 text-center relative ${plan.popular ? 'bg-brand-primary text-white shadow-xl ring-2 ring-brand-primary/20' : 'bg-white'}`}>
+                <div key={plan.name} className={`p-6 text-center relative ${plan.popular ? 'bg-brand-primary text-white shadow-xl ring-2 ring-brand-primary/20 pt-10' : 'bg-white'}`}>
                   {plan.popular && (
-                    <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 z-10">
-                      <div className="bg-gradient-to-r from-orange-400 to-orange-500 text-white px-4 py-1 rounded-full text-sm font-semibold shadow-md">
+                    <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 z-10">
+                      <div className="bg-gradient-to-r from-orange-400 to-orange-500 text-white px-6 py-2 rounded-full text-sm font-semibold shadow-md whitespace-nowrap">
                         Most Popular
                       </div>
                     </div>
