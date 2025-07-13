@@ -128,18 +128,18 @@ const ProblemsSection = () => {
 
         {/* Call to Action */}
         <AnimatedSection className="text-center" threshold={0.1}>
-          <div className="bg-gradient-to-r from-brand-primary to-brand-accent rounded-2xl p-8 md:p-12 text-white max-w-4xl mx-auto">
+          <div className="bg-gradient-to-r from-slate-800 to-slate-900 rounded-2xl p-8 md:p-12 text-white max-w-4xl mx-auto">
             <h3 className="text-3xl md:text-4xl font-bold mb-4">
               Stop Losing Customers Today
             </h3>
             <p className="text-xl mb-8 opacity-90">
-              Join thousands of local businesses using PerkPad to increase customer retention and revenue
+              Start building customer loyalty with a proven system designed for local businesses
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <Button 
                 onClick={handleGetStarted}
                 size="lg"
-                className="bg-white text-brand-primary hover:bg-gray-50 text-lg px-8 py-6 rounded-xl font-semibold"
+                className="bg-white text-slate-800 hover:bg-gray-50 text-lg px-8 py-6 rounded-xl font-semibold"
               >
                 Start 30-Day Free Trial
                 <ArrowRight className="ml-2 w-5 h-5" />
