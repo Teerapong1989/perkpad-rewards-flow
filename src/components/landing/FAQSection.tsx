@@ -15,7 +15,7 @@ const faqs = [
   },
   {
     question: "What advanced features do you offer?",
-    answer: "Enterprise-grade features include: AI-powered customer retention insights, multi-location management, geofenced location verification, SMS and email marketing campaigns, advanced analytics and ROI tracking, staff role management, automated rewards, and comprehensive security features."
+    answer: "Professional-grade features include: AI-powered customer retention insights, multi-location management, geofenced location verification, SMS and email marketing campaigns, advanced analytics and ROI tracking, staff role management, automated rewards, and comprehensive security features."
   },
   {
     question: "How does multi-location management work?",
@@ -27,7 +27,7 @@ const faqs = [
   },
   {
     question: "How secure is the platform?",
-    answer: "Enterprise-grade security with encryption at rest and in transit, automated security monitoring, fraud detection algorithms, IP blocking capabilities, comprehensive audit logs, and SOC2-compliant infrastructure. Your customer data is protected with the same standards as Fortune 500 companies."
+    answer: "Professional-grade security with encryption at rest and in transit, automated security monitoring, fraud detection algorithms, IP blocking capabilities, comprehensive audit logs, and SOC2-compliant infrastructure. Your customer data is protected with the same standards as Fortune 500 companies."
   },
   {
     question: "Can I integrate with my existing POS system?",

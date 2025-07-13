@@ -17,7 +17,7 @@ const problems = [
     icon: Users,
     problem: "Can't compete with big chain loyalty programs",
     description: "Customers choose Starbucks over your coffee shop because they get points and rewards. Your paper punch cards can't match their sophisticated systems.",
-    solution: "Enterprise-grade loyalty features designed for local businesses",
+    solution: "Professional-grade loyalty features designed for local businesses",
     stats: "Level the playing field"
   },
   {

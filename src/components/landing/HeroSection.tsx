@@ -88,7 +88,7 @@ const HeroSection = () => {
               <AnimatedSection animation="fade-up" delay={600}>
                 <aside className="bg-brand-accent-light border-l-4 border-brand-accent p-3 sm:p-4 rounded-r-xl mx-2 sm:mx-0 shadow-md">
                   <p className="text-gray-800 font-semibold text-sm sm:text-base">
-                    <span className="text-brand-accent font-bold">Enterprise-grade platform</span> designed for small business budgets. 12 business types supported, unlimited locations, AI-powered insights, and advanced security features.
+                    <span className="text-brand-accent font-bold">Professional-grade platform</span> designed for small business budgets. 12 business types supported, unlimited locations, AI-powered insights, and advanced security features.
                   </p>
                 </aside>
               </AnimatedSection>
@@ -145,7 +145,7 @@ const HeroSection = () => {
                     <div className="w-5 h-5 sm:w-6 sm:h-6 bg-brand-success-light rounded-full flex items-center justify-center flex-shrink-0" aria-hidden="true">
                       <Check className="w-3 h-3 sm:w-4 sm:h-4 text-brand-success" />
                     </div>
-                    <span className="font-medium text-gray-700">Enterprise security</span>
+                    <span className="font-medium text-gray-700">Professional security</span>
                   </li>
                 </ul>
               </div>

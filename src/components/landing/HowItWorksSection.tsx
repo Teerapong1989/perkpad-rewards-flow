@@ -105,7 +105,7 @@ const HowItWorksSection = () => {
                   Built with Security in Mind
                 </h3>
                 <p className="text-lg text-slate-600 mb-6">
-                  Your customer data and business information are protected with enterprise-grade security measures.
+                  Your customer data and business information are protected with professional-grade security measures.
                 </p>
                 <div className="space-y-3">
                   {securityFeatures.map((feature, index) => (

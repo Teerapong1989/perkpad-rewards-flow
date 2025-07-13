@@ -6,9 +6,9 @@ import { AnimatedSection } from "@/components/ui/AnimatedSection";
 import { AnimatedCard } from "@/components/ui/AnimatedCard";
 
 const founderStory = {
-  quote: "After seeing successful franchises with sophisticated loyalty systems, we asked: why can't every local business have enterprise-grade features? We built a platform with AI insights, multi-location management, advanced security, and powerful analytics - all at small business prices.",
+  quote: "After seeing successful franchises with sophisticated loyalty systems, we asked: why can't every local business have professional-grade features? We built a platform with AI insights, multi-location management, advanced security, and powerful analytics - all at small business prices.",
   author: "The Perkpad Team",
-  role: "Enterprise Features for Everyone",
+  role: "Professional Features for Everyone",
   gradient: "from-teal-400 to-teal-500",
   cardGradient: "from-teal-50 to-white"
 };
@@ -17,7 +17,7 @@ const earlyAccessBenefits = [
   {
     icon: Users,
     title: "Production-Ready Platform",
-    description: "Built with the same infrastructure standards as Fortune 500 companies. Real-time sync, automated backups, 99.9% uptime SLA, and enterprise-grade security features that protect your customer data.",
+    description: "Built with the same infrastructure standards as Fortune 500 companies. Real-time sync, automated backups, 99.9% uptime SLA, and professional-grade security features that protect your customer data.",
     gradient: "from-purple-400 to-purple-500",
     cardGradient: "from-purple-50 to-white"
   },
@@ -38,7 +38,7 @@ const TestimonialsSection = () => {
       <div className="max-w-7xl mx-auto">
         <AnimatedSection className="text-center mb-16" threshold={0.1}>
           <h2 className="text-4xl font-bold text-slate-800 mb-4">
-            Enterprise Technology for Local Business
+            Professional Technology for Local Business
           </h2>
           <p className="text-xl text-slate-600">
             Built by experienced engineers who understand both technology and small business needs
@@ -106,7 +106,7 @@ const TestimonialsSection = () => {
         <div className="text-center mt-12">
           <div className="bg-gradient-to-r from-teal-50 to-orange-50 rounded-2xl p-8 max-w-3xl mx-auto">
             <h3 className="text-2xl font-bold text-slate-800 mb-4">
-              Start with enterprise-grade tools today
+              Start with professional-grade tools today
             </h3>
             <p className="text-lg text-slate-600 mb-6">
               Multi-location management, AI insights, advanced security, SMS campaigns, and comprehensive analytics. Everything you need to compete with the big chains.
