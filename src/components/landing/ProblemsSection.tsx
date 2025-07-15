@@ -58,14 +58,18 @@ const ProblemsSection = () => {
               <TrendingUp className="w-4 h-4" />
               Transformation Stories
             </div>
-            <h2 className="text-4xl md:text-6xl font-bold text-slate-800 mb-6 leading-tight">
-              From Problem to{" "}
-              <span className="bg-gradient-to-r from-brand-primary to-brand-accent bg-clip-text text-transparent">
-                Solution
+            <div className="mb-4">
+              <div className="text-red-600 text-5xl font-bold mb-2">73%</div>
+              <div className="text-xl text-slate-700 mb-4">of punch cards are lost or forgotten</div>
+            </div>
+            <h2 className="text-4xl md:text-5xl font-bold text-slate-800 mb-6 leading-tight">
+              Your Loyal Customers Are{" "}
+              <span className="bg-gradient-to-r from-red-600 to-red-500 bg-clip-text text-transparent">
+                Disappearing
               </span>
             </h2>
-            <p className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
-              See how local businesses transform their customer relationships with measurable results
+            <p className="text-xl text-slate-600 max-w-2xl mx-auto leading-relaxed">
+              Every lost punch card is a lost customer. Here's what's costing you sales.
             </p>
           </AnimatedSection>
         </div>

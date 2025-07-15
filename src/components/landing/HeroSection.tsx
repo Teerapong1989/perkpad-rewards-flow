@@ -71,17 +71,22 @@ const HeroSection = () => {
               
               <AnimatedSection animation="fade-up" delay={200}>
                 <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-extrabold text-gray-900 leading-[1.1] text-center lg:text-left tracking-tight text-balance">
-                  The complete loyalty platform{" "}
+                  Turn Forgotten Punch Cards Into{" "}
                   <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-primary-dark via-brand-accent to-brand-accent">
-                    built for every business
+                    Repeat Customers
                   </span>
                 </h1>
               </AnimatedSection>
               
               <AnimatedSection animation="fade-up" delay={400}>
-                <p className="text-lg sm:text-xl lg:text-2xl text-gray-600 leading-relaxed font-medium text-center lg:text-left max-w-2xl text-balance">
-                  From QR code scanning to AI insights. Multi-location support, SMS campaigns, real-time analytics. Everything you need to turn first-time customers into regulars.
-                </p>
+                <div className="space-y-4">
+                  <div className="text-3xl sm:text-4xl font-bold text-red-600 text-center lg:text-left">
+                    73% of customers lose their punch cards
+                  </div>
+                  <p className="text-lg sm:text-xl lg:text-2xl text-gray-600 leading-relaxed font-medium text-center lg:text-left max-w-2xl text-balance">
+                    We turn that into your competitive advantage with mobile loyalty that works.
+                  </p>
+                </div>
               </AnimatedSection>
               
               {/* Platform capabilities highlight */}
@@ -102,7 +107,7 @@ const HeroSection = () => {
                   onClick={() => window.open('https://app.perkpad.io', '_blank', 'noopener,noreferrer')}
                   aria-label="Start free today"
                 >
-                  Get Started Free
+                  Start 5-Minute Setup (Free)
                   <ArrowRight className="ml-2 w-4 h-4 sm:w-5 sm:h-5" aria-hidden="true" />
                 </Button>
                 <Button 
@@ -114,7 +119,7 @@ const HeroSection = () => {
                 >
                   <Link to="/how-it-works" aria-label="Learn how our loyalty program works">
                     <Play className="mr-2 w-4 h-4 sm:w-5 sm:h-5" aria-hidden="true" />
-                    See How It Works
+                    Watch Demo
                   </Link>
                 </Button>
               </div>

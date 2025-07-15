@@ -64,10 +64,10 @@ const FeaturesSection = () => {
         <div ref={ref}>
           <AnimatedSection className="text-center mb-16" threshold={0.1}>
             <h2 className="text-4xl md:text-5xl font-bold text-slate-800 mb-6">
-              Why Local Businesses Choose PerkPad
+              Mobile Loyalty That Actually Works
             </h2>
-            <p className="text-xl text-slate-600 max-w-3xl mx-auto">
-              Simple enough for anyone to use, powerful enough to compete with big chains
+            <p className="text-xl text-slate-600 max-w-2xl mx-auto">
+              Replace lost punch cards with features that keep customers coming back.
             </p>
           </AnimatedSection>
         </div>
