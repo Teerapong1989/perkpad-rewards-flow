@@ -9,21 +9,21 @@ const features = [
     title: "No App Required",
     description: "Customers scan QR code with phone camera. Works instantly.",
     benefit: "Zero friction",
-    image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=400&fit=crop"
-  },
-  {
-    icon: Gift,
-    title: "Smart Rewards",
-    description: "Custom rewards that fit your business model perfectly.",
-    benefit: "Fits your business",
-    image: "https://images.unsplash.com/photo-1556157382-97eda2d62296?w=600&h=400&fit=crop"
+    image: "/src/assets/qr-loyalty-interface.jpg"
   },
   {
     icon: BarChart3,
     title: "Customer Analytics",
     description: "Track visits, retention, and loyalty patterns.",
     benefit: "Know your customers",
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop"
+    image: "/src/assets/analytics-dashboard.jpg"
+  },
+  {
+    icon: Smartphone,
+    title: "SMS Marketing",
+    description: "Automated campaigns to bring customers back.",
+    benefit: "Automated retention",
+    image: "/src/assets/sms-marketing.jpg"
   }
 ];
 

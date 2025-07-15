@@ -4,29 +4,29 @@ import { AnimatedSection } from "@/components/ui/AnimatedSection";
 
 const testimonials = [
   {
-    quote: "Professional features at small business prices.",
-    author: "Built by Engineers",
-    role: "For Modern Businesses", 
+    quote: "We went from losing 80% of first-time customers to having 40% come back regularly. The QR system just works.",
+    author: "Maria Rodriguez",
+    role: "Owner, Sunrise Coffee", 
     icon: Users,
-    category: "Professional",
+    category: "Coffee Shop",
     color: "from-emerald-400 via-teal-500 to-cyan-600",
     accent: "emerald"
   },
   {
-    quote: "Real-time sync, automated backups, high uptime.",
-    author: "Production Ready",
-    role: "Secure Platform",
+    quote: "Finally competing with the big chains. Our regular customers love the digital loyalty - no more lost punch cards.",
+    author: "David Kim",
+    role: "Manager, Elite Auto Care",
     icon: Shield,
-    category: "Security",
+    category: "Auto Repair",
     color: "from-violet-400 via-purple-500 to-indigo-600", 
     accent: "violet"
   },
   {
-    quote: "AI insights, predictive analytics, ROI tracking.",
-    author: "Smart Analytics", 
-    role: "Complete Intelligence",
+    quote: "The SMS campaigns bring back customers who would have disappeared. We can see exactly what works now.",
+    author: "Jennifer Chen", 
+    role: "Owner, Bella Salon",
     icon: Brain,
-    category: "Analytics",
+    category: "Beauty Salon",
     color: "from-orange-400 via-red-500 to-pink-600",
     accent: "orange"
   }
