@@ -76,11 +76,8 @@ const PricingSection = () => {
         <div ref={ref}>
           <AnimatedSection className="text-center mb-16" threshold={0.1}>
             <h2 className="text-4xl md:text-5xl font-bold text-slate-800 mb-6">
-              Simple, Transparent Pricing
+              Pricing
             </h2>
-            <p className="text-xl text-slate-600 max-w-3xl mx-auto">
-              Start free, upgrade when you're ready. No hidden fees, no long-term contracts.
-            </p>
           </AnimatedSection>
         </div>
 

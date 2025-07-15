@@ -92,11 +92,8 @@ const BusinessTypeSection = () => {
               Works for Any Business
             </Badge>
             <h2 className="text-4xl md:text-5xl font-bold text-slate-800 mb-6">
-              Works for Any Business
+              Any Business
             </h2>
-            <p className="text-xl text-slate-600 max-w-2xl mx-auto">
-              Click to see how it works for your industry
-            </p>
           </AnimatedSection>
         </div>
 

@@ -51,7 +51,7 @@ const FAQSection = () => {
       <div className="max-w-4xl mx-auto">
         <AnimatedSection className="text-center mb-16" threshold={0.1}>
           <h2 className="text-4xl font-bold text-slate-800 mb-4">
-            Frequently Asked Questions
+            FAQ
           </h2>
         </AnimatedSection>
 

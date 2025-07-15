@@ -54,11 +54,8 @@ const HowItWorksSection = () => {
         <div ref={headerRef}>
           <AnimatedSection className="text-center mb-16" threshold={0.1}>
             <h2 className="text-4xl md:text-5xl font-bold text-slate-800 mb-6">
-              How It Works
+              5 Steps
             </h2>
-            <p className="text-xl text-slate-600 max-w-2xl mx-auto">
-              5 simple steps that work
-            </p>
           </AnimatedSection>
         </div>
 

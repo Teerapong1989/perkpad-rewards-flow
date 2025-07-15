@@ -59,18 +59,15 @@ const ProblemsSection = () => {
               Transformation Stories
             </div>
             <div className="mb-4">
-              <div className="text-red-600 text-5xl font-bold mb-2">73%</div>
-              <div className="text-xl text-slate-700 mb-4">of punch cards are lost or forgotten</div>
+              <div className="text-red-600 text-5xl font-bold mb-2">78%</div>
+              <div className="text-xl text-slate-700 mb-4">of punch cards are lost</div>
             </div>
             <h2 className="text-4xl md:text-5xl font-bold text-slate-800 mb-6 leading-tight">
-              Your Loyal Customers Are{" "}
+              Paper Cards
               <span className="bg-gradient-to-r from-red-600 to-red-500 bg-clip-text text-transparent">
-                Disappearing
+                {" "}Don't Work
               </span>
             </h2>
-            <p className="text-xl text-slate-600 max-w-2xl mx-auto leading-relaxed">
-              Every lost punch card is a lost customer. Here's what's costing you sales.
-            </p>
           </AnimatedSection>
         </div>
 

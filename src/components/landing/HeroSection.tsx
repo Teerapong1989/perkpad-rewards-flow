@@ -71,22 +71,22 @@ const HeroSection = () => {
               
               <AnimatedSection animation="fade-up" delay={200}>
                 <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-extrabold text-gray-900 leading-[1.1] text-center lg:text-left tracking-tight text-balance">
-                  Turn Forgotten Punch Cards Into{" "}
                   <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-primary-dark via-brand-accent to-brand-accent">
-                    Repeat Customers
-                  </span>
+                    QR Loyalty
+                  </span>{" "}
+                  That Works
                 </h1>
               </AnimatedSection>
               
               <AnimatedSection animation="fade-up" delay={400}>
-                <div className="space-y-4">
-                  <div className="text-3xl sm:text-4xl font-bold text-red-600 text-center lg:text-left">
-                    73% of customers lose their punch cards
+                  <div className="space-y-4">
+                    <div className="text-3xl sm:text-4xl font-bold text-red-600 text-center lg:text-left">
+                      78% of punch cards are lost
+                    </div>
+                    <p className="text-lg sm:text-xl lg:text-2xl text-gray-600 leading-relaxed font-medium text-center lg:text-left max-w-2xl text-balance">
+                      No app. No login. Just scan & earn.
+                    </p>
                   </div>
-                  <p className="text-lg sm:text-xl lg:text-2xl text-gray-600 leading-relaxed font-medium text-center lg:text-left max-w-2xl text-balance">
-                    We turn that into your competitive advantage with mobile loyalty that works.
-                  </p>
-                </div>
               </AnimatedSection>
               
               {/* Platform capabilities highlight */}

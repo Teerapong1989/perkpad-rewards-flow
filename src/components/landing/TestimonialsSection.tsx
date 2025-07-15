@@ -53,11 +53,8 @@ const TestimonialsSection = () => {
               Professional Technology
             </div>
             <h2 className="text-5xl lg:text-6xl font-bold bg-gradient-to-r from-slate-800 via-slate-700 to-slate-800 bg-clip-text text-transparent mb-6">
-              Professional Technology
+              Results
             </h2>
-            <p className="text-xl text-slate-600 max-w-2xl mx-auto leading-relaxed">
-              Built by experienced engineers for modern businesses
-            </p>
           </AnimatedSection>
         </div>
 
