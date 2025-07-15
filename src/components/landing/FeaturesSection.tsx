@@ -2,6 +2,9 @@ import { QrCode, Gift, BarChart3, Smartphone, Shield, Brain } from "lucide-react
 import { Button } from "@/components/ui/button";
 import { useInView } from "@/hooks/useInView";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
+import qrLoyaltyInterface from "@/assets/qr-loyalty-interface.jpg";
+import analyticsDashboard from "@/assets/analytics-dashboard.jpg";
+import smsMarketing from "@/assets/sms-marketing.jpg";
 
 const features = [
   {
@@ -9,21 +12,21 @@ const features = [
     title: "No App Required",
     description: "Customers scan QR code with phone camera. Works instantly.",
     benefit: "Zero friction",
-    image: "/src/assets/qr-loyalty-interface.jpg"
+    image: qrLoyaltyInterface
   },
   {
     icon: BarChart3,
     title: "Customer Analytics",
     description: "Track visits, retention, and loyalty patterns.",
     benefit: "Know your customers",
-    image: "/src/assets/analytics-dashboard.jpg"
+    image: analyticsDashboard
   },
   {
     icon: Smartphone,
     title: "SMS Marketing",
     description: "Automated campaigns to bring customers back.",
     benefit: "Automated retention",
-    image: "/src/assets/sms-marketing.jpg"
+    image: smsMarketing
   }
 ];
 
