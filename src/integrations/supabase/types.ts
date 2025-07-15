@@ -2616,6 +2616,14 @@ export type Database = {
         Args: Record<PropertyKey, never>
         Returns: undefined
       }
+      check_table_rls_status: {
+        Args: Record<PropertyKey, never>
+        Returns: {
+          table_name: string
+          rls_enabled: boolean
+          policy_count: number
+        }[]
+      }
       cleanup_expired_sessions: {
         Args: Record<PropertyKey, never>
         Returns: undefined
@@ -2863,6 +2871,13 @@ export type Database = {
       urlencode: {
         Args: { data: Json } | { string: string } | { string: string }
         Returns: string
+      }
+      validate_rls_coverage: {
+        Args: Record<PropertyKey, never>
+        Returns: {
+          table_name: string
+          missing_policies: string[]
+        }[]
       }
     }
     Enums: {
