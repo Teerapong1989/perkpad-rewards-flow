@@ -4,7 +4,7 @@ import { AnimatedSection } from "@/components/ui/AnimatedSection";
 
 const testimonials = [
   {
-    quote: "After seeing successful franchises with sophisticated loyalty systems, we asked: why can't every local business have professional-grade features? We built a platform with AI insights, multi-location management, advanced security, and powerful analytics - all at small business prices.",
+    quote: "Professional-grade features at small business prices. AI insights, multi-location management, advanced security, and powerful analytics.",
     author: "The Perkpad Team",
     role: "Professional Features for Everyone", 
     icon: Users,
@@ -13,7 +13,7 @@ const testimonials = [
     accent: "emerald"
   },
   {
-    quote: "Built with modern infrastructure and reliable technology. Real-time sync, automated backups, high uptime, and security features that protect your customer data.",
+    quote: "Modern infrastructure with real-time sync, automated backups, high uptime, and security features that protect your data.",
     author: "Technical Excellence",
     role: "Production-Ready Platform",
     icon: Shield,
@@ -22,7 +22,7 @@ const testimonials = [
     accent: "violet"
   },
   {
-    quote: "AI-powered customer retention insights, predictive analytics, ROI tracking, and automated campaign management. Get the same insights as big chains, tailored for your local business.",
+    quote: "AI-powered insights, predictive analytics, ROI tracking, and automated campaigns. Same insights as big chains.",
     author: "Business Intelligence", 
     role: "Complete Analytics Suite",
     icon: Brain,
@@ -53,10 +53,10 @@ const TestimonialsSection = () => {
               Professional Technology
             </div>
             <h2 className="text-5xl lg:text-6xl font-bold bg-gradient-to-r from-slate-800 via-slate-700 to-slate-800 bg-clip-text text-transparent mb-6">
-              Built for Local Business Excellence
+              Professional Technology
             </h2>
-            <p className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
-              Developed by experienced engineers who understand modern technology and the real challenges of running a local business
+            <p className="text-xl text-slate-600 max-w-2xl mx-auto leading-relaxed">
+              Built by experienced engineers for modern businesses
             </p>
           </AnimatedSection>
         </div>
@@ -113,10 +113,10 @@ const TestimonialsSection = () => {
           <div className="bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 rounded-3xl p-8 lg:p-12 mb-20">
             <div className="text-center mb-12">
               <h3 className="text-3xl font-bold text-white mb-4">
-                Reliable & Professional Platform
+                Reliable Platform
               </h3>
               <p className="text-slate-300 text-lg">
-                Built with modern technology and best practices you can trust
+                Built with modern technology you can trust
               </p>
             </div>
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
@@ -153,11 +153,11 @@ const TestimonialsSection = () => {
               </div>
               
               <h3 className="text-4xl lg:text-5xl font-bold text-white mb-6">
-                Start with professional-grade tools today
+                Start with professional tools today
               </h3>
               
               <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto leading-relaxed">
-                Multi-location management, AI insights, advanced security, SMS campaigns, and comprehensive analytics. Everything you need to compete with the big chains.
+                Everything you need to compete with big chains.
               </p>
               
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">

@@ -6,40 +6,40 @@ const steps = [
   {
     icon: Smartphone,
     title: "Customer Scans QR Code",
-    description: "No app download needed - customers simply scan your QR code with their phone camera",
-    details: "Works with any smartphone camera. Opens directly in their web browser with a secure session."
+    description: "No app download - just scan with phone camera",
+    details: "Works with any smartphone. Opens in web browser."
   },
   {
     icon: Shield,
     title: "Location Verification",
-    description: "Our geofencing technology confirms they're actually at your business",
-    details: "GPS verification prevents fraud while ensuring legitimate customers can check in easily."
+    description: "GPS confirms they're at your business",
+    details: "Prevents fraud while making check-in easy."
   },
   {
     icon: Users,
     title: "Instant Stamp Collection",
-    description: "Stamps are automatically added to their digital loyalty card",
-    details: "Staff can also add stamps manually using secure PINs. Real-time sync across all devices."
+    description: "Stamps automatically added to digital card",
+    details: "Staff can add stamps manually. Real-time sync."
   },
   {
     icon: Brain,
     title: "AI Analyzes Patterns",
-    description: "Our AI studies customer behavior to provide business insights",
-    details: "Tracks visit frequency, peak times, and customer retention patterns."
+    description: "Smart insights about customer behavior",
+    details: "Tracks visits, peak times, and retention patterns."
   },
   {
     icon: Check,
     title: "Automated Rewards",
     description: "Customers earn and redeem rewards seamlessly",
-    details: "Configurable rewards with surprise gift box system for delight moments."
+    details: "Configurable rewards with surprise bonuses."
   }
 ];
 
 const securityFeatures = [
-  "Bank-level encryption for all data",
-  "GPS verification prevents fraud",
-  "Secure staff PINs for manual stamping",
-  "Real-time backup and sync"
+  "Bank-level encryption",
+  "GPS fraud prevention", 
+  "Secure staff PINs",
+  "Real-time backup"
 ];
 
 const HowItWorksSection = () => {
@@ -56,8 +56,8 @@ const HowItWorksSection = () => {
             <h2 className="text-4xl md:text-5xl font-bold text-slate-800 mb-6">
               How It Works
             </h2>
-            <p className="text-xl text-slate-600 max-w-3xl mx-auto">
-              A simple 5-step process that transforms one-time visitors into loyal customers
+            <p className="text-xl text-slate-600 max-w-2xl mx-auto">
+              5 simple steps that work
             </p>
           </AnimatedSection>
         </div>
@@ -102,10 +102,10 @@ const HowItWorksSection = () => {
             <div className="grid md:grid-cols-2 gap-8 items-center">
               <div>
                 <h3 className="text-3xl font-bold text-slate-800 mb-4">
-                  Built with Security in Mind
+                  Security Built In
                 </h3>
                 <p className="text-lg text-slate-600 mb-6">
-                  Your customer data and business information are protected with professional-grade security measures.
+                  Professional-grade security protects your data.
                 </p>
                 <div className="space-y-3">
                   {securityFeatures.map((feature, index) => (

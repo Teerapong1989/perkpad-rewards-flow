@@ -92,10 +92,10 @@ const BusinessTypeSection = () => {
               Works for Any Business
             </Badge>
             <h2 className="text-4xl md:text-5xl font-bold text-slate-800 mb-6">
-              Perfect for Your Business Type
+              Works for Any Business
             </h2>
-            <p className="text-xl text-slate-600 max-w-3xl mx-auto">
-              Whether you serve coffee or fix cars, PerkPad adapts to your business model
+            <p className="text-xl text-slate-600 max-w-2xl mx-auto">
+              Click to see how it works for your industry
             </p>
           </AnimatedSection>
         </div>
@@ -171,7 +171,7 @@ const BusinessTypeSection = () => {
         {/* General CTA */}
         {!selectedType && (
           <div className="text-center">
-            <p className="text-slate-600 mb-6">Don't see your business type? No problem!</p>
+            <p className="text-slate-600 mb-6">Works for any business type!</p>
             <Button 
               variant="outline"
               size="lg"
