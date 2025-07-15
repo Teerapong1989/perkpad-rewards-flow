@@ -6,23 +6,23 @@ import { AnimatedSection } from "@/components/ui/AnimatedSection";
 const features = [
   {
     icon: QrCode,
-    title: "Your customers already know how to use it",
-    description: "They scan your QR code with their phone camera. That's it. No app downloads, no account creation, no confusing onboarding. Whether they're getting their car fixed or nails done, it just works.",
-    benefit: "Zero learning curve",
+    title: "No App Required",
+    description: "Customers scan QR code with phone camera. Works instantly.",
+    benefit: "Zero friction",
     image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=400&fit=crop"
   },
   {
     icon: Gift,
-    title: "Rewards that actually make sense for your business",
-    description: "Hair salon? 10th cut free. Auto shop? $50 off after 5 oil changes. Coffee shop? Buy 9, get 1. Create rewards that fit how your business actually works, not some generic template.",
-    benefit: "Fits your business model",
+    title: "Smart Rewards",
+    description: "Custom rewards that fit your business model perfectly.",
+    benefit: "Fits your business",
     image: "https://images.unsplash.com/photo-1556157382-97eda2d62296?w=600&h=400&fit=crop"
   },
   {
     icon: BarChart3,
-    title: "See your customer visit patterns",
-    description: "Track who visits when, how often they come back, and which rewards they claim. See seasonal trends and identify your most loyal customers with clear, simple analytics.",
-    benefit: "Visit & loyalty tracking",
+    title: "Customer Analytics",
+    description: "Track visits, retention, and loyalty patterns.",
+    benefit: "Know your customers",
     image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop"
   }
 ];
@@ -30,23 +30,23 @@ const features = [
 const advancedFeatures = [
   {
     icon: Brain,
-    title: "AI Customer Insights",
-    description: "Predictive analytics and retention insights"
+    title: "AI Insights",
+    description: "Predictive analytics"
   },
   {
     icon: Smartphone,
     title: "SMS Marketing",
-    description: "Automated campaigns and customer engagement"
+    description: "Automated campaigns"
   },
   {
     icon: Shield,
     title: "Staff Control",
-    description: "Role-based permissions and multi-user access"
+    description: "Role permissions"
   },
   {
     icon: BarChart3,
-    title: "Advanced Analytics",
-    description: "ROI tracking and profit analytics"
+    title: "Analytics",
+    description: "ROI tracking"
   }
 ];
 

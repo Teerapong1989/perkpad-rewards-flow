@@ -4,29 +4,29 @@ import { AnimatedSection } from "@/components/ui/AnimatedSection";
 
 const testimonials = [
   {
-    quote: "Professional-grade features at small business prices. AI insights, multi-location management, advanced security, and powerful analytics.",
-    author: "The Perkpad Team",
-    role: "Professional Features for Everyone", 
+    quote: "Professional features at small business prices.",
+    author: "Built by Engineers",
+    role: "For Modern Businesses", 
     icon: Users,
-    category: "Vision",
+    category: "Professional",
     color: "from-emerald-400 via-teal-500 to-cyan-600",
     accent: "emerald"
   },
   {
-    quote: "Modern infrastructure with real-time sync, automated backups, high uptime, and security features that protect your data.",
-    author: "Technical Excellence",
-    role: "Production-Ready Platform",
+    quote: "Real-time sync, automated backups, high uptime.",
+    author: "Production Ready",
+    role: "Secure Platform",
     icon: Shield,
     category: "Security",
     color: "from-violet-400 via-purple-500 to-indigo-600", 
     accent: "violet"
   },
   {
-    quote: "AI-powered insights, predictive analytics, ROI tracking, and automated campaigns. Same insights as big chains.",
-    author: "Business Intelligence", 
-    role: "Complete Analytics Suite",
+    quote: "AI insights, predictive analytics, ROI tracking.",
+    author: "Smart Analytics", 
+    role: "Complete Intelligence",
     icon: Brain,
-    category: "Intelligence",
+    category: "Analytics",
     color: "from-orange-400 via-red-500 to-pink-600",
     accent: "orange"
   }

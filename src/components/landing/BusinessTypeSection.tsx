@@ -19,57 +19,57 @@ import { AnimatedSection } from "@/components/ui/AnimatedSection";
 const businessTypes = [
   {
     icon: Coffee,
-    name: "Coffee Shops",
-    description: "Buy 9 coffees, get the 10th free",
+    name: "Coffee",
+    description: "Buy 9, get 1 free",
     color: "text-amber-600",
     bgColor: "bg-amber-50"
   },
   {
     icon: Scissors,
-    name: "Hair Salons",
-    description: "Every 10th haircut is complimentary",
+    name: "Salon",
+    description: "10th cut free",
     color: "text-pink-600",
     bgColor: "bg-pink-50"
   },
   {
     icon: Car,
-    name: "Auto Shops",
-    description: "$50 off after 5 oil changes",
+    name: "Auto",
+    description: "$50 off after 5 visits",
     color: "text-blue-600",
     bgColor: "bg-blue-50"
   },
   {
     icon: Dumbbell,
-    name: "Fitness Studios",
-    description: "Free session after 10 visits",
+    name: "Fitness",
+    description: "Free session after 10",
     color: "text-green-600",
     bgColor: "bg-green-50"
   },
   {
     icon: Pizza,
-    name: "Restaurants",
-    description: "Free appetizer after 8 meals",
+    name: "Restaurant",
+    description: "Free appetizer",
     color: "text-red-600",
     bgColor: "bg-red-50"
   },
   {
     icon: Stethoscope,
     name: "Healthcare",
-    description: "Wellness rewards for regular visits",
+    description: "Wellness rewards",
     color: "text-teal-600",
     bgColor: "bg-teal-50"
   },
   {
     icon: ShoppingBag,
-    name: "Retail Stores",
-    description: "Points for every purchase",
+    name: "Retail",
+    description: "Points per purchase",
     color: "text-purple-600",
     bgColor: "bg-purple-50"
   },
   {
     icon: Palette,
-    name: "Beauty Services",
-    description: "Loyalty rewards for treatments",
+    name: "Beauty",
+    description: "Treatment rewards",
     color: "text-indigo-600",
     bgColor: "bg-indigo-50"
   }

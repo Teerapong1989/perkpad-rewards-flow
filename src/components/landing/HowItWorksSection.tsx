@@ -5,33 +5,33 @@ import { AnimatedSection } from "@/components/ui/AnimatedSection";
 const steps = [
   {
     icon: Smartphone,
-    title: "Customer Scans QR Code",
-    description: "No app download - just scan with phone camera",
-    details: "Works with any smartphone. Opens in web browser."
+    title: "Scan QR",
+    description: "Customer scans with phone camera",
+    details: "No app needed"
   },
   {
     icon: Shield,
-    title: "Location Verification",
-    description: "GPS confirms they're at your business",
-    details: "Prevents fraud while making check-in easy."
+    title: "Verify Location",
+    description: "GPS confirms they're at your business", 
+    details: "Fraud prevention"
   },
   {
     icon: Users,
-    title: "Instant Stamp Collection",
-    description: "Stamps automatically added to digital card",
-    details: "Staff can add stamps manually. Real-time sync."
+    title: "Add Stamp",
+    description: "Automatic stamp collection",
+    details: "Real-time sync"
   },
   {
     icon: Brain,
-    title: "AI Analyzes Patterns",
-    description: "Smart insights about customer behavior",
-    details: "Tracks visits, peak times, and retention patterns."
+    title: "AI Analysis",
+    description: "Smart customer insights",
+    details: "Visit patterns"
   },
   {
     icon: Check,
-    title: "Automated Rewards",
-    description: "Customers earn and redeem rewards seamlessly",
-    details: "Configurable rewards with surprise bonuses."
+    title: "Auto Rewards",
+    description: "Seamless reward redemption",
+    details: "Surprise bonuses"
   }
 ];
 

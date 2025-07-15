@@ -6,40 +6,40 @@ import { AnimatedCard } from "@/components/ui/AnimatedCard";
 
 const faqs = [
   {
-    question: "What business types do you support?",
-    answer: "12 business types including salons, auto shops, cafés, restaurants, retail, and more. Adapts to your industry needs."
+    question: "What business types work?",
+    answer: "Coffee, salons, auto, fitness, restaurants, retail, healthcare, beauty - and more."
   },
   {
-    question: "Can customers use this without downloading an app?",
-    answer: "Yes! Customers scan your QR code with their phone camera - no app downloads. Works through web browser with location verification."
+    question: "Need an app?",
+    answer: "No! Customers scan QR code with phone camera. Works in browser."
   },
   {
-    question: "What advanced features do you offer?",
-    answer: "AI customer insights, multi-location management, geofenced check-ins, SMS/email campaigns, advanced analytics, staff management, and security features."
+    question: "What features included?",
+    answer: "AI insights, multi-location, SMS/email, analytics, staff management."
   },
   {
-    question: "How does multi-location management work?",
-    answer: "Pro plan: multiple locations (+$10/month each). Growth plan: 3 locations included (+$8/month each extra). Unified customer data and analytics across all locations."
+    question: "Multi-location pricing?",
+    answer: "Pro: +$10/month each. Growth: 3 included, +$8/month each extra."
   },
   {
-    question: "What kind of analytics and insights do you provide?",
-    answer: "Real-time visit tracking, retention analysis, revenue metrics, AI recommendations, customer lifetime value, and predictive insights."
+    question: "What analytics?",
+    answer: "Visit tracking, retention analysis, revenue metrics, AI recommendations."
   },
   {
-    question: "How secure is the platform?",
-    answer: "Encryption, automated security monitoring, fraud detection, IP blocking, and audit logs. Modern security practices protect your data."
+    question: "Security?",
+    answer: "Encryption, monitoring, fraud detection, IP blocking, audit logs."
   },
   {
-    question: "Can I integrate with my existing POS system?",
-    answer: "Yes! API endpoints, webhook support, and automated sync. Our team helps with custom integrations for Pro and Growth customers."
+    question: "POS integration?",
+    answer: "Yes! API endpoints, webhooks, automated sync. We help with setup."
   },
   {
-    question: "What marketing tools are included?",
-    answer: "SMS/email automation, customer segmentation, re-engagement campaigns, birthday rewards, visit reminders, and ROI tracking."
+    question: "Marketing tools?",
+    answer: "SMS/email automation, segmentation, campaigns, birthday rewards."
   },
   {
-    question: "How does the AI customer retention feature work?",
-    answer: "AI analyzes visit patterns and behavior to identify at-risk customers. Provides automated recommendations for rewards, timing, and messaging to maximize retention."
+    question: "How does AI work?",
+    answer: "Analyzes patterns to identify at-risk customers. Auto recommendations."
   }
 ];
 
