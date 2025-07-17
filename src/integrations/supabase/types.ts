@@ -260,6 +260,45 @@ export type Database = {
         }
         Relationships: []
       }
+      audit_log: {
+        Row: {
+          action: string
+          id: string
+          ip_address: unknown | null
+          new_data: Json | null
+          old_data: Json | null
+          record_id: string
+          table_name: string
+          timestamp: string | null
+          user_agent: string | null
+          user_id: string | null
+        }
+        Insert: {
+          action: string
+          id?: string
+          ip_address?: unknown | null
+          new_data?: Json | null
+          old_data?: Json | null
+          record_id: string
+          table_name: string
+          timestamp?: string | null
+          user_agent?: string | null
+          user_id?: string | null
+        }
+        Update: {
+          action?: string
+          id?: string
+          ip_address?: unknown | null
+          new_data?: Json | null
+          old_data?: Json | null
+          record_id?: string
+          table_name?: string
+          timestamp?: string | null
+          user_agent?: string | null
+          user_id?: string | null
+        }
+        Relationships: []
+      }
       business_location_usage: {
         Row: {
           additional_locations: number | null
@@ -353,31 +392,46 @@ export type Database = {
       }
       business_owner_email_automation: {
         Row: {
+          bounced_at: string | null
           business_id: string
+          clicked_at: string | null
           created_at: string
+          delivered_at: string | null
           email_type: string
           id: string
           metadata: Json | null
+          opened_at: string | null
+          resend_id: string | null
           scheduled_for: string | null
           sent_at: string
           status: string
         }
         Insert: {
+          bounced_at?: string | null
           business_id: string
+          clicked_at?: string | null
           created_at?: string
+          delivered_at?: string | null
           email_type: string
           id?: string
           metadata?: Json | null
+          opened_at?: string | null
+          resend_id?: string | null
           scheduled_for?: string | null
           sent_at?: string
           status?: string
         }
         Update: {
+          bounced_at?: string | null
           business_id?: string
+          clicked_at?: string | null
           created_at?: string
+          delivered_at?: string | null
           email_type?: string
           id?: string
           metadata?: Json | null
+          opened_at?: string | null
+          resend_id?: string | null
           scheduled_for?: string | null
           sent_at?: string
           status?: string
@@ -1398,6 +1452,41 @@ export type Database = {
           },
         ]
       }
+      google_review_cache: {
+        Row: {
+          business_id: string
+          created_at: string | null
+          google_review_url: string
+          id: string
+          review_data: Json
+          updated_at: string | null
+        }
+        Insert: {
+          business_id: string
+          created_at?: string | null
+          google_review_url: string
+          id?: string
+          review_data: Json
+          updated_at?: string | null
+        }
+        Update: {
+          business_id?: string
+          created_at?: string | null
+          google_review_url?: string
+          id?: string
+          review_data?: Json
+          updated_at?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "google_review_cache_business_id_fkey"
+            columns: ["business_id"]
+            isOneToOne: false
+            referencedRelation: "businesses"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       ip_blocklist: {
         Row: {
           blocked_at: string
@@ -1576,6 +1665,7 @@ export type Database = {
         Row: {
           birthday: string | null
           created_at: string
+          email: string | null
           email_preferences: Json | null
           first_name: string | null
           id: string
@@ -1584,6 +1674,7 @@ export type Database = {
           mailerlite_synced_at: string | null
           phone: string | null
           phone_verified: boolean | null
+          sms_customer_care_consent: boolean | null
           sms_marketing_consent: boolean | null
           updated_at: string
           wants_text_rewards: boolean | null
@@ -1591,6 +1682,7 @@ export type Database = {
         Insert: {
           birthday?: string | null
           created_at?: string
+          email?: string | null
           email_preferences?: Json | null
           first_name?: string | null
           id: string
@@ -1599,6 +1691,7 @@ export type Database = {
           mailerlite_synced_at?: string | null
           phone?: string | null
           phone_verified?: boolean | null
+          sms_customer_care_consent?: boolean | null
           sms_marketing_consent?: boolean | null
           updated_at?: string
           wants_text_rewards?: boolean | null
@@ -1606,6 +1699,7 @@ export type Database = {
         Update: {
           birthday?: string | null
           created_at?: string
+          email?: string | null
           email_preferences?: Json | null
           first_name?: string | null
           id?: string
@@ -1614,6 +1708,7 @@ export type Database = {
           mailerlite_synced_at?: string | null
           phone?: string | null
           phone_verified?: boolean | null
+          sms_customer_care_consent?: boolean | null
           sms_marketing_consent?: boolean | null
           updated_at?: string
           wants_text_rewards?: boolean | null
@@ -1697,6 +1792,51 @@ export type Database = {
           },
         ]
       }
+      referral_invitations: {
+        Row: {
+          business_email: string | null
+          business_name: string
+          business_phone: string | null
+          business_signed_up_at: string | null
+          created_at: string
+          email_sent_at: string | null
+          id: string
+          personal_message: string | null
+          referral_code: string
+          referrer_customer_id: string
+          status: string
+          updated_at: string
+        }
+        Insert: {
+          business_email?: string | null
+          business_name: string
+          business_phone?: string | null
+          business_signed_up_at?: string | null
+          created_at?: string
+          email_sent_at?: string | null
+          id?: string
+          personal_message?: string | null
+          referral_code: string
+          referrer_customer_id: string
+          status?: string
+          updated_at?: string
+        }
+        Update: {
+          business_email?: string | null
+          business_name?: string
+          business_phone?: string | null
+          business_signed_up_at?: string | null
+          created_at?: string
+          email_sent_at?: string | null
+          id?: string
+          personal_message?: string | null
+          referral_code?: string
+          referrer_customer_id?: string
+          status?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
       rewards: {
         Row: {
           business_id: string
@@ -1705,6 +1845,7 @@ export type Database = {
           id: string
           location_id: string | null
           reward_type: string
+          staff_member_id: string | null
         }
         Insert: {
           business_id: string
@@ -1713,6 +1854,7 @@ export type Database = {
           id?: string
           location_id?: string | null
           reward_type?: string
+          staff_member_id?: string | null
         }
         Update: {
           business_id?: string
@@ -1721,6 +1863,7 @@ export type Database = {
           id?: string
           location_id?: string | null
           reward_type?: string
+          staff_member_id?: string | null
         }
         Relationships: [
           {
@@ -2635,6 +2778,14 @@ export type Database = {
       cleanup_security_logs: {
         Args: Record<PropertyKey, never>
         Returns: undefined
+      }
+      debug_auth_context: {
+        Args: Record<PropertyKey, never>
+        Returns: {
+          current_user_id: string
+          business_exists: boolean
+          user_owns_business: boolean
+        }[]
       }
       decrement_vote_count: {
         Args: { table_name: string; feature_id: string }

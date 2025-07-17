@@ -27,6 +27,8 @@ const PrivacyPolicy = () => {
             <ul className="list-disc list-inside text-slate-600 space-y-2">
               <li>Business information (business name, contact details)</li>
               <li>Customer loyalty program data</li>
+              <li>Phone numbers for SMS communications</li>
+              <li>SMS consent and preferences</li>
               <li>Usage data and analytics</li>
               <li>Communication preferences</li>
             </ul>
@@ -38,8 +40,10 @@ const PrivacyPolicy = () => {
             <ul className="list-disc list-inside text-slate-600 space-y-2">
               <li>Provide, maintain, and improve our services</li>
               <li>Process transactions and manage loyalty programs</li>
+              <li>Send SMS messages for authentication, loyalty programs, and marketing (with consent)</li>
               <li>Send you technical notices and support messages</li>
               <li>Respond to your comments and questions</li>
+              <li>Analyze usage patterns to improve our SMS services</li>
             </ul>
           </section>
 
@@ -79,12 +83,53 @@ const PrivacyPolicy = () => {
           </section>
 
           <section className="mb-8">
-            <h2 className="text-2xl font-semibold text-slate-800 mb-4">7. Contact Us</h2>
+            <h2 className="text-2xl font-semibold text-slate-800 mb-4">7. SMS Communications</h2>
+            <div className="space-y-4">
+              <h3 className="text-xl font-semibold text-slate-800">7.1 SMS Program Information</h3>
+              <p className="text-slate-600">
+                Perkpad operates SMS programs for participating businesses to communicate with their customers. 
+                We collect and process phone numbers and SMS preferences as part of our loyalty and authentication services.
+              </p>
+
+              <h3 className="text-xl font-semibold text-slate-800">7.2 Types of SMS Communications</h3>
+              <ul className="list-disc list-inside text-slate-600 space-y-2 ml-4">
+                <li><strong>Marketing Messages:</strong> Promotional content including loyalty rewards, special offers, and business promotions</li>
+                <li><strong>Customer Care Messages:</strong> Authentication codes (OTP), account notifications, loyalty program updates, and service communications</li>
+              </ul>
+
+              <h3 className="text-xl font-semibold text-slate-800">7.3 Data Collection and Use</h3>
+              <p className="text-slate-600 mb-2">For SMS services, we collect:</p>
+              <ul className="list-disc list-inside text-slate-600 space-y-1 ml-4">
+                <li>Phone numbers</li>
+                <li>SMS consent preferences</li>
+                <li>Message delivery status</li>
+                <li>Opt-out requests</li>
+                <li>Customer engagement data</li>
+              </ul>
+
+              <h3 className="text-xl font-semibold text-slate-800 mt-4">7.4 Message Frequency and Opt-out</h3>
+              <ul className="list-disc list-inside text-slate-600 space-y-1 ml-4">
+                <li>Marketing messages: Up to 4 per month per business</li>
+                <li>Customer care messages: Up to 2 per month per business</li>
+                <li>You can opt out anytime by replying STOP to any message</li>
+                <li>Message and data rates may apply per your carrier plan</li>
+              </ul>
+
+              <h3 className="text-xl font-semibold text-slate-800 mt-4">7.5 Data Sharing for SMS</h3>
+              <p className="text-slate-600">
+                We share necessary information with SMS service providers (like Twilio) to deliver messages. 
+                We do not sell SMS data to third parties.
+              </p>
+            </div>
+          </section>
+
+          <section className="mb-8">
+            <h2 className="text-2xl font-semibold text-slate-800 mb-4">8. Contact Us</h2>
             <p className="text-slate-600">
-              If you have questions about this Privacy Policy, please contact us at{" "}
+              If you have questions about this Privacy Policy or our SMS programs, please contact us at{" "}
               <a href="https://tally.so/r/mRQ2Bl" target="_blank" rel="noopener noreferrer" className="text-teal-600 hover:text-teal-700">
                 our support form
-              </a>.
+              </a> or email support@perkpad.io.
             </p>
           </section>
         </div>
