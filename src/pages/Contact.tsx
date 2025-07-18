@@ -70,16 +70,17 @@ const Contact = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-hero">
+    <div className="min-h-screen bg-white">
       <Navigation />
       
-      {/* Hero Section */}
-      <section className="py-16 sm:py-20 px-4 sm:px-6 bg-gradient-to-r from-slate-900 to-slate-800">
+      {/* Hero Section - Clean and mobile optimized */}
+      <section className="py-16 sm:py-20 md:py-24 px-4 sm:px-6">
         <div className="max-w-4xl mx-auto text-center">
-          <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white mb-6 tracking-tight">
-            Get in Touch
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-gray-900 mb-6 sm:mb-8 tracking-tight leading-[1.1] px-2">
+            Get in{" "}
+            <span className="text-gradient">touch</span>
           </h1>
-          <p className="text-xl text-slate-200 mb-8 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-lg sm:text-xl md:text-2xl text-gray-600 mb-8 sm:mb-12 leading-relaxed max-w-3xl mx-auto px-4">
             Have questions about Perkpad? Need help setting up your loyalty program? We're here to help you succeed.
           </p>
         </div>

@@ -9,35 +9,27 @@ import Footer from "@/components/landing/Footer";
 
 const About = () => {
   return (
-    <div className="min-h-screen bg-gradient-hero">
+    <div className="min-h-screen bg-white">
       <Navigation />
       
-      {/* Hero Section */}
-      <section className="py-16 sm:py-20 px-4 sm:px-6 bg-gradient-to-r from-slate-900 to-slate-800">
+      {/* Hero Section - Clean and mobile optimized */}
+      <section className="py-16 sm:py-20 md:py-24 px-4 sm:px-6">
         <div className="max-w-4xl mx-auto text-center">
-          <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white mb-6 tracking-tight">
-            Building the Future of Customer Loyalty
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-gray-900 mb-6 sm:mb-8 tracking-tight leading-[1.1] px-2">
+            Building the future of{" "}
+            <span className="text-gradient">customer loyalty</span>
           </h1>
-          <p className="text-xl text-slate-200 mb-8 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-lg sm:text-xl md:text-2xl text-gray-600 mb-8 sm:mb-12 leading-relaxed max-w-3xl mx-auto px-4">
             We help small businesses create meaningful connections with their customers through modern, engaging loyalty programs.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center px-4">
             <Button 
-              size="lg" 
-              className="bg-white text-slate-900 hover:bg-gray-50 hover:shadow-xl text-lg px-8 py-6 rounded-xl shadow-2xl transform hover:scale-105 transition-all duration-300 font-semibold"
+              size="xl" 
+              className="btn-premium text-base sm:text-lg px-8 sm:px-12 py-4 sm:py-6 rounded-xl w-full sm:w-auto min-h-[48px] sm:min-h-[56px]"
               onClick={() => window.open('https://app.perkpad.io', '_blank', 'noopener,noreferrer')}
             >
               Start Your Journey
-              <ArrowRight className="ml-2 w-5 h-5" />
-            </Button>
-            <Button 
-              size="lg"
-              className="bg-white/10 backdrop-blur-sm border-2 border-white text-white hover:bg-white hover:text-slate-900 text-lg px-8 py-6 rounded-xl transition-all duration-300 font-semibold"
-              asChild
-            >
-              <Link to="/contact">
-                Get in Touch
-              </Link>
+              <ArrowRight className="ml-2 sm:ml-3 w-4 h-4 sm:w-5 sm:h-5" />
             </Button>
           </div>
         </div>
