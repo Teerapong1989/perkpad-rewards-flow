@@ -1,124 +1,82 @@
-// ABOUTME: The solution section showing how Perkpad solves the inevitable digital transformation
-// ABOUTME: Positions as the obvious choice for forward-thinking business owners
+// ABOUTME: Simple product showcase section
+// ABOUTME: Shows how the solution works with minimal text
 
-import { Shield, Zap, Brain, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { useInView } from "@/hooks/useInView";
-import { AnimatedSection } from "@/components/ui/AnimatedSection";
-
-const solutions = [
-  {
-    icon: Zap,
-    title: "Instant Digital Transformation",
-    description: "Go from punch cards to professional digital loyalty in 5 minutes. No technical skills, no complicated setup, no expensive consultants."
-  },
-  {
-    icon: Shield,
-    title: "Enterprise-Grade Without the Complexity",
-    description: "The same advanced features that big chains use, designed specifically for local businesses. Advanced fraud protection, customer analytics, automated marketing."
-  },
-  {
-    icon: Brain,
-    title: "Smart Customer Intelligence",
-    description: "Understand your customers like never before. See visit patterns, predict churn, identify your best customers, and create targeted campaigns that actually work."
-  }
-];
+import { ArrowRight, Smartphone, BarChart3, Users } from "lucide-react";
+import { trackUserBehavior } from "@/utils/analytics";
 
 const TheSolutionSection = () => {
-  const { ref, isInView } = useInView({ threshold: 0.1 });
+  const handleGetStartedClick = () => {
+    trackUserBehavior('click', 'solution_cta');
+    window.open('https://app.perkpad.io', '_blank', 'noopener,noreferrer');
+  };
 
   return (
-    <section className="section-spacing container-padding bg-white">
-      <div className="max-w-7xl mx-auto">
-        {/* Solution header */}
-        <div ref={ref}>
-          <AnimatedSection className="text-center mb-20" threshold={0.1}>
-            <h2 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6 tracking-tight">
-              The <span className="text-gradient">Obvious Solution</span>
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Perkpad gives you everything big chains have, designed for businesses like yours.
-            </p>
-          </AnimatedSection>
+    <section className="py-24 px-6 bg-white">
+      <div className="max-w-6xl mx-auto">
+        {/* Simple headline - Airtable style */}
+        <div className="text-center mb-20">
+          <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">
+            The simple solution
+          </h2>
+          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+            Digital loyalty that actually works. Setup in minutes, not months.
+          </p>
         </div>
 
-        {/* Features that matter */}
-        <div className="grid lg:grid-cols-3 gap-12 mb-20">
-          {solutions.map((solution, index) => {
-            const Icon = solution.icon;
-            return (
-              <div 
-                key={solution.title}
-                className="text-center animate-fade-in-up"
-                style={{ animationDelay: `${index * 150}ms` }}
-              >
-                <div className="w-20 h-20 bg-gradient-primary rounded-3xl flex items-center justify-center mx-auto mb-6 shadow-brand hover:shadow-brand-glow transition-shadow duration-300">
-                  <Icon className="w-10 h-10 text-white" />
-                </div>
-                
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">
-                  {solution.title}
-                </h3>
-                
-                <p className="text-lg text-gray-600 leading-relaxed">
-                  {solution.description}
-                </p>
-              </div>
-            );
-          })}
+        {/* Product preview - Zoom style */}
+        <div className="mb-20">
+          <div className="relative bg-gray-50 rounded-3xl p-8 overflow-hidden">
+            <img 
+              src="/lovable-uploads/5318a79b-c5e1-4799-9bdc-2a3420cbb4d7.png" 
+              alt="Perkpad Dashboard"
+              className="w-full h-auto rounded-2xl shadow-xl"
+              loading="lazy"
+            />
+          </div>
         </div>
 
-        {/* Product showcase */}
-        <AnimatedSection className="mb-20" threshold={0.1}>
-          <div className="relative bg-gradient-subtle rounded-3xl p-12 overflow-hidden">
-            <div className="text-center mb-12">
-              <h3 className="text-3xl font-bold text-gray-900 mb-4">
-                See It In Action
-              </h3>
-              <p className="text-lg text-gray-600">
-                The professional loyalty platform that works for any business
-              </p>
+        {/* Simple benefits - GitHub style */}
+        <div className="grid md:grid-cols-3 gap-12 mb-20">
+          <div className="text-center">
+            <div className="w-16 h-16 bg-brand-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-6">
+              <Smartphone className="w-8 h-8 text-brand-primary" />
             </div>
-            
-            <div className="relative max-w-4xl mx-auto">
-              <img 
-                src="/lovable-uploads/5318a79b-c5e1-4799-9bdc-2a3420cbb4d7.png" 
-                alt="Perkpad Dashboard - Professional loyalty management interface"
-                className="w-full h-auto rounded-2xl shadow-2xl"
-                loading="lazy"
-              />
-              
-              {/* Live indicators */}
-              <div className="absolute top-4 right-4 bg-brand-success text-white px-4 py-2 rounded-full text-sm font-bold flex items-center">
-                <div className="w-2 h-2 bg-white rounded-full mr-2 animate-pulse"></div>
-                Ready to Use
-              </div>
-            </div>
+            <h3 className="text-xl font-semibold text-gray-900 mb-3">QR code scanning</h3>
+            <p className="text-gray-600">Customers scan, you track. No apps to download.</p>
           </div>
-        </AnimatedSection>
 
-        {/* Final CTA */}
-        <AnimatedSection className="text-center" threshold={0.1}>
-          <div className="max-w-3xl mx-auto">
-            <h3 className="text-4xl font-bold text-gray-900 mb-6">
-              Ready to Lead Your Industry's Digital Future?
-            </h3>
-            <p className="text-xl text-gray-600 mb-8">
-              Join the smart business owners who are building lasting customer relationships today.
-            </p>
-            <Button 
-              onClick={() => window.open('https://app.perkpad.io', '_blank')}
-              size="xl"
-              className="btn-premium font-bold text-xl px-12 py-6"
-            >
-              Start Your Transformation
-              <ArrowRight className="ml-3 w-6 h-6" />
-            </Button>
-            <p className="mt-4 text-gray-500 font-medium">
-              Free 30-day access • Professional setup included • Cancel anytime
-            </p>
+          <div className="text-center">
+            <div className="w-16 h-16 bg-brand-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-6">
+              <BarChart3 className="w-8 h-8 text-brand-primary" />
+            </div>
+            <h3 className="text-xl font-semibold text-gray-900 mb-3">Track everything</h3>
+            <p className="text-gray-600">See who visits, when, and how often.</p>
           </div>
-        </AnimatedSection>
+
+          <div className="text-center">
+            <div className="w-16 h-16 bg-brand-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-6">
+              <Users className="w-8 h-8 text-brand-primary" />
+            </div>
+            <h3 className="text-xl font-semibold text-gray-900 mb-3">Bring them back</h3>
+            <p className="text-gray-600">Automated messages keep customers coming.</p>
+          </div>
+        </div>
+
+        {/* Simple CTA */}
+        <div className="text-center">
+          <Button 
+            size="xl" 
+            className="btn-premium text-lg px-10 py-6 rounded-xl"
+            onClick={handleGetStartedClick}
+          >
+            Try It Free for 30 Days
+            <ArrowRight className="ml-3 w-5 h-5" />
+          </Button>
+          <p className="text-gray-500 text-sm mt-4">
+            5-minute setup • No credit card required
+          </p>
+        </div>
       </div>
     </section>
   );
