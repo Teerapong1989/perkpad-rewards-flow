@@ -77,7 +77,7 @@ const MobileNavigation = () => {
             Contact
           </Link>
           <Button 
-            className="bg-gradient-brand text-white shadow-brand hover:shadow-elegant min-h-[44px] px-6 font-semibold"
+            className="btn-premium min-h-[44px] px-6 font-semibold"
             onClick={() => window.open('https://app.perkpad.io', '_blank', 'noopener,noreferrer')}
           >
             Get Started
@@ -143,7 +143,7 @@ const MobileNavigation = () => {
             </Link>
             <div className="pt-4 space-y-3">
               <Button 
-                className="w-full bg-gradient-brand text-white shadow-brand min-h-[44px] text-base font-semibold"
+                className="w-full btn-premium min-h-[44px] text-base font-semibold"
                 onClick={() => {
                   window.open('https://app.perkpad.io', '_blank', 'noopener,noreferrer');
                   setIsMenuOpen(false);

@@ -160,14 +160,14 @@ const ComparisonSection = () => {
   };
 
   return (
-    <section className="section-spacing container-padding bg-gradient-to-br from-white to-slate-50">
+    <section className="section-spacing container-padding bg-gradient-subtle">
       <div className="max-w-6xl mx-auto">
         <div ref={ref}>
           <AnimatedSection className="text-center mb-16" threshold={0.1}>
-            <h2 className="text-4xl md:text-5xl font-bold text-slate-800 mb-6">
-              Why Choose Perkpad?
+            <h2 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6 tracking-tight">
+              Why Choose <span className="text-gradient">Perkpad?</span>
             </h2>
-            <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               See how we compare against other loyalty solutions
             </p>
           </AnimatedSection>

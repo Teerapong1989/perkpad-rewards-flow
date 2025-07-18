@@ -49,49 +49,56 @@ const ProblemsSection = () => {
   };
 
   return (
-    <section className="section-spacing container-padding bg-gradient-to-br from-slate-50 via-white to-brand-primary-light/30">
+    <section className="section-spacing container-padding bg-gradient-subtle">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div ref={ref}>
           <AnimatedSection className="text-center mb-16" threshold={0.1}>
-            <h2 className="text-4xl md:text-5xl font-bold text-slate-800 mb-6">
-              Three Problems We Solve
+            <h2 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6 tracking-tight">
+              Three Problems We <span className="text-gradient">Solve</span>
             </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              The hidden issues killing your customer retention
+            </p>
           </AnimatedSection>
         </div>
 
-        {/* Simple Problem Cards */}
+        {/* Enhanced Problem Cards */}
         <div className="grid lg:grid-cols-3 gap-8 mb-20">
           {problems.map((problem, index) => {
             const Icon = problem.icon;
             return (
               <div 
                 key={problem.id}
-                className={`transition-all duration-700 delay-${index * 150} ${isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}
+                className={`animate-fade-in-up card-premium h-full group`}
+                style={{ animationDelay: `${index * 150}ms` }}
               >
-                <div className="bg-white rounded-2xl p-8 shadow-lg border border-slate-200 hover:shadow-xl transition-all duration-300 h-full">
-                  <div className="flex items-center gap-3 mb-6">
-                    <div className="w-12 h-12 bg-brand-primary rounded-xl flex items-center justify-center">
-                      <Icon className="w-6 h-6 text-white" />
+                <div className="p-8">
+                  <div className="flex items-center gap-4 mb-6">
+                    <div className="w-14 h-14 bg-gradient-primary rounded-2xl flex items-center justify-center shadow-brand group-hover:shadow-brand-glow transition-shadow duration-300">
+                      <Icon className="w-7 h-7 text-white" />
                     </div>
-                    <div className="text-sm font-semibold text-brand-primary uppercase tracking-wider">
+                    <div className="text-sm font-bold text-brand-primary uppercase tracking-wider">
                       {problem.category}
                     </div>
                   </div>
                   
-                  <h3 className="text-xl font-bold text-slate-800 mb-4">
+                  <h3 className="text-2xl font-bold text-gray-900 mb-4 leading-tight">
                     {problem.before}
                   </h3>
                   
-                  <p className="text-slate-600 leading-relaxed mb-6">
+                  <p className="text-gray-600 leading-relaxed mb-6 text-lg">
                     {problem.beforeDetail}
                   </p>
                   
-                  <div className="border-t border-slate-200 pt-4">
-                    <div className="text-sm font-semibold text-green-600 mb-2">
-                      ✓ How we solve it:
+                  <div className="border-t border-gray-200 pt-6">
+                    <div className="flex items-center gap-2 mb-3">
+                      <div className="w-6 h-6 bg-brand-success rounded-full flex items-center justify-center">
+                        <CheckCircle className="w-4 h-4 text-white" />
+                      </div>
+                      <span className="text-sm font-bold text-brand-success">Our Solution</span>
                     </div>
-                    <p className="text-slate-700 text-sm">
+                    <p className="text-gray-700 font-medium">
                       {problem.afterDetail}
                     </p>
                   </div>
@@ -103,33 +110,33 @@ const ProblemsSection = () => {
 
         {/* Results Summary */}
         <AnimatedSection className="mb-16" threshold={0.1}>
-          <div className="bg-white rounded-3xl shadow-xl border border-slate-200 p-8 lg:p-12">
-            <div className="text-center mb-8">
-              <h3 className="text-3xl font-bold text-slate-800 mb-4">
-                Why Loyalty Programs Work
+          <div className="card-premium p-12">
+            <div className="text-center mb-10">
+              <h3 className="text-4xl font-bold text-gray-900 mb-4">
+                Why Loyalty Programs <span className="text-gradient">Work</span>
               </h3>
-              <p className="text-slate-600 text-lg">
-                The fundamentals that drive customer retention
+              <p className="text-xl text-gray-600">
+                The science behind customer retention
               </p>
             </div>
             
             <div className="grid md:grid-cols-3 gap-8">
-              <div className="text-center p-6 bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl">
-                <div className="text-2xl font-bold text-blue-600 mb-2">Repeat Visits</div>
-                <div className="text-blue-800 font-semibold">Build Customer Habits</div>
-                <div className="text-blue-600 text-sm mt-1">Incentivize customers to return regularly</div>
+              <div className="text-center p-8 bg-gradient-to-br from-blue-50 to-brand-primary-light rounded-2xl hover-lift">
+                <div className="text-4xl font-bold text-brand-primary mb-3">40%</div>
+                <div className="font-bold text-gray-800 text-lg mb-2">More Repeat Visits</div>
+                <div className="text-gray-600">Loyalty programs create customer habits</div>
               </div>
               
-              <div className="text-center p-6 bg-gradient-to-br from-purple-50 to-purple-100 rounded-2xl">
-                <div className="text-2xl font-bold text-purple-600 mb-2">Engagement</div>
-                <div className="text-purple-800 font-semibold">Stronger Relationships</div>
-                <div className="text-purple-600 text-sm mt-1">Create emotional connections with rewards</div>
+              <div className="text-center p-8 bg-gradient-to-br from-purple-50 to-brand-accent-light rounded-2xl hover-lift">
+                <div className="text-4xl font-bold text-brand-accent mb-3">3x</div>
+                <div className="font-bold text-gray-800 text-lg mb-2">Higher Engagement</div>
+                <div className="text-gray-600">Rewards create emotional connections</div>
               </div>
               
-              <div className="text-center p-6 bg-gradient-to-br from-green-50 to-green-100 rounded-2xl">
-                <div className="text-2xl font-bold text-green-600 mb-2">Data Insights</div>
-                <div className="text-green-800 font-semibold">Know Your Customers</div>
-                <div className="text-green-600 text-sm mt-1">Track patterns and preferences</div>
+              <div className="text-center p-8 bg-gradient-to-br from-green-50 to-brand-success-light rounded-2xl hover-lift">
+                <div className="text-4xl font-bold text-brand-success mb-3">85%</div>
+                <div className="font-bold text-gray-800 text-lg mb-2">Better Insights</div>
+                <div className="text-gray-600">Data-driven business decisions</div>
               </div>
             </div>
           </div>
@@ -137,38 +144,38 @@ const ProblemsSection = () => {
 
         {/* Enhanced CTA */}
         <AnimatedSection className="text-center" threshold={0.1}>
-          <div className="bg-gradient-to-r from-brand-primary to-brand-accent rounded-3xl shadow-2xl p-8 lg:p-12 max-w-4xl mx-auto text-white relative overflow-hidden">
+          <div className="bg-gradient-brand rounded-3xl shadow-2xl p-12 max-w-4xl mx-auto text-white relative overflow-hidden">
             {/* Background Pattern */}
             <div className="absolute inset-0 opacity-10">
-              <div className="absolute top-4 left-4 w-20 h-20 border border-white rounded-full"></div>
-              <div className="absolute bottom-4 right-4 w-32 h-32 border border-white rounded-full"></div>
+              <div className="absolute top-8 left-8 w-20 h-20 border-2 border-white rounded-full"></div>
+              <div className="absolute bottom-8 right-8 w-32 h-32 border-2 border-white rounded-full"></div>
               <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-40 h-40 border border-white rounded-full"></div>
             </div>
             
             <div className="relative z-10">
-              <h3 className="text-3xl lg:text-4xl font-bold mb-4">
-                Ready to Transform Your Business?
+              <h3 className="text-4xl lg:text-5xl font-bold mb-6 tracking-tight">
+                Ready to Stop Losing Customers?
               </h3>
-              <p className="text-xl mb-8 text-white/90 max-w-2xl mx-auto leading-relaxed">
-                Join local businesses using modern loyalty technology. Start your transformation today.
+              <p className="text-xl mb-10 text-white/90 max-w-2xl mx-auto leading-relaxed">
+                Join 500+ businesses using Perkpad to increase customer retention by 40%
               </p>
               
-              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+              <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
                 <Button 
                   onClick={handleGetStarted}
-                  size="lg"
-                  className="bg-white text-brand-primary hover:bg-gray-50 text-lg px-8 py-6 rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all duration-300"
+                  size="xl"
+                  className="bg-white text-brand-primary hover:bg-gray-50 font-bold shadow-xl hover:shadow-2xl micro-bounce"
                 >
-                  Start 30-Day Free Trial
+                  Start Free Trial
                   <ArrowRight className="ml-2 w-5 h-5" />
                 </Button>
                 
                 <div className="text-center">
-                  <div className="text-white/90 text-sm">
-                    ✓ 30-day free trial available
+                  <div className="text-white/90 font-semibold">
+                    ✓ 30-day free trial
                   </div>
-                  <div className="text-white/90 text-sm">
-                    ✓ Setup in 5 minutes
+                  <div className="text-white/90 font-semibold">
+                    ✓ 5-minute setup
                   </div>
                 </div>
               </div>

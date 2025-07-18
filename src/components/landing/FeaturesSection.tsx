@@ -65,15 +65,18 @@ const FeaturesSection = () => {
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div ref={ref}>
-          <AnimatedSection className="text-center mb-16" threshold={0.1}>
-            <h2 className="text-4xl md:text-5xl font-bold text-slate-800 mb-6">
-              Digital Wins
+          <AnimatedSection className="text-center mb-20" threshold={0.1}>
+            <h2 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6 tracking-tight">
+              Digital <span className="text-gradient">Wins</span>
             </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Why digital loyalty beats punch cards every time
+            </p>
           </AnimatedSection>
         </div>
 
         {/* Main Features - Alternating Layout */}
-        <div className="space-y-20">
+        <div className="space-y-24">
           {features.map((feature, index) => {
             const Icon = feature.icon;
             const isEven = index % 2 === 0;
@@ -81,35 +84,36 @@ const FeaturesSection = () => {
             return (
               <div 
                 key={feature.title}
-                className={`grid lg:grid-cols-2 gap-8 lg:gap-12 items-center transition-all duration-1000 delay-${index * 200} ${isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+                className={`grid lg:grid-cols-2 gap-12 lg:gap-16 items-center animate-fade-in-up`}
+                style={{ animationDelay: `${index * 200}ms` }}
               >
                 {/* Content */}
                 <div className={`${isEven ? 'lg:order-1' : 'lg:order-2'}`}>
-                  <div className="flex items-center gap-4 mb-6">
-                    <div className="w-12 h-12 bg-brand-primary-dark rounded-xl flex items-center justify-center">
-                      <Icon className="w-6 h-6 text-white" />
+                  <div className="flex items-center gap-4 mb-8">
+                    <div className="w-16 h-16 bg-gradient-primary rounded-2xl flex items-center justify-center shadow-brand">
+                      <Icon className="w-8 h-8 text-white" />
                     </div>
-                    <div className="bg-brand-primary-light text-brand-primary-dark px-4 py-2 rounded-full text-sm font-semibold">
+                    <div className="bg-gradient-to-r from-brand-primary-light to-brand-accent-light text-brand-primary px-6 py-3 rounded-full font-bold">
                       {feature.benefit}
                     </div>
                   </div>
-                  <h3 className="text-2xl lg:text-3xl font-bold text-slate-800 mb-6">
+                  <h3 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6 leading-tight">
                     {feature.title}
                   </h3>
-                  <p className="text-base lg:text-lg text-slate-600 leading-relaxed mb-8">
+                  <p className="text-xl text-gray-600 leading-relaxed">
                     {feature.description}
                   </p>
                 </div>
 
                 {/* Image */}
                 <div className={`${isEven ? 'lg:order-2' : 'lg:order-1'}`}>
-                  <div className="relative">
+                  <div className="relative hover-lift">
                     <img 
                       src={feature.image}
                       alt={feature.title}
-                      className="w-full h-64 lg:h-80 object-cover rounded-2xl shadow-lg"
+                      className="w-full h-72 lg:h-96 object-cover rounded-3xl shadow-elegant"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-2xl"></div>
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-3xl"></div>
                   </div>
                 </div>
               </div>
@@ -118,28 +122,32 @@ const FeaturesSection = () => {
         </div>
 
         {/* Advanced Features Grid */}
-        <div className="mt-24">
-          <AnimatedSection className="text-center mb-12" threshold={0.1}>
-            <h3 className="text-3xl font-bold text-slate-800 mb-4">
-              Plus Advanced Features for Growth
+        <div className="mt-32">
+          <AnimatedSection className="text-center mb-16" threshold={0.1}>
+            <h3 className="text-4xl font-bold text-gray-900 mb-6">
+              Advanced Features for <span className="text-gradient">Growth</span>
             </h3>
-            <p className="text-lg text-slate-600">
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
               Professional tools when you're ready to scale
             </p>
           </AnimatedSection>
           
-          <div className={`grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 transition-all duration-1000 ${isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
             {advancedFeatures.map((feature, index) => {
               const Icon = feature.icon;
               return (
-                <div key={feature.title} className="text-center p-6">
-                  <div className="w-16 h-16 bg-gradient-to-br from-brand-accent to-brand-primary rounded-2xl flex items-center justify-center mx-auto mb-4">
-                    <Icon className="w-8 h-8 text-white" />
+                <div 
+                  key={feature.title} 
+                  className="text-center p-8 card-premium group"
+                  style={{ animationDelay: `${index * 100}ms` }}
+                >
+                  <div className="w-20 h-20 bg-gradient-to-br from-brand-accent to-brand-primary rounded-3xl flex items-center justify-center mx-auto mb-6 shadow-brand group-hover:shadow-brand-glow transition-shadow duration-300">
+                    <Icon className="w-10 h-10 text-white" />
                   </div>
-                  <h4 className="text-lg font-semibold text-slate-800 mb-2">
+                  <h4 className="text-xl font-bold text-gray-900 mb-3">
                     {feature.title}
                   </h4>
-                  <p className="text-slate-600 text-sm">
+                  <p className="text-gray-600 font-medium">
                     {feature.description}
                   </p>
                 </div>

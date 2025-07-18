@@ -47,22 +47,22 @@ const CTASection = () => {
         
         <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
           <Button 
-            size="lg" 
-            className="bg-white text-brand-primary-dark hover:bg-gray-50 hover:shadow-xl text-base sm:text-lg px-6 sm:px-8 py-4 sm:py-6 rounded-xl shadow-2xl transform hover:scale-105 transition-all duration-300 font-semibold"
+            size="xl" 
+            className="bg-white text-brand-primary hover:bg-gray-50 font-bold shadow-2xl hover:shadow-xl micro-bounce"
             onClick={() => window.open('https://app.perkpad.io', '_blank', 'noopener,noreferrer')}
           >
             Start Your 5-Minute Setup (Free)
-            <ArrowRight className="ml-2 w-4 h-4 sm:w-5 sm:h-5" />
+            <ArrowRight className="ml-2 w-5 h-5" />
           </Button>
           <Button 
             variant="outline" 
             size="lg"
-            className="border-white text-white hover:bg-white hover:text-brand-primary-dark text-base sm:text-lg px-6 sm:px-8 py-4 sm:py-6 rounded-xl transition-all duration-300 font-semibold"
+            className="border-2 border-white text-white hover:bg-white hover:text-brand-primary font-semibold hover-lift"
             onClick={handleDemoClick}
             asChild
           >
             <Link to="/how-it-works">
-              <Play className="mr-2 w-4 h-4 sm:w-5 sm:h-5" />
+              <Play className="mr-2 w-5 h-5" />
               See How It Works
             </Link>
           </Button>
