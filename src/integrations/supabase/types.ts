@@ -2634,7 +2634,7 @@ export type Database = {
       }
       weekly_challenges: {
         Row: {
-          business_id: string
+          business_id: string | null
           challenge_type: string
           created_at: string
           description: string
@@ -2650,7 +2650,7 @@ export type Database = {
           xp_reward: number
         }
         Insert: {
-          business_id: string
+          business_id?: string | null
           challenge_type: string
           created_at?: string
           description: string
@@ -2666,7 +2666,7 @@ export type Database = {
           xp_reward?: number
         }
         Update: {
-          business_id?: string
+          business_id?: string | null
           challenge_type?: string
           created_at?: string
           description?: string
@@ -3016,6 +3016,14 @@ export type Database = {
           p_customer_id: string
           p_business_id: string
           p_visit_date?: string
+        }
+        Returns: Json
+      }
+      update_global_challenge_progress: {
+        Args: {
+          p_customer_id: string
+          p_challenge_type: string
+          p_increment?: number
         }
         Returns: Json
       }

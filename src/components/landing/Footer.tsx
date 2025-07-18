@@ -29,9 +29,9 @@ const Footer = () => {
           <div>
             <h4 className="font-semibold text-white mb-4">Support</h4>
             <ul className="space-y-2">
-              <li><a href="https://tally.so/r/mRQ2Bl" target="_blank" rel="noopener noreferrer" className="hover:text-brand-accent transition-colors">Contact Support</a></li>
+              <li><Link to="/contact" className="hover:text-brand-accent transition-colors">Contact Support</Link></li>
               <li><Link to="/sms-help" className="hover:text-brand-accent transition-colors">SMS Help</Link></li>
-              <li><a href="https://tally.so/r/mRQ2Bl" target="_blank" rel="noopener noreferrer" className="hover:text-brand-accent transition-colors">General Inquiries</a></li>
+              <li><Link to="/contact" className="hover:text-brand-accent transition-colors">General Inquiries</Link></li>
             </ul>
           </div>
           <div>
