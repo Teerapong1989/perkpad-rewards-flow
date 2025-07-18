@@ -12,68 +12,68 @@ const TheSolutionSection = () => {
   };
 
   return (
-    <section className="py-24 px-6 bg-white">
+    <section className="py-16 sm:py-20 md:py-24 px-4 sm:px-6 bg-white">
       <div className="max-w-6xl mx-auto">
-        {/* Simple headline - Airtable style */}
-        <div className="text-center mb-20">
-          <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">
+        {/* Simple headline - Mobile optimized */}
+        <div className="text-center mb-16 sm:mb-20">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4 sm:mb-6 px-2">
             The simple solution
           </h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+          <p className="text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto px-4">
             Digital loyalty that actually works. Setup in minutes, not months.
           </p>
         </div>
 
-        {/* Product preview - Zoom style */}
-        <div className="mb-20">
-          <div className="relative bg-gray-50 rounded-3xl p-8 overflow-hidden">
+        {/* Product preview - Mobile optimized */}
+        <div className="mb-16 sm:mb-20 px-4">
+          <div className="relative bg-gray-50 rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-8 overflow-hidden">
             <img 
               src="/lovable-uploads/5318a79b-c5e1-4799-9bdc-2a3420cbb4d7.png" 
               alt="Perkpad Dashboard"
-              className="w-full h-auto rounded-2xl shadow-xl"
+              className="w-full h-auto rounded-xl sm:rounded-2xl shadow-xl"
               loading="lazy"
             />
           </div>
         </div>
 
-        {/* Simple benefits - GitHub style */}
-        <div className="grid md:grid-cols-3 gap-12 mb-20">
-          <div className="text-center">
-            <div className="w-16 h-16 bg-brand-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-6">
+        {/* Simple benefits - Mobile optimized */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 sm:gap-10 md:gap-12 mb-16 sm:mb-20">
+          <div className="text-center px-4">
+            <div className="w-16 h-16 bg-brand-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-4 sm:mb-6">
               <Smartphone className="w-8 h-8 text-brand-primary" />
             </div>
-            <h3 className="text-xl font-semibold text-gray-900 mb-3">QR code scanning</h3>
-            <p className="text-gray-600">Customers scan, you track. No apps to download.</p>
+            <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-2 sm:mb-3">QR code scanning</h3>
+            <p className="text-gray-600 text-sm sm:text-base">Customers scan, you track. No apps to download.</p>
           </div>
 
-          <div className="text-center">
-            <div className="w-16 h-16 bg-brand-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-6">
+          <div className="text-center px-4">
+            <div className="w-16 h-16 bg-brand-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-4 sm:mb-6">
               <BarChart3 className="w-8 h-8 text-brand-primary" />
             </div>
-            <h3 className="text-xl font-semibold text-gray-900 mb-3">Track everything</h3>
-            <p className="text-gray-600">See who visits, when, and how often.</p>
+            <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-2 sm:mb-3">Track everything</h3>
+            <p className="text-gray-600 text-sm sm:text-base">See who visits, when, and how often.</p>
           </div>
 
-          <div className="text-center">
-            <div className="w-16 h-16 bg-brand-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-6">
+          <div className="text-center px-4 sm:col-span-2 md:col-span-1">
+            <div className="w-16 h-16 bg-brand-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-4 sm:mb-6">
               <Users className="w-8 h-8 text-brand-primary" />
             </div>
-            <h3 className="text-xl font-semibold text-gray-900 mb-3">Bring them back</h3>
-            <p className="text-gray-600">Automated messages keep customers coming.</p>
+            <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-2 sm:mb-3">Bring them back</h3>
+            <p className="text-gray-600 text-sm sm:text-base">Automated messages keep customers coming.</p>
           </div>
         </div>
 
-        {/* Simple CTA */}
-        <div className="text-center">
+        {/* Mobile-friendly CTA */}
+        <div className="text-center px-4">
           <Button 
             size="xl" 
-            className="btn-premium text-lg px-10 py-6 rounded-xl"
+            className="btn-premium text-base sm:text-lg px-8 sm:px-10 py-4 sm:py-6 rounded-xl w-full sm:w-auto min-h-[48px] sm:min-h-[56px]"
             onClick={handleGetStartedClick}
           >
             Try It Free for 30 Days
-            <ArrowRight className="ml-3 w-5 h-5" />
+            <ArrowRight className="ml-2 sm:ml-3 w-4 h-4 sm:w-5 sm:h-5" />
           </Button>
-          <p className="text-gray-500 text-sm mt-4">
+          <p className="text-gray-500 text-xs sm:text-sm mt-3 sm:mt-4">
             5-minute setup • No credit card required
           </p>
         </div>
