@@ -23,6 +23,22 @@ const WhyNowSection = () => {
           The old way is broken. Smart businesses are already moving.
         </p>
 
+        {/* Traffic Heatmap Visual */}
+        <div className="mb-12 sm:mb-16 px-4">
+          <div className="relative bg-white rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-8 shadow-xl border border-gray-100 max-w-md mx-auto">
+            <div className="text-center mb-4">
+              <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-2">See Real Customer Patterns</h3>
+              <p className="text-gray-600">Know when your customers visit most</p>
+            </div>
+            <img 
+              src="/lovable-uploads/41e2b061-cbf1-46e7-9e97-1d3e4f0467be.png" 
+              alt="Traffic patterns and heatmap showing customer visit analytics"
+              className="w-full h-auto rounded-xl shadow-lg"
+              loading="lazy"
+            />
+          </div>
+        </div>
+
         {/* Clean comparison - Mobile optimized */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 sm:gap-10 md:gap-12 mb-12 sm:mb-16">
           <div className="text-center px-4">

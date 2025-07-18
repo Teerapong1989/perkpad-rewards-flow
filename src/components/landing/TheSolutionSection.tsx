@@ -24,15 +24,49 @@ const TheSolutionSection = () => {
           </p>
         </div>
 
-        {/* Product preview - Mobile optimized */}
+        {/* Real App Screenshots - Mobile optimized */}
         <div className="mb-16 sm:mb-20 px-4">
-          <div className="relative bg-gray-50 rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-8 overflow-hidden">
+          {/* AI Recommendations */}
+          <div className="relative bg-gray-50 rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-8 overflow-hidden mb-8">
+            <div className="text-center mb-6">
+              <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">AI-Powered Recommendations</h3>
+              <p className="text-gray-600">Get smart insights to grow your business</p>
+            </div>
             <img 
-              src="/lovable-uploads/5318a79b-c5e1-4799-9bdc-2a3420cbb4d7.png" 
-              alt="Perkpad Dashboard"
-              className="w-full h-auto rounded-xl sm:rounded-2xl shadow-xl"
+              src="/lovable-uploads/1531c4b9-c34a-4e3c-9d95-c2dba8ae1127.png" 
+              alt="AI Recommendations showing customer retention insights"
+              className="w-full max-w-md mx-auto h-auto rounded-xl sm:rounded-2xl shadow-xl"
               loading="lazy"
             />
+          </div>
+
+          {/* Rewards Configuration */}
+          <div className="grid md:grid-cols-2 gap-8">
+            <div className="relative bg-gray-50 rounded-2xl sm:rounded-3xl p-4 sm:p-6 overflow-hidden">
+              <div className="text-center mb-4">
+                <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-2">Easy Reward Setup</h3>
+                <p className="text-gray-600">Configure rewards in minutes</p>
+              </div>
+              <img 
+                src="/lovable-uploads/aa566038-4acd-4970-99fb-c4abe94a6d71.png" 
+                alt="Rewards configuration interface"
+                className="w-full h-auto rounded-xl shadow-xl"
+                loading="lazy"
+              />
+            </div>
+
+            <div className="relative bg-gray-50 rounded-2xl sm:rounded-3xl p-4 sm:p-6 overflow-hidden">
+              <div className="text-center mb-4">
+                <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-2">Gamification Options</h3>
+                <p className="text-gray-600">Choose how customers reveal rewards</p>
+              </div>
+              <img 
+                src="/lovable-uploads/4c8bcfa9-a6f0-4568-a952-c7e64c4f111b.png" 
+                alt="Reward game settings with scratch cards, spin wheel, and gift boxes"
+                className="w-full h-auto rounded-xl shadow-xl"
+                loading="lazy"
+              />
+            </div>
           </div>
         </div>
 
