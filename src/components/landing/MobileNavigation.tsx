@@ -53,6 +53,18 @@ const MobileNavigation = () => {
         {/* Desktop Navigation */}
         <div className="hidden lg:flex items-center space-x-8">
           <Link 
+            to="/features"
+            className="text-gray-600 hover:text-gray-900 font-medium transition-colors"
+          >
+            Features
+          </Link>
+          <Link 
+            to="/pricing"
+            className="text-gray-600 hover:text-gray-900 font-medium transition-colors"
+          >
+            Pricing
+          </Link>
+          <Link 
             to="/how-it-works"
             className="text-gray-600 hover:text-gray-900 font-medium transition-colors"
           >
@@ -115,6 +127,20 @@ const MobileNavigation = () => {
           </div>
           
           <div className="p-4 space-y-4">
+            <Link 
+              to="/features"
+              className="block w-full text-left p-3 text-gray-600 hover:text-gray-900 font-medium transition-colors"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Features
+            </Link>
+            <Link 
+              to="/pricing"
+              className="block w-full text-left p-3 text-gray-600 hover:text-gray-900 font-medium transition-colors"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Pricing
+            </Link>
             <Link 
               to="/how-it-works"
               className="block w-full text-left p-3 text-gray-600 hover:text-gray-900 font-medium transition-colors"
