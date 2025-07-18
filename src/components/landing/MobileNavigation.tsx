@@ -50,37 +50,20 @@ const MobileNavigation = () => {
           <span className="font-display text-lg sm:text-xl font-bold text-gray-900 tracking-tight">Perkpad</span>
         </div>
         
-        {/* Desktop Navigation */}
-        <div className="hidden lg:flex items-center space-x-6">
-          <Link 
-            to="/how-it-works"
-            className="text-gray-600 hover:text-brand-primary-dark transition-colors cursor-pointer min-h-[44px] flex items-center font-medium"
-          >
-            How It Works
-          </Link>
-          <button 
-            onClick={handlePricingClick}
-            className="text-gray-600 hover:text-brand-primary-dark transition-colors cursor-pointer min-h-[44px] font-medium"
-          >
-            Pricing
-          </button>
-          <Link 
-            to="/about"
-            className="text-gray-600 hover:text-brand-primary-dark transition-colors cursor-pointer min-h-[44px] flex items-center font-medium"
-          >
-            About
-          </Link>
-          <Link 
-            to="/contact"
-            className="text-gray-600 hover:text-brand-primary-dark transition-colors cursor-pointer min-h-[44px] flex items-center font-medium"
-          >
-            Contact
-          </Link>
+        {/* Desktop Navigation - Simplified */}
+        <div className="hidden lg:flex items-center space-x-8">
           <Button 
-            className="btn-premium min-h-[44px] px-6 font-semibold"
+            variant="ghost"
+            className="text-gray-600 hover:text-gray-900 font-medium"
+            onClick={() => window.open('https://app.perkpad.io', '_blank')}
+          >
+            Login
+          </Button>
+          <Button 
+            className="btn-premium font-semibold px-8"
             onClick={() => window.open('https://app.perkpad.io', '_blank', 'noopener,noreferrer')}
           >
-            Get Started
+            Get Early Access
           </Button>
         </div>
 
@@ -113,45 +96,26 @@ const MobileNavigation = () => {
             </button>
           </div>
           
-          <div className="p-4 space-y-2">
-            <Link 
-              to="/how-it-works"
-              className="block p-4 rounded-lg hover:bg-gray-50 transition-colors text-gray-800 font-medium min-h-[44px] flex items-center"
-              onClick={() => setIsMenuOpen(false)}
+          <div className="p-4 space-y-4">
+            <Button 
+              variant="ghost"
+              className="w-full text-gray-600 hover:text-gray-900 font-medium justify-start"
+              onClick={() => {
+                window.open('https://app.perkpad.io', '_blank');
+                setIsMenuOpen(false);
+              }}
             >
-              How It Works
-            </Link>
-            <button 
-              onClick={handlePricingClick}
-              className="w-full text-left p-4 rounded-lg hover:bg-gray-50 transition-colors text-gray-800 font-medium min-h-[44px] flex items-center"
+              Login
+            </Button>
+            <Button 
+              className="w-full btn-premium font-semibold"
+              onClick={() => {
+                window.open('https://app.perkpad.io', '_blank', 'noopener,noreferrer');
+                setIsMenuOpen(false);
+              }}
             >
-              Pricing
-            </button>
-            <Link 
-              to="/about"
-              className="block p-4 rounded-lg hover:bg-gray-50 transition-colors text-gray-800 font-medium min-h-[44px] flex items-center"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              About
-            </Link>
-            <Link 
-              to="/contact"
-              className="block p-4 rounded-lg hover:bg-gray-50 transition-colors text-gray-800 font-medium min-h-[44px] flex items-center"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Contact
-            </Link>
-            <div className="pt-4 space-y-3">
-              <Button 
-                className="w-full btn-premium min-h-[44px] text-base font-semibold"
-                onClick={() => {
-                  window.open('https://app.perkpad.io', '_blank', 'noopener,noreferrer');
-                  setIsMenuOpen(false);
-                }}
-              >
-                Get Started
-              </Button>
-            </div>
+              Get Early Access
+            </Button>
           </div>
         </div>
       )}
