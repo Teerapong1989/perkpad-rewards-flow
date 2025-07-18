@@ -50,8 +50,26 @@ const MobileNavigation = () => {
           <span className="font-display text-lg sm:text-xl font-bold text-gray-900 tracking-tight">Perkpad</span>
         </div>
         
-        {/* Desktop Navigation - Simplified */}
+        {/* Desktop Navigation */}
         <div className="hidden lg:flex items-center space-x-8">
+          <Link 
+            to="/how-it-works"
+            className="text-gray-600 hover:text-gray-900 font-medium transition-colors"
+          >
+            How It Works
+          </Link>
+          <Link 
+            to="/about"
+            className="text-gray-600 hover:text-gray-900 font-medium transition-colors"
+          >
+            About
+          </Link>
+          <Link 
+            to="/contact"
+            className="text-gray-600 hover:text-gray-900 font-medium transition-colors"
+          >
+            Contact
+          </Link>
           <Button 
             variant="ghost"
             className="text-gray-600 hover:text-gray-900 font-medium"
@@ -63,7 +81,7 @@ const MobileNavigation = () => {
             className="btn-premium font-semibold px-8"
             onClick={() => window.open('https://app.perkpad.io', '_blank', 'noopener,noreferrer')}
           >
-            Get Early Access
+            Get Started
           </Button>
         </div>
 
@@ -97,6 +115,27 @@ const MobileNavigation = () => {
           </div>
           
           <div className="p-4 space-y-4">
+            <Link 
+              to="/how-it-works"
+              className="block w-full text-left p-3 text-gray-600 hover:text-gray-900 font-medium transition-colors"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              How It Works
+            </Link>
+            <Link 
+              to="/about"
+              className="block w-full text-left p-3 text-gray-600 hover:text-gray-900 font-medium transition-colors"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              About
+            </Link>
+            <Link 
+              to="/contact"
+              className="block w-full text-left p-3 text-gray-600 hover:text-gray-900 font-medium transition-colors"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Contact
+            </Link>
             <Button 
               variant="ghost"
               className="w-full text-gray-600 hover:text-gray-900 font-medium justify-start"
@@ -114,7 +153,7 @@ const MobileNavigation = () => {
                 setIsMenuOpen(false);
               }}
             >
-              Get Early Access
+              Get Started
             </Button>
           </div>
         </div>
