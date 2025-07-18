@@ -2,9 +2,6 @@ import { QrCode, Gift, BarChart3, Smartphone, Shield, Brain } from "lucide-react
 import { Button } from "@/components/ui/button";
 import { useInView } from "@/hooks/useInView";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
-import qrLoyaltyInterface from "@/assets/qr-loyalty-interface.jpg";
-import analyticsDashboard from "@/assets/analytics-dashboard.jpg";
-import smsMarketing from "@/assets/sms-marketing.jpg";
 
 const features = [
   {
@@ -12,21 +9,21 @@ const features = [
     title: "No App Required",
     description: "Customers scan QR code with phone camera. Works instantly.",
     benefit: "Zero friction",
-    image: qrLoyaltyInterface
+    image: "/lovable-uploads/0f4a4c87-f800-4449-a851-e42a11d6e15e.png"
   },
   {
     icon: BarChart3,
     title: "Customer Analytics",
     description: "Track visits, retention, and loyalty patterns.",
     benefit: "Know your customers",
-    image: analyticsDashboard
+    image: "/lovable-uploads/7d33aade-01f8-438c-902d-769b4035603c.png"
   },
   {
     icon: Smartphone,
-    title: "SMS Marketing",
-    description: "Automated campaigns to bring customers back.",
-    benefit: "Automated retention",
-    image: smsMarketing
+    title: "Customer Management",
+    description: "View and manage your loyal customers easily.",
+    benefit: "Customer insights",
+    image: "/lovable-uploads/f1f13d36-14c6-4735-a5f9-17fa8b03776b.png"
   }
 ];
 

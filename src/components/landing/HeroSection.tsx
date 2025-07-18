@@ -43,21 +43,34 @@ const HeroSection = () => {
           </p>
         </div>
         
-        {/* Clean visual proof - Mobile optimized */}
+        
+        {/* Real App Screenshot */}
         <div className="mt-12 sm:mt-16 md:mt-20 px-4">
-          <div className="bg-white rounded-xl sm:rounded-2xl shadow-xl p-4 sm:p-6 md:p-8 mx-auto max-w-3xl border border-gray-100">
-            <div className="grid grid-cols-3 gap-4 sm:gap-6 md:gap-8 text-center">
-              <div>
-                <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-brand-primary mb-1 sm:mb-2">40%</div>
-                <div className="text-gray-700 text-sm sm:text-base font-medium">More repeat visits</div>
-              </div>
-              <div>
-                <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-brand-primary mb-1 sm:mb-2">3x</div>
-                <div className="text-gray-700 text-sm sm:text-base font-medium">Completion rate</div>
-              </div>
-              <div>
-                <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-brand-primary mb-1 sm:mb-2">5min</div>
-                <div className="text-gray-700 text-sm sm:text-base font-medium">Setup time</div>
+          <div className="relative mx-auto max-w-md">
+            <img 
+              src="/lovable-uploads/0bb167d1-f530-4147-b85a-413e15ea25f5.png" 
+              alt="Perkpad Business Dashboard - Real customer data and analytics"
+              className="w-full h-auto rounded-2xl shadow-2xl border border-gray-200"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent rounded-2xl pointer-events-none"></div>
+          </div>
+          
+          {/* Stats below image */}
+          <div className="mt-8 sm:mt-12">
+            <div className="bg-white rounded-xl sm:rounded-2xl shadow-xl p-4 sm:p-6 md:p-8 mx-auto max-w-3xl border border-gray-100">
+              <div className="grid grid-cols-3 gap-4 sm:gap-6 md:gap-8 text-center">
+                <div>
+                  <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-brand-primary mb-1 sm:mb-2">40%</div>
+                  <div className="text-gray-700 text-sm sm:text-base font-medium">More repeat visits</div>
+                </div>
+                <div>
+                  <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-brand-primary mb-1 sm:mb-2">3x</div>
+                  <div className="text-gray-700 text-sm sm:text-base font-medium">Completion rate</div>
+                </div>
+                <div>
+                  <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-brand-primary mb-1 sm:mb-2">5min</div>
+                  <div className="text-gray-700 text-sm sm:text-base font-medium">Setup time</div>
+                </div>
               </div>
             </div>
           </div>
