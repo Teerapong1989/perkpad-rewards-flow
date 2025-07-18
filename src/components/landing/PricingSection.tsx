@@ -7,21 +7,24 @@ const pricingPlans = [
   {
     name: "Free",
     price: "$0", 
-    period: "per month",
+    period: "forever",
     features: [
-      "1 location",
-      "QR stamp card system", 
-      "Basic dashboard",
-      "Limited customization"
+      "Complete loyalty card system (digital stamps)",
+      "Basic customer management & profiles", 
+      "QR code customer check-ins",
+      "Staff management with secure PIN access",
+      "Essential analytics dashboard",
+      "Advanced fraud protection",
+      "5-minute setup"
     ],
     limitations: [
       "No AI insights",
       "No SMS marketing",
-      "No staff management",
-      "Basic features only"
+      "Limited customization",
+      "Basic reporting only"
     ],
-    buttonText: "Start Free",
-    description: "Perfect for testing with real customers"
+    buttonText: "Get Started",
+    description: "Fraud-protected loyalty that actually works. Prove customer loyalty works before you pay."
   },
   {
     name: "Pro",
@@ -30,17 +33,17 @@ const pricingPlans = [
     popular: true,
     features: [
       "Everything in Free, plus:",
-      "🤖 AI customer retention insights",
-      "📱 SMS & email marketing campaigns", 
-      "👥 Staff roles & access control (up to 10)",
-      "Add your logo and colors",
-      "Customer contact info",
-      "Create custom rewards",
-      "Automated campaigns"
+      "100 SMS credits + birthday automation",
+      "Advanced analytics & customer insights",
+      "Reward customization & gamification",
+      "Push notifications for re-engagement",
+      "XP system with levels and achievements",
+      "Transparent cost control with usage alerts",
+      "40% increase in customer retention"
     ],
     addon: "+$10/month per extra location",
     buttonText: "Start 30-Day Free Trial",
-    description: "Most popular for growing businesses"
+    description: "Gamified retention that keeps customers coming back. Turn one-time visitors into repeat customers automatically."
   },
   {
     name: "Growth",
@@ -48,17 +51,17 @@ const pricingPlans = [
     period: "per month", 
     features: [
       "Everything in Pro, plus:",
-      "🧠 Advanced AI with predictive analytics",
-      "👥 Unlimited staff members",
-      "📊 Advanced ROI & profit analytics",
-      "Multi-user access with role permissions",
-      "Cross-location data insights",
-      "Location performance comparison",
+      "500 SMS credits + advanced campaigns",
+      "AI-powered customer recommendations",
+      "Advanced segmentation & targeting",
+      "Comprehensive reporting & ROI tracking",
+      "Multi-location support",
+      "Enterprise-grade security & compliance",
       "Priority support"
     ],
     addon: "3 locations included, +$8/month per extra",
     buttonText: "Start 30-Day Free Trial", 
-    description: "Advanced features for established businesses"
+    description: "AI-driven customer intelligence for maximum LTV. Transform your business into a customer magnet with AI-driven insights."
   }
 ];
 
