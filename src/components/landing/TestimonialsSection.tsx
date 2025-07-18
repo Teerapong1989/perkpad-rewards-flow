@@ -2,31 +2,28 @@ import { Star, Users, Target, Lightbulb, Quote, Shield, Zap, Brain, ChevronRight
 import { useInView } from "@/hooks/useInView";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
 
-const testimonials = [
+const features = [
   {
-    quote: "We went from losing 80% of first-time customers to having 40% come back regularly. The QR system just works.",
-    author: "Maria Rodriguez",
-    role: "Owner, Sunrise Coffee", 
+    title: "Modern QR-Based Loyalty",
+    description: "Replace lost punch cards with instant QR scanning. Customers love the convenience of digital tracking.",
     icon: Users,
-    category: "Coffee Shop",
+    category: "Core Feature",
     color: "from-emerald-400 via-teal-500 to-cyan-600",
     accent: "emerald"
   },
   {
-    quote: "Finally competing with the big chains. Our regular customers love the digital loyalty - no more lost punch cards.",
-    author: "David Kim",
-    role: "Manager, Elite Auto Care",
-    icon: Shield,
-    category: "Auto Repair",
+    title: "SMS Marketing That Works",
+    description: "Reach customers directly with targeted messages. Proven to increase repeat visits and customer engagement.",
+    icon: Brain,
+    category: "Marketing Tool",
     color: "from-violet-400 via-purple-500 to-indigo-600", 
     accent: "violet"
   },
   {
-    quote: "The SMS campaigns bring back customers who would have disappeared. We can see exactly what works now.",
-    author: "Jennifer Chen", 
-    role: "Owner, Bella Salon",
-    icon: Brain,
-    category: "Beauty Salon",
+    title: "Professional Analytics",
+    description: "Get clear insights into customer behavior and campaign performance. Make data-driven decisions for your business.",
+    icon: Shield,
+    category: "Business Intelligence",
     color: "from-orange-400 via-red-500 to-pink-600",
     accent: "orange"
   }
@@ -53,50 +50,47 @@ const TestimonialsSection = () => {
               Professional Technology
             </div>
             <h2 className="text-5xl lg:text-6xl font-bold bg-gradient-to-r from-slate-800 via-slate-700 to-slate-800 bg-clip-text text-transparent mb-6">
-              Results
+              Platform Features
             </h2>
           </AnimatedSection>
         </div>
 
-        {/* Modern Testimonial Cards */}
+        {/* Feature Cards */}
         <div className="grid lg:grid-cols-3 gap-8 mb-20">
-          {testimonials.map((testimonial, index) => {
-            const IconComponent = testimonial.icon;
+          {features.map((feature, index) => {
+            const IconComponent = feature.icon;
             return (
               <div 
                 key={index}
-                className={`testimonial-card group transition-all duration-700 delay-${index * 150} ${isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}
+                className={`feature-card group transition-all duration-700 delay-${index * 150} ${isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}
               >
                 <div className="relative h-full bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl border border-slate-200 hover:border-slate-300 transition-all duration-500 group-hover:scale-[1.02] overflow-hidden">
                   {/* Background Gradient Overlay */}
-                  <div className={`absolute inset-0 bg-gradient-to-br ${testimonial.color} opacity-0 group-hover:opacity-5 transition-opacity duration-500`}></div>
+                  <div className={`absolute inset-0 bg-gradient-to-br ${feature.color} opacity-0 group-hover:opacity-5 transition-opacity duration-500`}></div>
                   
                   {/* Category Badge */}
-                  <div className={`inline-flex items-center gap-2 px-3 py-1 rounded-full bg-${testimonial.accent}-100 text-${testimonial.accent}-700 text-sm font-medium mb-6`}>
+                  <div className={`inline-flex items-center gap-2 px-3 py-1 rounded-full bg-${feature.accent}-100 text-${feature.accent}-700 text-sm font-medium mb-6`}>
                     <IconComponent className="w-4 h-4" />
-                    {testimonial.category}
+                    {feature.category}
                   </div>
 
-                  {/* Quote Icon */}
+                  {/* Feature Icon */}
                   <div className="relative mb-6">
-                    <Quote className="w-10 h-10 text-slate-200 group-hover:text-slate-300 transition-colors duration-300" />
-                    <div className={`absolute -top-1 -left-1 w-12 h-12 bg-gradient-to-br ${testimonial.color} rounded-full opacity-10 group-hover:opacity-20 transition-opacity duration-300`}></div>
-                  </div>
-
-                  {/* Quote Text */}
-                  <blockquote className="text-slate-700 leading-relaxed mb-8 group-hover:text-slate-800 transition-colors duration-300">
-                    "{testimonial.quote}"
-                  </blockquote>
-
-                  {/* Author Section */}
-                  <div className="flex items-center gap-4 pt-4 border-t border-slate-100">
-                    <div className={`w-14 h-14 bg-gradient-to-br ${testimonial.color} rounded-2xl flex items-center justify-center shadow-lg group-hover:shadow-xl transition-shadow duration-300`}>
+                    <div className={`w-14 h-14 bg-gradient-to-br ${feature.color} rounded-2xl flex items-center justify-center shadow-lg group-hover:shadow-xl transition-all duration-300 group-hover:scale-105`}>
                       <IconComponent className="w-6 h-6 text-white" />
                     </div>
-                    <div className="flex-1">
-                      <div className="font-bold text-slate-800 text-lg">{testimonial.author}</div>
-                      <div className="text-slate-600 text-sm">{testimonial.role}</div>
-                    </div>
+                  </div>
+
+                  {/* Feature Content */}
+                  <h3 className="text-xl font-bold text-slate-800 mb-4 group-hover:text-slate-900 transition-colors duration-300">
+                    {feature.title}
+                  </h3>
+                  <p className="text-slate-600 leading-relaxed group-hover:text-slate-700 transition-colors duration-300">
+                    {feature.description}
+                  </p>
+
+                  {/* Arrow Icon */}
+                  <div className="flex justify-end mt-6">
                     <ChevronRight className="w-5 h-5 text-slate-400 group-hover:text-slate-600 group-hover:translate-x-1 transition-all duration-300" />
                   </div>
                 </div>
