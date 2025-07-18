@@ -8,35 +8,29 @@ const problems = [
   {
     id: 1,
     icon: TrendingUp,
-    category: "Customer Retention",
-    before: "Customers visit once and disappear forever",
-    beforeDetail: "70% never return after their first visit. No follow-up system, no reminders, no reason to come back.",
-    after: "Automated loyalty program brings customers back",
-    afterDetail: "Smart reminders, personalized rewards, and compelling reasons to return help increase repeat visits.",
-    impact: "More repeat customers",
-    impactNumber: "Repeat Visits"
+    category: "The Hidden Problem",
+    title: "Customers visit once and vanish",
+    description: "Without a loyalty system, 70% of first-time customers never return. You're constantly fighting for new business instead of nurturing existing relationships.",
+    solution: "Turn one-time visitors into regulars",
+    emotional: "Stop feeling like you're starting from zero every day"
   },
   {
     id: 2,
     icon: Target,
-    category: "Competitive Advantage",
-    before: "Can't compete with big chain loyalty programs", 
-    beforeDetail: "Customers choose Starbucks over your coffee shop because they get points and rewards. Your paper punch cards can't compete.",
-    after: "Professional-grade loyalty system levels the playing field",
-    afterDetail: "The same powerful features that big chains use, designed specifically for local businesses.",
-    impact: "Level playing field",
-    impactNumber: "Compete"
+    category: "The Competition Gap", 
+    title: "Big chains have unfair advantages",
+    description: "Starbucks, McDonald's, and other chains use sophisticated loyalty programs to steal your customers. You can't compete with paper punch cards.",
+    solution: "Level the playing field with enterprise-grade loyalty",
+    emotional: "Compete confidently against any chain"
   },
   {
     id: 3,
     icon: BarChart3,
-    category: "Business Intelligence",
-    before: "Zero insight into what actually works",
-    beforeDetail: "You spend on ads and promotions but have no clue what brings customers back or drives revenue. Flying blind.",
-    after: "Clear data shows exactly what drives results",
-    afterDetail: "Track which campaigns work, identify your best customers, and see clear ROI on every marketing dollar.",
-    impact: "Clear ROI on every marketing dollar",
-    impactNumber: "Clear ROI"
+    category: "The Blind Spot",
+    title: "You're flying blind on what works", 
+    description: "You spend money on ads and promotions but have no idea what actually brings customers back. Every marketing dollar is a guess.",
+    solution: "See exactly what drives your business growth",
+    emotional: "Make decisions with confidence, not hope"
   }
 ];
 
@@ -63,45 +57,46 @@ const ProblemsSection = () => {
           </AnimatedSection>
         </div>
 
-        {/* Enhanced Problem Cards */}
+        {/* Emotional Problem Cards */}
         <div className="grid lg:grid-cols-3 gap-8 mb-20">
           {problems.map((problem, index) => {
             const Icon = problem.icon;
             return (
               <div 
                 key={problem.id}
-                className={`animate-fade-in-up card-premium h-full group`}
+                className={`card-premium p-8 h-full group text-center`}
                 style={{ animationDelay: `${index * 150}ms` }}
               >
-                <div className="p-8">
-                  <div className="flex items-center gap-4 mb-6">
-                    <div className="w-14 h-14 bg-gradient-primary rounded-2xl flex items-center justify-center shadow-brand group-hover:shadow-brand-glow transition-shadow duration-300">
-                      <Icon className="w-7 h-7 text-white" />
-                    </div>
-                    <div className="text-sm font-bold text-brand-primary uppercase tracking-wider">
-                      {problem.category}
-                    </div>
+                <div className="mb-6">
+                  <div className="w-16 h-16 bg-gradient-primary rounded-3xl flex items-center justify-center mx-auto mb-4 shadow-brand group-hover:shadow-brand-glow transition-shadow duration-300">
+                    <Icon className="w-8 h-8 text-white" />
                   </div>
-                  
-                  <h3 className="text-2xl font-bold text-gray-900 mb-4 leading-tight">
-                    {problem.before}
-                  </h3>
-                  
-                  <p className="text-gray-600 leading-relaxed mb-6 text-lg">
-                    {problem.beforeDetail}
+                  <div className="text-sm font-bold text-brand-primary uppercase tracking-wider mb-4">
+                    {problem.category}
+                  </div>
+                </div>
+                
+                <h3 className="text-2xl font-bold text-gray-900 mb-4 leading-tight">
+                  {problem.title}
+                </h3>
+                
+                <p className="text-gray-600 leading-relaxed mb-6 text-lg">
+                  {problem.description}
+                </p>
+                
+                <div className="border-t border-gray-200 pt-6">
+                  <div className="flex items-center justify-center gap-2 mb-3">
+                    <div className="w-6 h-6 bg-brand-success rounded-full flex items-center justify-center">
+                      <CheckCircle className="w-4 h-4 text-white" />
+                    </div>
+                    <span className="font-bold text-brand-success">The Solution</span>
+                  </div>
+                  <p className="text-gray-900 font-semibold mb-2">
+                    {problem.solution}
                   </p>
-                  
-                  <div className="border-t border-gray-200 pt-6">
-                    <div className="flex items-center gap-2 mb-3">
-                      <div className="w-6 h-6 bg-brand-success rounded-full flex items-center justify-center">
-                        <CheckCircle className="w-4 h-4 text-white" />
-                      </div>
-                      <span className="text-sm font-bold text-brand-success">Our Solution</span>
-                    </div>
-                    <p className="text-gray-700 font-medium">
-                      {problem.afterDetail}
-                    </p>
-                  </div>
+                  <p className="text-gray-600 text-sm italic">
+                    {problem.emotional}
+                  </p>
                 </div>
               </div>
             );
@@ -154,10 +149,10 @@ const ProblemsSection = () => {
             
             <div className="relative z-10">
               <h3 className="text-4xl lg:text-5xl font-bold mb-6 tracking-tight">
-                Ready to Stop Losing Customers?
+                Ready to Feel Confident About Your Business?
               </h3>
               <p className="text-xl mb-10 text-white/90 max-w-2xl mx-auto leading-relaxed">
-                Join 500+ businesses using Perkpad to increase customer retention by 40%
+                Join 10,000+ business owners who stopped worrying about customer retention
               </p>
               
               <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
@@ -166,7 +161,7 @@ const ProblemsSection = () => {
                   size="xl"
                   className="bg-white text-brand-primary hover:bg-gray-50 font-bold shadow-xl hover:shadow-2xl micro-bounce"
                 >
-                  Start Free Trial
+                  Get 40% More Repeat Customers
                   <ArrowRight className="ml-2 w-5 h-5" />
                 </Button>
                 

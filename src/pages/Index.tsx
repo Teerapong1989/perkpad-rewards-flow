@@ -6,8 +6,8 @@ import FeaturesSection from "@/components/landing/FeaturesSection";
 import BusinessTypeSection from "@/components/landing/BusinessTypeSection";
 import HowItWorksSection from "@/components/landing/HowItWorksSection";
 import ComparisonSection from "@/components/landing/ComparisonSection";
+import RealTestimonialsSection from "@/components/landing/RealTestimonialsSection";
 import PricingSection from "@/components/landing/PricingSection";
-import TestimonialsSection from "@/components/landing/TestimonialsSection";
 import FAQSection from "@/components/landing/FAQSection";
 import CTASection from "@/components/landing/CTASection";
 import Footer from "@/components/landing/Footer";
@@ -24,7 +24,7 @@ const Index = () => {
       <BusinessTypeSection />
       <HowItWorksSection />
       <ComparisonSection />
-      <TestimonialsSection />
+      <RealTestimonialsSection />
       <PricingSection />
       <FAQSection />
       <CTASection />
