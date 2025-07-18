@@ -1,169 +1,114 @@
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { QrCode, Gift, Star, ArrowRight, Users, Zap, Sparkles, Check, Clock, TrendingUp, Play } from "lucide-react";
-import { Link } from "react-router-dom";
+import { ArrowRight, Play } from "lucide-react";
 import { memo, useCallback } from "react";
 import { trackUserBehavior, trackConversion } from "@/utils/analytics";
-import { AnimatedSection } from "@/components/ui/AnimatedSection";
-
-const FloatingElement = memo(({ className, children, delay = 0 }: { 
-  className: string, 
-  children: React.ReactNode, 
-  delay?: number 
-}) => (
-  <div 
-    className={`${className} animate-bounce`} 
-    style={{ animationDelay: `${delay}ms` }}
-    aria-hidden="true"
-  >
-    {children}
-  </div>
-));
-
-FloatingElement.displayName = 'FloatingElement';
-
-const ProgressStamp = memo(({ index, isCompleted }: { index: number, isCompleted: boolean }) => (
-  <div className={`w-6 h-6 sm:w-8 sm:h-8 lg:w-10 lg:h-10 ${
-    isCompleted 
-      ? 'bg-gradient-to-br from-brand-success-light to-brand-success' 
-      : 'bg-gray-100 border-2 border-dashed border-gray-300'
-  } rounded-full flex items-center justify-center transform hover:scale-110 transition-transform duration-200`}>
-    {isCompleted ? (
-      <Check className="w-3 h-3 sm:w-4 sm:h-4 lg:w-5 lg:h-5 text-white" aria-label={`Stamp ${index} collected`} />
-    ) : (
-      <div className="w-1 h-1 sm:w-2 sm:h-2 bg-gray-400 rounded-full" aria-label={`Stamp ${index} needed`}></div>
-    )}
-  </div>
-));
-
-ProgressStamp.displayName = 'ProgressStamp';
 
 const HeroSection = () => {
-  const handleSignUpClick = useCallback(() => {
+  const handleStartClick = useCallback(() => {
     trackUserBehavior('click', 'hero_cta_primary');
     trackConversion('signup');
-    window.open('https://tally.so/r/nGVLNp', '_blank', 'noopener,noreferrer');
+    window.open('https://app.perkpad.io', '_blank', 'noopener,noreferrer');
   }, []);
 
   const handleDemoClick = useCallback(() => {
-    trackUserBehavior('click', 'hero_cta_secondary');
+    trackUserBehavior('click', 'hero_demo');
+    // Add demo functionality later
   }, []);
 
   return (
-    <section className="hero-section relative overflow-hidden py-12 sm:py-16 lg:py-20 px-4 sm:px-6 bg-gradient-hero min-h-[90vh] sm:min-h-[80vh] lg:min-h-screen" role="main">
-      {/* Background decoration - sophisticated layered gradients */}
-      <div className="absolute inset-0 bg-gradient-to-r from-brand-primary/30 to-brand-accent-light/20 blur-3xl will-change-transform" aria-hidden="true"></div>
-      <div className="absolute top-10 sm:top-20 left-4 sm:left-10 w-32 sm:w-48 h-32 sm:h-48 lg:w-72 lg:h-72 bg-brand-primary-dark/10 rounded-full blur-3xl animate-pulse will-change-transform" aria-hidden="true"></div>
-      <div className="absolute bottom-10 sm:bottom-20 right-4 sm:right-10 w-40 sm:w-64 h-40 sm:h-64 lg:w-96 lg:h-96 bg-brand-accent/10 rounded-full blur-3xl animate-pulse delay-1000 will-change-transform" aria-hidden="true"></div>
+    <section className="relative bg-gradient-to-br from-gray-25 via-white to-brand-primary-light/30 min-h-[90vh] flex items-center overflow-hidden">
+      {/* Subtle background elements */}
+      <div className="absolute inset-0">
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-brand-primary/5 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-1/3 right-1/4 w-80 h-80 bg-brand-accent/5 rounded-full blur-3xl"></div>
+      </div>
       
-      <div className="max-w-7xl mx-auto relative flex items-center min-h-[80vh] sm:min-h-[70vh] lg:min-h-[85vh]">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center w-full">
-          <header className="space-y-6 sm:space-y-8">
-            <div className="space-y-4 sm:space-y-6">
-              <AnimatedSection animation="fade-in" delay={100}>
-                <div className="flex items-center justify-center lg:justify-start mb-3 sm:mb-4">
-                  <Badge className="bg-gradient-brand text-white px-3 sm:px-4 py-1.5 sm:py-2 text-xs sm:text-sm font-medium shadow-brand">
-                    <Sparkles className="w-3 h-3 sm:w-4 sm:h-4 mr-1.5 sm:mr-2" aria-hidden="true" />
-                    New: No setup fees for the first 100 businesses
-                  </Badge>
-                </div>
-              </AnimatedSection>
+      <div className="container mx-auto px-6 relative z-10">
+        <div className="max-w-4xl mx-auto text-center space-y-8">
+          {/* Badge */}
+          <Badge className="bg-gradient-to-r from-brand-primary to-brand-accent text-white px-4 py-2 text-sm font-medium shadow-lg">
+            ✨ Trusted by 500+ local businesses
+          </Badge>
+          
+          {/* Main headline */}
+          <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold text-gray-900 tracking-tight leading-[0.9]">
+            Stop losing customers to{" "}
+            <span className="text-gradient">lost punch cards</span>
+          </h1>
+          
+          {/* Subheadline */}
+          <p className="text-xl md:text-2xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
+            Digital loyalty that actually works. No apps, no hassle, no lost cards.
+          </p>
+          
+          {/* CTA buttons */}
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4">
+            <Button 
+              size="xl" 
+              className="btn-premium font-bold"
+              onClick={handleStartClick}
+            >
+              Start Free Trial
+              <ArrowRight className="ml-2 w-5 h-5" />
+            </Button>
+            
+            <Button 
+              variant="ghost" 
+              size="lg"
+              className="text-gray-600 hover:text-gray-800 font-semibold"
+              onClick={handleDemoClick}
+            >
+              <Play className="mr-2 w-5 h-5" />
+              Watch Demo
+            </Button>
+          </div>
+          
+          {/* Trust indicators */}
+          <div className="pt-8 text-sm text-gray-500">
+            <p className="mb-2">Free 30-day trial • No credit card required • 5-minute setup</p>
+            <div className="flex justify-center items-center space-x-8">
+              <span>Coffee Shops</span>
+              <span>•</span>
+              <span>Salons</span>
+              <span>•</span>
+              <span>Restaurants</span>
+              <span>•</span>
+              <span>Retail Stores</span>
+            </div>
+          </div>
+        </div>
+        
+        {/* Product preview */}
+        <div className="max-w-4xl mx-auto mt-16">
+          <div className="relative">
+            {/* Main dashboard image */}
+            <div className="relative bg-white rounded-2xl shadow-2xl p-2 hover-lift">
+              <img 
+                src="/lovable-uploads/5318a79b-c5e1-4799-9bdc-2a3420cbb4d7.png" 
+                alt="Perkpad Dashboard - Modern loyalty program management interface"
+                className="w-full h-auto rounded-xl"
+                loading="eager"
+              />
               
-              <AnimatedSection animation="fade-up" delay={200}>
-                <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-extrabold text-gray-900 leading-[1.1] text-center lg:text-left tracking-tight text-balance">
-                  Stop losing customers to 
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-600 to-red-500">
-                    {" "}lost punch cards
-                  </span>
-                </h1>
-              </AnimatedSection>
-              
-              <AnimatedSection animation="fade-up" delay={400}>
-                <p className="text-lg sm:text-xl lg:text-2xl text-gray-600 leading-relaxed font-medium text-center lg:text-left max-w-2xl text-balance">
-                  QR loyalty that works. No app downloads, no lost cards. Just scan and earn rewards.
-                </p>
-              </AnimatedSection>
+              {/* Live indicator */}
+              <div className="absolute top-4 right-4 bg-brand-success text-white px-3 py-1 rounded-full text-sm font-semibold flex items-center">
+                <div className="w-2 h-2 bg-white rounded-full mr-2 animate-pulse"></div>
+                Live Dashboard
+              </div>
             </div>
             
-            <AnimatedSection animation="fade-up" delay={600}>
-              <div className="flex flex-col items-center lg:items-start gap-4 px-2 sm:px-0">
-                <Button 
-                  size="lg" 
-                  className="bg-gradient-brand hover:shadow-brand text-base sm:text-lg px-8 sm:px-12 py-6 sm:py-7 rounded-2xl shadow-elegant hover:shadow-xl transition-all duration-300 transform hover:scale-105 min-h-[48px] sm:min-h-[56px] will-change-transform text-white font-semibold"
-                  onClick={() => window.open('https://app.perkpad.io', '_blank', 'noopener,noreferrer')}
-                  aria-label="Start free today"
-                >
-                  Start Free Trial
-                  <ArrowRight className="ml-2 w-4 h-4 sm:w-5 sm:h-5" aria-hidden="true" />
-                </Button>
-                <p className="text-sm text-gray-500 text-center lg:text-left">
-                  Free 30-day trial • No credit card required • 5-minute setup
-                </p>
-              </div>
-            </AnimatedSection>
+            {/* Floating stats cards */}
+            <div className="absolute -left-8 top-20 bg-white rounded-xl shadow-lg p-4 hidden lg:block animate-fade-in-up">
+              <div className="text-2xl font-bold text-brand-primary">40%</div>
+              <div className="text-sm text-gray-600">Customer Retention</div>
+            </div>
             
-            {/* Customer logos placeholder */}
-            <AnimatedSection animation="fade-up" delay={800}>
-              <div className="text-center lg:text-left">
-                <p className="text-sm text-gray-500 mb-4">
-                  Trusted by local businesses
-                </p>
-                <div className="flex items-center justify-center lg:justify-start space-x-8 opacity-60">
-                  <div className="text-gray-400 font-semibold">Coffee Shops</div>
-                  <div className="text-gray-400 font-semibold">Salons</div>
-                  <div className="text-gray-400 font-semibold">Restaurants</div>
-                  <div className="text-gray-400 font-semibold">Auto Repair</div>
-                </div>
-              </div>
-            </AnimatedSection>
-          </header>
-          
-          <AnimatedSection animation="fade-up" delay={500} className="relative mt-8 lg:mt-0">
-            {/* Floating elements with performance optimization */}
-            <FloatingElement 
-              className="absolute -top-2 sm:-top-4 -left-2 sm:-left-4 w-12 h-12 sm:w-20 sm:h-20 bg-gradient-to-br from-orange-400 to-orange-500 rounded-2xl shadow-lg flex items-center justify-center"
-              delay={500}
-            >
-              <Gift className="w-6 h-6 sm:w-10 sm:h-10 text-white" />
-            </FloatingElement>
-            
-            <FloatingElement
-              className="absolute -top-4 sm:-top-8 -right-2 sm:-right-8 w-10 h-10 sm:w-16 sm:h-16 bg-gradient-to-br from-teal-400 to-teal-500 rounded-full shadow-lg flex items-center justify-center"
-              delay={700}
-            >
-              <Star className="w-5 h-5 sm:w-8 sm:h-8 text-white fill-current" />
-            </FloatingElement>
-            
-            <FloatingElement
-              className="absolute -bottom-3 sm:-bottom-6 -left-3 sm:-left-6 w-8 h-8 sm:w-12 sm:h-12 bg-gradient-to-br from-purple-400 to-purple-500 rounded-xl shadow-lg flex items-center justify-center"
-              delay={1000}
-            >
-              <Users className="w-4 h-4 sm:w-6 sm:h-6 text-white" />
-            </FloatingElement>
-            
-            {/* Real Product Dashboard Screenshot */}
-            <figure className="relative bg-white rounded-3xl shadow-elegant p-3 sm:p-4 lg:p-6 max-w-lg mx-auto transform hover:scale-105 transition-transform duration-300 will-change-transform">
-              <div className="relative overflow-hidden rounded-2xl">
-                <img 
-                  src="/lovable-uploads/5318a79b-c5e1-4799-9bdc-2a3420cbb4d7.png" 
-                  alt="Perkpad Business Dashboard - Loyalty Program Overview showing customer analytics, rewards tracking, and security features"
-                  className="w-full h-auto object-cover"
-                  loading="eager"
-                />
-                <div className="absolute top-2 right-2 w-2 h-2 sm:w-3 sm:h-3 bg-brand-success rounded-full animate-ping" aria-hidden="true"></div>
-                <div className="absolute inset-0 bg-gradient-to-t from-black/5 to-transparent pointer-events-none"></div>
-              </div>
-              
-              {/* Real product callout */}
-              <div className="absolute -bottom-2 -right-2 sm:-bottom-3 sm:-right-3 bg-brand-success text-white px-2 sm:px-3 py-1 sm:py-2 rounded-full text-xs sm:text-sm font-bold shadow-lg">
-                ✨ Live Dashboard
-              </div>
-              
-              <figcaption className="sr-only">
-                Real Perkpad dashboard interface showing loyalty program management, customer analytics, security status, and business tools for local businesses
-              </figcaption>
-            </figure>
-          </AnimatedSection>
+            <div className="absolute -right-8 bottom-20 bg-white rounded-xl shadow-lg p-4 hidden lg:block animate-fade-in-up" style={{animationDelay: '200ms'}}>
+              <div className="text-2xl font-bold text-brand-success">500+</div>
+              <div className="text-sm text-gray-600">Happy Businesses</div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
