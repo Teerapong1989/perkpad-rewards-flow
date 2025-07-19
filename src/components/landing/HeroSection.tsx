@@ -11,15 +11,15 @@ const HeroSection = () => {
   }, []);
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center px-4 sm:px-6">
-      {/* Subtle gradient background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-gray-50/30 to-brand-primary/5"></div>
+    <section className="relative min-h-screen flex items-center justify-center px-4 sm:px-6 bg-mesh">
+      {/* Enhanced gradient overlay */}
+      <div className="absolute inset-0 bg-gradient-to-br from-white/80 via-white/60 to-white/80"></div>
       
       <div className="relative z-10 text-center max-w-4xl mx-auto">
         {/* Clean, powerful headline - Mobile optimized */}
-        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 mb-6 sm:mb-8 tracking-tight leading-[1.1] px-2">
+        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 mb-6 sm:mb-8 tracking-tight leading-[1.05] px-2">
           Your customers{" "}
-          <span className="text-gradient">keep coming back</span>
+          <span className="text-gradient font-extrabold highlight-brand">keep coming back</span>
         </h1>
         
         {/* Single benefit statement - Mobile optimized */}
@@ -31,7 +31,7 @@ const HeroSection = () => {
         <div className="space-y-4 sm:space-y-6 px-4">
           <Button 
             size="xl" 
-            className="btn-premium text-lg sm:text-xl px-8 sm:px-12 py-5 sm:py-6 rounded-xl w-full sm:w-auto min-h-[52px] sm:min-h-[60px] font-semibold"
+            className="btn-premium text-lg sm:text-xl px-8 sm:px-12 py-5 sm:py-6 rounded-xl w-full sm:w-auto min-h-[52px] sm:min-h-[60px] font-semibold micro-bounce focus-visible-brand"
             onClick={handleStartClick}
           >
             Get 40% More Repeat Customers

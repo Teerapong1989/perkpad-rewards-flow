@@ -9,41 +9,48 @@ All colors MUST be HSL.
 @layer base {
   :root {
     /* Brand Colors - Elevated with more depth and sophistication */
-    --brand-primary: 240 75% 58%;             /* Your signature blue */
-    --brand-primary-dark: 240 80% 25%;       /* Deep navy for premium feel */
-    --brand-primary-light: 240 75% 96%;      /* Ultra-light blue */
-    --brand-primary-glow: 240 75% 85%;       /* Glowing variant */
+    --brand-primary: 235 85% 60%;             /* More saturated, confident blue */
+    --brand-primary-dark: 235 90% 28%;        /* Deeper, more authoritative */
+    --brand-primary-light: 235 75% 97%;       /* Ultra-light blue */
+    --brand-primary-glow: 235 85% 88%;        /* Glowing variant */
     
-    --brand-accent: 20 90% 55%;              /* Your signature coral */
-    --brand-accent-dark: 20 90% 35%;         /* Deeper coral */
-    --brand-accent-light: 20 90% 96%;        /* Ultra-light coral */
-    --brand-accent-glow: 20 90% 80%;         /* Glowing coral */
+    --brand-secondary: 270 75% 60%;           /* Purple for depth */
+    --brand-secondary-dark: 270 80% 35%;      /* Deep purple */
+    --brand-secondary-light: 270 75% 96%;     /* Light purple */
     
-    --brand-success: 150 70% 40%;            /* Emerald green */
-    --brand-success-light: 150 70% 96%;      /* Light emerald */
-    --brand-warning: 45 90% 55%;             /* Premium amber */
-    --brand-warning-light: 45 90% 96%;       /* Light amber */
+    --brand-accent: 15 85% 58%;               /* Warmer coral-orange */
+    --brand-accent-dark: 15 85% 38%;          /* Deeper coral */
+    --brand-accent-light: 15 85% 96%;         /* Ultra-light coral */
+    --brand-accent-glow: 15 85% 82%;          /* Glowing coral */
     
-    /* Ultra-refined Grays - Uber/DoorDash level sophistication */
-    --gray-25: 210 20% 99%;                  /* Almost white with warmth */
-    --gray-50: 210 20% 98%;                  /* Subtle gray tint */
-    --gray-100: 220 14% 96%;                 /* Light gray */
-    --gray-200: 220 13% 91%;                 /* Border gray */
-    --gray-300: 216 12% 84%;                 /* Muted gray */
-    --gray-400: 218 11% 65%;                 /* Placeholder gray */
-    --gray-500: 220 9% 46%;                  /* Text gray */
-    --gray-600: 215 14% 34%;                 /* Secondary text */
-    --gray-700: 215 19% 25%;                 /* Primary text */
-    --gray-800: 215 28% 17%;                 /* Dark text */
-    --gray-900: 220 35% 9%;                  /* Almost black with warmth */
-    --gray-950: 224 71% 4%;                  /* True black equivalent */
+    --brand-success: 145 75% 42%;             /* Confident emerald */
+    --brand-success-light: 145 75% 96%;       /* Light emerald */
+    --brand-warning: 40 88% 58%;              /* Premium amber */
+    --brand-warning-light: 40 88% 96%;        /* Light amber */
+    
+    /* Ultra-refined Grays - Premium app level */
+    --gray-25: 220 15% 99.5%;                /* Almost white with cool tint */
+    --gray-50: 220 15% 98.5%;                /* Subtle cool gray */
+    --gray-100: 220 12% 96%;                 /* Light boundary gray */
+    --gray-200: 220 10% 89%;                 /* Border gray */
+    --gray-300: 220 8% 79%;                  /* Muted element gray */
+    --gray-400: 220 6% 58%;                  /* Placeholder gray */
+    --gray-500: 220 5% 42%;                  /* Secondary text */
+    --gray-600: 220 7% 32%;                  /* Primary text secondary */
+    --gray-700: 220 12% 22%;                 /* Primary text */
+    --gray-800: 220 18% 14%;                 /* Dark text */
+    --gray-900: 220 25% 8%;                  /* Almost black with warmth */
+    --gray-950: 220 40% 4%;                  /* True black equivalent */
 
-    /* Premium Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(var(--brand-primary)), hsl(var(--brand-primary-glow)));
+    /* Premium Gradients - More sophisticated */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--brand-primary)), hsl(var(--brand-secondary)));
     --gradient-brand: linear-gradient(135deg, hsl(var(--brand-primary-dark)), hsl(var(--brand-accent)));
     --gradient-subtle: linear-gradient(180deg, hsl(var(--gray-25)), hsl(var(--gray-50)));
-    --gradient-hero: linear-gradient(135deg, hsl(var(--brand-primary-light)) 0%, hsl(var(--brand-accent-light)) 100%);
-    --gradient-glass: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+    --gradient-hero: linear-gradient(135deg, hsl(var(--brand-primary-light)) 0%, hsl(var(--brand-secondary-light)) 50%, hsl(var(--brand-accent-light)) 100%);
+    --gradient-glass: linear-gradient(135deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.06));
+    --gradient-card: linear-gradient(145deg, hsl(var(--gray-25)), hsl(var(--gray-50)));
+    --gradient-mesh: radial-gradient(ellipse at top, hsl(var(--brand-primary-light)), transparent), 
+                     radial-gradient(ellipse at bottom right, hsl(var(--brand-accent-light)), transparent);
     
     /* Elevated Shadows - Multi-layered like premium apps */
     --shadow-xs: 0 1px 2px 0 hsl(var(--gray-900) / 0.05);
@@ -153,7 +160,10 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground antialiased;
-    font-feature-settings: "rlig" 1, "calt" 1;
+    font-feature-settings: "rlig" 1, "calt" 1, "ss01" 1, "ss02" 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
   }
 }
 
@@ -210,22 +220,32 @@ All colors MUST be HSL.
     box-shadow: var(--focus-ring);
   }
   
-  /* Premium Button Effects */
+  /* Premium Button Effects - Enhanced */
   .btn-premium {
     @apply relative overflow-hidden transition-all duration-300;
-    @apply bg-gradient-to-r from-brand-primary to-brand-accent;
+    @apply bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-accent;
     @apply text-white font-semibold shadow-lg hover:shadow-brand;
     @apply hover:scale-[1.02] active:scale-[0.98];
+    @apply border border-white/20;
   }
   
   .btn-premium::before {
     content: '';
-    @apply absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent;
+    @apply absolute inset-0 bg-gradient-to-r from-transparent via-white/25 to-transparent;
     @apply transform -translate-x-full transition-transform duration-700;
   }
   
   .btn-premium:hover::before {
     @apply translate-x-full;
+  }
+  
+  .btn-premium::after {
+    content: '';
+    @apply absolute inset-0 bg-white/5 opacity-0 transition-opacity duration-200;
+  }
+  
+  .btn-premium:hover::after {
+    @apply opacity-100;
   }
   
   /* Glassmorphism Effects */
@@ -255,11 +275,19 @@ All colors MUST be HSL.
     @apply py-16 sm:py-20 lg:py-24;
   }
   
-  /* Card enhancements */
+  /* Card enhancements - More sophisticated */
   .card-premium {
-    @apply bg-white/95 backdrop-blur-sm border border-gray-200/50;
+    @apply bg-white/98 backdrop-blur-xl border border-gray-200/60;
     @apply shadow-lg hover:shadow-xl transition-all duration-300;
-    @apply hover:border-brand-primary/20 hover:-translate-y-1;
+    @apply hover:border-brand-primary/30 hover:-translate-y-1;
+    @apply hover:bg-white;
+  }
+  
+  .card-floating {
+    @apply bg-white/95 backdrop-blur-md border border-white/20;
+    @apply shadow-xl hover:shadow-2xl transition-all duration-500;
+    @apply hover:border-brand-primary/40 hover:-translate-y-2;
+    @apply hover:bg-gradient-card;
   }
   
   /* Animation utilities */
@@ -314,5 +342,42 @@ All colors MUST be HSL.
   
   .ripple:active::after {
     @apply scale-150;
+  }
+
+  /* Enhanced Text Effects */
+  .text-shimmer {
+    @apply bg-gradient-to-r from-gray-700 via-gray-900 to-gray-700 bg-clip-text text-transparent;
+    background-size: 200% 100%;
+    animation: shimmer 2s ease-in-out infinite;
+  }
+  
+  @keyframes shimmer {
+    0%, 100% { background-position: 200% 0; }
+    50% { background-position: -200% 0; }
+  }
+  
+  /* Premium Highlights */
+  .highlight-brand {
+    @apply relative;
+  }
+  
+  .highlight-brand::after {
+    content: '';
+    @apply absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-brand-primary to-brand-accent;
+    @apply transform scale-x-0 transition-transform duration-300 origin-left;
+  }
+  
+  .highlight-brand:hover::after {
+    @apply scale-x-100;
+  }
+  
+  /* Mesh Background for Hero */
+  .bg-mesh {
+    background: var(--gradient-mesh);
+  }
+  
+  /* Enhanced Focus States */
+  .focus-visible-brand:focus-visible {
+    @apply outline-none ring-2 ring-brand-primary ring-offset-2 ring-offset-white;
   }
 }
