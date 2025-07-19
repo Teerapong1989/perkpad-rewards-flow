@@ -4,6 +4,7 @@ import { memo, useCallback } from "react";
 import { trackUserBehavior, trackConversion } from "@/utils/analytics";
 import AnimatedCounter from "@/components/ui/AnimatedCounter";
 import TextRotation from "@/components/ui/TextRotation";
+import OptimizedImage from "@/components/ui/OptimizedImage";
 
 const HeroSection = () => {
   const handleStartClick = useCallback(() => {
@@ -58,11 +59,14 @@ const HeroSection = () => {
         <div className="relative max-w-4xl mx-auto px-2 sm:px-4">
           <div className="card-premium rounded-xl sm:rounded-2xl lg:rounded-3xl overflow-hidden transform hover:scale-[1.02] transition-all duration-500">
             <div className="relative">
-              <img 
+              <OptimizedImage 
                 src="/lovable-uploads/d0cb8276-8db9-4e3f-b26e-5ff46edca736.png" 
                 alt="Perkpad Dashboard showing customer analytics and loyalty program management"
                 className="w-full h-auto object-cover max-h-[400px] sm:max-h-[500px] lg:max-h-[600px]"
-                loading="lazy"
+                priority={true}
+                width={1200}
+                height={800}
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/5 to-transparent pointer-events-none"></div>
             </div>
