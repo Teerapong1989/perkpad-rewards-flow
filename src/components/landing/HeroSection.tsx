@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { memo, useCallback } from "react";
 import { trackUserBehavior, trackConversion } from "@/utils/analytics";
+import TypingAnimation from "@/components/ui/TypingAnimation";
 
 const HeroSection = () => {
   const handleStartClick = useCallback(() => {
@@ -19,7 +20,14 @@ const HeroSection = () => {
         {/* Clean, powerful headline - Mobile optimized */}
         <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 mb-6 sm:mb-8 tracking-tight leading-[1.05] px-2">
           Your customers{" "}
-          <span className="text-gradient font-extrabold highlight-brand">keep coming back</span>
+          <TypingAnimation 
+            text="keep coming back"
+            speed={120}
+            delay={1000}
+            className="text-gradient font-extrabold highlight-brand"
+            showCursor={true}
+            cursorClassName="text-brand-primary"
+          />
         </h1>
         
         {/* Single benefit statement - Mobile optimized */}
