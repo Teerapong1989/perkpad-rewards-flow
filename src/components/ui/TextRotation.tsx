@@ -20,7 +20,7 @@ const TextRotation = ({ texts, className = '', interval = 3000 }: TextRotationPr
       setTimeout(() => {
         setCurrentIndex((prevIndex) => (prevIndex + 1) % texts.length);
         setIsVisible(true);
-      }, 300); // Half of transition duration
+      }, 600); // Slower fade transition
     }, interval);
 
     return () => clearInterval(timer);

@@ -54,15 +54,18 @@ const HeroSection = () => {
           </p>
         </div>
         
-        {/* Clean Dashboard Showcase - responsive container */}
-        <div className="relative max-w-5xl mx-auto px-2 sm:px-4">
-          <div className="bg-white rounded-lg sm:rounded-2xl lg:rounded-3xl shadow-elegant border border-gray-200 overflow-hidden hover-lift">
-            <img 
-              src="/lovable-uploads/602ca246-112d-477a-9195-34755714f7df.png" 
-              alt="Perkpad Dashboard showing customer analytics and loyalty program management"
-              className="w-full h-auto object-contain"
-              loading="lazy"
-            />
+        {/* Clean Dashboard Showcase - more refined proportions */}
+        <div className="relative max-w-4xl mx-auto px-2 sm:px-4">
+          <div className="card-premium rounded-xl sm:rounded-2xl lg:rounded-3xl overflow-hidden transform hover:scale-[1.02] transition-all duration-500">
+            <div className="relative">
+              <img 
+                src="/lovable-uploads/602ca246-112d-477a-9195-34755714f7df.png" 
+                alt="Perkpad Dashboard showing customer analytics and loyalty program management"
+                className="w-full h-auto object-cover max-h-[400px] sm:max-h-[500px] lg:max-h-[600px]"
+                loading="lazy"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/5 to-transparent pointer-events-none"></div>
+            </div>
           </div>
           
           {/* Results showcase - enhanced responsive design */}
