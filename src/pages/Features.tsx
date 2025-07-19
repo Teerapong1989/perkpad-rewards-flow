@@ -122,6 +122,8 @@ const Features = () => {
     window.open('https://app.perkpad.io', '_blank', 'noopener,noreferrer');
   };
 
+  console.log('Features page is rendering');
+
   return (
     <div className="min-h-screen bg-white">
       <Navigation />
