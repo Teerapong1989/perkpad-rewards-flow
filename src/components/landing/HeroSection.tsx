@@ -35,7 +35,7 @@ const HeroSection = () => {
         
         {/* Clear value proposition - better readability */}
         <p className="text-lg xs:text-xl sm:text-2xl lg:text-3xl text-gray-600 mb-8 sm:mb-10 lg:mb-12 leading-relaxed max-w-4xl mx-auto font-medium">
-          Transform punch cards into a digital loyalty program that actually gets completed.
+          Digital punch card app that replaces lost paper cards with QR codes. Perfect for cafes, restaurants & coffee shops.
         </p>
         
         {/* Primary CTA - enhanced for mobile */}
