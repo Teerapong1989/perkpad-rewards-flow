@@ -67,8 +67,9 @@ const HeroSection = () => {
                 <img 
                   src="/lovable-uploads/602ca246-112d-477a-9195-34755714f7df.png" 
                   alt="Perkpad Dashboard showing customer analytics and loyalty program management"
-                  className="w-full h-auto rounded-xl shadow-lg ring-1 ring-gray-100"
+                  className="w-full h-auto rounded-xl shadow-lg ring-1 ring-gray-100 max-w-full object-contain"
                   loading="lazy"
+                  style={{ aspectRatio: 'auto', maxHeight: '80vh' }}
                 />
               </div>
             </div>
