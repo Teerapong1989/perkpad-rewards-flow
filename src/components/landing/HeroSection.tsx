@@ -21,110 +21,174 @@ const HeroSection = () => {
   ];
 
   return (
-    <section className="relative min-h-screen flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8 bg-white">
-      <div className="relative z-10 text-center max-w-6xl mx-auto py-12 sm:py-16 lg:py-20 flex flex-col items-center space-y-8 sm:space-y-12 lg:space-y-16">
+    <section className="relative min-h-screen flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white via-brand-primary-light/30 to-white">
+      {/* Subtle background pattern */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(120,119,198,0.05),transparent_50%),radial-gradient(circle_at_70%_80%,rgba(255,168,168,0.05),transparent_50%)] pointer-events-none"></div>
+      
+      <div className="relative z-10 text-center max-w-6xl mx-auto py-12 sm:py-16 lg:py-20 flex flex-col items-center space-y-10 sm:space-y-14 lg:space-y-20">
         {/* Header Section */}
-        <div className="space-y-6 sm:space-y-8 lg:space-y-10">
-          {/* Clean, powerful headline - optimized for all screen sizes */}
-          <h1 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-gray-900 tracking-tight leading-tight">
-            Your customers
-            <TextRotation 
-              texts={rotatingTexts}
-              className="mt-2 sm:mt-1"
-              interval={5000}
-            />
-          </h1>
+        <div className="space-y-6 sm:space-y-8 lg:space-y-12">
+          {/* Premium headline with better hierarchy */}
+          <div className="space-y-4 sm:space-y-6">
+            <h1 className="text-4xl xs:text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-black text-gray-900 tracking-tight leading-[0.9] font-display">
+              Your customers
+              <TextRotation 
+                texts={rotatingTexts}
+                className="mt-2 sm:mt-1 bg-gradient-to-r from-brand-primary to-brand-secondary bg-clip-text text-transparent"
+                interval={5000}
+              />
+            </h1>
+            
+            {/* Prestige badge */}
+            <div className="inline-flex items-center px-4 py-2 rounded-full bg-gradient-to-r from-brand-success/10 to-brand-primary/10 border border-brand-success/20">
+              <span className="text-sm font-semibold text-brand-success mr-2">✓</span>
+              <span className="text-sm font-medium text-gray-700">Trusted by 2,000+ local businesses</span>
+            </div>
+          </div>
           
-          {/* Clear value proposition - better readability */}
-          <p className="text-lg xs:text-xl sm:text-2xl lg:text-3xl text-gray-600 leading-relaxed max-w-4xl mx-auto font-medium">
-            Digital punch card app that replaces lost paper cards with QR codes. Perfect for cafes, restaurants & coffee shops.
+          {/* Enhanced value proposition */}
+          <p className="text-xl xs:text-2xl sm:text-3xl lg:text-4xl text-gray-700 leading-relaxed max-w-5xl mx-auto font-medium">
+            Stop losing money on lost punch cards. Our digital loyalty program increases customer retention by{" "}
+            <span className="font-bold text-brand-primary">40%</span> with simple QR codes.
           </p>
           
-          {/* Primary CTA - enhanced for mobile */}
-          <div className="space-y-4 sm:space-y-6">
-            <Button 
-              size="xl" 
-              className="btn-premium text-base xs:text-lg sm:text-xl lg:text-2xl px-6 xs:px-8 sm:px-12 lg:px-16 py-4 xs:py-5 sm:py-6 lg:py-7 rounded-xl w-full sm:w-auto min-h-[50px] xs:min-h-[56px] sm:min-h-[64px] lg:min-h-[72px] font-bold shadow-brand"
-              onClick={handleStartClick}
-            >
-              <span className="hidden xs:inline">Get 40% More Repeat Customers</span>
-              <span className="xs:hidden">40% More Repeat Customers</span>
-              <ArrowRight className="ml-2 sm:ml-3 w-4 h-4 xs:w-5 xs:h-5 sm:w-6 sm:h-6 lg:w-7 lg:h-7" />
-            </Button>
-            
-            <p className="text-gray-500 text-xs xs:text-sm sm:text-base lg:text-lg font-medium">
-              5-minute setup • Free 30 days • No credit card required
-            </p>
-          </div>
-        </div>
-        
-        {/* Mobile App Showcase - Enhanced */}
-        <div className="relative max-w-md mx-auto px-2 sm:px-4">
-          {/* Background gradient glow */}
-          <div className="absolute inset-0 bg-gradient-to-r from-primary/20 via-purple-500/20 to-primary/20 rounded-full blur-3xl scale-150 opacity-30 animate-pulse"></div>
-          
-          {/* Mobile device frame */}
-          <div className="relative z-10 transform hover:scale-[1.05] hover:rotate-1 transition-all duration-700 hover:drop-shadow-2xl">
-            {/* Phone shadow */}
-            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/10 to-black/20 rounded-[2.5rem] blur-lg scale-105 transform translate-y-4"></div>
-            
-            {/* Main phone container */}
-            <div className="relative bg-gradient-to-b from-gray-800 to-black rounded-[2.5rem] p-2 shadow-2xl">
-              {/* Screen bezel */}
-              <div className="bg-black rounded-[2rem] p-1">
-                <OptimizedImage 
-                  src="/lovable-uploads/e649c0e6-4d66-4e06-9651-2331653d69bb.png" 
-                  alt="Perkpad mobile app showing business dashboard with customer metrics in a real café environment"
-                  className="w-full h-auto rounded-[1.8rem] shadow-inner"
-                  priority={true}
-                  width={320}
-                  height={640}
-                  sizes="(max-width: 640px) 100vw, 320px"
-                />
+          {/* Premium CTA section */}
+          <div className="space-y-6 sm:space-y-8">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6">
+              <Button 
+                size="xl" 
+                className="group bg-gradient-to-r from-brand-primary to-brand-secondary hover:from-brand-primary-dark hover:to-brand-secondary text-white text-lg xs:text-xl sm:text-2xl lg:text-3xl px-8 xs:px-10 sm:px-14 lg:px-20 py-5 xs:py-6 sm:py-7 lg:py-8 rounded-2xl min-h-[56px] xs:min-h-[64px] sm:min-h-[72px] lg:min-h-[80px] font-bold shadow-2xl hover:shadow-3xl transform hover:scale-[1.02] transition-all duration-300"
+                onClick={handleStartClick}
+              >
+                <span className="hidden sm:inline">Start Free 30-Day Trial</span>
+                <span className="sm:hidden">Start Free Trial</span>
+                <ArrowRight className="ml-3 w-5 h-5 xs:w-6 xs:h-6 sm:w-7 sm:h-7 lg:w-8 lg:h-8 group-hover:translate-x-1 transition-transform duration-300" />
+              </Button>
+              
+              <div className="text-center sm:text-left">
+                <p className="text-gray-600 text-sm sm:text-base font-medium">
+                  Set up in 5 minutes
+                </p>
+                <p className="text-gray-500 text-xs sm:text-sm">
+                  No credit card required
+                </p>
               </div>
             </div>
             
-            {/* Floating elements for extra coolness */}
-            <div className="absolute -top-4 -right-4 w-8 h-8 bg-primary/20 rounded-full animate-bounce delay-1000"></div>
-            <div className="absolute -bottom-4 -left-4 w-6 h-6 bg-purple-500/20 rounded-full animate-bounce delay-2000"></div>
+            {/* Trust indicators */}
+            <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6 text-sm text-gray-500">
+              <div className="flex items-center">
+                <span className="w-2 h-2 bg-brand-success rounded-full mr-2"></span>
+                Free forever plan
+              </div>
+              <div className="flex items-center">
+                <span className="w-2 h-2 bg-brand-success rounded-full mr-2"></span>
+                24/7 support
+              </div>
+              <div className="flex items-center">
+                <span className="w-2 h-2 bg-brand-success rounded-full mr-2"></span>
+                Cancel anytime
+              </div>
+            </div>
           </div>
         </div>
         
-        {/* Results showcase - enhanced responsive design */}
-        <div className="w-full">
-          <div className="bg-gradient-subtle rounded-lg sm:rounded-2xl lg:rounded-3xl p-4 xs:p-6 sm:p-8 lg:p-10 mx-auto max-w-3xl shadow-md border border-gray-100">
-            <div className="grid grid-cols-3 gap-3 xs:gap-4 sm:gap-6 lg:gap-8 text-center">
-              <div className="space-y-1 sm:space-y-2">
-                <AnimatedCounter 
-                  end={40}
-                  suffix="%"
-                  duration={2000}
-                  className="text-xl xs:text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold text-brand-primary mb-1 sm:mb-2"
-                />
-                <div className="text-gray-600 text-xs xs:text-sm sm:text-base lg:text-lg font-medium leading-tight">
-                  More repeat<br className="sm:hidden" /> visits
+        {/* Premium Mobile App Showcase */}
+        <div className="relative max-w-lg mx-auto px-2 sm:px-4">
+          {/* Enhanced background effects */}
+          <div className="absolute inset-0 bg-gradient-to-r from-brand-primary/15 via-brand-secondary/15 to-brand-accent/15 rounded-full blur-3xl scale-150 opacity-40 animate-pulse"></div>
+          <div className="absolute -inset-8 bg-gradient-to-r from-transparent via-white/50 to-transparent rounded-full blur-xl opacity-60"></div>
+          
+          {/* Premium device frame */}
+          <div className="relative z-10 transform hover:scale-[1.03] hover:rotate-1 transition-all duration-700 hover:drop-shadow-2xl group">
+            {/* Enhanced phone shadow with multiple layers */}
+            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/8 to-black/16 rounded-[2.8rem] blur-xl scale-110 transform translate-y-6"></div>
+            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/5 to-black/10 rounded-[2.8rem] blur-lg scale-105 transform translate-y-3"></div>
+            
+            {/* Premium phone container with better materials */}
+            <div className="relative bg-gradient-to-b from-gray-100 via-gray-200 to-gray-300 rounded-[2.8rem] p-[3px] shadow-2xl">
+              <div className="bg-gradient-to-b from-gray-800 to-black rounded-[2.6rem] p-[2px]">
+                {/* Screen with premium bezel */}
+                <div className="bg-black rounded-[2.4rem] p-[1px] overflow-hidden">
+                  <OptimizedImage 
+                    src="/lovable-uploads/e649c0e6-4d66-4e06-9651-2331653d69bb.png" 
+                    alt="Perkpad mobile app showing business dashboard with customer metrics in a real café environment"
+                    className="w-full h-auto rounded-[2.2rem] shadow-inner"
+                    priority={true}
+                    width={400}
+                    height={800}
+                    sizes="(max-width: 640px) 90vw, 400px"
+                  />
                 </div>
               </div>
-              <div className="space-y-1 sm:space-y-2">
-                <AnimatedCounter 
-                  end={3}
-                  suffix="x"
-                  duration={2200}
-                  className="text-xl xs:text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold text-brand-primary mb-1 sm:mb-2"
-                />
-                <div className="text-gray-600 text-xs xs:text-sm sm:text-base lg:text-lg font-medium leading-tight">
-                  Completion<br className="sm:hidden" /> rate
-                </div>
+            </div>
+            
+            {/* Enhanced floating elements */}
+            <div className="absolute -top-6 -right-6 w-12 h-12 bg-gradient-to-br from-brand-primary/30 to-brand-secondary/30 rounded-full animate-bounce delay-1000 backdrop-blur-sm"></div>
+            <div className="absolute -bottom-6 -left-6 w-8 h-8 bg-gradient-to-br from-brand-accent/30 to-brand-warning/30 rounded-full animate-bounce delay-2000 backdrop-blur-sm"></div>
+            <div className="absolute top-1/4 -right-8 w-4 h-4 bg-gradient-to-br from-brand-success/40 to-brand-primary/40 rounded-full animate-pulse delay-3000"></div>
+          </div>
+        </div>
+        
+        {/* Premium Results showcase */}
+        <div className="w-full max-w-5xl">
+          <div className="relative">
+            {/* Background glow */}
+            <div className="absolute inset-0 bg-gradient-to-r from-brand-primary/5 via-brand-secondary/5 to-brand-accent/5 rounded-3xl blur-xl"></div>
+            
+            <div className="relative bg-white/80 backdrop-blur-sm rounded-2xl sm:rounded-3xl lg:rounded-[2rem] p-6 xs:p-8 sm:p-10 lg:p-12 shadow-xl border border-white/20">
+              {/* Results header */}
+              <div className="text-center mb-8 sm:mb-10 lg:mb-12">
+                <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-2">
+                  Real Results from Real Businesses
+                </h3>
+                <p className="text-gray-600 text-base sm:text-lg">
+                  Join thousands of businesses already growing with Perkpad
+                </p>
               </div>
-              <div className="space-y-1 sm:space-y-2">
-                <AnimatedCounter 
-                  end={5}
-                  suffix="min"
-                  duration={1800}
-                  className="text-xl xs:text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold text-brand-primary mb-1 sm:mb-2"
-                />
-                <div className="text-gray-600 text-xs xs:text-sm sm:text-base lg:text-lg font-medium leading-tight">
-                  Setup<br className="sm:hidden" /> time
+              
+              <div className="grid grid-cols-3 gap-4 xs:gap-6 sm:gap-8 lg:gap-12 text-center">
+                <div className="space-y-2 sm:space-y-3">
+                  <AnimatedCounter 
+                    end={40}
+                    suffix="%"
+                    duration={2000}
+                    className="text-3xl xs:text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-black text-transparent bg-gradient-to-r from-brand-primary to-brand-secondary bg-clip-text"
+                  />
+                  <div className="text-gray-700 text-sm xs:text-base sm:text-lg lg:text-xl font-semibold leading-tight">
+                    More repeat<br className="sm:hidden" /> customers
+                  </div>
+                  <div className="text-gray-500 text-xs sm:text-sm">
+                    Average increase
+                  </div>
+                </div>
+                <div className="space-y-2 sm:space-y-3">
+                  <AnimatedCounter 
+                    end={3}
+                    suffix="x"
+                    duration={2200}
+                    className="text-3xl xs:text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-black text-transparent bg-gradient-to-r from-brand-secondary to-brand-accent bg-clip-text"
+                  />
+                  <div className="text-gray-700 text-sm xs:text-base sm:text-lg lg:text-xl font-semibold leading-tight">
+                    Higher completion<br className="sm:hidden" /> rate
+                  </div>
+                  <div className="text-gray-500 text-xs sm:text-sm">
+                    vs paper cards
+                  </div>
+                </div>
+                <div className="space-y-2 sm:space-y-3">
+                  <AnimatedCounter 
+                    end={5}
+                    suffix="min"
+                    duration={1800}
+                    className="text-3xl xs:text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-black text-transparent bg-gradient-to-r from-brand-accent to-brand-success bg-clip-text"
+                  />
+                  <div className="text-gray-700 text-sm xs:text-base sm:text-lg lg:text-xl font-semibold leading-tight">
+                    Quick<br className="sm:hidden" /> setup
+                  </div>
+                  <div className="text-gray-500 text-xs sm:text-sm">
+                    Start today
+                  </div>
                 </div>
               </div>
             </div>
