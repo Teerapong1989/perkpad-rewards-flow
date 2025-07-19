@@ -24,48 +24,77 @@ const TheSolutionSection = () => {
           </p>
         </div>
 
-        {/* Real App Screenshots - Mobile optimized */}
+        {/* AI-Powered Solution Showcase */}
         <div className="mb-16 sm:mb-20 px-4">
-          {/* AI Recommendations */}
-          <div className="relative bg-gray-50 rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-8 overflow-hidden mb-8">
-            <div className="text-center mb-6">
-              <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">AI-Powered Recommendations</h3>
-              <p className="text-gray-600">Get smart insights to grow your business</p>
+          {/* AI Recommendations - Hero Feature */}
+          <div className="relative max-w-4xl mx-auto mb-12">
+            <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/10 via-brand-secondary/5 to-brand-accent/10 rounded-3xl blur-2xl"></div>
+            <div className="relative bg-white rounded-3xl p-8 shadow-2xl border border-gray-100/50">
+              <div className="text-center mb-8">
+                <div className="inline-flex items-center gap-2 bg-brand-primary/10 rounded-full px-4 py-2 mb-4">
+                  <div className="w-2 h-2 bg-brand-primary rounded-full animate-pulse"></div>
+                  <span className="text-sm font-medium text-brand-primary">AI-Powered</span>
+                </div>
+                <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3">Smart Business Insights</h3>
+                <p className="text-gray-600 text-lg">Our AI analyzes customer patterns and suggests the perfect strategies to increase retention</p>
+              </div>
+              <div className="bg-gradient-to-br from-gray-50 to-gray-100/50 rounded-2xl p-4">
+                <img 
+                  src="/lovable-uploads/1531c4b9-c34a-4e3c-9d95-c2dba8ae1127.png" 
+                  alt="AI Recommendations showing customer retention insights"
+                  className="w-full h-auto rounded-xl shadow-lg ring-1 ring-gray-200"
+                  loading="lazy"
+                />
+              </div>
             </div>
-            <img 
-              src="/lovable-uploads/1531c4b9-c34a-4e3c-9d95-c2dba8ae1127.png" 
-              alt="AI Recommendations showing customer retention insights"
-              className="w-full max-w-md mx-auto h-auto rounded-xl sm:rounded-2xl shadow-xl"
-              loading="lazy"
-            />
           </div>
 
-          {/* Rewards Configuration */}
-          <div className="grid md:grid-cols-2 gap-8">
-            <div className="relative bg-gray-50 rounded-2xl sm:rounded-3xl p-4 sm:p-6 overflow-hidden">
-              <div className="text-center mb-4">
-                <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-2">Easy Reward Setup</h3>
-                <p className="text-gray-600">Configure rewards in minutes</p>
+          {/* Rewards Configuration Grid */}
+          <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+            <div className="relative group">
+              <div className="absolute inset-0 bg-gradient-to-br from-brand-secondary/5 to-transparent rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-300"></div>
+              <div className="relative bg-white rounded-3xl p-6 shadow-xl border border-gray-100/50 hover:shadow-2xl transition-all duration-300">
+                <div className="flex items-start gap-3 mb-6">
+                  <div className="w-12 h-12 bg-brand-secondary/10 rounded-2xl flex items-center justify-center flex-shrink-0">
+                    <div className="w-6 h-6 bg-brand-secondary rounded-md"></div>
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-bold text-gray-900 mb-2">Easy Reward Setup</h3>
+                    <p className="text-gray-600">Configure any type of reward in minutes - percentage discounts, free items, or custom offers</p>
+                  </div>
+                </div>
+                <div className="bg-gray-50 rounded-2xl p-3">
+                  <img 
+                    src="/lovable-uploads/aa566038-4acd-4970-99fb-c4abe94a6d71.png" 
+                    alt="Rewards configuration interface"
+                    className="w-full h-auto rounded-xl shadow-sm ring-1 ring-gray-200"
+                    loading="lazy"
+                  />
+                </div>
               </div>
-              <img 
-                src="/lovable-uploads/aa566038-4acd-4970-99fb-c4abe94a6d71.png" 
-                alt="Rewards configuration interface"
-                className="w-full h-auto rounded-xl shadow-xl"
-                loading="lazy"
-              />
             </div>
 
-            <div className="relative bg-gray-50 rounded-2xl sm:rounded-3xl p-4 sm:p-6 overflow-hidden">
-              <div className="text-center mb-4">
-                <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-2">Gamification Options</h3>
-                <p className="text-gray-600">Choose how customers reveal rewards</p>
+            <div className="relative group">
+              <div className="absolute inset-0 bg-gradient-to-br from-brand-accent/5 to-transparent rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-300"></div>
+              <div className="relative bg-white rounded-3xl p-6 shadow-xl border border-gray-100/50 hover:shadow-2xl transition-all duration-300">
+                <div className="flex items-start gap-3 mb-6">
+                  <div className="w-12 h-12 bg-brand-accent/10 rounded-2xl flex items-center justify-center flex-shrink-0">
+                    <div className="w-6 h-6 bg-gradient-to-br from-brand-accent to-brand-primary rounded-md"></div>
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-bold text-gray-900 mb-2">Gamification Options</h3>
+                    <p className="text-gray-600">Make rewards exciting with scratch cards, spin wheels, or surprise gift boxes</p>
+                  </div>
+                </div>
+                <div className="bg-gray-50 rounded-2xl p-3">
+                  <img 
+                    src="/lovable-uploads/4c8bcfa9-a6f0-4568-a952-c7e64c4f111b.png" 
+                    alt="Reward game settings with scratch cards, spin wheel, and gift boxes"
+                    className="w-full h-auto rounded-xl shadow-sm ring-1 ring-gray-200"
+                    loading="lazy"
+                  />
+                </div>
               </div>
-              <img 
-                src="/lovable-uploads/4c8bcfa9-a6f0-4568-a952-c7e64c4f111b.png" 
-                alt="Reward game settings with scratch cards, spin wheel, and gift boxes"
-                className="w-full h-auto rounded-xl shadow-xl"
-                loading="lazy"
-              />
             </div>
           </div>
         </div>

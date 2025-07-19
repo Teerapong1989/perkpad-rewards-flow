@@ -44,19 +44,40 @@ const HeroSection = () => {
         </div>
         
         
-        {/* Real App Screenshot */}
+        {/* Professional Dashboard Showcase */}
         <div className="mt-12 sm:mt-16 md:mt-20 px-4">
-          <div className="relative mx-auto max-w-md">
-            <img 
-              src="/lovable-uploads/0bb167d1-f530-4147-b85a-413e15ea25f5.png" 
-              alt="Perkpad Business Dashboard - Real customer data and analytics"
-              className="w-full h-auto rounded-2xl shadow-2xl border border-gray-200"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent rounded-2xl pointer-events-none"></div>
+          <div className="relative max-w-6xl mx-auto">
+            {/* Floating UI Elements */}
+            <div className="absolute -top-4 -left-4 w-20 h-20 bg-gradient-to-br from-brand-primary/20 to-brand-primary/10 rounded-2xl blur-xl"></div>
+            <div className="absolute -bottom-4 -right-4 w-32 h-32 bg-gradient-to-br from-brand-secondary/20 to-brand-secondary/10 rounded-2xl blur-xl"></div>
+            
+            {/* Main Dashboard Container */}
+            <div className="relative bg-white rounded-3xl p-2 shadow-2xl border border-gray-100/50">
+              <div className="bg-gradient-to-br from-gray-50 to-white rounded-2xl p-4 sm:p-6">
+                <img 
+                  src="/lovable-uploads/0bb167d1-f530-4147-b85a-413e15ea25f5.png" 
+                  alt="Perkpad Dashboard showing customer analytics and loyalty program management"
+                  className="w-full h-auto rounded-xl shadow-lg ring-1 ring-gray-100"
+                  loading="lazy"
+                />
+              </div>
+            </div>
+            
+            {/* Floating Feature Badges */}
+            <div className="absolute -top-6 left-1/4 transform -translate-x-1/2 hidden lg:block">
+              <div className="bg-white rounded-full px-4 py-2 shadow-lg border border-gray-100">
+                <span className="text-sm font-medium text-gray-700">Real-time Analytics</span>
+              </div>
+            </div>
+            <div className="absolute -bottom-6 right-1/4 transform translate-x-1/2 hidden lg:block">
+              <div className="bg-white rounded-full px-4 py-2 shadow-lg border border-gray-100">
+                <span className="text-sm font-medium text-gray-700">AI Insights</span>
+              </div>
+            </div>
           </div>
           
           {/* Stats below image */}
-          <div className="mt-8 sm:mt-12">
+          <div className="mt-12 sm:mt-16">
             <div className="bg-white rounded-xl sm:rounded-2xl shadow-xl p-4 sm:p-6 md:p-8 mx-auto max-w-3xl border border-gray-100">
               <div className="grid grid-cols-3 gap-4 sm:gap-6 md:gap-8 text-center">
                 <div>

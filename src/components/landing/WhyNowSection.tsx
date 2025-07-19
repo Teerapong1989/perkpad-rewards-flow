@@ -2,7 +2,7 @@
 // ABOUTME: Clean comparison between old and new way
 
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Clock, Target, Zap } from "lucide-react";
+import { ArrowRight, Clock, Target, Zap, BarChart3 } from "lucide-react";
 import { trackUserBehavior } from "@/utils/analytics";
 
 const WhyNowSection = () => {
@@ -23,19 +23,36 @@ const WhyNowSection = () => {
           The old way is broken. Smart businesses are already moving.
         </p>
 
-        {/* Traffic Heatmap Visual */}
+        {/* Analytics Showcase */}
         <div className="mb-12 sm:mb-16 px-4">
-          <div className="relative bg-white rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-8 shadow-xl border border-gray-100 max-w-md mx-auto">
-            <div className="text-center mb-4">
-              <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-2">See Real Customer Patterns</h3>
-              <p className="text-gray-600">Know when your customers visit most</p>
+          <div className="relative max-w-lg mx-auto">
+            <div className="absolute -inset-4 bg-gradient-to-br from-brand-primary/20 via-brand-secondary/10 to-brand-accent/20 rounded-3xl blur-2xl"></div>
+            <div className="relative bg-white rounded-3xl p-6 shadow-2xl border border-gray-100/50">
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-10 h-10 bg-gradient-to-br from-brand-primary to-brand-secondary rounded-xl flex items-center justify-center">
+                  <BarChart3 className="w-5 h-5 text-white" />
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold text-gray-900">Customer Traffic Intelligence</h3>
+                  <p className="text-gray-600 text-sm">Discover peak hours and customer patterns</p>
+                </div>
+              </div>
+              <div className="bg-gradient-to-br from-gray-50 to-gray-100/50 rounded-2xl p-3">
+                <img 
+                  src="/lovable-uploads/41e2b061-cbf1-46e7-9e97-1d3e4f0467be.png" 
+                  alt="Traffic patterns and heatmap showing customer visit analytics"
+                  className="w-full h-auto rounded-xl shadow-sm ring-1 ring-gray-200"
+                  loading="lazy"
+                />
+              </div>
+              <div className="mt-4 flex items-center justify-between text-sm">
+                <span className="text-gray-500">Live Analytics</span>
+                <div className="flex items-center gap-1">
+                  <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+                  <span className="text-green-600 font-medium">Real-time</span>
+                </div>
+              </div>
             </div>
-            <img 
-              src="/lovable-uploads/41e2b061-cbf1-46e7-9e97-1d3e4f0467be.png" 
-              alt="Traffic patterns and heatmap showing customer visit analytics"
-              className="w-full h-auto rounded-xl shadow-lg"
-              loading="lazy"
-            />
           </div>
         </div>
 

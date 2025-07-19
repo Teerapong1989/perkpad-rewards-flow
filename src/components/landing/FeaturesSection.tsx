@@ -1,4 +1,4 @@
-import { QrCode, Gift, BarChart3, Smartphone, Shield, Brain } from "lucide-react";
+import { QrCode, Gift, BarChart3, Smartphone, Shield, Brain, Users } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useInView } from "@/hooks/useInView";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
@@ -72,50 +72,79 @@ const FeaturesSection = () => {
           </AnimatedSection>
         </div>
 
-        {/* Main Features - Alternating Layout */}
-        <div className="space-y-24">
-          {features.map((feature, index) => {
-            const Icon = feature.icon;
-            const isEven = index % 2 === 0;
-            
-            return (
-              <div 
-                key={feature.title}
-                className={`grid lg:grid-cols-2 gap-12 lg:gap-16 items-center animate-fade-in-up`}
-                style={{ animationDelay: `${index * 200}ms` }}
-              >
-                {/* Content */}
-                <div className={`${isEven ? 'lg:order-1' : 'lg:order-2'}`}>
-                  <div className="flex items-center gap-4 mb-8">
-                    <div className="w-16 h-16 bg-gradient-primary rounded-2xl flex items-center justify-center shadow-brand">
-                      <Icon className="w-8 h-8 text-white" />
-                    </div>
-                    <div className="bg-gradient-to-r from-brand-primary-light to-brand-accent-light text-brand-primary px-6 py-3 rounded-full font-bold">
-                      {feature.benefit}
-                    </div>
-                  </div>
-                  <h3 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6 leading-tight">
-                    {feature.title}
-                  </h3>
-                  <p className="text-xl text-gray-600 leading-relaxed">
-                    {feature.description}
-                  </p>
+        {/* Professional Feature Showcase */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 sm:gap-10 md:gap-12 mb-16 sm:mb-20">
+          {/* QR Code Generator */}
+          <div className="relative group">
+            <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/5 to-brand-primary/0 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-300"></div>
+            <div className="relative bg-white rounded-3xl p-6 shadow-xl border border-gray-100/50 hover:shadow-2xl transition-all duration-300">
+              <div className="flex items-center mb-4">
+                <div className="w-10 h-10 bg-brand-primary/10 rounded-xl flex items-center justify-center mr-3">
+                  <QrCode className="w-5 h-5 text-brand-primary" />
                 </div>
-
-                {/* Image */}
-                <div className={`${isEven ? 'lg:order-2' : 'lg:order-1'}`}>
-                  <div className="relative hover-lift">
-                    <img 
-                      src={feature.image}
-                      alt={feature.title}
-                      className="w-full h-72 lg:h-96 object-cover rounded-3xl shadow-elegant"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-3xl"></div>
-                  </div>
+                <div>
+                  <h3 className="text-lg font-bold text-gray-900">QR Code Generator</h3>
+                  <p className="text-sm text-gray-600">Create custom QR codes instantly</p>
                 </div>
               </div>
-            );
-          })}
+              <div className="bg-gray-50 rounded-2xl p-3">
+                <img 
+                  src="/lovable-uploads/7d33aade-01f8-438c-902d-769b4035603c.png" 
+                  alt="QR Code Generator interface"
+                  className="w-full h-auto rounded-xl shadow-sm ring-1 ring-gray-200"
+                  loading="lazy"
+                />
+              </div>
+            </div>
+          </div>
+
+          {/* Business Analytics */}
+          <div className="relative group">
+            <div className="absolute inset-0 bg-gradient-to-br from-brand-secondary/5 to-brand-secondary/0 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-300"></div>
+            <div className="relative bg-white rounded-3xl p-6 shadow-xl border border-gray-100/50 hover:shadow-2xl transition-all duration-300">
+              <div className="flex items-center mb-4">
+                <div className="w-10 h-10 bg-brand-secondary/10 rounded-xl flex items-center justify-center mr-3">
+                  <BarChart3 className="w-5 h-5 text-brand-secondary" />
+                </div>
+                <div>
+                  <h3 className="text-lg font-bold text-gray-900">Business Analytics</h3>
+                  <p className="text-sm text-gray-600">Track customer behavior and trends</p>
+                </div>
+              </div>
+              <div className="bg-gray-50 rounded-2xl p-3">
+                <img 
+                  src="/lovable-uploads/f1f13d36-14c6-4735-a5f9-17fa8b03776b.png" 
+                  alt="Business Analytics dashboard"
+                  className="w-full h-auto rounded-xl shadow-sm ring-1 ring-gray-200"
+                  loading="lazy"
+                />
+              </div>
+            </div>
+          </div>
+
+          {/* Customer Management */}
+          <div className="relative group">
+            <div className="absolute inset-0 bg-gradient-to-br from-brand-accent/5 to-brand-accent/0 rounded-3xl blur-xl group-hover:blur-2xl transition-all duration-300"></div>
+            <div className="relative bg-white rounded-3xl p-6 shadow-xl border border-gray-100/50 hover:shadow-2xl transition-all duration-300">
+              <div className="flex items-center mb-4">
+                <div className="w-10 h-10 bg-brand-accent/10 rounded-xl flex items-center justify-center mr-3">
+                  <Users className="w-5 h-5 text-brand-accent" />
+                </div>
+                <div>
+                  <h3 className="text-lg font-bold text-gray-900">Customer Management</h3>
+                  <p className="text-sm text-gray-600">Manage all customer interactions</p>
+                </div>
+              </div>
+              <div className="bg-gray-50 rounded-2xl p-3">
+                <img 
+                  src="/lovable-uploads/0f4a4c87-f800-4449-a851-e42a11d6e15e.png" 
+                  alt="Customer Management interface"
+                  className="w-full h-auto rounded-xl shadow-sm ring-1 ring-gray-200"
+                  loading="lazy"
+                />
+              </div>
+            </div>
+          </div>
         </div>
 
         {/* Advanced Features Grid */}
