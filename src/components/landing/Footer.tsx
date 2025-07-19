@@ -21,9 +21,9 @@ const Footer = () => {
           <div>
             <h4 className="font-semibold text-white mb-4">Product</h4>
             <ul className="space-y-2">
-              <li><a href="#features" className="hover:text-brand-accent transition-colors">Features</a></li>
-              <li><a href="#pricing" className="hover:text-brand-accent transition-colors">Pricing</a></li>
-              <li><a href="/how-it-works" className="hover:text-brand-accent transition-colors">How It Works</a></li>
+              <li><Link to="/features" className="hover:text-brand-accent transition-colors">Features</Link></li>
+              <li><Link to="/pricing" className="hover:text-brand-accent transition-colors">Pricing</Link></li>
+              <li><Link to="/how-it-works" className="hover:text-brand-accent transition-colors">How It Works</Link></li>
             </ul>
           </div>
           <div>
