@@ -3,6 +3,7 @@ import { ArrowRight } from "lucide-react";
 import { memo, useCallback } from "react";
 import { trackUserBehavior, trackConversion } from "@/utils/analytics";
 import TypingAnimation from "@/components/ui/TypingAnimation";
+import AnimatedCounter from "@/components/ui/AnimatedCounter";
 
 const HeroSection = () => {
   const handleStartClick = useCallback(() => {
@@ -89,15 +90,30 @@ const HeroSection = () => {
             <div className="bg-white rounded-xl sm:rounded-2xl shadow-xl p-4 sm:p-6 md:p-8 mx-auto max-w-3xl border border-gray-100">
               <div className="grid grid-cols-3 gap-4 sm:gap-6 md:gap-8 text-center">
                 <div>
-                  <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-brand-primary mb-1 sm:mb-2">40%</div>
+                  <AnimatedCounter 
+                    end={40}
+                    suffix="%"
+                    duration={2000}
+                    className="text-2xl sm:text-3xl md:text-4xl font-bold text-brand-primary mb-1 sm:mb-2"
+                  />
                   <div className="text-gray-700 text-sm sm:text-base font-medium">More repeat visits</div>
                 </div>
                 <div>
-                  <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-brand-primary mb-1 sm:mb-2">3x</div>
+                  <AnimatedCounter 
+                    end={3}
+                    suffix="x"
+                    duration={2200}
+                    className="text-2xl sm:text-3xl md:text-4xl font-bold text-brand-primary mb-1 sm:mb-2"
+                  />
                   <div className="text-gray-700 text-sm sm:text-base font-medium">Completion rate</div>
                 </div>
                 <div>
-                  <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-brand-primary mb-1 sm:mb-2">5min</div>
+                  <AnimatedCounter 
+                    end={5}
+                    suffix="min"
+                    duration={1800}
+                    className="text-2xl sm:text-3xl md:text-4xl font-bold text-brand-primary mb-1 sm:mb-2"
+                  />
                   <div className="text-gray-700 text-sm sm:text-base font-medium">Setup time</div>
                 </div>
               </div>
