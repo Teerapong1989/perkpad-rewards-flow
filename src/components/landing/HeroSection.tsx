@@ -39,10 +39,10 @@ const HeroSection = () => {
               />
             </h1>
             
-            {/* Prestige badge */}
-            <div className="inline-flex items-center px-4 py-2 rounded-full bg-gradient-to-r from-brand-success/10 to-brand-primary/10 border border-brand-success/20">
-              <span className="text-sm font-semibold text-brand-success mr-2">✓</span>
-              <span className="text-sm font-medium text-gray-700">Trusted by 2,000+ local businesses</span>
+            {/* Launch badge for new business */}
+            <div className="inline-flex items-center px-4 py-2 rounded-full bg-gradient-to-r from-brand-accent/10 to-brand-primary/10 border border-brand-accent/20">
+              <span className="text-sm font-semibold text-brand-accent mr-2">🚀</span>
+              <span className="text-sm font-medium text-gray-700">Now launching for early adopters</span>
             </div>
           </div>
           
@@ -143,7 +143,7 @@ const HeroSection = () => {
                   Real Results from Real Businesses
                 </h3>
                 <p className="text-gray-600 text-base sm:text-lg">
-                  Join thousands of businesses already growing with Perkpad
+                  Based on industry research and early testing data
                 </p>
               </div>
               
