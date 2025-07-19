@@ -34,37 +34,62 @@ const WhyNowSection = () => {
           </p>
         </div>
 
-        {/* Analytics Showcase */}
+        {/* Human Connection Showcase */}
         <div 
           ref={analyticsReveal.elementRef}
           className={`mb-12 sm:mb-16 px-4 transition-all duration-700 ${analyticsReveal.className}`}
         >
-          <div className="relative max-w-lg mx-auto">
-            <div className="absolute -inset-4 bg-gradient-to-br from-brand-primary/20 via-brand-secondary/10 to-brand-accent/20 rounded-3xl blur-2xl"></div>
-            <div className="relative bg-white rounded-3xl p-6 shadow-2xl border border-gray-100/50">
-              <div className="flex items-center gap-3 mb-6">
-                <div className="w-10 h-10 bg-gradient-to-br from-brand-primary to-brand-secondary rounded-xl flex items-center justify-center">
-                  <BarChart3 className="w-5 h-5 text-white" />
-                </div>
-                <div>
-                  <h3 className="text-xl font-bold text-gray-900">Customer Traffic Intelligence</h3>
-                  <p className="text-gray-600 text-sm">Discover peak hours and customer patterns</p>
-                </div>
-              </div>
-              <div className="bg-gradient-to-br from-gray-50 to-gray-100/50 rounded-2xl p-3">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center max-w-6xl mx-auto">
+            {/* Image */}
+            <div className="relative">
+              <div className="absolute -inset-4 bg-gradient-to-br from-brand-primary/20 via-brand-secondary/10 to-brand-accent/20 rounded-3xl blur-2xl"></div>
+              <div className="relative">
                 <img 
-                  src="/lovable-uploads/4181cc53-7b1f-46b7-85e6-5696153a6958.png" 
-                  alt="Traffic patterns and heatmap showing customer visit analytics"
-                  className="w-full h-auto rounded-xl shadow-sm ring-1 ring-gray-200"
+                  src="/lovable-uploads/57f5f2a7-ba64-416f-967e-c3b12112d4b7.png" 
+                  alt="Small business owner connecting with a customer - the personal relationships that loyalty programs help maintain"
+                  className="w-full h-auto rounded-3xl shadow-2xl"
                   loading="lazy"
-                  style={{ minHeight: '150px' }}
                 />
               </div>
-              <div className="mt-4 flex items-center justify-between text-sm">
-                <span className="text-gray-500">Live Analytics</span>
-                <div className="flex items-center gap-1">
-                  <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-                  <span className="text-green-600 font-medium">Real-time</span>
+            </div>
+            
+            {/* Content */}
+            <div className="text-left lg:pl-8">
+              <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+                Your customers love coming back
+              </h3>
+              <p className="text-lg sm:text-xl text-gray-700 mb-8 leading-relaxed">
+                Small businesses thrive on personal relationships. But when customers can't complete their loyalty journey, you lose that connection forever.
+              </p>
+              
+              {/* Analytics Showcase */}
+              <div className="relative max-w-lg">
+                <div className="bg-white rounded-2xl p-4 shadow-xl border border-gray-100/50">
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="w-8 h-8 bg-gradient-to-br from-brand-primary to-brand-secondary rounded-lg flex items-center justify-center">
+                      <BarChart3 className="w-4 h-4 text-white" />
+                    </div>
+                    <div>
+                      <h4 className="text-lg font-bold text-gray-900">Customer Traffic Intelligence</h4>
+                      <p className="text-gray-600 text-sm">Discover peak hours and customer patterns</p>
+                    </div>
+                  </div>
+                  <div className="bg-gradient-to-br from-gray-50 to-gray-100/50 rounded-xl p-2">
+                    <img 
+                      src="/lovable-uploads/4181cc53-7b1f-46b7-85e6-5696153a6958.png" 
+                      alt="Traffic patterns and heatmap showing customer visit analytics"
+                      className="w-full h-auto rounded-lg shadow-sm ring-1 ring-gray-200"
+                      loading="lazy"
+                      style={{ minHeight: '120px' }}
+                    />
+                  </div>
+                  <div className="mt-3 flex items-center justify-between text-sm">
+                    <span className="text-gray-500">Live Analytics</span>
+                    <div className="flex items-center gap-1">
+                      <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+                      <span className="text-green-600 font-medium">Real-time</span>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
