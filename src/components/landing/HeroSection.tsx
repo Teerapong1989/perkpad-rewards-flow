@@ -2,7 +2,6 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { memo, useCallback } from "react";
 import { trackUserBehavior, trackConversion } from "@/utils/analytics";
-import TypingAnimation from "@/components/ui/TypingAnimation";
 import AnimatedCounter from "@/components/ui/AnimatedCounter";
 
 const HeroSection = () => {
@@ -13,110 +12,76 @@ const HeroSection = () => {
   }, []);
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center px-4 sm:px-6 bg-mesh">
-      {/* Enhanced gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-br from-white/80 via-white/60 to-white/80"></div>
-      
-      <div className="relative z-10 text-center max-w-4xl mx-auto">
-        {/* Clean, powerful headline - Mobile optimized */}
-        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 mb-6 sm:mb-8 tracking-tight leading-[1.05] px-2">
-          <div>Your customers</div>
-          <TypingAnimation 
-            text={["keep coming back", "keep loving you", "keep spending more"]}
-            speed={120}
-            delay={1000}
-            pauseBetween={2500}
-            className="text-gradient font-extrabold highlight-brand"
-            showCursor={true}
-            cursorClassName="text-brand-primary"
-          />
+    <section className="relative min-h-screen flex items-center justify-center px-4 sm:px-6 bg-white">
+      <div className="relative z-10 text-center max-w-5xl mx-auto">
+        {/* Clean, powerful headline */}
+        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 mb-6 sm:mb-8 tracking-tight leading-tight">
+          Your customers
+          <span className="block text-gradient font-extrabold">keep coming back</span>
         </h1>
         
-        {/* Single benefit statement - Mobile optimized */}
-        <p className="text-xl sm:text-2xl md:text-3xl text-gray-700 mb-8 sm:mb-12 leading-relaxed max-w-2xl mx-auto px-4 font-medium">
+        {/* Clear value proposition */}
+        <p className="text-xl sm:text-2xl text-gray-600 mb-8 sm:mb-12 leading-relaxed max-w-3xl mx-auto">
           Transform punch cards into a digital loyalty program that actually gets completed.
         </p>
         
-        {/* Single CTA - Mobile optimized */}
-        <div className="space-y-4 sm:space-y-6 px-4">
+        {/* Primary CTA */}
+        <div className="space-y-4 sm:space-y-6 mb-16 sm:mb-20">
           <Button 
             size="xl" 
-            className="btn-premium text-lg sm:text-xl px-8 sm:px-12 py-5 sm:py-6 rounded-xl w-full sm:w-auto min-h-[52px] sm:min-h-[60px] font-semibold micro-bounce focus-visible-brand"
+            className="btn-premium text-lg sm:text-xl px-8 sm:px-12 py-5 sm:py-6 rounded-xl w-full sm:w-auto min-h-[52px] sm:min-h-[60px] font-semibold"
             onClick={handleStartClick}
           >
             Get 40% More Repeat Customers
-            <ArrowRight className="ml-2 sm:ml-3 w-5 h-5 sm:w-6 sm:h-6 transition-transform duration-200 group-hover:translate-x-1" />
+            <ArrowRight className="ml-2 sm:ml-3 w-5 h-5 sm:w-6 sm:h-6" />
           </Button>
           
-          <p className="text-gray-600 text-sm sm:text-base px-2 leading-relaxed">
+          <p className="text-gray-500 text-sm sm:text-base">
             5-minute setup • Free 30 days • No credit card required
           </p>
         </div>
         
-        
-        {/* Professional Dashboard Showcase */}
-        <div className="mt-12 sm:mt-16 md:mt-20 px-4">
-          <div className="relative max-w-6xl mx-auto">
-            {/* Floating UI Elements */}
-            <div className="absolute -top-4 -left-4 w-20 h-20 bg-gradient-to-br from-brand-primary/20 to-brand-primary/10 rounded-2xl blur-xl"></div>
-            <div className="absolute -bottom-4 -right-4 w-32 h-32 bg-gradient-to-br from-brand-secondary/20 to-brand-secondary/10 rounded-2xl blur-xl"></div>
-            
-            {/* Main Dashboard Container */}
-            <div className="relative bg-white rounded-3xl p-2 shadow-2xl border border-gray-100/50">
-              <div className="bg-gradient-to-br from-gray-50 to-white rounded-2xl p-4 sm:p-6">
-                <img 
-                  src="/lovable-uploads/602ca246-112d-477a-9195-34755714f7df.png" 
-                  alt="Perkpad Dashboard showing customer analytics and loyalty program management"
-                  className="w-full h-auto rounded-xl shadow-lg ring-1 ring-gray-100 max-w-full"
-                  loading="lazy"
-                  style={{ minHeight: '400px', maxHeight: 'none' }}
-                />
-              </div>
-            </div>
-            
-            {/* Floating Feature Badges */}
-            <div className="absolute -top-6 left-1/4 transform -translate-x-1/2 hidden lg:block">
-              <div className="bg-white rounded-full px-4 py-2 shadow-lg border border-gray-100">
-                <span className="text-sm font-medium text-gray-700">Real-time Analytics</span>
-              </div>
-            </div>
-            <div className="absolute -bottom-6 right-1/4 transform translate-x-1/2 hidden lg:block">
-              <div className="bg-white rounded-full px-4 py-2 shadow-lg border border-gray-100">
-                <span className="text-sm font-medium text-gray-700">AI Insights</span>
-              </div>
-            </div>
+        {/* Clean Dashboard Showcase */}
+        <div className="relative max-w-4xl mx-auto">
+          <div className="bg-white rounded-2xl shadow-2xl border border-gray-200 overflow-hidden">
+            <img 
+              src="/lovable-uploads/602ca246-112d-477a-9195-34755714f7df.png" 
+              alt="Perkpad Dashboard showing customer analytics and loyalty program management"
+              className="w-full h-auto"
+              loading="lazy"
+            />
           </div>
           
-          {/* Stats below image */}
+          {/* Results showcase */}
           <div className="mt-12 sm:mt-16">
-            <div className="bg-white rounded-xl sm:rounded-2xl shadow-xl p-4 sm:p-6 md:p-8 mx-auto max-w-3xl border border-gray-100">
-              <div className="grid grid-cols-3 gap-4 sm:gap-6 md:gap-8 text-center">
+            <div className="bg-gray-50 rounded-2xl p-6 sm:p-8 mx-auto max-w-2xl">
+              <div className="grid grid-cols-3 gap-6 sm:gap-8 text-center">
                 <div>
                   <AnimatedCounter 
                     end={40}
                     suffix="%"
                     duration={2000}
-                    className="text-2xl sm:text-3xl md:text-4xl font-bold text-brand-primary mb-1 sm:mb-2"
+                    className="text-2xl sm:text-3xl md:text-4xl font-bold text-brand-primary mb-2"
                   />
-                  <div className="text-gray-700 text-sm sm:text-base font-medium">More repeat visits</div>
+                  <div className="text-gray-600 text-sm sm:text-base font-medium">More repeat visits</div>
                 </div>
                 <div>
                   <AnimatedCounter 
                     end={3}
                     suffix="x"
                     duration={2200}
-                    className="text-2xl sm:text-3xl md:text-4xl font-bold text-brand-primary mb-1 sm:mb-2"
+                    className="text-2xl sm:text-3xl md:text-4xl font-bold text-brand-primary mb-2"
                   />
-                  <div className="text-gray-700 text-sm sm:text-base font-medium">Completion rate</div>
+                  <div className="text-gray-600 text-sm sm:text-base font-medium">Completion rate</div>
                 </div>
                 <div>
                   <AnimatedCounter 
                     end={5}
                     suffix="min"
                     duration={1800}
-                    className="text-2xl sm:text-3xl md:text-4xl font-bold text-brand-primary mb-1 sm:mb-2"
+                    className="text-2xl sm:text-3xl md:text-4xl font-bold text-brand-primary mb-2"
                   />
-                  <div className="text-gray-700 text-sm sm:text-base font-medium">Setup time</div>
+                  <div className="text-gray-600 text-sm sm:text-base font-medium">Setup time</div>
                 </div>
               </div>
             </div>
