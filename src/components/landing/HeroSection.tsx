@@ -22,9 +22,10 @@ const HeroSection = () => {
         <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 mb-6 sm:mb-8 tracking-tight leading-[1.05] px-2">
           Your customers{" "}
           <TypingAnimation 
-            text="keep coming back"
+            text={["keep coming back", "keep loving you", "keep spending more"]}
             speed={120}
             delay={1000}
+            pauseBetween={2500}
             className="text-gradient font-extrabold highlight-brand"
             showCursor={true}
             cursorClassName="text-brand-primary"
