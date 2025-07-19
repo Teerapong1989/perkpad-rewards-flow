@@ -29,8 +29,8 @@ const TextRotation = ({ texts, className = '', interval = 3000 }: TextRotationPr
   return (
     <span 
       className={`
-        block text-gradient font-extrabold transition-all duration-600 ease-in-out
-        ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}
+        block text-gradient font-extrabold transition-opacity duration-600 ease-in-out
+        ${isVisible ? 'opacity-100' : 'opacity-0'}
         ${className}
       `}
     >
