@@ -55,21 +55,18 @@ const HeroSection = () => {
           </p>
         </div>
         
-        {/* Product Showcase - Mobile + Dashboard Combined */}
-        <div className="relative max-w-5xl mx-auto px-2 sm:px-4">
-          <div className="card-premium rounded-xl sm:rounded-2xl lg:rounded-3xl overflow-hidden transform hover:scale-[1.02] transition-all duration-500">
-            <div className="relative">
-              <OptimizedImage 
-                src="/lovable-uploads/22ac7a5a-7b70-49dc-bdaa-b98cbf29d8bb.png" 
-                alt="Perkpad mobile app and dashboard showing customer analytics and loyalty program management"
-                className="w-full h-auto object-cover"
-                priority={true}
-                width={1200}
-                height={800}
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 1200px"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/5 to-transparent pointer-events-none"></div>
-            </div>
+        {/* Mobile App Showcase */}
+        <div className="relative max-w-sm mx-auto px-2 sm:px-4">
+          <div className="transform hover:scale-[1.02] transition-all duration-500">
+            <OptimizedImage 
+              src="/lovable-uploads/9034c20a-c429-4a36-9315-c8c1620ea7b1.png" 
+              alt="Perkpad mobile app showing business dashboard with customer metrics and analytics"
+              className="w-full h-auto max-w-[320px] mx-auto"
+              priority={true}
+              width={320}
+              height={640}
+              sizes="(max-width: 640px) 100vw, 320px"
+            />
           </div>
           
           {/* Results showcase - enhanced responsive design */}
