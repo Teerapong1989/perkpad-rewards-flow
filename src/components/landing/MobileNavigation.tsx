@@ -43,12 +43,12 @@ const MobileNavigation = () => {
     <>
       {/* Navigation Bar */}
       <nav className="flex items-center justify-between p-4 sm:p-6 max-w-7xl mx-auto">
-        <div className="flex items-center space-x-2">
+        <Link to="/" className="flex items-center space-x-2 hover:opacity-80 transition-opacity">
           <div className="w-8 h-8 bg-gradient-brand rounded-lg flex items-center justify-center">
             <Gift className="w-5 h-5 text-white" />
           </div>
           <span className="font-display text-lg sm:text-xl font-bold text-gray-900 tracking-tight">Perkpad</span>
-        </div>
+        </Link>
         
         {/* Desktop Navigation */}
         <div className="hidden lg:flex items-center space-x-8">
@@ -116,12 +116,12 @@ const MobileNavigation = () => {
       {isMenuOpen && (
         <div className="lg:hidden fixed inset-0 z-50 bg-white">
           <div className="flex items-center justify-between p-4 border-b border-gray-200">
-            <div className="flex items-center space-x-2">
+            <Link to="/" className="flex items-center space-x-2 hover:opacity-80 transition-opacity" onClick={() => setIsMenuOpen(false)}>
               <div className="w-8 h-8 bg-gradient-brand rounded-lg flex items-center justify-center">
                 <Gift className="w-5 h-5 text-white" />
               </div>
               <span className="font-display text-xl font-bold text-gray-900 tracking-tight">Perkpad</span>
-            </div>
+            </Link>
             <button
               onClick={() => setIsMenuOpen(false)}
               className="min-h-[44px] min-w-[44px] flex items-center justify-center rounded-lg hover:bg-gray-100 transition-colors"
