@@ -91,9 +91,9 @@ const FeaturesSection = () => {
                 <img 
                   src="/lovable-uploads/4181cc53-7b1f-46b7-85e6-5696153a6958.png"
                   alt="QR Code Generator interface"
-                  className="w-full h-auto rounded-xl shadow-sm ring-1 ring-gray-200 object-contain"
+                  className="w-full h-auto rounded-xl shadow-sm ring-1 ring-gray-200"
                   loading="lazy"
-                  style={{ aspectRatio: 'auto', maxHeight: '300px' }}
+                  style={{ minHeight: '200px' }}
                 />
               </div>
             </div>
@@ -116,9 +116,9 @@ const FeaturesSection = () => {
                 <img 
                   src="/lovable-uploads/602ca246-112d-477a-9195-34755714f7df.png"
                   alt="Business Analytics dashboard"
-                  className="w-full h-auto rounded-xl shadow-sm ring-1 ring-gray-200 object-contain"
+                  className="w-full h-auto rounded-xl shadow-sm ring-1 ring-gray-200"
                   loading="lazy"
-                  style={{ aspectRatio: 'auto', maxHeight: '300px' }}
+                  style={{ minHeight: '200px' }}
                 />
               </div>
             </div>
@@ -141,9 +141,9 @@ const FeaturesSection = () => {
                 <img 
                   src="/lovable-uploads/602ca246-112d-477a-9195-34755714f7df.png"
                   alt="Customer Management interface"
-                  className="w-full h-auto rounded-xl shadow-sm ring-1 ring-gray-200 object-contain"
+                  className="w-full h-auto rounded-xl shadow-sm ring-1 ring-gray-200"
                   loading="lazy"
-                  style={{ aspectRatio: 'auto', maxHeight: '300px' }}
+                  style={{ minHeight: '200px' }}
                 />
               </div>
             </div>

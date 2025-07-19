@@ -54,9 +54,9 @@ const TheSolutionSection = () => {
                 <img 
                   src="/lovable-uploads/5fcde6e5-0717-431f-a7f7-fbf5c64a7cf8.png"
                   alt="AI Recommendations showing customer retention insights"
-                  className="w-full h-auto rounded-xl shadow-lg ring-1 ring-gray-200 object-contain"
+                  className="w-full h-auto rounded-xl shadow-lg ring-1 ring-gray-200"
                   loading="lazy"
-                  style={{ aspectRatio: 'auto', maxHeight: '400px' }}
+                  style={{ minHeight: '300px' }}
                 />
               </div>
             </div>
@@ -80,9 +80,9 @@ const TheSolutionSection = () => {
                   <img 
                     src="/lovable-uploads/91f7b6c1-aa28-4c85-94ee-00d7ccb7ea2f.png"
                     alt="Rewards configuration interface"
-                    className="w-full h-auto rounded-xl shadow-sm ring-1 ring-gray-200 object-contain"
+                    className="w-full h-auto rounded-xl shadow-sm ring-1 ring-gray-200"
                     loading="lazy"
-                    style={{ aspectRatio: 'auto', maxHeight: '250px' }}
+                    style={{ minHeight: '180px' }}
                   />
                 </div>
               </div>
@@ -104,9 +104,9 @@ const TheSolutionSection = () => {
                   <img 
                     src="/lovable-uploads/794400e8-86a6-4c4a-a514-a0239e58dd9e.png" 
                     alt="Reward game settings with scratch cards, spin wheel, and gift boxes"
-                    className="w-full h-auto rounded-xl shadow-sm ring-1 ring-gray-200 object-contain"
+                    className="w-full h-auto rounded-xl shadow-sm ring-1 ring-gray-200"
                     loading="lazy"
-                    style={{ aspectRatio: 'auto', maxHeight: '250px' }}
+                    style={{ minHeight: '180px' }}
                   />
                 </div>
               </div>

@@ -55,9 +55,9 @@ const WhyNowSection = () => {
                 <img 
                   src="/lovable-uploads/4181cc53-7b1f-46b7-85e6-5696153a6958.png" 
                   alt="Traffic patterns and heatmap showing customer visit analytics"
-                  className="w-full h-auto rounded-xl shadow-sm ring-1 ring-gray-200 object-contain"
+                  className="w-full h-auto rounded-xl shadow-sm ring-1 ring-gray-200"
                   loading="lazy"
-                  style={{ aspectRatio: 'auto', maxHeight: '200px' }}
+                  style={{ minHeight: '150px' }}
                 />
               </div>
               <div className="mt-4 flex items-center justify-between text-sm">
