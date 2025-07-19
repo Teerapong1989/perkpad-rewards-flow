@@ -3,6 +3,7 @@ import { ArrowRight } from "lucide-react";
 import { memo, useCallback } from "react";
 import { trackUserBehavior, trackConversion } from "@/utils/analytics";
 import AnimatedCounter from "@/components/ui/AnimatedCounter";
+import TextRotation from "@/components/ui/TextRotation";
 
 const HeroSection = () => {
   const handleStartClick = useCallback(() => {
@@ -11,13 +12,24 @@ const HeroSection = () => {
     window.open('https://app.perkpad.io', '_blank', 'noopener,noreferrer');
   }, []);
 
+  const rotatingTexts = [
+    "keep coming back",
+    "stay loyal",
+    "choose you first",
+    "return again"
+  ];
+
   return (
     <section className="relative min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 bg-white">
       <div className="relative z-10 text-center max-w-6xl mx-auto py-12 sm:py-16 lg:py-20">
         {/* Clean, powerful headline - optimized for all screen sizes */}
         <h1 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-gray-900 mb-6 sm:mb-8 lg:mb-10 tracking-tight leading-tight">
           Your customers
-          <span className="block text-gradient font-extrabold mt-2 sm:mt-1">keep coming back</span>
+          <TextRotation 
+            texts={rotatingTexts}
+            className="mt-2 sm:mt-1"
+            interval={3000}
+          />
         </h1>
         
         {/* Clear value proposition - better readability */}
