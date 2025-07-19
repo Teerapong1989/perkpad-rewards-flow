@@ -55,30 +55,35 @@ const MobileNavigation = () => {
           <Link 
             to="/features"
             className="text-gray-600 hover:text-gray-900 font-medium transition-colors"
+            onClick={() => console.log('Features link clicked')}
           >
             Features
           </Link>
           <Link 
             to="/pricing"
             className="text-gray-600 hover:text-gray-900 font-medium transition-colors"
+            onClick={() => console.log('Pricing link clicked')}
           >
             Pricing
           </Link>
           <Link 
             to="/how-it-works"
             className="text-gray-600 hover:text-gray-900 font-medium transition-colors"
+            onClick={() => console.log('How It Works link clicked')}
           >
             How It Works
           </Link>
           <Link 
             to="/about"
             className="text-gray-600 hover:text-gray-900 font-medium transition-colors"
+            onClick={() => console.log('About link clicked')}
           >
             About
           </Link>
           <Link 
             to="/contact"
             className="text-gray-600 hover:text-gray-900 font-medium transition-colors"
+            onClick={() => console.log('Contact link clicked')}
           >
             Contact
           </Link>
@@ -130,35 +135,50 @@ const MobileNavigation = () => {
             <Link 
               to="/features"
               className="block w-full text-left p-3 text-gray-600 hover:text-gray-900 font-medium transition-colors"
-              onClick={() => setIsMenuOpen(false)}
+              onClick={() => {
+                console.log('Mobile Features link clicked');
+                setIsMenuOpen(false);
+              }}
             >
               Features
             </Link>
             <Link 
               to="/pricing"
               className="block w-full text-left p-3 text-gray-600 hover:text-gray-900 font-medium transition-colors"
-              onClick={() => setIsMenuOpen(false)}
+              onClick={() => {
+                console.log('Mobile Pricing link clicked');
+                setIsMenuOpen(false);
+              }}
             >
               Pricing
             </Link>
             <Link 
               to="/how-it-works"
               className="block w-full text-left p-3 text-gray-600 hover:text-gray-900 font-medium transition-colors"
-              onClick={() => setIsMenuOpen(false)}
+              onClick={() => {
+                console.log('Mobile How It Works link clicked');
+                setIsMenuOpen(false);
+              }}
             >
               How It Works
             </Link>
             <Link 
               to="/about"
               className="block w-full text-left p-3 text-gray-600 hover:text-gray-900 font-medium transition-colors"
-              onClick={() => setIsMenuOpen(false)}
+              onClick={() => {
+                console.log('Mobile About link clicked');
+                setIsMenuOpen(false);
+              }}
             >
               About
             </Link>
             <Link 
               to="/contact"
               className="block w-full text-left p-3 text-gray-600 hover:text-gray-900 font-medium transition-colors"
-              onClick={() => setIsMenuOpen(false)}
+              onClick={() => {
+                console.log('Mobile Contact link clicked');
+                setIsMenuOpen(false);
+              }}
             >
               Contact
             </Link>
