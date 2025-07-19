@@ -20,7 +20,7 @@ const TextRotation = ({ texts, className = '', interval = 3000 }: TextRotationPr
       setTimeout(() => {
         setCurrentIndex((prevIndex) => (prevIndex + 1) % texts.length);
         setIsVisible(true);
-      }, 600); // Slower fade transition
+      }, 1000); // Slower transition timing
     }, interval);
 
     return () => clearInterval(timer);
@@ -29,7 +29,7 @@ const TextRotation = ({ texts, className = '', interval = 3000 }: TextRotationPr
   return (
     <span 
       className={`
-        block text-gradient font-extrabold transition-all duration-600 ease-out
+        block text-gradient font-extrabold transition-all duration-1000 ease-out
         ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}
         ${className}
       `}

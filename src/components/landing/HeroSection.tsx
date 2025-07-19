@@ -28,7 +28,7 @@ const HeroSection = () => {
           <TextRotation 
             texts={rotatingTexts}
             className="mt-2 sm:mt-1"
-            interval={3000}
+            interval={5000}
           />
         </h1>
         
