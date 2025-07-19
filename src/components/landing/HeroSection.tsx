@@ -40,7 +40,7 @@ const HeroSection = () => {
         <div className="space-y-4 sm:space-y-6 px-4">
           <Button 
             size="xl" 
-            className="btn-premium btn-pulse text-lg sm:text-xl px-8 sm:px-12 py-5 sm:py-6 rounded-xl w-full sm:w-auto min-h-[52px] sm:min-h-[60px] font-semibold micro-bounce focus-visible-brand"
+            className="btn-premium text-lg sm:text-xl px-8 sm:px-12 py-5 sm:py-6 rounded-xl w-full sm:w-auto min-h-[52px] sm:min-h-[60px] font-semibold micro-bounce focus-visible-brand"
             onClick={handleStartClick}
           >
             Get 40% More Repeat Customers
