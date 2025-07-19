@@ -16,7 +16,7 @@ const features = [
     title: "Customer Analytics",
     description: "Track visits, retention, and loyalty patterns.",
     benefit: "Know your customers",
-    image: "/lovable-uploads/602ca246-112d-477a-9195-34755714f7df.png"
+    image: "/lovable-uploads/4181cc53-7b1f-46b7-85e6-5696153a6958.png"
   },
   {
     icon: Smartphone,
@@ -89,7 +89,7 @@ const FeaturesSection = () => {
               </div>
               <div className="bg-gray-50 rounded-2xl p-3">
                 <img 
-                  src="/lovable-uploads/602ca246-112d-477a-9195-34755714f7df.png" 
+                  src="/lovable-uploads/4181cc53-7b1f-46b7-85e6-5696153a6958.png"
                   alt="QR Code Generator interface"
                   className="w-full h-auto rounded-xl shadow-sm ring-1 ring-gray-200"
                   loading="lazy"
@@ -113,7 +113,7 @@ const FeaturesSection = () => {
               </div>
               <div className="bg-gray-50 rounded-2xl p-3">
                 <img 
-                  src="/lovable-uploads/602ca246-112d-477a-9195-34755714f7df.png" 
+                  src="/lovable-uploads/602ca246-112d-477a-9195-34755714f7df.png"
                   alt="Business Analytics dashboard"
                   className="w-full h-auto rounded-xl shadow-sm ring-1 ring-gray-200"
                   loading="lazy"
@@ -137,7 +137,7 @@ const FeaturesSection = () => {
               </div>
               <div className="bg-gray-50 rounded-2xl p-3">
                 <img 
-                  src="/lovable-uploads/602ca246-112d-477a-9195-34755714f7df.png" 
+                  src="/lovable-uploads/602ca246-112d-477a-9195-34755714f7df.png"
                   alt="Customer Management interface"
                   className="w-full h-auto rounded-xl shadow-sm ring-1 ring-gray-200"
                   loading="lazy"
