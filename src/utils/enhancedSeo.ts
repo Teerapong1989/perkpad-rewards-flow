@@ -86,8 +86,8 @@ export const generateServiceSchema = (services: Array<{
 export const preloadCriticalResources = () => {
   // Preload critical images
   const criticalImages = [
-    '/lovable-uploads/5318a79b-c5e1-4799-9bdc-2a3420cbb4d7.png',
-    '/lovable-uploads/bf240d2c-3e17-40d5-bc56-7afbde00c649.png'
+    '/lovable-uploads/602ca246-112d-477a-9195-34755714f7df.png',
+    '/lovable-uploads/602ca246-112d-477a-9195-34755714f7df.png'
   ];
 
   criticalImages.forEach(src => {

@@ -9,21 +9,21 @@ const features = [
     title: "No App Required",
     description: "Customers scan QR code with phone camera. Works instantly.",
     benefit: "Zero friction",
-    image: "/lovable-uploads/0f4a4c87-f800-4449-a851-e42a11d6e15e.png"
+    image: "/lovable-uploads/602ca246-112d-477a-9195-34755714f7df.png"
   },
   {
     icon: BarChart3,
     title: "Customer Analytics",
     description: "Track visits, retention, and loyalty patterns.",
     benefit: "Know your customers",
-    image: "/lovable-uploads/7d33aade-01f8-438c-902d-769b4035603c.png"
+    image: "/lovable-uploads/602ca246-112d-477a-9195-34755714f7df.png"
   },
   {
     icon: Smartphone,
     title: "Customer Management",
     description: "View and manage your loyal customers easily.",
     benefit: "Customer insights",
-    image: "/lovable-uploads/f1f13d36-14c6-4735-a5f9-17fa8b03776b.png"
+    image: "/lovable-uploads/602ca246-112d-477a-9195-34755714f7df.png"
   }
 ];
 
@@ -89,7 +89,7 @@ const FeaturesSection = () => {
               </div>
               <div className="bg-gray-50 rounded-2xl p-3">
                 <img 
-                  src="/lovable-uploads/7d33aade-01f8-438c-902d-769b4035603c.png" 
+                  src="/lovable-uploads/602ca246-112d-477a-9195-34755714f7df.png" 
                   alt="QR Code Generator interface"
                   className="w-full h-auto rounded-xl shadow-sm ring-1 ring-gray-200"
                   loading="lazy"
@@ -113,7 +113,7 @@ const FeaturesSection = () => {
               </div>
               <div className="bg-gray-50 rounded-2xl p-3">
                 <img 
-                  src="/lovable-uploads/f1f13d36-14c6-4735-a5f9-17fa8b03776b.png" 
+                  src="/lovable-uploads/602ca246-112d-477a-9195-34755714f7df.png" 
                   alt="Business Analytics dashboard"
                   className="w-full h-auto rounded-xl shadow-sm ring-1 ring-gray-200"
                   loading="lazy"
@@ -137,7 +137,7 @@ const FeaturesSection = () => {
               </div>
               <div className="bg-gray-50 rounded-2xl p-3">
                 <img 
-                  src="/lovable-uploads/0f4a4c87-f800-4449-a851-e42a11d6e15e.png" 
+                  src="/lovable-uploads/602ca246-112d-477a-9195-34755714f7df.png" 
                   alt="Customer Management interface"
                   className="w-full h-auto rounded-xl shadow-sm ring-1 ring-gray-200"
                   loading="lazy"

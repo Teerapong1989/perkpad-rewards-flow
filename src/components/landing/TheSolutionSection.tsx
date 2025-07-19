@@ -52,7 +52,7 @@ const TheSolutionSection = () => {
               </div>
               <div className="bg-gradient-to-br from-gray-50 to-gray-100/50 rounded-2xl p-4">
                 <img 
-                  src="/lovable-uploads/1531c4b9-c34a-4e3c-9d95-c2dba8ae1127.png" 
+                  src="/lovable-uploads/602ca246-112d-477a-9195-34755714f7df.png" 
                   alt="AI Recommendations showing customer retention insights"
                   className="w-full h-auto rounded-xl shadow-lg ring-1 ring-gray-200"
                   loading="lazy"
@@ -77,7 +77,7 @@ const TheSolutionSection = () => {
                 </div>
                 <div className="bg-gray-50 rounded-2xl p-3">
                   <img 
-                    src="/lovable-uploads/aa566038-4acd-4970-99fb-c4abe94a6d71.png" 
+                    src="/lovable-uploads/602ca246-112d-477a-9195-34755714f7df.png" 
                     alt="Rewards configuration interface"
                     className="w-full h-auto rounded-xl shadow-sm ring-1 ring-gray-200"
                     loading="lazy"
@@ -100,7 +100,7 @@ const TheSolutionSection = () => {
                 </div>
                 <div className="bg-gray-50 rounded-2xl p-3">
                   <img 
-                    src="/lovable-uploads/4c8bcfa9-a6f0-4568-a952-c7e64c4f111b.png" 
+                    src="/lovable-uploads/602ca246-112d-477a-9195-34755714f7df.png" 
                     alt="Reward game settings with scratch cards, spin wheel, and gift boxes"
                     className="w-full h-auto rounded-xl shadow-sm ring-1 ring-gray-200"
                     loading="lazy"

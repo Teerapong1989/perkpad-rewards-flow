@@ -53,7 +53,7 @@ const WhyNowSection = () => {
               </div>
               <div className="bg-gradient-to-br from-gray-50 to-gray-100/50 rounded-2xl p-3">
                 <img 
-                  src="/lovable-uploads/41e2b061-cbf1-46e7-9e97-1d3e4f0467be.png" 
+                  src="/lovable-uploads/602ca246-112d-477a-9195-34755714f7df.png" 
                   alt="Traffic patterns and heatmap showing customer visit analytics"
                   className="w-full h-auto rounded-xl shadow-sm ring-1 ring-gray-200"
                   loading="lazy"
