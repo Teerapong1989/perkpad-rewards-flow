@@ -20,7 +20,7 @@ const HeroSection = () => {
       <div className="relative z-10 text-center max-w-4xl mx-auto">
         {/* Clean, powerful headline - Mobile optimized */}
         <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 mb-6 sm:mb-8 tracking-tight leading-[1.05] px-2">
-          Your customers{" "}
+          <div>Your customers</div>
           <TypingAnimation 
             text={["keep coming back", "keep loving you", "keep spending more"]}
             speed={120}
