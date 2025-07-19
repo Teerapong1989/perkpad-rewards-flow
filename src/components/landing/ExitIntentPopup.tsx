@@ -23,14 +23,39 @@ const ExitIntentPopup = () => {
     return () => document.removeEventListener('mouseleave', handleMouseLeave);
   }, [hasShown]);
 
-  const handleFormSubmit = ({ email }: { email: string }) => {
+  const handleFormSubmit = async ({ email }: { email: string }) => {
     trackUserBehavior('submit', 'exit_intent_form');
     trackConversion('signup');
     
-    // Redirect to Tally form with email pre-filled if possible
-    const tallyUrl = `https://tally.so/r/nGVLNp${email ? `?email=${encodeURIComponent(email)}` : ''}`;
-    window.open(tallyUrl, '_blank', 'noopener,noreferrer');
-    setIsVisible(false);
+    try {
+      // Send the loyalty playbook email
+      const response = await fetch('https://kbnglvsmilhglajiuzsl.supabase.co/functions/v1/send-loyalty-playbook', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email }),
+      });
+
+      if (response.ok) {
+        // Email sent successfully, redirect to Tally form
+        const tallyUrl = `https://tally.so/r/nGVLNp${email ? `?email=${encodeURIComponent(email)}` : ''}`;
+        window.open(tallyUrl, '_blank', 'noopener,noreferrer');
+        setIsVisible(false);
+      } else {
+        console.error('Failed to send email');
+        // Still redirect to Tally form as fallback
+        const tallyUrl = `https://tally.so/r/nGVLNp${email ? `?email=${encodeURIComponent(email)}` : ''}`;
+        window.open(tallyUrl, '_blank', 'noopener,noreferrer');
+        setIsVisible(false);
+      }
+    } catch (error) {
+      console.error('Error sending email:', error);
+      // Still redirect to Tally form as fallback
+      const tallyUrl = `https://tally.so/r/nGVLNp${email ? `?email=${encodeURIComponent(email)}` : ''}`;
+      window.open(tallyUrl, '_blank', 'noopener,noreferrer');
+      setIsVisible(false);
+    }
   };
 
   const handleClose = () => {
