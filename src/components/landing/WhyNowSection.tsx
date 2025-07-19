@@ -4,8 +4,14 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Clock, Target, Zap, BarChart3 } from "lucide-react";
 import { trackUserBehavior } from "@/utils/analytics";
+import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 const WhyNowSection = () => {
+  const headerReveal = useScrollReveal({ delay: 100 });
+  const analyticsReveal = useScrollReveal({ delay: 200 });
+  const cardsReveal = useScrollReveal({ delay: 300 });
+  const ctaReveal = useScrollReveal({ delay: 400 });
+
   const handleGetStartedClick = () => {
     trackUserBehavior('click', 'why_now_cta');
     window.open('https://app.perkpad.io', '_blank', 'noopener,noreferrer');
@@ -15,16 +21,24 @@ const WhyNowSection = () => {
     <section className="py-16 sm:py-20 md:py-24 px-4 sm:px-6 bg-gray-50">
       <div className="max-w-5xl mx-auto text-center">
         {/* Simple headline - Mobile optimized */}
-        <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4 sm:mb-6 px-2">
-          Why businesses are switching
-        </h2>
-        
-        <p className="text-xl sm:text-2xl text-gray-700 mb-12 sm:mb-16 max-w-3xl mx-auto px-4 leading-relaxed font-medium">
-          The old way is broken. Smart businesses are already moving.
-        </p>
+        <div 
+          ref={headerReveal.elementRef}
+          className={`transition-all duration-700 ${headerReveal.className}`}
+        >
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4 sm:mb-6 px-2">
+            Why businesses are switching
+          </h2>
+          
+          <p className="text-xl sm:text-2xl text-gray-700 mb-12 sm:mb-16 max-w-3xl mx-auto px-4 leading-relaxed font-medium">
+            The old way is broken. Smart businesses are already moving.
+          </p>
+        </div>
 
         {/* Analytics Showcase */}
-        <div className="mb-12 sm:mb-16 px-4">
+        <div 
+          ref={analyticsReveal.elementRef}
+          className={`mb-12 sm:mb-16 px-4 transition-all duration-700 ${analyticsReveal.className}`}
+        >
           <div className="relative max-w-lg mx-auto">
             <div className="absolute -inset-4 bg-gradient-to-br from-brand-primary/20 via-brand-secondary/10 to-brand-accent/20 rounded-3xl blur-2xl"></div>
             <div className="relative bg-white rounded-3xl p-6 shadow-2xl border border-gray-100/50">
@@ -57,7 +71,10 @@ const WhyNowSection = () => {
         </div>
 
         {/* Clean comparison - Mobile optimized */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 sm:gap-10 md:gap-12 mb-12 sm:mb-16">
+        <div 
+          ref={cardsReveal.elementRef}
+          className={`grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 sm:gap-10 md:gap-12 mb-12 sm:mb-16 transition-all duration-700 ${cardsReveal.className}`}
+        >
           <div className="text-center px-4">
             <div className="w-16 h-16 bg-brand-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-4 sm:mb-6">
               <Clock className="w-8 h-8 text-brand-primary" />
@@ -84,7 +101,10 @@ const WhyNowSection = () => {
         </div>
 
         {/* Mobile-friendly CTA */}
-        <div className="px-4">
+        <div 
+          ref={ctaReveal.elementRef}
+          className={`px-4 transition-all duration-700 ${ctaReveal.className}`}
+        >
           <Button 
             size="xl" 
             className="btn-premium text-lg sm:text-xl px-8 sm:px-10 py-5 sm:py-6 rounded-xl w-full sm:w-auto min-h-[52px] sm:min-h-[60px] font-semibold"

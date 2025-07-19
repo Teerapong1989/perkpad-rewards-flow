@@ -4,8 +4,14 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Smartphone, BarChart3, Users } from "lucide-react";
 import { trackUserBehavior } from "@/utils/analytics";
+import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 const TheSolutionSection = () => {
+  const headerReveal = useScrollReveal({ delay: 100 });
+  const aiReveal = useScrollReveal({ delay: 200 });
+  const featuresReveal = useScrollReveal({ delay: 300 });
+  const ctaReveal = useScrollReveal({ delay: 400 });
+
   const handleGetStartedClick = () => {
     trackUserBehavior('click', 'solution_cta');
     window.open('https://app.perkpad.io', '_blank', 'noopener,noreferrer');
@@ -15,7 +21,10 @@ const TheSolutionSection = () => {
     <section className="py-16 sm:py-20 md:py-24 px-4 sm:px-6 bg-white">
       <div className="max-w-6xl mx-auto">
         {/* Simple headline - Mobile optimized */}
-        <div className="text-center mb-16 sm:mb-20">
+        <div 
+          ref={headerReveal.elementRef}
+          className={`text-center mb-16 sm:mb-20 transition-all duration-700 ${headerReveal.className}`}
+        >
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4 sm:mb-6 px-2">
             The simple solution
           </h2>
@@ -25,7 +34,10 @@ const TheSolutionSection = () => {
         </div>
 
         {/* AI-Powered Solution Showcase */}
-        <div className="mb-16 sm:mb-20 px-4">
+        <div 
+          ref={aiReveal.elementRef}
+          className={`mb-16 sm:mb-20 px-4 transition-all duration-700 ${aiReveal.className}`}
+        >
           {/* AI Recommendations - Hero Feature */}
           <div className="relative max-w-4xl mx-auto mb-12">
             <div className="absolute inset-0 bg-gradient-to-br from-brand-primary/10 via-brand-secondary/5 to-brand-accent/10 rounded-3xl blur-2xl"></div>
@@ -100,7 +112,10 @@ const TheSolutionSection = () => {
         </div>
 
         {/* Simple benefits - Mobile optimized */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 sm:gap-10 md:gap-12 mb-16 sm:mb-20">
+        <div 
+          ref={featuresReveal.elementRef}
+          className={`grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 sm:gap-10 md:gap-12 mb-16 sm:mb-20 transition-all duration-700 ${featuresReveal.className}`}
+        >
           <div className="text-center px-4">
             <div className="w-16 h-16 bg-brand-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-4 sm:mb-6">
               <Smartphone className="w-8 h-8 text-brand-primary" />
@@ -127,7 +142,10 @@ const TheSolutionSection = () => {
         </div>
 
         {/* Mobile-friendly CTA */}
-        <div className="text-center px-4">
+        <div 
+          ref={ctaReveal.elementRef}
+          className={`text-center px-4 transition-all duration-700 ${ctaReveal.className}`}
+        >
           <Button 
             size="xl" 
             className="btn-premium text-lg sm:text-xl px-8 sm:px-10 py-5 sm:py-6 rounded-xl w-full sm:w-auto min-h-[52px] sm:min-h-[60px] font-semibold"
