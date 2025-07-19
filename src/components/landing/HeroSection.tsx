@@ -55,56 +55,73 @@ const HeroSection = () => {
           </p>
         </div>
         
-        {/* Mobile App Showcase */}
-        <div className="relative max-w-sm mx-auto px-2 sm:px-4">
-          <div className="transform hover:scale-[1.02] transition-all duration-500">
-            <OptimizedImage 
-              src="/lovable-uploads/9034c20a-c429-4a36-9315-c8c1620ea7b1.png" 
-              alt="Perkpad mobile app showing business dashboard with customer metrics and analytics"
-              className="w-full h-auto max-w-[320px] mx-auto"
-              priority={true}
-              width={320}
-              height={640}
-              sizes="(max-width: 640px) 100vw, 320px"
-            />
-          </div>
+        {/* Mobile App Showcase - Enhanced */}
+        <div className="relative max-w-md mx-auto px-2 sm:px-4">
+          {/* Background gradient glow */}
+          <div className="absolute inset-0 bg-gradient-to-r from-primary/20 via-purple-500/20 to-primary/20 rounded-full blur-3xl scale-150 opacity-30 animate-pulse"></div>
           
-          {/* Results showcase - enhanced responsive design */}
-          <div className="mt-8 sm:mt-12 lg:mt-16">
-            <div className="bg-gradient-subtle rounded-lg sm:rounded-2xl lg:rounded-3xl p-4 xs:p-6 sm:p-8 lg:p-10 mx-auto max-w-3xl shadow-md border border-gray-100">
-              <div className="grid grid-cols-3 gap-3 xs:gap-4 sm:gap-6 lg:gap-8 text-center">
-                <div className="space-y-1 sm:space-y-2">
-                  <AnimatedCounter 
-                    end={40}
-                    suffix="%"
-                    duration={2000}
-                    className="text-xl xs:text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold text-brand-primary mb-1 sm:mb-2"
-                  />
-                  <div className="text-gray-600 text-xs xs:text-sm sm:text-base lg:text-lg font-medium leading-tight">
-                    More repeat<br className="sm:hidden" /> visits
-                  </div>
+          {/* Mobile device frame */}
+          <div className="relative z-10 transform hover:scale-[1.05] hover:rotate-1 transition-all duration-700 hover:drop-shadow-2xl">
+            {/* Phone shadow */}
+            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/10 to-black/20 rounded-[2.5rem] blur-lg scale-105 transform translate-y-4"></div>
+            
+            {/* Main phone container */}
+            <div className="relative bg-gradient-to-b from-gray-800 to-black rounded-[2.5rem] p-2 shadow-2xl">
+              {/* Screen bezel */}
+              <div className="bg-black rounded-[2rem] p-1">
+                <OptimizedImage 
+                  src="/lovable-uploads/9034c20a-c429-4a36-9315-c8c1620ea7b1.png" 
+                  alt="Perkpad mobile app showing business dashboard with customer metrics and analytics"
+                  className="w-full h-auto rounded-[1.8rem] shadow-inner"
+                  priority={true}
+                  width={320}
+                  height={640}
+                  sizes="(max-width: 640px) 100vw, 320px"
+                />
+              </div>
+            </div>
+            
+            {/* Floating elements for extra coolness */}
+            <div className="absolute -top-4 -right-4 w-8 h-8 bg-primary/20 rounded-full animate-bounce delay-1000"></div>
+            <div className="absolute -bottom-4 -left-4 w-6 h-6 bg-purple-500/20 rounded-full animate-bounce delay-2000"></div>
+          </div>
+        </div>
+        
+        {/* Results showcase - enhanced responsive design */}
+        <div className="mt-8 sm:mt-12 lg:mt-16">
+          <div className="bg-gradient-subtle rounded-lg sm:rounded-2xl lg:rounded-3xl p-4 xs:p-6 sm:p-8 lg:p-10 mx-auto max-w-3xl shadow-md border border-gray-100">
+            <div className="grid grid-cols-3 gap-3 xs:gap-4 sm:gap-6 lg:gap-8 text-center">
+              <div className="space-y-1 sm:space-y-2">
+                <AnimatedCounter 
+                  end={40}
+                  suffix="%"
+                  duration={2000}
+                  className="text-xl xs:text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold text-brand-primary mb-1 sm:mb-2"
+                />
+                <div className="text-gray-600 text-xs xs:text-sm sm:text-base lg:text-lg font-medium leading-tight">
+                  More repeat<br className="sm:hidden" /> visits
                 </div>
-                <div className="space-y-1 sm:space-y-2">
-                  <AnimatedCounter 
-                    end={3}
-                    suffix="x"
-                    duration={2200}
-                    className="text-xl xs:text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold text-brand-primary mb-1 sm:mb-2"
-                  />
-                  <div className="text-gray-600 text-xs xs:text-sm sm:text-base lg:text-lg font-medium leading-tight">
-                    Completion<br className="sm:hidden" /> rate
-                  </div>
+              </div>
+              <div className="space-y-1 sm:space-y-2">
+                <AnimatedCounter 
+                  end={3}
+                  suffix="x"
+                  duration={2200}
+                  className="text-xl xs:text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold text-brand-primary mb-1 sm:mb-2"
+                />
+                <div className="text-gray-600 text-xs xs:text-sm sm:text-base lg:text-lg font-medium leading-tight">
+                  Completion<br className="sm:hidden" /> rate
                 </div>
-                <div className="space-y-1 sm:space-y-2">
-                  <AnimatedCounter 
-                    end={5}
-                    suffix="min"
-                    duration={1800}
-                    className="text-xl xs:text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold text-brand-primary mb-1 sm:mb-2"
-                  />
-                  <div className="text-gray-600 text-xs xs:text-sm sm:text-base lg:text-lg font-medium leading-tight">
-                    Setup<br className="sm:hidden" /> time
-                  </div>
+              </div>
+              <div className="space-y-1 sm:space-y-2">
+                <AnimatedCounter 
+                  end={5}
+                  suffix="min"
+                  duration={1800}
+                  className="text-xl xs:text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold text-brand-primary mb-1 sm:mb-2"
+                />
+                <div className="text-gray-600 text-xs xs:text-sm sm:text-base lg:text-lg font-medium leading-tight">
+                  Setup<br className="sm:hidden" /> time
                 </div>
               </div>
             </div>
