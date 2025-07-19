@@ -3,7 +3,6 @@ import { ArrowRight } from "lucide-react";
 import { memo, useCallback } from "react";
 import { trackUserBehavior, trackConversion } from "@/utils/analytics";
 import AnimatedCounter from "@/components/ui/AnimatedCounter";
-import heroBeforeAfter from "@/assets/hero-before-after.jpg";
 
 const HeroSection = () => {
   const handleStartClick = useCallback(() => {
@@ -42,13 +41,13 @@ const HeroSection = () => {
           </p>
         </div>
         
-        {/* Visual Transformation Story */}
-        <div className="relative max-w-5xl mx-auto">
-          <div className="rounded-3xl shadow-2xl overflow-hidden bg-gradient-to-br from-gray-50 to-white p-4">
+        {/* Clean Dashboard Showcase */}
+        <div className="relative max-w-4xl mx-auto">
+          <div className="bg-white rounded-2xl shadow-2xl border border-gray-200 overflow-hidden">
             <img 
-              src={heroBeforeAfter} 
-              alt="Transform from messy punch cards to elegant digital loyalty program"
-              className="w-full h-auto rounded-2xl"
+              src="/lovable-uploads/602ca246-112d-477a-9195-34755714f7df.png" 
+              alt="Perkpad Dashboard showing customer analytics and loyalty program management"
+              className="w-full h-auto"
               loading="lazy"
             />
           </div>
