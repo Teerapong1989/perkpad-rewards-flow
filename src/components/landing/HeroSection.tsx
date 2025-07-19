@@ -73,8 +73,8 @@ const HeroSection = () => {
               {/* Screen bezel */}
               <div className="bg-black rounded-[2rem] p-1">
                 <OptimizedImage 
-                  src="/lovable-uploads/9034c20a-c429-4a36-9315-c8c1620ea7b1.png" 
-                  alt="Perkpad mobile app showing business dashboard with customer metrics and analytics"
+                  src="/lovable-uploads/e649c0e6-4d66-4e06-9651-2331653d69bb.png" 
+                  alt="Perkpad mobile app showing business dashboard with customer metrics in a real café environment"
                   className="w-full h-auto rounded-[1.8rem] shadow-inner"
                   priority={true}
                   width={320}
