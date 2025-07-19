@@ -21,38 +21,41 @@ const HeroSection = () => {
   ];
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 bg-white">
-      <div className="relative z-10 text-center max-w-6xl mx-auto py-12 sm:py-16 lg:py-20">
-        {/* Clean, powerful headline - optimized for all screen sizes */}
-        <h1 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-gray-900 mb-6 sm:mb-8 lg:mb-10 tracking-tight leading-tight">
-          Your customers
-          <TextRotation 
-            texts={rotatingTexts}
-            className="mt-2 sm:mt-1"
-            interval={5000}
-          />
-        </h1>
-        
-        {/* Clear value proposition - better readability */}
-        <p className="text-lg xs:text-xl sm:text-2xl lg:text-3xl text-gray-600 mb-8 sm:mb-10 lg:mb-12 leading-relaxed max-w-4xl mx-auto font-medium">
-          Digital punch card app that replaces lost paper cards with QR codes. Perfect for cafes, restaurants & coffee shops.
-        </p>
-        
-        {/* Primary CTA - enhanced for mobile */}
-        <div className="space-y-4 sm:space-y-6 mb-12 sm:mb-16 lg:mb-20">
-          <Button 
-            size="xl" 
-            className="btn-premium text-base xs:text-lg sm:text-xl lg:text-2xl px-6 xs:px-8 sm:px-12 lg:px-16 py-4 xs:py-5 sm:py-6 lg:py-7 rounded-xl w-full sm:w-auto min-h-[50px] xs:min-h-[56px] sm:min-h-[64px] lg:min-h-[72px] font-bold shadow-brand"
-            onClick={handleStartClick}
-          >
-            <span className="hidden xs:inline">Get 40% More Repeat Customers</span>
-            <span className="xs:hidden">40% More Repeat Customers</span>
-            <ArrowRight className="ml-2 sm:ml-3 w-4 h-4 xs:w-5 xs:h-5 sm:w-6 sm:h-6 lg:w-7 lg:h-7" />
-          </Button>
+    <section className="relative min-h-screen flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8 bg-white">
+      <div className="relative z-10 text-center max-w-6xl mx-auto py-12 sm:py-16 lg:py-20 flex flex-col items-center space-y-8 sm:space-y-12 lg:space-y-16">
+        {/* Header Section */}
+        <div className="space-y-6 sm:space-y-8 lg:space-y-10">
+          {/* Clean, powerful headline - optimized for all screen sizes */}
+          <h1 className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-gray-900 tracking-tight leading-tight">
+            Your customers
+            <TextRotation 
+              texts={rotatingTexts}
+              className="mt-2 sm:mt-1"
+              interval={5000}
+            />
+          </h1>
           
-          <p className="text-gray-500 text-xs xs:text-sm sm:text-base lg:text-lg font-medium">
-            5-minute setup • Free 30 days • No credit card required
+          {/* Clear value proposition - better readability */}
+          <p className="text-lg xs:text-xl sm:text-2xl lg:text-3xl text-gray-600 leading-relaxed max-w-4xl mx-auto font-medium">
+            Digital punch card app that replaces lost paper cards with QR codes. Perfect for cafes, restaurants & coffee shops.
           </p>
+          
+          {/* Primary CTA - enhanced for mobile */}
+          <div className="space-y-4 sm:space-y-6">
+            <Button 
+              size="xl" 
+              className="btn-premium text-base xs:text-lg sm:text-xl lg:text-2xl px-6 xs:px-8 sm:px-12 lg:px-16 py-4 xs:py-5 sm:py-6 lg:py-7 rounded-xl w-full sm:w-auto min-h-[50px] xs:min-h-[56px] sm:min-h-[64px] lg:min-h-[72px] font-bold shadow-brand"
+              onClick={handleStartClick}
+            >
+              <span className="hidden xs:inline">Get 40% More Repeat Customers</span>
+              <span className="xs:hidden">40% More Repeat Customers</span>
+              <ArrowRight className="ml-2 sm:ml-3 w-4 h-4 xs:w-5 xs:h-5 sm:w-6 sm:h-6 lg:w-7 lg:h-7" />
+            </Button>
+            
+            <p className="text-gray-500 text-xs xs:text-sm sm:text-base lg:text-lg font-medium">
+              5-minute setup • Free 30 days • No credit card required
+            </p>
+          </div>
         </div>
         
         {/* Mobile App Showcase - Enhanced */}
@@ -88,7 +91,7 @@ const HeroSection = () => {
         </div>
         
         {/* Results showcase - enhanced responsive design */}
-        <div className="mt-8 sm:mt-12 lg:mt-16">
+        <div className="w-full">
           <div className="bg-gradient-subtle rounded-lg sm:rounded-2xl lg:rounded-3xl p-4 xs:p-6 sm:p-8 lg:p-10 mx-auto max-w-3xl shadow-md border border-gray-100">
             <div className="grid grid-cols-3 gap-3 xs:gap-4 sm:gap-6 lg:gap-8 text-center">
               <div className="space-y-1 sm:space-y-2">
