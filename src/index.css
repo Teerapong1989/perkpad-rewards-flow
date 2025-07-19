@@ -430,4 +430,28 @@ All colors MUST be HSL.
     0%, 50% { opacity: 1; }
     51%, 100% { opacity: 0; }
   }
+  
+  /* Subtle floating animations for dashboard elements */
+  @keyframes float-gentle {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-3px); }
+  }
+  
+  @keyframes float-gentle-slow {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-2px); }
+  }
+  
+  .float-gentle {
+    animation: float-gentle 4s ease-in-out infinite;
+  }
+  
+  .float-gentle-slow {
+    animation: float-gentle-slow 6s ease-in-out infinite;
+  }
+  
+  .float-gentle-delay {
+    animation: float-gentle 4s ease-in-out infinite;
+    animation-delay: 2s;
+  }
 }

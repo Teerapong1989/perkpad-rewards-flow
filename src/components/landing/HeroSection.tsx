@@ -57,8 +57,8 @@ const HeroSection = () => {
         <div className="mt-12 sm:mt-16 md:mt-20 px-4">
           <div className="relative max-w-6xl mx-auto">
             {/* Floating UI Elements */}
-            <div className="absolute -top-4 -left-4 w-20 h-20 bg-gradient-to-br from-brand-primary/20 to-brand-primary/10 rounded-2xl blur-xl"></div>
-            <div className="absolute -bottom-4 -right-4 w-32 h-32 bg-gradient-to-br from-brand-secondary/20 to-brand-secondary/10 rounded-2xl blur-xl"></div>
+            <div className="absolute -top-4 -left-4 w-20 h-20 bg-gradient-to-br from-brand-primary/20 to-brand-primary/10 rounded-2xl blur-xl float-gentle"></div>
+            <div className="absolute -bottom-4 -right-4 w-32 h-32 bg-gradient-to-br from-brand-secondary/20 to-brand-secondary/10 rounded-2xl blur-xl float-gentle-slow"></div>
             
             {/* Main Dashboard Container */}
             <div className="relative bg-white rounded-3xl p-2 shadow-2xl border border-gray-100/50">
@@ -73,12 +73,12 @@ const HeroSection = () => {
             </div>
             
             {/* Floating Feature Badges */}
-            <div className="absolute -top-6 left-1/4 transform -translate-x-1/2 hidden lg:block">
+            <div className="absolute -top-6 left-1/4 transform -translate-x-1/2 hidden lg:block float-gentle">
               <div className="bg-white rounded-full px-4 py-2 shadow-lg border border-gray-100">
                 <span className="text-sm font-medium text-gray-700">Real-time Analytics</span>
               </div>
             </div>
-            <div className="absolute -bottom-6 right-1/4 transform translate-x-1/2 hidden lg:block">
+            <div className="absolute -bottom-6 right-1/4 transform translate-x-1/2 hidden lg:block float-gentle-delay">
               <div className="bg-white rounded-full px-4 py-2 shadow-lg border border-gray-100">
                 <span className="text-sm font-medium text-gray-700">AI Insights</span>
               </div>
