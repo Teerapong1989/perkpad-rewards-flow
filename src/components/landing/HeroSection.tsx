@@ -59,7 +59,7 @@ const HeroSection = () => {
           <div className="card-premium rounded-xl sm:rounded-2xl lg:rounded-3xl overflow-hidden transform hover:scale-[1.02] transition-all duration-500">
             <div className="relative">
               <img 
-                src="/lovable-uploads/602ca246-112d-477a-9195-34755714f7df.png" 
+                src="/lovable-uploads/d0cb8276-8db9-4e3f-b26e-5ff46edca736.png" 
                 alt="Perkpad Dashboard showing customer analytics and loyalty program management"
                 className="w-full h-auto object-cover max-h-[400px] sm:max-h-[500px] lg:max-h-[600px]"
                 loading="lazy"
