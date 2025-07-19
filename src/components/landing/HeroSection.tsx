@@ -65,7 +65,7 @@ const HeroSection = () => {
             <div className="relative bg-white rounded-3xl p-2 shadow-2xl border border-gray-100/50">
               <div className="bg-gradient-to-br from-gray-50 to-white rounded-2xl p-4 sm:p-6">
                 <img 
-                  src="/lovable-uploads/0bb167d1-f530-4147-b85a-413e15ea25f5.png" 
+                  src="/lovable-uploads/602ca246-112d-477a-9195-34755714f7df.png" 
                   alt="Perkpad Dashboard showing customer analytics and loyalty program management"
                   className="w-full h-auto rounded-xl shadow-lg ring-1 ring-gray-100"
                   loading="lazy"
