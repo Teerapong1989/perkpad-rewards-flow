@@ -28,68 +28,34 @@ const HeroSection = () => {
       <div className="relative z-10 text-center max-w-6xl mx-auto py-12 sm:py-16 lg:py-20 flex flex-col items-center space-y-10 sm:space-y-14 lg:space-y-20">
         {/* Header Section */}
         <div className="space-y-6 sm:space-y-8 lg:space-y-12">
-          {/* Premium headline with better hierarchy */}
-          <div className="space-y-4 sm:space-y-6">
+          {/* Simple, powerful headline */}
+          <div className="space-y-6">
             <h1 className="text-4xl xs:text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-black text-gray-900 tracking-tight leading-[0.9] font-display">
-              Your customers
-              <TextRotation 
-                texts={rotatingTexts}
-                className="mt-2 sm:mt-1 bg-gradient-to-r from-brand-primary to-brand-secondary bg-clip-text text-transparent"
-                interval={5000}
-              />
+              Digital Punch Cards
+              <span className="block bg-gradient-to-r from-brand-primary to-brand-secondary bg-clip-text text-transparent">
+                That Actually Work
+              </span>
             </h1>
             
-            {/* Launch badge for new business */}
-            <div className="inline-flex items-center px-4 py-2 rounded-full bg-gradient-to-r from-brand-accent/10 to-brand-primary/10 border border-brand-accent/20">
-              <span className="text-sm font-semibold text-brand-accent mr-2">🚀</span>
-              <span className="text-sm font-medium text-gray-700">Now launching for early adopters</span>
-            </div>
+            <p className="text-xl sm:text-2xl lg:text-3xl text-gray-700 font-medium">
+              Replace lost paper cards with QR codes. Get 40% more repeat customers.
+            </p>
           </div>
           
-          {/* Enhanced value proposition */}
-          <p className="text-xl xs:text-2xl sm:text-3xl lg:text-4xl text-gray-700 leading-relaxed max-w-5xl mx-auto font-medium">
-            Stop losing money on lost punch cards. Our digital loyalty program increases customer retention by{" "}
-            <span className="font-bold text-brand-primary">40%</span> with simple QR codes.
-          </p>
-          
-          {/* Premium CTA section */}
-          <div className="space-y-6 sm:space-y-8">
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6">
-              <Button 
-                size="xl" 
-                className="group bg-gradient-to-r from-brand-primary to-brand-secondary hover:from-brand-primary-dark hover:to-brand-secondary text-white text-lg xs:text-xl sm:text-2xl lg:text-3xl px-8 xs:px-10 sm:px-14 lg:px-20 py-5 xs:py-6 sm:py-7 lg:py-8 rounded-2xl min-h-[56px] xs:min-h-[64px] sm:min-h-[72px] lg:min-h-[80px] font-bold shadow-2xl hover:shadow-3xl transform hover:scale-[1.02] transition-all duration-300"
-                onClick={handleStartClick}
-              >
-                <span className="hidden sm:inline">Start Free 30-Day Trial</span>
-                <span className="sm:hidden">Start Free Trial</span>
-                <ArrowRight className="ml-3 w-5 h-5 xs:w-6 xs:h-6 sm:w-7 sm:h-7 lg:w-8 lg:h-8 group-hover:translate-x-1 transition-transform duration-300" />
-              </Button>
-              
-              <div className="text-center sm:text-left">
-                <p className="text-gray-600 text-sm sm:text-base font-medium">
-                  Set up in 5 minutes
-                </p>
-                <p className="text-gray-500 text-xs sm:text-sm">
-                  No credit card required
-                </p>
-              </div>
-            </div>
+          {/* Simple CTA */}
+          <div className="space-y-4">
+            <Button 
+              size="xl" 
+              className="group bg-gradient-to-r from-brand-primary to-brand-secondary hover:from-brand-primary-dark hover:to-brand-secondary text-white text-xl sm:text-2xl px-10 sm:px-16 py-6 sm:py-8 rounded-2xl font-bold shadow-2xl transform hover:scale-[1.02] transition-all duration-300"
+              onClick={handleStartClick}
+            >
+              Start Free Trial
+              <ArrowRight className="ml-3 w-6 h-6 group-hover:translate-x-1 transition-transform duration-300" />
+            </Button>
             
-            {/* Trust indicators */}
-            <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6 text-sm text-gray-500">
-              <div className="flex items-center">
-                <span className="w-2 h-2 bg-brand-success rounded-full mr-2"></span>
-                Free forever plan
-              </div>
-              <div className="flex items-center">
-                <span className="w-2 h-2 bg-brand-success rounded-full mr-2"></span>
-                24/7 support
-              </div>
-              <div className="flex items-center">
-                <span className="w-2 h-2 bg-brand-success rounded-full mr-2"></span>
-                Cancel anytime
-              </div>
-            </div>
+            <p className="text-gray-500 text-sm">
+              Setup in 5 minutes • No credit card required
+            </p>
           </div>
         </div>
         
