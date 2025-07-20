@@ -1,8 +1,14 @@
 
 import MobileNavigation from "./MobileNavigation";
+import DesktopNavigation from "./DesktopNavigation";
 
 const Navigation = () => {
-  return <MobileNavigation />;
+  return (
+    <>
+      <DesktopNavigation />
+      <MobileNavigation />
+    </>
+  );
 };
 
 export default Navigation;
