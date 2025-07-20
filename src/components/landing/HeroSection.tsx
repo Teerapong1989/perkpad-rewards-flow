@@ -21,11 +21,11 @@ const HeroSection = () => {
   ];
 
   return (
-    <section className="relative min-h-screen flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white via-brand-primary-light/30 to-white">
+    <section className="relative min-h-screen flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white via-brand-primary-light/30 to-white overflow-hidden">
       {/* Subtle background pattern */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(120,119,198,0.05),transparent_50%),radial-gradient(circle_at_70%_80%,rgba(255,168,168,0.05),transparent_50%)] pointer-events-none"></div>
       
-      <div className="relative z-10 text-center max-w-6xl mx-auto py-12 sm:py-16 lg:py-20 flex flex-col items-center space-y-10 sm:space-y-14 lg:space-y-20">
+      <div className="relative z-10 text-center w-full max-w-6xl mx-auto py-12 sm:py-16 lg:py-20 flex flex-col items-center space-y-10 sm:space-y-14 lg:space-y-20">
         {/* Header Section */}
         <div className="space-y-6 sm:space-y-8 lg:space-y-12">
           {/* Premium headline with better hierarchy */}
