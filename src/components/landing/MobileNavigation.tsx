@@ -41,8 +41,8 @@ const MobileNavigation = () => {
 
   return (
     <>
-      {/* Navigation Bar */}
-      <nav className="flex items-center justify-between p-4 sm:p-6 max-w-7xl mx-auto">
+      {/* Mobile Navigation Bar - Only show on mobile/tablet */}
+      <nav className="lg:hidden flex items-center justify-between p-4 sm:p-6 max-w-7xl mx-auto">
         <Link to="/" className="flex items-center space-x-2 hover:opacity-80 transition-opacity">
           <div className="w-8 h-8 bg-gradient-brand rounded-lg flex items-center justify-center">
             <Gift className="w-5 h-5 text-white" />
@@ -50,58 +50,6 @@ const MobileNavigation = () => {
           <span className="font-display text-lg sm:text-xl font-bold text-gray-900 tracking-tight">Perkpad</span>
         </Link>
         
-        {/* Desktop Navigation */}
-        <div className="hidden lg:flex items-center space-x-8">
-          <Link 
-            to="/features"
-            className="text-gray-600 hover:text-gray-900 font-medium transition-colors"
-            onClick={() => console.log('Features link clicked')}
-          >
-            Features
-          </Link>
-          <Link 
-            to="/pricing"
-            className="text-gray-600 hover:text-gray-900 font-medium transition-colors"
-            onClick={() => console.log('Pricing link clicked')}
-          >
-            Pricing
-          </Link>
-          <Link 
-            to="/how-it-works"
-            className="text-gray-600 hover:text-gray-900 font-medium transition-colors"
-            onClick={() => console.log('How It Works link clicked')}
-          >
-            How It Works
-          </Link>
-          <Link 
-            to="/about"
-            className="text-gray-600 hover:text-gray-900 font-medium transition-colors"
-            onClick={() => console.log('About link clicked')}
-          >
-            About
-          </Link>
-          <Link 
-            to="/contact"
-            className="text-gray-600 hover:text-gray-900 font-medium transition-colors"
-            onClick={() => console.log('Contact link clicked')}
-          >
-            Contact
-          </Link>
-          <Button 
-            variant="ghost"
-            className="text-gray-600 hover:text-gray-900 font-medium"
-            onClick={() => window.open('https://app.perkpad.io', '_blank')}
-          >
-            Login
-          </Button>
-          <Button 
-            className="btn-premium font-semibold px-8"
-            onClick={() => window.open('https://app.perkpad.io', '_blank', 'noopener,noreferrer')}
-          >
-            Get Started
-          </Button>
-        </div>
-
         {/* Mobile Menu Button */}
         <button
           onClick={() => setIsMenuOpen(!isMenuOpen)}
