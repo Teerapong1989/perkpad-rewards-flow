@@ -46,7 +46,7 @@ const Pricing = () => {
         "40% increase in customer retention"
       ],
       highlight: true,
-      buttonText: "Start Free Trial"
+      buttonText: "Get Started Free"
     },
     {
       plan: "Growth",
@@ -66,7 +66,7 @@ const Pricing = () => {
         "Priority support"
       ],
       highlight: false,
-      buttonText: "Start Free Trial"
+      buttonText: "Get Started Free"
     }
   ];
 

@@ -110,7 +110,7 @@ const PricingPlansSection = () => {
                   variant={plan.highlight ? "default" : "outline"}
                   onClick={handlePlanClick}
                 >
-                  Start Free Trial
+                  Get Started Free
                 </Button>
               </CardContent>
             </Card>

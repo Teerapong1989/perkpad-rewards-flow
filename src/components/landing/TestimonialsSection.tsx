@@ -153,7 +153,7 @@ const TestimonialsSection = () => {
               
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
                 <button className="group bg-white text-blue-600 font-bold px-8 py-4 rounded-2xl hover:bg-blue-50 transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl">
-                  Start Free Trial
+                  Get Started Free
                   <ChevronRight className="inline w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
                 </button>
                 <button className="text-white border-2 border-white/30 px-8 py-4 rounded-2xl hover:bg-white/10 transition-all duration-300 font-semibold">

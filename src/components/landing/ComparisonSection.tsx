@@ -267,7 +267,7 @@ const ComparisonSection = () => {
                 onClick={() => window.open('https://app.perkpad.io', '_blank')}
                 className="bg-white text-brand-primary px-8 py-3 rounded-lg font-semibold hover:bg-gray-50 transition-colors"
               >
-                Start Free Trial
+                Get Started Free
               </button>
             </div>
           </AnimatedSection>

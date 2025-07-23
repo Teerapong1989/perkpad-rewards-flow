@@ -60,8 +60,8 @@ const HeroSection = () => {
                 className="group bg-gradient-to-r from-brand-primary to-brand-secondary hover:from-brand-primary-dark hover:to-brand-secondary text-white text-lg xs:text-xl sm:text-2xl lg:text-3xl px-8 xs:px-10 sm:px-14 lg:px-20 py-5 xs:py-6 sm:py-7 lg:py-8 rounded-2xl min-h-[56px] xs:min-h-[64px] sm:min-h-[72px] lg:min-h-[80px] font-bold shadow-2xl hover:shadow-3xl transform hover:scale-[1.02] transition-all duration-300"
                 onClick={handleStartClick}
               >
-                <span className="hidden sm:inline">Start Free 30-Day Trial</span>
-                <span className="sm:hidden">Start Free Trial</span>
+                <span className="hidden sm:inline">Get Started Free</span>
+                <span className="sm:hidden">Get Started Free</span>
                 <ArrowRight className="ml-3 w-5 h-5 xs:w-6 xs:h-6 sm:w-7 sm:h-7 lg:w-8 lg:h-8 group-hover:translate-x-1 transition-transform duration-300" />
               </Button>
               
