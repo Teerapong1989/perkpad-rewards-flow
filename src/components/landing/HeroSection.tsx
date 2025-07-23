@@ -46,18 +46,11 @@ const HeroSection = () => {
             </div>
           </div>
           
-          {/* Enhanced value proposition with urgency */}
+          {/* Professional value proposition */}
           <p className="text-xl xs:text-2xl sm:text-3xl lg:text-4xl text-gray-700 leading-relaxed max-w-5xl mx-auto font-medium">
-            <span className="text-red-600 font-bold">Stop bleeding customers to lost punch cards!</span> The average business loses{" "}
-            <span className="font-bold text-red-600">$2,847/month</span> from incomplete loyalty programs. Our digital solution increases retention by{" "}
-            <span className="font-bold text-brand-primary">40%</span> starting day one.
+            Paper punch cards are costing you customers. Our digital loyalty program increases customer retention by{" "}
+            <span className="font-bold text-brand-primary">40%</span> with simple QR codes your customers actually use.
           </p>
-          
-          {/* Urgency banner */}
-          <div className="inline-flex items-center px-6 py-3 rounded-full bg-gradient-to-r from-red-50 to-orange-50 border-2 border-red-200">
-            <span className="text-red-600 font-bold text-sm sm:text-base">⚡ LIMITED TIME:</span>
-            <span className="text-gray-800 font-medium text-sm sm:text-base ml-2">First 500 businesses get FREE setup (worth $299)</span>
-          </div>
           
           {/* Premium CTA section */}
           <div className="space-y-6 sm:space-y-8">
@@ -82,22 +75,22 @@ const HeroSection = () => {
               </div>
             </div>
             
-            {/* Enhanced guarantees */}
-            <div className="bg-green-50 border-2 border-green-200 rounded-xl p-4 max-w-2xl mx-auto">
+            {/* Professional guarantee */}
+            <div className="bg-blue-50 border border-blue-200 rounded-xl p-4 max-w-2xl mx-auto">
               <div className="text-center space-y-2">
-                <p className="text-green-800 font-bold text-lg">💎 TRIPLE GUARANTEE 💎</p>
-                <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6 text-sm text-green-700 font-medium">
+                <p className="text-blue-800 font-bold">Our Promise to You</p>
+                <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6 text-sm text-blue-700">
                   <div className="flex items-center">
-                    <span className="w-2 h-2 bg-green-500 rounded-full mr-2"></span>
-                    40% retention increase or full refund
+                    <span className="w-2 h-2 bg-blue-500 rounded-full mr-2"></span>
+                    5-minute setup guaranteed
                   </div>
                   <div className="flex items-center">
-                    <span className="w-2 h-2 bg-green-500 rounded-full mr-2"></span>
-                    5-minute setup or we do it free
+                    <span className="w-2 h-2 bg-blue-500 rounded-full mr-2"></span>
+                    Free plan available forever
                   </div>
                   <div className="flex items-center">
-                    <span className="w-2 h-2 bg-green-500 rounded-full mr-2"></span>
-                    60-day money-back guarantee
+                    <span className="w-2 h-2 bg-blue-500 rounded-full mr-2"></span>
+                    30-day money-back guarantee
                   </div>
                 </div>
               </div>
