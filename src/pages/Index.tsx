@@ -1,6 +1,7 @@
 
 import Navigation from "@/components/landing/Navigation";
 import HeroSection from "@/components/landing/HeroSection";
+import ValueStackSection from "@/components/landing/ValueStackSection";
 import KeywordOptimizedSection from "@/components/landing/KeywordOptimizedSection";
 import WhyNowSection from "@/components/landing/WhyNowSection";
 import TheSolutionSection from "@/components/landing/TheSolutionSection";
@@ -12,6 +13,7 @@ const Index = () => {
     <div className="min-h-screen bg-white overflow-x-hidden">
       <Navigation />
       <HeroSection />
+      <ValueStackSection />
       <KeywordOptimizedSection />
       <WhyNowSection />
       <TheSolutionSection />
