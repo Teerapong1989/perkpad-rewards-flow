@@ -84,19 +84,14 @@ export const generateServiceSchema = (services: Array<{
 
 // Performance optimization utilities
 export const preloadCriticalResources = () => {
-  // Preload critical images
-  const criticalImages = [
-    '/lovable-uploads/602ca246-112d-477a-9195-34755714f7df.png',
-    '/lovable-uploads/602ca246-112d-477a-9195-34755714f7df.png'
-  ];
-
-  criticalImages.forEach(src => {
-    const link = document.createElement('link');
-    link.rel = 'preload';
-    link.as = 'image';
-    link.href = src;
-    document.head.appendChild(link);
-  });
+  // Preload hero image used in HeroSection
+  const heroImage = '/lovable-uploads/e649c0e6-4d66-4e06-9651-2331653d69bb.png';
+  
+  const link = document.createElement('link');
+  link.rel = 'preload';
+  link.as = 'image';
+  link.href = heroImage;
+  document.head.appendChild(link);
 };
 
 // Core Web Vitals optimization

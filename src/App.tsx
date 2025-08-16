@@ -13,6 +13,8 @@ import Dashboard from "./pages/Dashboard";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsOfService from "./pages/TermsOfService";
 import SMSHelp from "./pages/SMSHelp";
+import Search from "./pages/Search";
+import SolutionsCoffeeShops from "./pages/SolutionsCoffeeShops";
 import NotFound from "./pages/NotFound";
 import { usePageTracking } from "./hooks/usePageTracking";
 import { ChatWidget } from "./components/support/ChatWidget";
@@ -43,6 +45,8 @@ const AppContent = () => {
       <Route path="/privacy-policy" element={<PrivacyPolicy />} />
       <Route path="/terms-of-service" element={<TermsOfService />} />
       <Route path="/sms-help" element={<SMSHelp />} />
+      <Route path="/search" element={<Search />} />
+      <Route path="/solutions/coffee-shops" element={<SolutionsCoffeeShops />} />
       {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
       <Route path="*" element={<NotFound />} />
     </Routes>

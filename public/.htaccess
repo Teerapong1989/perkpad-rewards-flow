@@ -30,7 +30,19 @@ Header always set X-XSS-Protection "1; mode=block"
 Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
 Header always set Referrer-Policy "strict-origin-when-cross-origin"
 
-# Force HTTPS redirect
+# Canonical redirects and HTTPS enforcement
 RewriteEngine On
+
+# Force HTTPS
 RewriteCond %{HTTPS} off
 RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# Force canonical domain to perkpad.io (if applicable)
+RewriteCond %{HTTP_HOST} !^perkpad\.io$ [NC]
+RewriteCond %{HTTP_HOST} !^localhost [NC]
+RewriteRule ^(.*)$ https://perkpad.io/$1 [L,R=301]
+
+# Remove trailing slash (except for root)
+RewriteCond %{REQUEST_URI} !^/$
+RewriteCond %{REQUEST_URI} /$
+RewriteRule ^(.*)/$  /$1 [L,R=301]

@@ -62,8 +62,6 @@
     <link rel="preload" href="/lovable-uploads/5fcde6e5-0717-431f-a7f7-fbf5c64a7cf8.png" as="image" type="image/png">
     <link rel="prefetch" href="/lovable-uploads/bf240d2c-3e17-40d5-bc56-7afbde00c649.png">
     
-    <!-- Critical resource hints -->
-    <link rel="preload" href="/src/main.tsx" as="script" crossorigin>
 
     <!-- Enhanced Structured Data -->
     <script type="application/ld+json">
@@ -114,22 +112,29 @@
           "contactType": "customer service",
           "email": "support@perkpad.io"
         }
-      },
-      "review": [
-        {
-          "@type": "Review",
-          "author": {
-            "@type": "Organization",
-            "name": "Small Business Owner"
-          },
-          "reviewRating": {
-            "@type": "Rating",
-            "ratingValue": "5",
-            "bestRating": "5"
-          },
-          "reviewBody": "Perkpad transformed our customer retention. We've seen 40% more repeat customers since switching from paper punch cards."
-        }
-      ]
+      }
+    }
+    </script>
+
+    <!-- Organization Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Perkpad",
+      "url": "https://perkpad.io",
+      "logo": "https://perkpad.io/logo.png",
+      "description": "Digital loyalty platform helping small businesses create engaging QR-based reward programs.",
+      "sameAs": [
+        "https://www.facebook.com/perkpad",
+        "https://twitter.com/perkpad", 
+        "https://www.linkedin.com/company/perkpad"
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "customer service",
+        "email": "support@perkpad.io"
+      }
     }
     </script>
 
@@ -175,28 +180,6 @@
     }
     </script>
 
-    <!-- Organization Schema -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "Perkpad",
-      "alternateName": "Perkpad Digital Loyalty",
-      "url": "https://perkpad.io",
-      "logo": "https://perkpad.io/logo.png",
-      "description": "Digital loyalty program platform helping small businesses retain customers with QR code punch cards.",
-      "foundingDate": "2024",
-      "numberOfEmployees": "2-10",
-      "slogan": "Transform paper punch cards into digital rewards that customers actually complete",
-      "knowsAbout": [
-        "Digital Loyalty Programs",
-        "QR Code Technology", 
-        "Small Business Marketing",
-        "Customer Retention",
-        "Mobile-First Design"
-      ]
-    }
-    </script>
 
     <!-- WebSite Schema with SearchAction -->
     <script type="application/ld+json">
