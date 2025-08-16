@@ -1,12 +1,21 @@
 
 // Performance monitoring utilities
 export const measurePerformance = () => {
-  // Measure Largest Contentful Paint (LCP)
+// Measure Largest Contentful Paint (LCP)
   if ('PerformanceObserver' in window) {
     const observer = new PerformanceObserver((list) => {
       for (const entry of list.getEntries()) {
         if (entry.entryType === 'largest-contentful-paint') {
           console.log('LCP:', entry.startTime);
+          
+          // Send LCP to analytics
+          if (typeof window !== 'undefined' && window.gtag) {
+            window.gtag('event', 'web_vitals', {
+              name: 'LCP',
+              value: Math.round(entry.startTime),
+              event_category: 'Performance'
+            });
+          }
         }
       }
     });

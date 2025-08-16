@@ -15,6 +15,7 @@ import TermsOfService from "./pages/TermsOfService";
 import SMSHelp from "./pages/SMSHelp";
 import NotFound from "./pages/NotFound";
 import { usePageTracking } from "./hooks/usePageTracking";
+import { ChatWidget } from "./components/support/ChatWidget";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -55,6 +56,7 @@ const App = () => (
       <Sonner />
       <BrowserRouter>
         <AppContent />
+        <ChatWidget />
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>

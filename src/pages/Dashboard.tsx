@@ -5,8 +5,16 @@ import { Users, Calendar, Gift, BarChart3, Settings, QrCode, MessageSquare, Sun,
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { useEffect } from "react";
+import { updateMetaTags } from "@/utils/seo";
 
 const Dashboard = () => {
+  useEffect(() => {
+    updateMetaTags({
+      robots: 'noindex, nofollow'
+    });
+  }, []);
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-brand-light via-white to-brand-light/50">
       {/* Header */}
