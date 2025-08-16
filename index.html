@@ -198,6 +198,32 @@
     }
     </script>
 
+    <!-- WebSite Schema with SearchAction -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Perkpad",
+      "alternateName": "Perkpad Digital Loyalty Platform",
+      "url": "https://perkpad.io",
+      "description": "Digital punch card app that replaces lost paper cards with QR codes. Perfect loyalty program for cafes, restaurants & coffee shops.",
+      "inLanguage": "en-US",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": "https://perkpad.io/search?q={search_term_string}"
+        },
+        "query-input": "required name=search_term_string"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Perkpad",
+        "url": "https://perkpad.io"
+      }
+    }
+    </script>
+
     <!-- PWA Manifest -->
     <link rel="manifest" href="/manifest.json">
     
@@ -206,38 +232,52 @@
     <meta name="msapplication-TileColor" content="#0d9488">
 
     <!-- Analytics - Google Analytics 4 -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'GA_MEASUREMENT_ID', {
-        page_title: document.title,
-        page_location: window.location.href,
-        anonymize_ip: true
-      });
+      // Only load analytics if IDs are provided
+      if (import.meta.env.VITE_GA_MEASUREMENT_ID && import.meta.env.VITE_GA_MEASUREMENT_ID !== 'your-ga-id-here') {
+        const script = document.createElement('script');
+        script.async = true;
+        script.src = `https://www.googletagmanager.com/gtag/js?id=${import.meta.env.VITE_GA_MEASUREMENT_ID}`;
+        document.head.appendChild(script);
+        
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', import.meta.env.VITE_GA_MEASUREMENT_ID, {
+          page_title: document.title,
+          page_location: window.location.href,
+          anonymize_ip: true
+        });
+        window.gtag = gtag;
+      }
     </script>
 
     <!-- Facebook Pixel -->
     <script>
-      !function(f,b,e,v,n,t,s)
-      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-      n.queue=[];t=b.createElement(e);t.async=!0;
-      t.src=v;s=b.getElementsByTagName(e)[0];
-      s.parentNode.insertBefore(t,s)}(window,document,'script',
-      'https://connect.facebook.net/en_US/fbevents.js');
-      fbq('init', 'FB_PIXEL_ID');
-      fbq('track', 'PageView');
+      // Only load Facebook Pixel if ID is provided
+      if (import.meta.env.VITE_FB_PIXEL_ID && import.meta.env.VITE_FB_PIXEL_ID !== 'your-fb-pixel-id-here') {
+        !function(f,b,e,v,n,t,s)
+        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window,document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', import.meta.env.VITE_FB_PIXEL_ID);
+        fbq('track', 'PageView');
+      }
     </script>
   </head>
 
   <body>
     <!-- Facebook Pixel noscript fallback - moved to body -->
     <noscript>
-      <img height="1" width="1" style="display:none" 
-           src="https://www.facebook.com/tr?id=FB_PIXEL_ID&ev=PageView&noscript=1"/>
+      <script>
+        if (import.meta.env.VITE_FB_PIXEL_ID && import.meta.env.VITE_FB_PIXEL_ID !== 'your-fb-pixel-id-here') {
+          document.write(`<img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=${import.meta.env.VITE_FB_PIXEL_ID}&ev=PageView&noscript=1"/>`);
+        }
+      </script>
     </noscript>
     
     <div id="root"></div>

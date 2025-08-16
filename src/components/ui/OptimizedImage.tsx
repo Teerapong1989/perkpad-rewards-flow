@@ -52,6 +52,16 @@ const OptimizedImage = memo(({
 
   const handleLoad = () => {
     setIsLoaded(true);
+    
+    // Track LCP for critical images
+    if (priority && typeof window !== 'undefined' && window.gtag) {
+      const loadTime = performance.now();
+      window.gtag('event', 'image_loaded', {
+        event_category: 'Performance',
+        value: Math.round(loadTime),
+        custom_parameter_1: 'critical_image'
+      });
+    }
   };
 
   const handleError = () => {
