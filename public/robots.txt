@@ -1,8 +1,8 @@
 
 User-agent: *
 Allow: /
+Allow: /manifest.json
 Disallow: /admin/
-Disallow: /*.json$
 
 # Sitemap
 Sitemap: https://perkpad.io/sitemap.xml

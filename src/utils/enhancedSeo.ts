@@ -134,7 +134,12 @@ export const trackWebVitals = () => {
 export const generateSitemapData = () => {
   const pages = [
     { url: '/', priority: 1.0, changefreq: 'weekly' },
+    { url: '/features', priority: 0.9, changefreq: 'monthly' },
+    { url: '/pricing', priority: 0.9, changefreq: 'monthly' },
     { url: '/how-it-works', priority: 0.8, changefreq: 'monthly' },
+    { url: '/about', priority: 0.7, changefreq: 'monthly' },
+    { url: '/contact', priority: 0.6, changefreq: 'monthly' },
+    { url: '/sms-help', priority: 0.5, changefreq: 'monthly' },
     { url: '/privacy-policy', priority: 0.3, changefreq: 'yearly' },
     { url: '/terms-of-service', priority: 0.3, changefreq: 'yearly' }
   ];
