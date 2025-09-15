@@ -19,4 +19,21 @@ export default defineConfig(({ mode }) => ({
       "@": path.resolve(__dirname, "./src"),
     },
   },
+  build: {
+    rollupOptions: {
+      output: {
+        // Optimize chunk splitting to reduce critical request chains
+        manualChunks: {
+          vendor: ['react', 'react-dom'],
+          router: ['react-router-dom'],
+        }
+      }
+    },
+    // Enable CSS code splitting
+    cssCodeSplit: true,
+    // Generate preload hints automatically
+    modulePreload: {
+      polyfill: true
+    }
+  }
 }));

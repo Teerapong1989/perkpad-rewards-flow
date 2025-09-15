@@ -54,9 +54,12 @@
     <link rel="dns-prefetch" href="https://www.google-analytics.com">
     <link rel="dns-prefetch" href="https://connect.facebook.net">
     
-    <!-- Critical CSS Preload -->
+    <!-- Critical Resource Preloading -->
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"></noscript>
+    
+    <!-- Module preload for main entry point -->
+    <link rel="modulepreload" href="/src/main.tsx">
     
     <!-- Preload key images -->
     <link rel="preload" href="/lovable-uploads/5fcde6e5-0717-431f-a7f7-fbf5c64a7cf8.png" as="image" type="image/png">
