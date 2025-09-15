@@ -41,13 +41,20 @@ export const optimizeImages = () => {
     const imageObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          const img = entry.target as HTMLImageElement;
-          img.src = img.dataset.src || '';
-          img.classList.remove('opacity-0');
-          img.classList.add('opacity-100');
-          imageObserver.unobserve(img);
+          // Use requestAnimationFrame to prevent forced reflow
+          requestAnimationFrame(() => {
+            const img = entry.target as HTMLImageElement;
+            img.src = img.dataset.src || '';
+            // Use CSS transition instead of direct class manipulation
+            img.style.opacity = '1';
+            img.style.transition = 'opacity 0.3s ease-in-out';
+          });
+          imageObserver.unobserve(entry.target);
         }
       });
+    }, {
+      // Add rootMargin to trigger loading before element is visible
+      rootMargin: '50px'
     });
 
     images.forEach(img => imageObserver.observe(img));

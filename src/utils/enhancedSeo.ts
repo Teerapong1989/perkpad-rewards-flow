@@ -103,14 +103,19 @@ export const optimizePageLoading = () => {
     const imageObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          const img = entry.target as HTMLImageElement;
-          if (img.dataset.lazy) {
-            img.src = img.dataset.lazy;
-            img.removeAttribute('data-lazy');
-            imageObserver.unobserve(img);
-          }
+          // Batch DOM updates with requestAnimationFrame
+          requestAnimationFrame(() => {
+            const img = entry.target as HTMLImageElement;
+            if (img.dataset.lazy) {
+              img.src = img.dataset.lazy;
+              img.removeAttribute('data-lazy');
+            }
+          });
+          imageObserver.unobserve(entry.target);
         }
       });
+    }, {
+      rootMargin: '50px'
     });
 
     lazyImages.forEach(img => imageObserver.observe(img));
