@@ -2,13 +2,18 @@
 import { createRoot } from 'react-dom/client'
 import App from './App.tsx'
 import './index.css'
-import { measurePerformance, preloadCriticalResources, inlineCriticalCSS } from './utils/performance'
 import ErrorBoundary from './utils/errorBoundary'
 
-// Initialize performance optimizations
-inlineCriticalCSS();
-preloadCriticalResources();
-measurePerformance();
+// Lazy load performance utilities to reduce initial bundle size
+const initializePerformanceOptimizations = async () => {
+  const { measurePerformance, preloadCriticalResources, inlineCriticalCSS } = await import('./utils/performance');
+  inlineCriticalCSS();
+  preloadCriticalResources();
+  measurePerformance();
+};
+
+// Initialize performance optimizations after initial render
+requestIdleCallback ? requestIdleCallback(initializePerformanceOptimizations) : setTimeout(initializePerformanceOptimizations, 0);
 
 // Service Worker registration for caching
 if ('serviceWorker' in navigator && import.meta.env.PROD) {
