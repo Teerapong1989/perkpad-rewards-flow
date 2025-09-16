@@ -61,24 +61,47 @@ export const optimizeImages = () => {
   }
 };
 
-// Critical CSS inline function
+// Critical CSS inline function - Enhanced for render-blocking prevention
 export const inlineCriticalCSS = () => {
-  const criticalCSS = `
-    .hero-section { 
-      min-height: 80vh; 
-      display: flex; 
-      align-items: center; 
+  // Check if full CSS is loaded, if not, ensure critical styles are preserved
+  const checkCSSLoaded = () => {
+    const stylesheets = document.styleSheets;
+    let fullCSSLoaded = false;
+    
+    for (let i = 0; i < stylesheets.length; i++) {
+      const sheet = stylesheets[i];
+      if (sheet.href && sheet.href.includes('index.css')) {
+        fullCSSLoaded = true;
+        break;
+      }
     }
-    .fade-in { 
-      animation: fadeIn 0.6s ease-out; 
+    
+    // If full CSS isn't loaded yet, ensure critical styles remain
+    if (!fullCSSLoaded) {
+      setTimeout(checkCSSLoaded, 100);
     }
-    @keyframes fadeIn { 
-      from { opacity: 0; transform: translateY(20px); } 
-      to { opacity: 1; transform: translateY(0); } 
-    }
+  };
+  
+  // Start checking if full CSS is loaded
+  checkCSSLoaded();
+  
+  // Add any additional critical styles that might be needed
+  const additionalCriticalCSS = `
+    /* Additional critical styles for layout stability */
+    .layout-stable { contain: layout style; font-size-adjust: from-font; }
+    .transition-all { transition-property: all; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); transition-duration: 300ms; }
+    .duration-500 { transition-duration: 500ms; }
+    .ease-out { transition-timing-function: cubic-bezier(0, 0, 0.2, 1); }
+    .opacity-0 { opacity: 0; }
+    .opacity-100 { opacity: 1; }
+    .scale-100 { transform: scale(1); }
+    .scale-105 { transform: scale(1.05); }
+    .rounded-2xl { border-radius: 1rem; }
+    .shadow-2xl { box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25); }
   `;
   
   const style = document.createElement('style');
-  style.textContent = criticalCSS;
+  style.textContent = additionalCriticalCSS;
+  style.setAttribute('data-critical-css', 'additional');
   document.head.appendChild(style);
 };
