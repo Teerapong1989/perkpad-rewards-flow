@@ -82,15 +82,8 @@ export default defineConfig(({ mode }) => ({
     modulePreload: {
       polyfill: true
     },
-    // Minify for better compression
+    // Use esbuild for faster minification (default, no extra dependency needed)
     target: 'es2020',
-    minify: 'terser',
-    terserOptions: {
-      compress: {
-        drop_console: true,
-        drop_debugger: true,
-        pure_funcs: ['console.log', 'console.info', 'console.debug'],
-      },
-    },
+    minify: 'esbuild',
   }
 }));
