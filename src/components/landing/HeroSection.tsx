@@ -57,7 +57,7 @@ const HeroSection = () => {
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6">
               <Button 
                 size="xl" 
-                className="group bg-gradient-to-r from-brand-primary to-brand-secondary hover:from-brand-primary-dark hover:to-brand-secondary text-white text-lg xs:text-xl sm:text-2xl lg:text-3xl px-8 xs:px-10 sm:px-14 lg:px-20 py-5 xs:py-6 sm:py-7 lg:py-8 rounded-2xl min-h-[56px] xs:min-h-[64px] sm:min-h-[72px] lg:min-h-[80px] font-bold shadow-2xl hover:shadow-3xl transform hover:scale-[1.02] transition-all duration-300"
+                className="group layout-stable bg-gradient-to-r from-brand-primary to-brand-secondary hover:from-brand-primary-dark hover:to-brand-secondary text-white text-lg xs:text-xl sm:text-2xl lg:text-3xl px-8 xs:px-10 sm:px-14 lg:px-20 py-5 xs:py-6 sm:py-7 lg:py-8 rounded-2xl min-h-[56px] xs:min-h-[64px] sm:min-h-[72px] lg:min-h-[80px] font-bold shadow-2xl hover:shadow-3xl transform hover:scale-[1.02] transition-all duration-300"
                 onClick={handleStartClick}
               >
                 <span className="hidden sm:inline">Get Started Free</span>
@@ -101,8 +101,8 @@ const HeroSection = () => {
         {/* Premium Mobile App Showcase */}
         <div className="relative max-w-lg mx-auto px-2 sm:px-4">
           {/* Enhanced background effects */}
-          <div className="absolute inset-0 bg-gradient-to-r from-brand-primary/15 via-brand-secondary/15 to-brand-accent/15 rounded-full blur-3xl scale-150 opacity-40 animate-pulse"></div>
-          <div className="absolute -inset-8 bg-gradient-to-r from-transparent via-white/50 to-transparent rounded-full blur-xl opacity-60"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-brand-primary/15 via-brand-secondary/15 to-brand-accent/15 rounded-full blur-3xl scale-150 opacity-40 animate-pulse layout-stable"></div>
+          <div className="absolute -inset-8 bg-gradient-to-r from-transparent via-white/50 to-transparent rounded-full blur-xl opacity-60 layout-stable"></div>
           
           {/* Premium device frame */}
           <div className="relative z-10 transform hover:scale-[1.03] hover:rotate-1 transition-all duration-700 hover:drop-shadow-2xl group">

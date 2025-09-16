@@ -12,7 +12,19 @@ All colors MUST be HSL.
     font-family: 'Inter-fallback';
     size-adjust: 100.06%;
     ascent-override: 90%;
+    descent-override: 22%;
+    line-gap-override: 0%;
     src: local('Arial');
+  }
+
+  /* Additional font fallback for precise Inter matching */
+  @font-face {
+    font-family: 'Inter-system-fallback';
+    size-adjust: 100%;
+    ascent-override: 89.5%;
+    descent-override: 22.3%;
+    line-gap-override: 0%;
+    src: local('system-ui'), local('-apple-system'), local('BlinkMacSystemFont');
   }
 
   :root {
@@ -172,8 +184,10 @@ All colors MUST be HSL.
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
-    /* Use fallback font initially to prevent layout shifts */
-    font-family: Inter, 'Inter-fallback', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    /* Use precise fallback fonts initially to prevent layout shifts */
+    font-family: Inter, 'Inter-system-fallback', 'Inter-fallback', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    /* Prevent layout shifts during font swapping */
+    font-size-adjust: from-font;
   }
 }
 
@@ -230,7 +244,7 @@ All colors MUST be HSL.
     box-shadow: var(--focus-ring);
   }
   
-  /* Premium Button Effects - Enhanced */
+  /* Premium Button Effects - Enhanced with layout shift prevention */
   .btn-premium {
     @apply relative overflow-hidden transition-all duration-300;
     background: linear-gradient(135deg, hsl(var(--brand-primary)), hsl(var(--brand-secondary)), hsl(var(--brand-accent)));
@@ -239,6 +253,9 @@ All colors MUST be HSL.
                 0 2px 10px hsla(var(--brand-secondary) / 0.2);
     transform: translateY(0);
     position: relative;
+    /* Prevent layout shifts in buttons */
+    contain: layout style;
+    font-size-adjust: from-font;
   }
   
   .btn-premium::before {
@@ -375,13 +392,20 @@ All colors MUST be HSL.
     }
   }
   
-  /* Micro-interactions */
+  /* Micro-interactions with layout containment */
   .micro-bounce {
     @apply transition-transform duration-150 ease-out;
+    contain: layout;
   }
-  
+
   .micro-bounce:active {
     @apply scale-95;
+  }
+
+  /* Layout shift prevention for interactive elements */
+  .layout-stable {
+    contain: layout style;
+    font-size-adjust: from-font;
   }
   
   .ripple {
