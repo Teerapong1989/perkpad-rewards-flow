@@ -17,40 +17,55 @@ const AppLoader = () => (
   </div>
 );
 
-// Lazy load performance utilities to reduce initial bundle size
-const initializePerformanceOptimizations = async () => {
-  try {
-    const { measurePerformance, preloadCriticalResources, inlineCriticalCSS } = await import('./utils/performance');
-    inlineCriticalCSS();
-    preloadCriticalResources();
-    measurePerformance();
-  } catch (error) {
-    console.warn('Performance optimizations failed to load:', error);
-  }
-};
-
-// Initialize performance optimizations after initial render
-const initPerf = () => {
-  if (typeof requestIdleCallback !== 'undefined') {
-    requestIdleCallback(initializePerformanceOptimizations);
-  } else {
-    setTimeout(initializePerformanceOptimizations, 100);
-  }
-};
-
-// Service Worker registration for caching
-if ('serviceWorker' in navigator && import.meta.env.PROD) {
-  window.addEventListener('load', () => {
-    navigator.serviceWorker.register('/sw.js')
-      .then((registration) => {
-        console.log('SW registered: ', registration);
-      })
-      .catch((registrationError) => {
-        console.log('SW registration failed: ', registrationError);
-      });
+// Defer all non-critical initialization to improve TTI
+const deferredInitialization = async () => {
+  // Use longer delays and requestIdleCallback to avoid blocking main thread
+  return new Promise(resolve => {
+    const initTasks = async () => {
+      try {
+        // Defer performance optimizations even further
+        if ('requestIdleCallback' in window) {
+          requestIdleCallback(async () => {
+            const { measurePerformance, preloadCriticalResources, inlineCriticalCSS } = await import('./utils/performance');
+            inlineCriticalCSS();
+            preloadCriticalResources();
+            measurePerformance();
+          }, { timeout: 5000 });
+        } else {
+          setTimeout(async () => {
+            const { measurePerformance, preloadCriticalResources, inlineCriticalCSS } = await import('./utils/performance');
+            inlineCriticalCSS();
+            preloadCriticalResources();
+            measurePerformance();
+          }, 2000);
+        }
+        
+        // Defer service worker registration
+        if ('serviceWorker' in navigator && import.meta.env.PROD) {
+          setTimeout(() => {
+            navigator.serviceWorker.register('/sw.js')
+              .then((registration) => {
+                console.log('SW registered: ', registration);
+              })
+              .catch((registrationError) => {
+                console.log('SW registration failed: ', registrationError);
+              });
+          }, 3000);
+        }
+        
+        resolve(true);
+      } catch (error) {
+        console.warn('Deferred initialization failed:', error);
+        resolve(false);
+      }
+    };
+    
+    // Wait until after initial render is complete
+    setTimeout(initTasks, 100);
   });
-}
+};
 
+// Render immediately for fastest TTI
 createRoot(document.getElementById("root")!).render(
   <ErrorBoundary>
     <Suspense fallback={<AppLoader />}>
@@ -59,5 +74,5 @@ createRoot(document.getElementById("root")!).render(
   </ErrorBoundary>
 );
 
-// Initialize after render
-initPerf();
+// Initialize non-critical features after render
+deferredInitialization();

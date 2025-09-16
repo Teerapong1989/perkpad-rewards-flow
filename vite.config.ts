@@ -22,57 +22,82 @@ export default defineConfig(({ mode }) => ({
   build: {
     rollupOptions: {
       output: {
-        // More aggressive chunk splitting to reduce critical request chains
+        // Enable smaller initial chunks
+        experimentalMinChunkSize: 1000,
+        // Optimize chunk loading
+        chunkFileNames: 'assets/[name]-[hash].js',
+        // More aggressive chunk splitting for better TTI
         manualChunks: (id) => {
-          // Vendor chunks
-          if (id.includes('react') && !id.includes('react-router')) {
-            return 'react-vendor';
+          // Critical path - must load immediately
+          if (id.includes('src/main.tsx') || id.includes('src/App.tsx') || id.includes('src/pages/Index.tsx')) {
+            return 'critical';
           }
+          
+          // React core - high priority
+          if (id.includes('react') && !id.includes('react-router') && !id.includes('react-query')) {
+            return 'react-core';
+          }
+          
+          // Router - separate chunk as it's navigation critical
           if (id.includes('react-router')) {
             return 'router';
           }
           
-          // Icon library - split into separate chunk
+          // Query client - defer as it's not needed for initial render
+          if (id.includes('@tanstack/react-query')) {
+            return 'query-client';
+          }
+          
+          // UI library chunks - split by usage frequency
+          if (id.includes('@radix-ui/react-toast')) {
+            return 'toast-ui';
+          }
+          if (id.includes('@radix-ui/react-tooltip')) {
+            return 'tooltip-ui';
+          }
+          if (id.includes('@radix-ui/react-dialog') || id.includes('@radix-ui/react-sheet')) {
+            return 'modal-ui';
+          }
+          if (id.includes('@radix-ui')) {
+            return 'radix-ui';
+          }
+          
+          // Icon library - defer as it's not critical for TTI
           if (id.includes('lucide-react')) {
             return 'icons';
           }
           
-          // Radix UI components - split by usage
-          if (id.includes('@radix-ui/react-toast') || id.includes('@radix-ui/react-tooltip')) {
-            return 'radix-core';
-          }
-          if (id.includes('@radix-ui/react-dialog') || id.includes('@radix-ui/react-sheet')) {
-            return 'radix-overlay';
-          }
-          if (id.includes('@radix-ui/react-dropdown') || id.includes('@radix-ui/react-select')) {
-            return 'radix-form';
-          }
-          if (id.includes('@radix-ui')) {
-            return 'radix-misc';
-          }
-          
-          // Analytics and utilities
-          if (id.includes('@tanstack/react-query')) {
-            return 'query';
-          }
+          // Utility libraries
           if (id.includes('clsx') || id.includes('tailwind-merge') || id.includes('class-variance-authority')) {
             return 'utils';
           }
           
-          // Landing page components - separate chunk
-          if (id.includes('components/landing/') && !id.includes('HeroSection') && !id.includes('Navigation')) {
-            return 'landing-sections';
+          // Landing page components - can be loaded after initial render
+          if (id.includes('components/landing/') && !id.includes('Navigation')) {
+            return 'landing-components';
           }
           
-          // Chart libraries if used
+          // Support components - defer significantly
+          if (id.includes('components/support/')) {
+            return 'support-widgets';
+          }
+          
+          // Analytics and tracking - defer as non-critical
+          if (id.includes('analytics') || id.includes('tracking')) {
+            return 'analytics';
+          }
+          
+          // Charts and heavy libraries
           if (id.includes('recharts')) {
             return 'charts';
           }
           
-          // Large vendor libraries
-          if (id.includes('node_modules') && id.includes('react') === false) {
-            return 'vendor-misc';
+          // Everything else from node_modules
+          if (id.includes('node_modules')) {
+            return 'vendor';
           }
+          
+          return 'app';
         }
       }
     },
@@ -82,8 +107,8 @@ export default defineConfig(({ mode }) => ({
     modulePreload: {
       polyfill: true
     },
-    // Use esbuild for faster minification (default, no extra dependency needed)
+    // Use esbuild for faster build times
     target: 'es2020',
-    minify: 'esbuild',
+    minify: 'esbuild'
   }
 }));
