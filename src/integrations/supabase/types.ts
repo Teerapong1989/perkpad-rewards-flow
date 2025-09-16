@@ -3062,6 +3062,16 @@ export type Database = {
           total_customers: number
         }[]
       }
+      get_public_business_discovery: {
+        Args: Record<PropertyKey, never>
+        Returns: {
+          business_type: Database["public"]["Enums"]["business_type_enum"]
+          description: string
+          id: string
+          logo_url: string
+          name: string
+        }[]
+      }
       get_public_business_locations: {
         Args: Record<PropertyKey, never>
         Returns: {
