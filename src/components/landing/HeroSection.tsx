@@ -72,6 +72,11 @@ const HeroSection = () => {
                 size="xl" 
                 className="group layout-stable bg-gradient-to-r from-brand-primary to-brand-secondary hover:from-brand-primary-dark hover:to-brand-secondary text-white text-lg xs:text-xl sm:text-2xl lg:text-3xl px-8 xs:px-10 sm:px-14 lg:px-20 py-5 xs:py-6 sm:py-7 lg:py-8 rounded-2xl min-h-[56px] xs:min-h-[64px] sm:min-h-[72px] lg:min-h-[80px] font-bold shadow-2xl hover:shadow-3xl transform hover:scale-[1.02] transition-all duration-300"
                 onClick={handleStartClick}
+                style={{ 
+                  contain: 'layout style',
+                  fontSizeAdjust: 0.545,
+                  fontFamily: 'Inter, Inter-system-fallback, Inter-fallback, system-ui, sans-serif'
+                }}
               >
                 <span className="hidden sm:inline">Get Started Free</span>
                 <span className="sm:hidden">Get Started Free</span>
