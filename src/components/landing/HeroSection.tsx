@@ -47,9 +47,22 @@ const HeroSection = () => {
           </div>
           
           {/* Professional value proposition */}
-          <p className="text-xl xs:text-2xl sm:text-3xl lg:text-4xl text-gray-700 leading-relaxed max-w-5xl mx-auto font-medium">
+          <p 
+            className="text-xl xs:text-2xl sm:text-3xl lg:text-4xl text-gray-700 leading-relaxed max-w-5xl mx-auto font-medium lcp-text"
+            style={{ 
+              fontFamily: 'Inter, Inter-system-fallback, system-ui, sans-serif',
+              contain: 'layout style',
+              willChange: 'auto'
+            }}
+          >
             Paper punch cards are costing you customers. Our digital loyalty program increases customer retention by{" "}
-            <span className="font-bold text-brand-primary">40%</span> with simple QR codes your customers actually use.
+            <span 
+              className="font-bold text-brand-primary"
+              style={{ fontFamily: 'Inter, Inter-system-fallback, system-ui, sans-serif' }}
+            >
+              40%
+            </span> 
+            {" "}with simple QR codes your customers actually use.
           </p>
           
           {/* Premium CTA section */}

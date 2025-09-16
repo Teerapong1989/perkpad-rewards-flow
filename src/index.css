@@ -7,7 +7,7 @@ All colors MUST be HSL.
 */
 
 @layer base {
-  /* Font optimization to prevent layout shifts */
+  /* Font optimization to prevent layout shifts and improve LCP */
   @font-face {
     font-family: 'Inter-fallback';
     size-adjust: 100.06%;
@@ -15,6 +15,7 @@ All colors MUST be HSL.
     descent-override: 22%;
     line-gap-override: 0%;
     src: local('Arial');
+    font-display: swap;
   }
 
   /* Additional font fallback for precise Inter matching */
@@ -25,6 +26,14 @@ All colors MUST be HSL.
     descent-override: 22.3%;
     line-gap-override: 0%;
     src: local('system-ui'), local('-apple-system'), local('BlinkMacSystemFont');
+    font-display: swap;
+  }
+
+  /* Critical LCP text optimization */
+  .lcp-text {
+    font-display: swap;
+    text-rendering: optimizeSpeed;
+    contain: layout style;
   }
 
   :root {
