@@ -3070,8 +3070,6 @@ export type Database = {
           business_logo_url: string
           business_name: string
           id: string
-          latitude: number
-          longitude: number
           name: string
         }[]
       }
