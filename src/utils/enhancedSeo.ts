@@ -84,10 +84,18 @@ export const generateServiceSchema = (services: Array<{
 
 // Performance optimization utilities
 export const preloadCriticalResources = () => {
-  // Enhanced preloading for LCP optimization
-  const heroImage = '/lovable-uploads/e649c0e6-4d66-4e06-9651-2331653d69bb';
+  // Enhanced preloading for LCP optimization - prioritize WebP
+  const heroImageBase = '/lovable-uploads/e649c0e6-4d66-4e06-9651-2331653d69bb';
   
-  // Aggressive preloading with highest priority
+  // Check WebP support and preload appropriate format
+  const supportsWebP = (() => {
+    const canvas = document.createElement('canvas');
+    canvas.width = 1;
+    canvas.height = 1;
+    return canvas.toDataURL('image/webp').indexOf('data:image/webp') === 0;
+  })();
+  
+  // Aggressive preloading with highest priority for optimal format
   const createHighPriorityPreload = (url: string, type: string) => {
     const link = document.createElement('link');
     link.rel = 'preload';
@@ -98,13 +106,14 @@ export const preloadCriticalResources = () => {
     return link;
   };
   
-  // Try WebP first (most optimal)
-  const webpLink = createHighPriorityPreload(`${heroImage}.webp`, 'image/webp');
-  document.head.appendChild(webpLink);
-  
-  // PNG fallback
-  const pngLink = createHighPriorityPreload(`${heroImage}.png`, 'image/png');
-  document.head.appendChild(pngLink);
+  // Preload optimal format based on browser support
+  if (supportsWebP) {
+    const webpLink = createHighPriorityPreload(`${heroImageBase}.webp`, 'image/webp');
+    document.head.appendChild(webpLink);
+  } else {
+    const pngLink = createHighPriorityPreload(`${heroImageBase}.png`, 'image/png');
+    document.head.appendChild(pngLink);
+  }
   
   // Prefetch other images at lower priority
   const otherImage = '/lovable-uploads/5fcde6e5-0717-431f-a7f7-fbf5c64a7cf8';

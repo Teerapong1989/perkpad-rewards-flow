@@ -120,9 +120,9 @@ const HeroSection = () => {
                     alt="Perkpad mobile app showing business dashboard with customer metrics in a real café environment"
                     className="w-full h-auto rounded-[2.2rem] shadow-inner"
                     priority={true}
-                    width={400}
-                    height={800}
-                    sizes="(max-width: 640px) 90vw, 400px"
+                    width={352}
+                    height={704}
+                    sizes="(max-width: 640px) 280px, (max-width: 1024px) 352px, 400px"
                   />
                 </div>
               </div>
