@@ -33,27 +33,37 @@ export const preloadCriticalResources = () => {
   document.head.appendChild(fontLink);
 };
 
-// Optimize images with intersection observer
+// Optimize images with intersection observer - prevent forced reflows
 export const optimizeImages = () => {
   const images = document.querySelectorAll('img[data-src]');
   
   if ('IntersectionObserver' in window) {
     const imageObserver = new IntersectionObserver((entries) => {
+      // Batch DOM updates in a single RAF call to prevent forced reflows
+      const imagesToUpdate: Array<{ img: HTMLImageElement; src: string }> = [];
+      
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          // Use requestAnimationFrame to prevent forced reflow
-          requestAnimationFrame(() => {
-            const img = entry.target as HTMLImageElement;
-            img.src = img.dataset.src || '';
-            // Use CSS transition instead of direct class manipulation
-            img.style.opacity = '1';
-            img.style.transition = 'opacity 0.3s ease-in-out';
-          });
+          const img = entry.target as HTMLImageElement;
+          const src = img.dataset.src;
+          if (src) {
+            imagesToUpdate.push({ img, src });
+          }
           imageObserver.unobserve(entry.target);
         }
       });
+      
+      // Batch all DOM updates in a single RAF to prevent layout thrashing
+      if (imagesToUpdate.length > 0) {
+        requestAnimationFrame(() => {
+          imagesToUpdate.forEach(({ img, src }) => {
+            img.src = src;
+            img.style.opacity = '1';
+            img.style.transition = 'opacity 0.3s ease-in-out';
+          });
+        });
+      }
     }, {
-      // Add rootMargin to trigger loading before element is visible
       rootMargin: '50px'
     });
 
