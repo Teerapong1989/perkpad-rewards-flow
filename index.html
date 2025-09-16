@@ -149,6 +149,52 @@
       .via-brand-primary-light { --tw-gradient-to: transparent var(--tw-gradient-to-position); --tw-gradient-stops: var(--tw-gradient-from), hsl(235 75% 97%) var(--tw-gradient-via-position), var(--tw-gradient-to); }
       .to-white { --tw-gradient-to: white var(--tw-gradient-to-position); }
       
+      /* Additional critical hero styles */
+      .bg-gradient-to-r { background-image: linear-gradient(to right, var(--tw-gradient-stops)); }
+      .from-brand-primary { --tw-gradient-from: hsl(235 85% 60%) var(--tw-gradient-from-position); --tw-gradient-to: transparent var(--tw-gradient-to-position); --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to); }
+      .to-brand-secondary { --tw-gradient-to: hsl(270 75% 60%) var(--tw-gradient-to-position); }
+      .hover\\:from-brand-primary-dark:hover { --tw-gradient-from: hsl(235 90% 28%) var(--tw-gradient-from-position); }
+      .hover\\:to-brand-secondary:hover { --tw-gradient-to: hsl(270 75% 60%) var(--tw-gradient-to-position); }
+      
+      /* Critical responsive text sizes */
+      .xs\\:text-2xl { font-size: 1.5rem; line-height: 2rem; }
+      .sm\\:text-2xl { font-size: 1.5rem; line-height: 2rem; }
+      .lg\\:text-3xl { font-size: 1.875rem; line-height: 2.25rem; }
+      
+      /* Critical padding utilities */
+      .xs\\:px-10 { padding-left: 2.5rem; padding-right: 2.5rem; }
+      .sm\\:px-14 { padding-left: 3.5rem; padding-right: 3.5rem; }
+      .lg\\:px-20 { padding-left: 5rem; padding-right: 5rem; }
+      .xs\\:py-6 { padding-top: 1.5rem; padding-bottom: 1.5rem; }
+      .sm\\:py-7 { padding-top: 1.75rem; padding-bottom: 1.75rem; }
+      .lg\\:py-8 { padding-top: 2rem; padding-bottom: 2rem; }
+      
+      /* Critical display utilities */
+      .inline-flex { display: inline-flex; }
+      .gap-2 { gap: 0.5rem; }
+      .whitespace-nowrap { white-space: nowrap; }
+      .rounded-2xl { border-radius: 1rem; }
+      .shadow-2xl { box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25); }
+      .hover\\:shadow-3xl:hover { box-shadow: 0 35px 60px -12px rgba(0, 0, 0, 0.3); }
+      .transform { transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y)); }
+      .hover\\:scale-\\[1\\.02\\]:hover { --tw-scale-x: 1.02; --tw-scale-y: 1.02; }
+      .transition-all { transition-property: all; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); transition-duration: 150ms; }
+      .duration-300 { transition-duration: 300ms; }
+      
+      /* Critical min heights for buttons */
+      .min-h-\\[56px\\] { min-height: 56px; }
+      .xs\\:min-h-\\[64px\\] { min-height: 64px; }
+      .sm\\:min-h-\\[72px\\] { min-height: 72px; }
+      .lg\\:min-h-\\[80px\\] { min-height: 80px; }
+      
+      /* Critical image styles */
+      .rounded-\\[2\\.2rem\\] { border-radius: 2.2rem; }
+      .shadow-inner { box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.06); }
+      
+      /* Critical overflow styles */
+      .overflow-x-auto { overflow-x: auto; }
+      .overflow-y-hidden { overflow-y: hidden; }
+      
       /* Critical hero section */
       .hero-section { 
         min-height: 100vh; 
@@ -197,8 +243,29 @@
     </style>
 
     <!-- Load full CSS asynchronously to prevent render blocking -->
-    <link rel="preload" href="/src/index.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="/src/index.css" as="style" onload="this.onload=null;this.rel='stylesheet'" media="print">
     <noscript><link rel="stylesheet" href="/src/index.css"></noscript>
+    
+    <!-- Critical above-the-fold CSS optimization -->
+    <script>
+      // Defer non-critical CSS loading
+      function loadCSS(href, before, media) {
+        var ss = window.document.createElement("link");
+        var ref = before || window.document.getElementsByTagName("script")[0];
+        ss.rel = "stylesheet";
+        ss.href = href;
+        ss.media = "only x";
+        ref.parentNode.insertBefore(ss, ref);
+        setTimeout(function() { ss.media = media || "all"; });
+      }
+      
+      // Load main CSS after critical paint
+      requestAnimationFrame(function() {
+        requestAnimationFrame(function() {
+          loadCSS("/src/index.css");
+        });
+      });
+    </script>
 
     <!-- Critical Resource Preloading - Optimized for parallel loading -->
     
@@ -236,7 +303,26 @@
     </script>
     
     <!-- Parallel resource loading - highest priority first -->
-    <link rel="preload" href="/src/index.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <!-- Defer main CSS to prevent blocking -->
+    <script>
+      // Inline critical resource hints
+      const criticalLinks = [
+        { href: '/src/index.css', as: 'style', rel: 'preload' }
+      ];
+      
+      // Create preload links without blocking
+      criticalLinks.forEach(link => {
+        const linkEl = document.createElement('link');
+        Object.keys(link).forEach(key => linkEl[key] = link[key]);
+        linkEl.onload = function() { 
+          this.onload = null; 
+          this.rel = 'stylesheet';
+          this.media = 'all';
+        };
+        linkEl.media = 'print'; // Load as print to avoid render blocking
+        document.head.appendChild(linkEl);
+      });
+    </script>
     <noscript><link rel="stylesheet" href="/src/index.css"></noscript>
     
     <!-- Module preload for main entry and critical deps -->
