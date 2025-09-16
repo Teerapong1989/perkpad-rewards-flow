@@ -22,13 +22,57 @@ export default defineConfig(({ mode }) => ({
   build: {
     rollupOptions: {
       output: {
-        // Optimize chunk splitting to reduce critical request chains
-        manualChunks: {
-          vendor: ['react', 'react-dom'],
-          router: ['react-router-dom'],
-          ui: ['@radix-ui/react-toast', '@radix-ui/react-tooltip', '@radix-ui/react-dialog'],
-          query: ['@tanstack/react-query'],
-          utils: ['clsx', 'tailwind-merge', 'class-variance-authority']
+        // More aggressive chunk splitting to reduce critical request chains
+        manualChunks: (id) => {
+          // Vendor chunks
+          if (id.includes('react') && !id.includes('react-router')) {
+            return 'react-vendor';
+          }
+          if (id.includes('react-router')) {
+            return 'router';
+          }
+          
+          // Icon library - split into separate chunk
+          if (id.includes('lucide-react')) {
+            return 'icons';
+          }
+          
+          // Radix UI components - split by usage
+          if (id.includes('@radix-ui/react-toast') || id.includes('@radix-ui/react-tooltip')) {
+            return 'radix-core';
+          }
+          if (id.includes('@radix-ui/react-dialog') || id.includes('@radix-ui/react-sheet')) {
+            return 'radix-overlay';
+          }
+          if (id.includes('@radix-ui/react-dropdown') || id.includes('@radix-ui/react-select')) {
+            return 'radix-form';
+          }
+          if (id.includes('@radix-ui')) {
+            return 'radix-misc';
+          }
+          
+          // Analytics and utilities
+          if (id.includes('@tanstack/react-query')) {
+            return 'query';
+          }
+          if (id.includes('clsx') || id.includes('tailwind-merge') || id.includes('class-variance-authority')) {
+            return 'utils';
+          }
+          
+          // Landing page components - separate chunk
+          if (id.includes('components/landing/') && !id.includes('HeroSection') && !id.includes('Navigation')) {
+            return 'landing-sections';
+          }
+          
+          // Chart libraries if used
+          if (id.includes('recharts')) {
+            return 'charts';
+          }
+          
+          // Large vendor libraries
+          if (id.includes('node_modules') && id.includes('react') === false) {
+            return 'vendor-misc';
+          }
         }
       }
     },
@@ -37,6 +81,16 @@ export default defineConfig(({ mode }) => ({
     // Generate preload hints automatically
     modulePreload: {
       polyfill: true
-    }
+    },
+    // Minify for better compression
+    target: 'es2020',
+    minify: 'terser',
+    terserOptions: {
+      compress: {
+        drop_console: true,
+        drop_debugger: true,
+        pure_funcs: ['console.log', 'console.info', 'console.debug'],
+      },
+    },
   }
 }));
