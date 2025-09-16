@@ -243,29 +243,22 @@
     </style>
 
     <!-- Load full CSS asynchronously to prevent render blocking -->
-    <link rel="preload" href="/src/index.css" as="style" onload="this.onload=null;this.rel='stylesheet'" media="print">
-    <noscript><link rel="stylesheet" href="/src/index.css"></noscript>
-    
-    <!-- Critical above-the-fold CSS optimization -->
     <script>
-      // Defer non-critical CSS loading
-      function loadCSS(href, before, media) {
-        var ss = window.document.createElement("link");
-        var ref = before || window.document.getElementsByTagName("script")[0];
-        ss.rel = "stylesheet";
-        ss.href = href;
-        ss.media = "only x";
-        ref.parentNode.insertBefore(ss, ref);
-        setTimeout(function() { ss.media = media || "all"; });
-      }
-      
-      // Load main CSS after critical paint
-      requestAnimationFrame(function() {
-        requestAnimationFrame(function() {
-          loadCSS("/src/index.css");
-        });
-      });
+      // Completely non-blocking CSS loading
+      (function() {
+        var css = document.createElement('link');
+        css.rel = 'stylesheet';
+        css.href = '/src/index.css';
+        css.media = 'print'; // Load as print first to avoid blocking
+        css.onload = function() { 
+          this.media = 'all'; // Switch to all media after load
+        };
+        // Insert after current script to avoid blocking parser
+        var ref = document.currentScript || document.getElementsByTagName('script')[0];
+        ref.parentNode.insertBefore(css, ref.nextSibling);
+      })();
     </script>
+    <noscript><link rel="stylesheet" href="/src/index.css"></noscript>
 
     <!-- Critical Resource Preloading - Optimized for parallel loading -->
     
@@ -303,25 +296,19 @@
     </script>
     
     <!-- Parallel resource loading - highest priority first -->
-    <!-- Defer main CSS to prevent blocking -->
+    <!-- Non-blocking resource loading -->
     <script>
-      // Inline critical resource hints
-      const criticalLinks = [
-        { href: '/src/index.css', as: 'style', rel: 'preload' }
-      ];
-      
-      // Create preload links without blocking
-      criticalLinks.forEach(link => {
-        const linkEl = document.createElement('link');
-        Object.keys(link).forEach(key => linkEl[key] = link[key]);
-        linkEl.onload = function() { 
-          this.onload = null; 
-          this.rel = 'stylesheet';
-          this.media = 'all';
-        };
-        linkEl.media = 'print'; // Load as print to avoid render blocking
-        document.head.appendChild(linkEl);
-      });
+      // Preload CSS without blocking render
+      var cssPreload = document.createElement('link');
+      cssPreload.rel = 'preload';
+      cssPreload.as = 'style';
+      cssPreload.href = '/src/index.css';
+      cssPreload.onload = function() {
+        // Convert preload to stylesheet after load
+        this.onload = null;
+        this.rel = 'stylesheet';
+      };
+      document.head.appendChild(cssPreload);
     </script>
     <noscript><link rel="stylesheet" href="/src/index.css"></noscript>
     
