@@ -84,23 +84,34 @@ export const generateServiceSchema = (services: Array<{
 
 // Performance optimization utilities
 export const preloadCriticalResources = () => {
-  // Preload hero image - now supports WebP
+  // Enhanced preloading for LCP optimization
   const heroImage = '/lovable-uploads/e649c0e6-4d66-4e06-9651-2331653d69bb';
   
-  // Try to preload WebP version first, fallback to PNG
-  const webpLink = document.createElement('link');
-  webpLink.rel = 'preload';
-  webpLink.as = 'image';
-  webpLink.href = `${heroImage}.webp`;
-  webpLink.type = 'image/webp';
+  // Aggressive preloading with highest priority
+  const createHighPriorityPreload = (url: string, type: string) => {
+    const link = document.createElement('link');
+    link.rel = 'preload';
+    link.as = 'image';
+    link.href = url;
+    link.type = type;
+    link.fetchPriority = 'high';
+    return link;
+  };
+  
+  // Try WebP first (most optimal)
+  const webpLink = createHighPriorityPreload(`${heroImage}.webp`, 'image/webp');
   document.head.appendChild(webpLink);
   
-  // Fallback preload for PNG
-  const pngLink = document.createElement('link');
-  pngLink.rel = 'preload';
-  pngLink.as = 'image';
-  pngLink.href = `${heroImage}.png`;
+  // PNG fallback
+  const pngLink = createHighPriorityPreload(`${heroImage}.png`, 'image/png');
   document.head.appendChild(pngLink);
+  
+  // Prefetch other images at lower priority
+  const otherImage = '/lovable-uploads/5fcde6e5-0717-431f-a7f7-fbf5c64a7cf8';
+  const prefetchLink = document.createElement('link');
+  prefetchLink.rel = 'prefetch';
+  prefetchLink.href = `${otherImage}.webp`;
+  document.head.appendChild(prefetchLink);
 };
 
 // Core Web Vitals optimization

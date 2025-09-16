@@ -38,7 +38,7 @@ const OptimizedImage = memo(({
   width, 
   height, 
   priority = false,
-  placeholder = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgZmlsbD0iI2Y1ZjVmNSIvPjx0ZXh0IHg9IjUwJSIgeT0iNTAlIiBkb21pbmFudC1iYXNlbGluZT0ibWlkZGxlIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjY2NjIj5Mb2FkaW5nLi4uPC90ZXh0Pjwvc3ZnPg==',
+  placeholder = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjgwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iNDAwIiBoZWlnaHQ9IjgwMCIgZmlsbD0iI2Y5ZmFmYiIvPjx0ZXh0IHg9IjUwJSIgeT0iNTAlIiBkb21pbmFudC1iYXNlbGluZT0ibWlkZGxlIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjOWNhM2FmIiBmb250LXNpemU9IjE0Ij5Mb2FkaW5nLi4uPC90ZXh0Pjwvc3ZnPg==',
   sizes = '(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
 }: OptimizedImageProps) => {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -97,8 +97,15 @@ const OptimizedImage = memo(({
   const webpSrc = getWebPSrc(src);
   const shouldUseWebP = webpSupported && webpSrc !== src;
 
+  // For priority images, set explicit dimensions to prevent layout shift
+  const imageStyle = priority ? { 
+    width: width ? `${width}px` : 'auto', 
+    height: height ? `${height}px` : 'auto',
+    aspectRatio: width && height ? `${width}/${height}` : 'auto'
+  } : {};
+
   return (
-    <div className={`relative overflow-hidden ${className}`}>
+    <div className={`relative overflow-hidden ${className}`} style={priority ? imageStyle : {}}>
       {isInView && !hasError && shouldUseWebP ? (
         <picture>
           <source srcSet={webpSrc} type="image/webp" sizes={sizes} />
@@ -112,10 +119,12 @@ const OptimizedImage = memo(({
             onLoad={handleLoad}
             onError={handleError}
             loading={priority ? 'eager' : 'lazy'}
-            decoding="async"
+            decoding={priority ? 'sync' : 'async'}
+            fetchPriority={priority ? 'high' : 'auto'}
             width={width}
             height={height}
             sizes={sizes}
+            style={imageStyle}
           />
         </picture>
       ) : (
@@ -129,10 +138,12 @@ const OptimizedImage = memo(({
           onLoad={handleLoad}
           onError={handleError}
           loading={priority ? 'eager' : 'lazy'}
-          decoding="async"
+          decoding={priority ? 'sync' : 'async'}
+          fetchPriority={priority ? 'high' : 'auto'}
           width={width}
           height={height}
           sizes={sizes}
+          style={imageStyle}
         />
       )}
       
