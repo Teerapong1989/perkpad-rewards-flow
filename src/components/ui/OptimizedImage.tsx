@@ -93,9 +93,25 @@ const OptimizedImage = memo(({
     console.warn(`Failed to load image: ${src}`);
   };
 
-  // Generate optimized source URLs
-  const webpSrc = getWebPSrc(src);
-  const shouldUseWebP = webpSupported && webpSrc !== src;
+  // Generate responsive source URLs for hero image
+  const getResponsiveSources = (baseSrc: string) => {
+    if (baseSrc.includes('e649c0e6-4d66-4e06-9651-2331653d69bb')) {
+      const base = baseSrc.replace(/\.(png|jpg|jpeg)$/i, '');
+      return {
+        mobile: `${base}-mobile.webp`,
+        tablet: `${base}-tablet.webp`,
+        webp: getWebPSrc(baseSrc),
+        original: baseSrc
+      };
+    }
+    return {
+      webp: getWebPSrc(baseSrc),
+      original: baseSrc
+    };
+  };
+
+  const sources = getResponsiveSources(src);
+  const shouldUseWebP = webpSupported && sources.webp !== src;
 
   // For priority images, set explicit dimensions to prevent layout shift
   const imageStyle = priority ? { 
@@ -106,12 +122,30 @@ const OptimizedImage = memo(({
 
   return (
     <div className={`relative overflow-hidden ${className}`} style={priority ? imageStyle : {}}>
-      {isInView && !hasError && shouldUseWebP ? (
+      {isInView && !hasError && (shouldUseWebP || sources.mobile) ? (
         <picture>
-          <source srcSet={webpSrc} type="image/webp" sizes={sizes} />
+          {sources.mobile && (
+            <>
+              <source 
+                media="(max-width: 640px)" 
+                srcSet={sources.mobile} 
+                type="image/webp" 
+                sizes="280px"
+              />
+              <source 
+                media="(min-width: 641px) and (max-width: 1024px)" 
+                srcSet={sources.tablet || sources.webp} 
+                type="image/webp" 
+                sizes="352px"
+              />
+            </>
+          )}
+          {shouldUseWebP && (
+            <source srcSet={sources.webp} type="image/webp" sizes={sizes} />
+          )}
           <img
             ref={imgRef}
-            src={src}
+            src={sources.original}
             alt={alt}
             className={`transition-all duration-500 ease-out ${
               isLoaded ? 'opacity-100 scale-100' : 'opacity-0 scale-105'
@@ -130,7 +164,7 @@ const OptimizedImage = memo(({
       ) : (
         <img
           ref={imgRef}
-          src={isInView && !hasError ? src : placeholder}
+          src={isInView && !hasError ? sources.original : placeholder}
           alt={alt}
           className={`transition-all duration-500 ease-out ${
             isLoaded ? 'opacity-100 scale-100' : 'opacity-0 scale-105'
