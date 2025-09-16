@@ -22,23 +22,34 @@ export default defineConfig(({ mode }) => ({
   build: {
     rollupOptions: {
       output: {
+        // Predictable chunk names for preloading
+        entryFileNames: 'assets/[name]-[hash].js',
+        chunkFileNames: 'assets/[name]-[hash].js',
+        assetFileNames: 'assets/[name]-[hash].[ext]',
         // Enable smaller initial chunks
         experimentalMinChunkSize: 1000,
-        // Optimize chunk loading
-        chunkFileNames: 'assets/[name]-[hash].js',
-        // More aggressive chunk splitting for better TTI
+        // More aggressive chunk splitting for better TTI and parallel loading
         manualChunks: (id) => {
-          // Critical path - must load immediately
-          if (id.includes('src/main.tsx') || id.includes('src/App.tsx') || id.includes('src/pages/Index.tsx')) {
-            return 'critical';
+          // Critical path - must load immediately and predictably
+          if (id.includes('src/main.tsx')) {
+            return 'main';
+          }
+          if (id.includes('src/App.tsx')) {
+            return 'app';
+          }
+          if (id.includes('src/pages/Index.tsx')) {
+            return 'index-page';
           }
           
-          // React core - high priority
-          if (id.includes('react') && !id.includes('react-router') && !id.includes('react-query')) {
+          // React core - high priority, predictable name
+          if (id.includes('react/index') || id.includes('react-dom/client')) {
             return 'react-core';
           }
+          if (id.includes('react') && !id.includes('react-router') && !id.includes('react-query')) {
+            return 'react-utils';
+          }
           
-          // Router - separate chunk as it's navigation critical
+          // Router - navigation critical, separate chunk
           if (id.includes('react-router')) {
             return 'router';
           }
@@ -97,15 +108,25 @@ export default defineConfig(({ mode }) => ({
             return 'vendor';
           }
           
-          return 'app';
+          return 'shared';
         }
       }
     },
-    // Enable CSS code splitting
+    // Enable CSS code splitting for parallel loading
     cssCodeSplit: true,
     // Generate preload hints automatically
     modulePreload: {
-      polyfill: true
+      polyfill: true,
+      // Preload all imported modules in parallel
+      resolveDependencies: (url, deps) => {
+        return deps.filter(dep => {
+          // Only preload critical chunks
+          return dep.includes('main-') || 
+                 dep.includes('app-') || 
+                 dep.includes('react-core-') ||
+                 dep.includes('index-page-');
+        });
+      }
     },
     // Use esbuild for faster build times
     target: 'es2020',

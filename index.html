@@ -199,21 +199,61 @@
     <link rel="preload" href="/src/index.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="/src/index.css"></noscript>
 
-    <!-- Critical Resource Preloading -->
-    <!-- Highest priority: Hero image preload for LCP optimization -->
+    <!-- Critical Resource Preloading - Optimized for parallel loading -->
+    
+    <!-- Break critical request chains with early module discovery -->
+    <script>
+      // Preload critical chunks based on known patterns
+      const preloadModule = (href) => {
+        const link = document.createElement('link');
+        link.rel = 'modulepreload';
+        link.href = href;
+        document.head.appendChild(link);
+      };
+      
+      // Preload known critical chunks
+      if (import.meta.env.PROD) {
+        // These will be available after build
+        const criticalChunks = [
+          '/assets/critical-',
+          '/assets/react-core-',
+          '/assets/router-'
+        ];
+        
+        // Find and preload matching chunks
+        criticalChunks.forEach(pattern => {
+          // This will be populated by the build process
+          const scripts = document.querySelectorAll(`script[src*="${pattern}"]`);
+          scripts.forEach(script => {
+            if (script.src && !script.hasAttribute('data-preloaded')) {
+              preloadModule(script.src);
+              script.setAttribute('data-preloaded', 'true');
+            }
+          });
+        });
+      }
+    </script>
+    
+    <!-- Parallel resource loading - highest priority first -->
+    <link rel="preload" href="/src/index.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/src/index.css"></noscript>
+    
+    <!-- Module preload for main entry and critical deps -->
+    <link rel="modulepreload" href="/src/main.tsx">
+    <link rel="modulepreload" href="/src/App.tsx">
+    <link rel="modulepreload" href="/src/pages/Index.tsx">
+    
+    <!-- Hero image preload for LCP optimization -->
     <link rel="preload" href="/lovable-uploads/e649c0e6-4d66-4e06-9651-2331653d69bb.webp" as="image" type="image/webp" fetchpriority="high">
     <link rel="preload" href="/lovable-uploads/e649c0e6-4d66-4e06-9651-2331653d69bb.png" as="image" type="image/png" fetchpriority="high">
     
-    <!-- Preload Inter font files directly to prevent layout shifts -->
+    <!-- Font preloading - parallel to JS/CSS -->
     <link rel="preload" href="https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7W0Q5nw.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa2ZL7.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=optional" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=optional"></noscript>
     
-    <!-- Module preload for main entry point -->
-    <link rel="modulepreload" href="/src/main.tsx">
-    
-    <!-- Lower priority resource hints -->
+    <!-- Lower priority prefetch hints -->
     <link rel="prefetch" href="/lovable-uploads/5fcde6e5-0717-431f-a7f7-fbf5c64a7cf8.webp">
     <link rel="prefetch" href="/lovable-uploads/bf240d2c-3e17-40d5-bc56-7afbde00c649.png">
     

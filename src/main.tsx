@@ -2,6 +2,7 @@
 import { createRoot } from 'react-dom/client'
 import { Suspense, lazy } from 'react'
 import './index.css'
+import './utils/preloadOptimizer' // Initialize preload optimizations immediately
 import ErrorBoundary from './utils/errorBoundary'
 
 // Lazy load the main App component to enable better code splitting
@@ -17,19 +18,21 @@ const AppLoader = () => (
   </div>
 );
 
-// Defer all non-critical initialization to improve TTI
+// Defer all non-critical initialization to improve TTI and reduce request chains
 const deferredInitialization = async () => {
-  // Use longer delays and requestIdleCallback to avoid blocking main thread
   return new Promise(resolve => {
     const initTasks = async () => {
       try {
-        // Defer performance optimizations even further
+        // Use idle time to avoid blocking critical request chains
         if ('requestIdleCallback' in window) {
           requestIdleCallback(async () => {
+            // Import and initialize performance utilities
             const { measurePerformance, preloadCriticalResources, inlineCriticalCSS } = await import('./utils/performance');
+            
+            // Run in sequence to avoid overwhelming the network
             inlineCriticalCSS();
-            preloadCriticalResources();
-            measurePerformance();
+            setTimeout(() => preloadCriticalResources(), 100);
+            setTimeout(() => measurePerformance(), 200);
           }, { timeout: 5000 });
         } else {
           setTimeout(async () => {
@@ -40,7 +43,7 @@ const deferredInitialization = async () => {
           }, 2000);
         }
         
-        // Defer service worker registration
+        // Defer service worker registration to avoid network contention
         if ('serviceWorker' in navigator && import.meta.env.PROD) {
           setTimeout(() => {
             navigator.serviceWorker.register('/sw.js')
@@ -50,7 +53,7 @@ const deferredInitialization = async () => {
               .catch((registrationError) => {
                 console.log('SW registration failed: ', registrationError);
               });
-          }, 3000);
+          }, 5000); // Significantly delayed to avoid request chain interference
         }
         
         resolve(true);
@@ -60,12 +63,12 @@ const deferredInitialization = async () => {
       }
     };
     
-    // Wait until after initial render is complete
-    setTimeout(initTasks, 100);
+    // Wait for critical resources to start loading
+    setTimeout(initTasks, 50);
   });
 };
 
-// Render immediately for fastest TTI
+// Render immediately for fastest critical path
 createRoot(document.getElementById("root")!).render(
   <ErrorBoundary>
     <Suspense fallback={<AppLoader />}>
@@ -74,5 +77,5 @@ createRoot(document.getElementById("root")!).render(
   </ErrorBoundary>
 );
 
-// Initialize non-critical features after render
+// Initialize non-critical features after critical path
 deferredInitialization();
