@@ -12,6 +12,25 @@ interface OptimizedImageProps {
   sizes?: string;
 }
 
+// Helper function to generate WebP source URLs
+const getWebPSrc = (src: string): string => {
+  if (src.includes('/lovable-uploads/')) {
+    return src.replace(/\.(png|jpg|jpeg)$/i, '.webp');
+  }
+  return src;
+};
+
+// Helper function to check if browser supports WebP
+const supportsWebP = (): boolean => {
+  if (typeof window === 'undefined') return false;
+  
+  const canvas = document.createElement('canvas');
+  canvas.width = 1;
+  canvas.height = 1;
+  
+  return canvas.toDataURL('image/webp').indexOf('data:image/webp') === 0;
+};
+
 const OptimizedImage = memo(({ 
   src, 
   alt, 
@@ -25,7 +44,12 @@ const OptimizedImage = memo(({
   const [isLoaded, setIsLoaded] = useState(false);
   const [isInView, setIsInView] = useState(priority);
   const [hasError, setHasError] = useState(false);
+  const [webpSupported, setWebpSupported] = useState(false);
   const imgRef = useRef<HTMLImageElement>(null);
+
+  useEffect(() => {
+    setWebpSupported(supportsWebP());
+  }, []);
 
   useEffect(() => {
     if (priority) return;
@@ -69,23 +93,48 @@ const OptimizedImage = memo(({
     console.warn(`Failed to load image: ${src}`);
   };
 
+  // Generate optimized source URLs
+  const webpSrc = getWebPSrc(src);
+  const shouldUseWebP = webpSupported && webpSrc !== src;
+
   return (
     <div className={`relative overflow-hidden ${className}`}>
-      <img
-        ref={imgRef}
-        src={isInView && !hasError ? src : placeholder}
-        alt={alt}
-        className={`transition-all duration-500 ease-out ${
-          isLoaded ? 'opacity-100 scale-100' : 'opacity-0 scale-105'
-        } ${className}`}
-        onLoad={handleLoad}
-        onError={handleError}
-        loading={priority ? 'eager' : 'lazy'}
-        decoding="async"
-        width={width}
-        height={height}
-        sizes={sizes}
-      />
+      {isInView && !hasError && shouldUseWebP ? (
+        <picture>
+          <source srcSet={webpSrc} type="image/webp" sizes={sizes} />
+          <img
+            ref={imgRef}
+            src={src}
+            alt={alt}
+            className={`transition-all duration-500 ease-out ${
+              isLoaded ? 'opacity-100 scale-100' : 'opacity-0 scale-105'
+            } ${className}`}
+            onLoad={handleLoad}
+            onError={handleError}
+            loading={priority ? 'eager' : 'lazy'}
+            decoding="async"
+            width={width}
+            height={height}
+            sizes={sizes}
+          />
+        </picture>
+      ) : (
+        <img
+          ref={imgRef}
+          src={isInView && !hasError ? src : placeholder}
+          alt={alt}
+          className={`transition-all duration-500 ease-out ${
+            isLoaded ? 'opacity-100 scale-100' : 'opacity-0 scale-105'
+          } ${className}`}
+          onLoad={handleLoad}
+          onError={handleError}
+          loading={priority ? 'eager' : 'lazy'}
+          decoding="async"
+          width={width}
+          height={height}
+          sizes={sizes}
+        />
+      )}
       
       {!isLoaded && !hasError && (
         <div className="absolute inset-0 bg-gradient-to-r from-slate-200 via-slate-300 to-slate-200 animate-pulse" />

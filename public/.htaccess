@@ -1,3 +1,27 @@
+# WebP Image Support and Optimization
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  
+  # Serve WebP images if browser supports it and WebP version exists
+  RewriteCond %{HTTP_ACCEPT} image/webp
+  RewriteCond %{REQUEST_FILENAME} \.(jpe?g|png)$
+  RewriteCond %{REQUEST_FILENAME}.webp -f
+  RewriteRule ^(.+)\.(jpe?g|png)$ $1.$2.webp [T=image/webp,E=accept:1]
+</IfModule>
+
+# Add WebP MIME type
+<IfModule mod_mime.c>
+  AddType image/webp .webp
+  AddType image/avif .avif
+</IfModule>
+
+# Set proper headers for next-gen images
+<IfModule mod_headers.c>
+  <FilesMatch "\.(webp|avif)$">
+    Header append Vary Accept
+  </FilesMatch>
+</IfModule>
+
 # Enable compression
 <IfModule mod_deflate.c>
     AddOutputFilterByType DEFLATE text/plain
@@ -20,12 +44,13 @@
     ExpiresByType application/javascript "access plus 1 year"
     ExpiresByType text/javascript "access plus 1 year"
     
-    # Images - cache for 1 year
+    # Images - cache for 1 year (including next-gen formats)
     ExpiresByType image/png "access plus 1 year"
     ExpiresByType image/jpg "access plus 1 year"
     ExpiresByType image/jpeg "access plus 1 year"
     ExpiresByType image/gif "access plus 1 year"
     ExpiresByType image/webp "access plus 1 year"
+    ExpiresByType image/avif "access plus 1 year"
     ExpiresByType image/svg+xml "access plus 1 year"
     ExpiresByType image/x-icon "access plus 1 year"
     ExpiresByType image/vnd.microsoft.icon "access plus 1 year"
@@ -48,8 +73,8 @@
 
 # Cache-Control headers as fallback
 <IfModule mod_headers.c>
-    # Static assets
-    <FilesMatch "\.(css|js|png|jpg|jpeg|gif|webp|svg|woff|woff2|eot|ttf|otf)$">
+    # Static assets (including next-gen image formats)
+    <FilesMatch "\.(css|js|png|jpg|jpeg|gif|webp|avif|svg|woff|woff2|eot|ttf|otf)$">
         Header set Cache-Control "public, max-age=31536000, immutable"
     </FilesMatch>
     
@@ -72,8 +97,6 @@ Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains
 Header always set Referrer-Policy "strict-origin-when-cross-origin"
 
 # Canonical redirects and HTTPS enforcement
-RewriteEngine On
-
 # Force HTTPS
 RewriteCond %{HTTPS} off
 RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]

@@ -84,14 +84,23 @@ export const generateServiceSchema = (services: Array<{
 
 // Performance optimization utilities
 export const preloadCriticalResources = () => {
-  // Preload hero image used in HeroSection
-  const heroImage = '/lovable-uploads/e649c0e6-4d66-4e06-9651-2331653d69bb.png';
+  // Preload hero image - now supports WebP
+  const heroImage = '/lovable-uploads/e649c0e6-4d66-4e06-9651-2331653d69bb';
   
-  const link = document.createElement('link');
-  link.rel = 'preload';
-  link.as = 'image';
-  link.href = heroImage;
-  document.head.appendChild(link);
+  // Try to preload WebP version first, fallback to PNG
+  const webpLink = document.createElement('link');
+  webpLink.rel = 'preload';
+  webpLink.as = 'image';
+  webpLink.href = `${heroImage}.webp`;
+  webpLink.type = 'image/webp';
+  document.head.appendChild(webpLink);
+  
+  // Fallback preload for PNG
+  const pngLink = document.createElement('link');
+  pngLink.rel = 'preload';
+  pngLink.as = 'image';
+  pngLink.href = `${heroImage}.png`;
+  document.head.appendChild(pngLink);
 };
 
 // Core Web Vitals optimization
