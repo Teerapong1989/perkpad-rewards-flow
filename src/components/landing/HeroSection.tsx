@@ -5,6 +5,7 @@ import { trackUserBehavior, trackConversion } from "@/utils/analytics";
 import AnimatedCounter from "@/components/ui/AnimatedCounter";
 import TextRotation from "@/components/ui/TextRotation";
 import OptimizedImage from "@/components/ui/OptimizedImage";
+import mobileAppDemo from "@/assets/mobile-app-demo.jpg";
 
 const HeroSection = () => {
   const handleStartClick = useCallback(() => {
@@ -134,8 +135,8 @@ const HeroSection = () => {
                 {/* Screen with premium bezel */}
                 <div className="bg-black rounded-[2.4rem] p-[1px] overflow-hidden">
                   <OptimizedImage 
-                    src="/lovable-uploads/e649c0e6-4d66-4e06-9651-2331653d69bb.png" 
-                    alt="Perkpad mobile app showing business dashboard with customer metrics in a real café environment"
+                    src={mobileAppDemo} 
+                    alt="Modern Perkpad mobile app interface showing digital loyalty program dashboard with customer analytics and reward progress"
                     className="w-full h-auto rounded-[2.2rem] shadow-inner"
                     priority={true}
                     width={352}
