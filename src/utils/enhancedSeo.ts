@@ -84,43 +84,19 @@ export const generateServiceSchema = (services: Array<{
 
 // Performance optimization utilities
 export const preloadCriticalResources = () => {
-  // Enhanced preloading for LCP optimization - prioritize WebP
-  const heroImageBase = '/lovable-uploads/e649c0e6-4d66-4e06-9651-2331653d69bb';
-  
-  // Check WebP support and preload appropriate format
-  const supportsWebP = (() => {
-    const canvas = document.createElement('canvas');
-    canvas.width = 1;
-    canvas.height = 1;
-    return canvas.toDataURL('image/webp').indexOf('data:image/webp') === 0;
-  })();
-  
-  // Aggressive preloading with highest priority for optimal format
-  const createHighPriorityPreload = (url: string, type: string) => {
+  // Preload critical images
+  const criticalImages = [
+    '/lovable-uploads/602ca246-112d-477a-9195-34755714f7df.png',
+    '/lovable-uploads/602ca246-112d-477a-9195-34755714f7df.png'
+  ];
+
+  criticalImages.forEach(src => {
     const link = document.createElement('link');
     link.rel = 'preload';
     link.as = 'image';
-    link.href = url;
-    link.type = type;
-    link.fetchPriority = 'high';
-    return link;
-  };
-  
-  // Preload optimal format based on browser support
-  if (supportsWebP) {
-    const webpLink = createHighPriorityPreload(`${heroImageBase}.webp`, 'image/webp');
-    document.head.appendChild(webpLink);
-  } else {
-    const pngLink = createHighPriorityPreload(`${heroImageBase}.png`, 'image/png');
-    document.head.appendChild(pngLink);
-  }
-  
-  // Prefetch other images at lower priority
-  const otherImage = '/lovable-uploads/5fcde6e5-0717-431f-a7f7-fbf5c64a7cf8';
-  const prefetchLink = document.createElement('link');
-  prefetchLink.rel = 'prefetch';
-  prefetchLink.href = `${otherImage}.webp`;
-  document.head.appendChild(prefetchLink);
+    link.href = src;
+    document.head.appendChild(link);
+  });
 };
 
 // Core Web Vitals optimization
@@ -132,19 +108,14 @@ export const optimizePageLoading = () => {
     const imageObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          // Batch DOM updates with requestAnimationFrame
-          requestAnimationFrame(() => {
-            const img = entry.target as HTMLImageElement;
-            if (img.dataset.lazy) {
-              img.src = img.dataset.lazy;
-              img.removeAttribute('data-lazy');
-            }
-          });
-          imageObserver.unobserve(entry.target);
+          const img = entry.target as HTMLImageElement;
+          if (img.dataset.lazy) {
+            img.src = img.dataset.lazy;
+            img.removeAttribute('data-lazy');
+            imageObserver.unobserve(img);
+          }
         }
       });
-    }, {
-      rootMargin: '50px'
     });
 
     lazyImages.forEach(img => imageObserver.observe(img));

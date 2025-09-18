@@ -3,7 +3,6 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { useInView, useMultipleInView } from "@/hooks/useInView";
 import { AnimatedSection } from "@/components/ui/AnimatedSection";
 import { AnimatedCard } from "@/components/ui/AnimatedCard";
-import { useEffect } from "react";
 
 const faqs = [
   {
@@ -46,42 +45,6 @@ const faqs = [
 
 const FAQSection = () => {
   const { containerRef: accordionRef, isInView: accordionInView } = useMultipleInView(9, { threshold: 0.2 });
-
-  useEffect(() => {
-    // Generate dynamic FAQ structured data
-    const faqSchema = {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": faqs.map(faq => ({
-        "@type": "Question",
-        "name": faq.question,
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": faq.answer
-        }
-      }))
-    };
-
-    const script = document.createElement('script');
-    script.type = 'application/ld+json';
-    script.id = 'faq-schema';
-    script.textContent = JSON.stringify(faqSchema);
-    
-    // Remove existing FAQ schema if present
-    const existing = document.getElementById('faq-schema');
-    if (existing) {
-      existing.remove();
-    }
-    
-    document.head.appendChild(script);
-
-    return () => {
-      const cleanup = document.getElementById('faq-schema');
-      if (cleanup) {
-        cleanup.remove();
-      }
-    };
-  }, []);
 
   return (
     <section className="py-20 px-6 bg-gradient-to-br from-slate-50 to-teal-50">

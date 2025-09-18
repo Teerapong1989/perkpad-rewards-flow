@@ -2,16 +2,8 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft, Home } from "lucide-react";
-import { useEffect } from "react";
-import { updateMetaTags } from "@/utils/seo";
 
 const NotFound = () => {
-  useEffect(() => {
-    updateMetaTags({
-      robots: 'noindex, nofollow'
-    });
-  }, []);
-
   return (
     <div className="min-h-screen flex items-center justify-center bg-white px-4 sm:px-6">
       <div className="text-center max-w-md mx-auto">

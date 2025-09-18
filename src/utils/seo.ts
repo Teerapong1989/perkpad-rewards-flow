@@ -6,7 +6,6 @@ export const updateMetaTags = (meta: {
   keywords?: string;
   ogImage?: string;
   canonical?: string;
-  robots?: string;
 }) => {
   if (meta.title) {
     document.title = meta.title;
@@ -31,10 +30,6 @@ export const updateMetaTags = (meta: {
   
   if (meta.canonical) {
     updateCanonical(meta.canonical);
-  }
-  
-  if (meta.robots) {
-    updateMetaTag('robots', meta.robots);
   }
 };
 

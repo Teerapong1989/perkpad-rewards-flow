@@ -5,7 +5,6 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, Smartphone, BarChart3, Users } from "lucide-react";
 import { trackUserBehavior } from "@/utils/analytics";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
-import OptimizedImage from "@/components/ui/OptimizedImage";
 
 const TheSolutionSection = () => {
   const headerReveal = useScrollReveal({ delay: 100 });
@@ -52,13 +51,12 @@ const TheSolutionSection = () => {
                 <p className="text-gray-600 text-lg">Our AI analyzes customer patterns and suggests the perfect strategies to increase retention</p>
               </div>
               <div className="bg-gradient-to-br from-gray-50 to-gray-100/50 rounded-2xl p-4">
-                <OptimizedImage 
+                <img 
                   src="/lovable-uploads/5fcde6e5-0717-431f-a7f7-fbf5c64a7cf8.png"
                   alt="AI Recommendations showing customer retention insights"
                   className="w-full h-auto rounded-xl shadow-lg ring-1 ring-gray-200"
-                  width={300}
-                  height={400}
-                  sizes="(max-width: 640px) 100vw, 300px"
+                  loading="lazy"
+                  style={{ minHeight: '300px' }}
                 />
               </div>
             </div>

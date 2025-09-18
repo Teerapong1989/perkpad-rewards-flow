@@ -1,5 +1,5 @@
-// ABOUTME: A custom hook for scroll-triggered animations using optimized Intersection Observer
-// ABOUTME: with RAF-based state updates to prevent forced reflows
+// ABOUTME: A custom hook for scroll-triggered animations using Intersection Observer
+// ABOUTME: with configurable thresholds, delays, and animation states for smooth section reveals
 
 import { useState, useEffect, useRef } from "react";
 
@@ -18,41 +18,20 @@ export const useScrollReveal = ({
 }: UseScrollRevealOptions = {}) => {
   const [isVisible, setIsVisible] = useState(false);
   const elementRef = useRef<HTMLDivElement>(null);
-  const rafRef = useRef<number>();
-  const timeoutRef = useRef<NodeJS.Timeout>();
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          // Use RAF to batch state updates and prevent forced reflows
-          if (delay > 0) {
-            timeoutRef.current = setTimeout(() => {
-              rafRef.current = requestAnimationFrame(() => {
-                setIsVisible(true);
-              });
-            }, delay);
-          } else {
-            rafRef.current = requestAnimationFrame(() => {
-              setIsVisible(true);
-            });
-          }
+          setTimeout(() => {
+            setIsVisible(true);
+          }, delay);
           
           if (triggerOnce) {
             observer.disconnect();
           }
         } else if (!triggerOnce) {
-          // Clear any pending animations
-          if (rafRef.current) {
-            cancelAnimationFrame(rafRef.current);
-          }
-          if (timeoutRef.current) {
-            clearTimeout(timeoutRef.current);
-          }
-          
-          rafRef.current = requestAnimationFrame(() => {
-            setIsVisible(false);
-          });
+          setIsVisible(false);
         }
       },
       {
@@ -69,12 +48,6 @@ export const useScrollReveal = ({
     return () => {
       if (currentElement) {
         observer.unobserve(currentElement);
-      }
-      if (rafRef.current) {
-        cancelAnimationFrame(rafRef.current);
-      }
-      if (timeoutRef.current) {
-        clearTimeout(timeoutRef.current);
       }
     };
   }, [threshold, delay, rootMargin, triggerOnce]);

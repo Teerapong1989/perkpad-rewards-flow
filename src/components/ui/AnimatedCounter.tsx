@@ -1,7 +1,7 @@
 // ABOUTME: An animated counter component that counts up to target values when visible
-// ABOUTME: with optimized animation to prevent forced reflows
+// ABOUTME: with customizable animation duration and formatting for different value types
 
-import { useState, useEffect, useRef, memo, useCallback } from "react";
+import { useState, useEffect, useRef, memo } from "react";
 
 interface AnimatedCounterProps {
   end: number;
@@ -23,16 +23,6 @@ const AnimatedCounter = memo(({
   const [count, setCount] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
   const countRef = useRef<HTMLDivElement>(null);
-  const animationRef = useRef<number>();
-  const startTimeRef = useRef<number>();
-
-  // Optimized formatting function
-  const formatNumber = useCallback((num: number) => {
-    if (decimals === 0) {
-      return Math.floor(num).toString();
-    }
-    return num.toFixed(decimals);
-  }, [decimals]);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -41,10 +31,7 @@ const AnimatedCounter = memo(({
           setIsVisible(true);
         }
       },
-      { 
-        threshold: 0.3,
-        rootMargin: '0px 0px -50px 0px' // Optimize trigger timing
-      }
+      { threshold: 0.3 }
     );
 
     if (countRef.current) {
@@ -57,45 +44,41 @@ const AnimatedCounter = memo(({
   useEffect(() => {
     if (!isVisible) return;
 
-    // Reset refs
-    startTimeRef.current = undefined;
-    
+    let startTime: number;
+    let animationFrame: number;
+
     const animate = (timestamp: number) => {
-      if (!startTimeRef.current) startTimeRef.current = timestamp;
-      const progress = Math.min((timestamp - startTimeRef.current) / duration, 1);
+      if (!startTime) startTime = timestamp;
+      const progress = Math.min((timestamp - startTime) / duration, 1);
       
       // Easing function for smooth animation
       const easeOutQuart = 1 - Math.pow(1 - progress, 4);
       
-      // Batch state update to prevent excessive re-renders
-      const newCount = end * easeOutQuart;
-      setCount(prevCount => {
-        // Only update if change is significant to reduce re-renders
-        const difference = Math.abs(newCount - prevCount);
-        const threshold = end * 0.01; // 1% threshold
-        return difference > threshold || progress === 1 ? newCount : prevCount;
-      });
+      setCount(end * easeOutQuart);
 
       if (progress < 1) {
-        animationRef.current = requestAnimationFrame(animate);
+        animationFrame = requestAnimationFrame(animate);
       }
     };
 
-    animationRef.current = requestAnimationFrame(animate);
+    animationFrame = requestAnimationFrame(animate);
 
     return () => {
-      if (animationRef.current) {
-        cancelAnimationFrame(animationRef.current);
+      if (animationFrame) {
+        cancelAnimationFrame(animationFrame);
       }
     };
   }, [isVisible, end, duration]);
 
+  const formatNumber = (num: number) => {
+    if (decimals === 0) {
+      return Math.floor(num).toString();
+    }
+    return num.toFixed(decimals);
+  };
+
   return (
-    <div 
-      ref={countRef} 
-      className={className}
-      style={{ contain: 'layout style' }} // Prevent layout thrashing
-    >
+    <div ref={countRef} className={className}>
       {prefix}{formatNumber(count)}{suffix}
     </div>
   );

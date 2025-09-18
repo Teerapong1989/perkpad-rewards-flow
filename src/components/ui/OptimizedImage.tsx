@@ -12,25 +12,6 @@ interface OptimizedImageProps {
   sizes?: string;
 }
 
-// Helper function to generate WebP source URLs
-const getWebPSrc = (src: string): string => {
-  if (src.includes('/lovable-uploads/')) {
-    return src.replace(/\.(png|jpg|jpeg)$/i, '.webp');
-  }
-  return src;
-};
-
-// Helper function to check if browser supports WebP
-const supportsWebP = (): boolean => {
-  if (typeof window === 'undefined') return false;
-  
-  const canvas = document.createElement('canvas');
-  canvas.width = 1;
-  canvas.height = 1;
-  
-  return canvas.toDataURL('image/webp').indexOf('data:image/webp') === 0;
-};
-
 const OptimizedImage = memo(({ 
   src, 
   alt, 
@@ -38,18 +19,13 @@ const OptimizedImage = memo(({
   width, 
   height, 
   priority = false,
-  placeholder = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjgwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iNDAwIiBoZWlnaHQ9IjgwMCIgZmlsbD0iI2Y5ZmFmYiIvPjx0ZXh0IHg9IjUwJSIgeT0iNTAlIiBkb21pbmFudC1iYXNlbGluZT0ibWlkZGxlIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjOWNhM2FmIiBmb250LXNpemU9IjE0Ij5Mb2FkaW5nLi4uPC90ZXh0Pjwvc3ZnPg==',
+  placeholder = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgZmlsbD0iI2Y1ZjVmNSIvPjx0ZXh0IHg9IjUwJSIgeT0iNTAlIiBkb21pbmFudC1iYXNlbGluZT0ibWlkZGxlIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjY2NjIj5Mb2FkaW5nLi4uPC90ZXh0Pjwvc3ZnPg==',
   sizes = '(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
 }: OptimizedImageProps) => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [isInView, setIsInView] = useState(priority);
   const [hasError, setHasError] = useState(false);
-  const [webpSupported, setWebpSupported] = useState(false);
   const imgRef = useRef<HTMLImageElement>(null);
-
-  useEffect(() => {
-    setWebpSupported(supportsWebP());
-  }, []);
 
   useEffect(() => {
     if (priority) return;
@@ -76,16 +52,6 @@ const OptimizedImage = memo(({
 
   const handleLoad = () => {
     setIsLoaded(true);
-    
-    // Track LCP for critical images
-    if (priority && typeof window !== 'undefined' && window.gtag) {
-      const loadTime = performance.now();
-      window.gtag('event', 'image_loaded', {
-        event_category: 'Performance',
-        value: Math.round(loadTime),
-        custom_parameter_1: 'critical_image'
-      });
-    }
   };
 
   const handleError = () => {
@@ -93,93 +59,23 @@ const OptimizedImage = memo(({
     console.warn(`Failed to load image: ${src}`);
   };
 
-  // Generate responsive source URLs for hero image
-  const getResponsiveSources = (baseSrc: string) => {
-    if (baseSrc.includes('e649c0e6-4d66-4e06-9651-2331653d69bb')) {
-      const base = baseSrc.replace(/\.(png|jpg|jpeg)$/i, '');
-      return {
-        mobile: `${base}-mobile.webp`,
-        tablet: `${base}-tablet.webp`,
-        webp: getWebPSrc(baseSrc),
-        original: baseSrc
-      };
-    }
-    return {
-      webp: getWebPSrc(baseSrc),
-      original: baseSrc
-    };
-  };
-
-  const sources = getResponsiveSources(src);
-  const shouldUseWebP = webpSupported && sources.webp !== src;
-
-  // For priority images, set explicit dimensions to prevent layout shift
-  const imageStyle = priority ? { 
-    width: width ? `${width}px` : 'auto', 
-    height: height ? `${height}px` : 'auto',
-    aspectRatio: width && height ? `${width}/${height}` : 'auto'
-  } : {};
-
   return (
-    <div className={`relative overflow-hidden ${className}`} style={priority ? imageStyle : {}}>
-      {isInView && !hasError && (shouldUseWebP || sources.mobile) ? (
-        <picture>
-          {sources.mobile && (
-            <>
-              <source 
-                media="(max-width: 640px)" 
-                srcSet={sources.mobile} 
-                type="image/webp" 
-                sizes="280px"
-              />
-              <source 
-                media="(min-width: 641px) and (max-width: 1024px)" 
-                srcSet={sources.tablet || sources.webp} 
-                type="image/webp" 
-                sizes="352px"
-              />
-            </>
-          )}
-          {shouldUseWebP && (
-            <source srcSet={sources.webp} type="image/webp" sizes={sizes} />
-          )}
-          <img
-            ref={imgRef}
-            src={sources.original}
-            alt={alt}
-            className={`transition-all duration-500 ease-out ${
-              isLoaded ? 'opacity-100 scale-100' : 'opacity-0 scale-105'
-            } ${className}`}
-            onLoad={handleLoad}
-            onError={handleError}
-            loading={priority ? 'eager' : 'lazy'}
-            decoding={priority ? 'sync' : 'async'}
-            fetchPriority={priority ? 'high' : 'auto'}
-            width={width}
-            height={height}
-            sizes={sizes}
-            style={imageStyle}
-          />
-        </picture>
-      ) : (
-        <img
-          ref={imgRef}
-          src={isInView && !hasError ? sources.original : placeholder}
-          alt={alt}
-          className={`transition-all duration-500 ease-out ${
-            isLoaded ? 'opacity-100 scale-100' : 'opacity-0 scale-105'
-          } ${className}`}
-          onLoad={handleLoad}
-          onError={handleError}
-          loading={priority ? 'eager' : 'lazy'}
-          decoding={priority ? 'sync' : 'async'}
-          fetchPriority={priority ? 'high' : 'auto'}
-          width={width}
-          height={height}
-          sizes={sizes}
-          style={imageStyle}
-        />
-      )}
+    <div className={`relative overflow-hidden ${className}`}>
+      <img
+        ref={imgRef}
+        src={isInView && !hasError ? src : placeholder}
+        alt={alt}
+        className={`transition-all duration-500 ease-out ${
+          isLoaded ? 'opacity-100 scale-100' : 'opacity-0 scale-105'
+        } ${className}`}
+        onLoad={handleLoad}
+        onError={handleError}
+        loading={priority ? 'eager' : 'lazy'}
+        decoding="async"
+        width={width}
+        height={height}
+        sizes={sizes}
+      />
       
       {!isLoaded && !hasError && (
         <div className="absolute inset-0 bg-gradient-to-r from-slate-200 via-slate-300 to-slate-200 animate-pulse" />
