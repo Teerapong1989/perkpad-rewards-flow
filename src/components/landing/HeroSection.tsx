@@ -22,9 +22,9 @@ const HeroSection = () => {
   ];
 
   return (
-    <section className="relative min-h-screen flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white via-brand-primary-light/30 to-white overflow-hidden">
-      {/* Subtle background pattern */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(120,119,198,0.05),transparent_50%),radial-gradient(circle_at_70%_80%,rgba(255,168,168,0.05),transparent_50%)] pointer-events-none"></div>
+    <section className="relative min-h-screen flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8 bg-white overflow-hidden">
+      {/* Clean background for better text readability */}
+      <div className="absolute inset-0 bg-gradient-to-b from-gray-50/50 to-white pointer-events-none"></div>
       
       <div className="relative z-10 text-center w-full max-w-6xl mx-auto py-12 sm:py-16 lg:py-20 flex flex-col items-center space-y-10 sm:space-y-14 lg:space-y-20">
         {/* Header Section */}
@@ -35,25 +35,23 @@ const HeroSection = () => {
               Your customers
               <TextRotation 
                 texts={rotatingTexts}
-                className="mt-2 sm:mt-1 bg-gradient-to-r from-brand-primary to-brand-secondary bg-clip-text text-transparent"
+                className="mt-2 sm:mt-1 text-brand-primary font-black"
                 interval={5000}
               />
             </h1>
             
-            {/* Launch badge for new business */}
-            <div className="inline-flex items-center px-4 py-2 rounded-full bg-gradient-to-r from-brand-accent/10 to-brand-primary/10 border border-brand-accent/20">
-              <span className="text-sm font-semibold text-brand-accent mr-2">🚀</span>
-              <span className="text-sm font-medium text-gray-700">Now launching for early adopters</span>
+            {/* Launch badge for better visibility */}
+            <div className="inline-flex items-center px-4 py-2 rounded-full bg-brand-primary/10 border border-brand-primary/30">
+              <span className="text-sm font-semibold text-brand-primary mr-2">🚀</span>
+              <span className="text-sm font-medium text-gray-800">Now launching for early adopters</span>
             </div>
           </div>
           
-          {/* Professional value proposition */}
+          {/* Clear, readable value proposition */}
           <p 
-            className="text-xl xs:text-2xl sm:text-3xl lg:text-4xl text-gray-700 leading-relaxed max-w-5xl mx-auto font-medium lcp-text"
+            className="text-xl xs:text-2xl sm:text-3xl lg:text-4xl text-gray-800 leading-relaxed max-w-5xl mx-auto font-medium"
             style={{ 
-              fontFamily: 'Inter, Inter-system-fallback, system-ui, sans-serif',
-              contain: 'layout style',
-              willChange: 'auto'
+              fontFamily: 'Inter, Inter-system-fallback, system-ui, sans-serif'
             }}
           >
             Paper punch cards are costing you customers. Our digital loyalty program increases customer retention by{" "}
@@ -117,19 +115,17 @@ const HeroSection = () => {
           </div>
         </div>
         
-        {/* Premium Mobile App Showcase */}
+        {/* Clean Mobile App Showcase */}
         <div className="relative max-w-lg mx-auto px-2 sm:px-4">
-          {/* Enhanced background effects */}
-          <div className="absolute inset-0 bg-gradient-to-r from-brand-primary/15 via-brand-secondary/15 to-brand-accent/15 rounded-full blur-3xl scale-150 opacity-40 animate-pulse layout-stable"></div>
-          <div className="absolute -inset-8 bg-gradient-to-r from-transparent via-white/50 to-transparent rounded-full blur-xl opacity-60 layout-stable"></div>
+          {/* Simplified background for better focus */}
+          <div className="absolute inset-0 bg-brand-primary/5 rounded-full blur-3xl scale-150 opacity-30"></div>
           
           {/* Premium device frame */}
           <div className="relative z-10 transform hover:scale-[1.03] hover:rotate-1 transition-all duration-700 hover:drop-shadow-2xl group">
-            {/* Enhanced phone shadow with multiple layers */}
-            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/8 to-black/16 rounded-[2.8rem] blur-xl scale-110 transform translate-y-6"></div>
-            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/5 to-black/10 rounded-[2.8rem] blur-lg scale-105 transform translate-y-3"></div>
+            {/* Clean phone shadow */}
+            <div className="absolute inset-0 bg-black/10 rounded-[2.8rem] blur-xl scale-110 transform translate-y-6"></div>
             
-            {/* Premium phone container with better materials */}
+            {/* Premium phone container */}
             <div className="relative bg-gradient-to-b from-gray-100 via-gray-200 to-gray-300 rounded-[2.8rem] p-[3px] shadow-2xl">
               <div className="bg-gradient-to-b from-gray-800 to-black rounded-[2.6rem] p-[2px]">
                 {/* Screen with premium bezel */}
@@ -147,26 +143,25 @@ const HeroSection = () => {
               </div>
             </div>
             
-            {/* Enhanced floating elements */}
-            <div className="absolute -top-6 -right-6 w-12 h-12 bg-gradient-to-br from-brand-primary/30 to-brand-secondary/30 rounded-full animate-bounce delay-1000 backdrop-blur-sm"></div>
-            <div className="absolute -bottom-6 -left-6 w-8 h-8 bg-gradient-to-br from-brand-accent/30 to-brand-warning/30 rounded-full animate-bounce delay-2000 backdrop-blur-sm"></div>
-            <div className="absolute top-1/4 -right-8 w-4 h-4 bg-gradient-to-br from-brand-success/40 to-brand-primary/40 rounded-full animate-pulse delay-3000"></div>
+            {/* Simplified floating elements */}
+            <div className="absolute -top-6 -right-6 w-12 h-12 bg-brand-primary/20 rounded-full animate-bounce delay-1000"></div>
+            <div className="absolute -bottom-6 -left-6 w-8 h-8 bg-brand-accent/20 rounded-full animate-bounce delay-2000"></div>
           </div>
         </div>
         
-        {/* Premium Results showcase */}
+        {/* Clear Results showcase */}
         <div className="w-full max-w-5xl">
           <div className="relative">
-            {/* Background glow */}
-            <div className="absolute inset-0 bg-gradient-to-r from-brand-primary/5 via-brand-secondary/5 to-brand-accent/5 rounded-3xl blur-xl"></div>
+            {/* Clean background */}
+            <div className="absolute inset-0 bg-gray-50/50 rounded-3xl"></div>
             
-            <div className="relative bg-white/80 backdrop-blur-sm rounded-2xl sm:rounded-3xl lg:rounded-[2rem] p-6 xs:p-8 sm:p-10 lg:p-12 shadow-xl border border-white/20">
+            <div className="relative bg-white/95 rounded-2xl sm:rounded-3xl lg:rounded-[2rem] p-6 xs:p-8 sm:p-10 lg:p-12 shadow-lg border border-gray-200">
               {/* Results header */}
               <div className="text-center mb-8 sm:mb-10 lg:mb-12">
                 <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-2">
                   Real Results from Real Businesses
                 </h3>
-                <p className="text-gray-600 text-base sm:text-lg">
+                <p className="text-gray-700 text-base sm:text-lg">
                   Based on industry research and early testing data
                 </p>
               </div>
@@ -177,12 +172,12 @@ const HeroSection = () => {
                     end={40}
                     suffix="%"
                     duration={2000}
-                    className="text-3xl xs:text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-black text-transparent bg-gradient-to-r from-brand-primary to-brand-secondary bg-clip-text"
+                    className="text-3xl xs:text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-black text-brand-primary"
                   />
-                  <div className="text-gray-700 text-sm xs:text-base sm:text-lg lg:text-xl font-semibold leading-tight">
+                  <div className="text-gray-800 text-sm xs:text-base sm:text-lg lg:text-xl font-semibold leading-tight">
                     More repeat<br className="sm:hidden" /> customers
                   </div>
-                  <div className="text-gray-500 text-xs sm:text-sm">
+                  <div className="text-gray-600 text-xs sm:text-sm">
                     Average increase
                   </div>
                 </div>
@@ -191,12 +186,12 @@ const HeroSection = () => {
                     end={3}
                     suffix="x"
                     duration={2200}
-                    className="text-3xl xs:text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-black text-transparent bg-gradient-to-r from-brand-secondary to-brand-accent bg-clip-text"
+                    className="text-3xl xs:text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-black text-brand-primary"
                   />
-                  <div className="text-gray-700 text-sm xs:text-base sm:text-lg lg:text-xl font-semibold leading-tight">
+                  <div className="text-gray-800 text-sm xs:text-base sm:text-lg lg:text-xl font-semibold leading-tight">
                     Higher completion<br className="sm:hidden" /> rate
                   </div>
-                  <div className="text-gray-500 text-xs sm:text-sm">
+                  <div className="text-gray-600 text-xs sm:text-sm">
                     vs paper cards
                   </div>
                 </div>
@@ -205,12 +200,12 @@ const HeroSection = () => {
                     end={5}
                     suffix="min"
                     duration={1800}
-                    className="text-3xl xs:text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-black text-transparent bg-gradient-to-r from-brand-accent to-brand-success bg-clip-text"
+                    className="text-3xl xs:text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-black text-brand-primary"
                   />
-                  <div className="text-gray-700 text-sm xs:text-base sm:text-lg lg:text-xl font-semibold leading-tight">
+                  <div className="text-gray-800 text-sm xs:text-base sm:text-lg lg:text-xl font-semibold leading-tight">
                     Quick<br className="sm:hidden" /> setup
                   </div>
-                  <div className="text-gray-500 text-xs sm:text-sm">
+                  <div className="text-gray-600 text-xs sm:text-sm">
                     Start today
                   </div>
                 </div>
