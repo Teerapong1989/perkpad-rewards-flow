@@ -62,7 +62,7 @@ const updateCanonical = (url: string) => {
 };
 
 // Schema.org structured data
-export const addStructuredData = (data: Record<string, any>) => {
+export const addStructuredData = (data: Record<string, unknown>) => {
   const script = document.createElement('script');
   script.type = 'application/ld+json';
   script.textContent = JSON.stringify(data);

@@ -140,7 +140,15 @@ const ComparisonSection = () => {
     }
   ];
 
-  const getFeatureValue = (feature: any, competitor: string) => {
+  type ComparisonFeature = {
+    perkpad: boolean;
+    loyaltylion: boolean;
+    smile: boolean;
+    basicapps: boolean;
+    punchcards: boolean;
+  };
+
+  const getFeatureValue = (feature: ComparisonFeature, competitor: string) => {
     switch (competitor) {
       case "Perkpad": return feature.perkpad;
       case "LoyaltyLion": return feature.loyaltylion;
