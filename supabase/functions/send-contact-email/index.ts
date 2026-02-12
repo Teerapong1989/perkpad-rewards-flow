@@ -1,7 +1,8 @@
-import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
+import { serve } from "https://deno.land/std@0.190.0/http/server.ts";
 import { Resend } from "npm:resend@2.0.0";
 
-const resend = new Resend(Deno.env.get("RESEND_API_KEY"));
+const resendApiKey = Deno.env.get("RESEND_API_KEY");
+const resend = resendApiKey ? new Resend(resendApiKey) : null;
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -24,9 +25,11 @@ const handler = async (req: Request): Promise<Response> => {
   }
 
   try {
-    const { name, email, company, subject, message, inquiryType }: ContactEmailRequest = await req.json();
+    if (!resend) {
+      throw new Error("RESEND_API_KEY is not configured");
+    }
 
-    console.log("Sending contact email from:", email, "to: support@perkpad.io");
+    const { name, email, company, subject, message, inquiryType }: ContactEmailRequest = await req.json();
 
     // Email to support@perkpad.io (notification)
     const supportEmailResponse = await resend.emails.send({
@@ -122,8 +125,7 @@ const handler = async (req: Request): Promise<Response> => {
       `,
     });
 
-    console.log("Support email sent:", supportEmailResponse);
-    console.log("Customer email sent:", customerEmailResponse);
+    console.log("Contact form emails sent successfully");
 
     return new Response(
       JSON.stringify({ 

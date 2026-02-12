@@ -1,7 +1,8 @@
 import { serve } from "https://deno.land/std@0.190.0/http/server.ts";
 import { Resend } from "npm:resend@2.0.0";
 
-const resend = new Resend(Deno.env.get("RESEND_API_KEY"));
+const resendApiKey = Deno.env.get("RESEND_API_KEY");
+const resend = resendApiKey ? new Resend(resendApiKey) : null;
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -20,9 +21,11 @@ const handler = async (req: Request): Promise<Response> => {
   }
 
   try {
-    const { email }: PlaybookEmailRequest = await req.json();
+    if (!resend) {
+      throw new Error("RESEND_API_KEY is not configured");
+    }
 
-    console.log("Sending loyalty playbook to:", email);
+    const { email }: PlaybookEmailRequest = await req.json();
 
     const emailResponse = await resend.emails.send({
       from: "PerkPad <noreply@perkpad.io>",
@@ -81,7 +84,7 @@ const handler = async (req: Request): Promise<Response> => {
       `,
     });
 
-    console.log("Email sent successfully:", emailResponse);
+    console.log("Loyalty playbook email sent successfully");
 
     return new Response(JSON.stringify({ 
       success: true, 
