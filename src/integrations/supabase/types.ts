@@ -7,7 +7,7 @@ export type Json =
   | Json[]
 
 export type Database = {
-  // Allows to automatically instanciate createClient with right options
+  // Allows to automatically instantiate createClient with right options
   // instead of createClient<Database, { PostgrestVersion: 'XX' }>(URL, KEY)
   __InternalSupabase: {
     PostgrestVersion: "12.2.3 (519615d)"
@@ -260,11 +260,119 @@ export type Database = {
         }
         Relationships: []
       }
+      appointment_blocks: {
+        Row: {
+          business_id: string
+          created_at: string
+          end_datetime: string
+          id: string
+          is_recurring: boolean
+          reason: string
+          recurrence_pattern: string | null
+          staff_member_id: string | null
+          start_datetime: string
+          updated_at: string
+        }
+        Insert: {
+          business_id: string
+          created_at?: string
+          end_datetime: string
+          id?: string
+          is_recurring?: boolean
+          reason: string
+          recurrence_pattern?: string | null
+          staff_member_id?: string | null
+          start_datetime: string
+          updated_at?: string
+        }
+        Update: {
+          business_id?: string
+          created_at?: string
+          end_datetime?: string
+          id?: string
+          is_recurring?: boolean
+          reason?: string
+          recurrence_pattern?: string | null
+          staff_member_id?: string | null
+          start_datetime?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      appointments: {
+        Row: {
+          appointment_date: string
+          business_id: string
+          cancellation_reason: string | null
+          cancelled_at: string | null
+          completed_at: string | null
+          confirmation_sent_at: string | null
+          created_at: string
+          customer_id: string
+          customer_notes: string | null
+          end_time: string
+          id: string
+          location_id: string | null
+          reminder_sent_at: string | null
+          service_id: string
+          staff_member_id: string | null
+          staff_notes: string | null
+          stamps_awarded: number | null
+          start_time: string
+          status: string
+          updated_at: string
+        }
+        Insert: {
+          appointment_date: string
+          business_id: string
+          cancellation_reason?: string | null
+          cancelled_at?: string | null
+          completed_at?: string | null
+          confirmation_sent_at?: string | null
+          created_at?: string
+          customer_id: string
+          customer_notes?: string | null
+          end_time: string
+          id?: string
+          location_id?: string | null
+          reminder_sent_at?: string | null
+          service_id: string
+          staff_member_id?: string | null
+          staff_notes?: string | null
+          stamps_awarded?: number | null
+          start_time: string
+          status?: string
+          updated_at?: string
+        }
+        Update: {
+          appointment_date?: string
+          business_id?: string
+          cancellation_reason?: string | null
+          cancelled_at?: string | null
+          completed_at?: string | null
+          confirmation_sent_at?: string | null
+          created_at?: string
+          customer_id?: string
+          customer_notes?: string | null
+          end_time?: string
+          id?: string
+          location_id?: string | null
+          reminder_sent_at?: string | null
+          service_id?: string
+          staff_member_id?: string | null
+          staff_notes?: string | null
+          stamps_awarded?: number | null
+          start_time?: string
+          status?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
       audit_log: {
         Row: {
           action: string
           id: string
-          ip_address: unknown | null
+          ip_address: unknown
           new_data: Json | null
           old_data: Json | null
           record_id: string
@@ -276,7 +384,7 @@ export type Database = {
         Insert: {
           action: string
           id?: string
-          ip_address?: unknown | null
+          ip_address?: unknown
           new_data?: Json | null
           old_data?: Json | null
           record_id: string
@@ -288,7 +396,7 @@ export type Database = {
         Update: {
           action?: string
           id?: string
-          ip_address?: unknown | null
+          ip_address?: unknown
           new_data?: Json | null
           old_data?: Json | null
           record_id?: string
@@ -540,6 +648,48 @@ export type Database = {
           },
         ]
       }
+      business_services: {
+        Row: {
+          business_id: string
+          created_at: string
+          description: string | null
+          duration_minutes: number
+          id: string
+          is_active: boolean
+          max_advance_booking_days: number | null
+          name: string
+          price_cents: number | null
+          requires_staff: boolean
+          updated_at: string
+        }
+        Insert: {
+          business_id: string
+          created_at?: string
+          description?: string | null
+          duration_minutes?: number
+          id?: string
+          is_active?: boolean
+          max_advance_booking_days?: number | null
+          name: string
+          price_cents?: number | null
+          requires_staff?: boolean
+          updated_at?: string
+        }
+        Update: {
+          business_id?: string
+          created_at?: string
+          description?: string | null
+          duration_minutes?: number
+          id?: string
+          is_active?: boolean
+          max_advance_booking_days?: number | null
+          name?: string
+          price_cents?: number | null
+          requires_staff?: boolean
+          updated_at?: string
+        }
+        Relationships: []
+      }
       business_subscriptions: {
         Row: {
           business_id: string
@@ -608,6 +758,7 @@ export type Database = {
       }
       businesses: {
         Row: {
+          birthday_sms_enabled: boolean
           brand_colors: Json | null
           brand_fonts: Json | null
           business_type:
@@ -625,6 +776,7 @@ export type Database = {
           updated_at: string
         }
         Insert: {
+          birthday_sms_enabled?: boolean
           brand_colors?: Json | null
           brand_fonts?: Json | null
           business_type?:
@@ -642,6 +794,7 @@ export type Database = {
           updated_at?: string
         }
         Update: {
+          birthday_sms_enabled?: boolean
           brand_colors?: Json | null
           brand_fonts?: Json | null
           business_type?:
@@ -1159,6 +1312,36 @@ export type Database = {
           },
         ]
       }
+      email_unsubscribe_tokens: {
+        Row: {
+          business_id: string
+          created_at: string | null
+          email: string
+          id: string
+          is_active: boolean | null
+          token: string
+          used_at: string | null
+        }
+        Insert: {
+          business_id: string
+          created_at?: string | null
+          email: string
+          id?: string
+          is_active?: boolean | null
+          token: string
+          used_at?: string | null
+        }
+        Update: {
+          business_id?: string
+          created_at?: string | null
+          email?: string
+          id?: string
+          is_active?: boolean | null
+          token?: string
+          used_at?: string | null
+        }
+        Relationships: []
+      }
       error_reports: {
         Row: {
           additional_context: Json | null
@@ -1664,6 +1847,7 @@ export type Database = {
       profiles: {
         Row: {
           birthday: string | null
+          business_email_preferences: Json | null
           created_at: string
           email: string | null
           email_preferences: Json | null
@@ -1681,6 +1865,7 @@ export type Database = {
         }
         Insert: {
           birthday?: string | null
+          business_email_preferences?: Json | null
           created_at?: string
           email?: string | null
           email_preferences?: Json | null
@@ -1698,6 +1883,7 @@ export type Database = {
         }
         Update: {
           birthday?: string | null
+          business_email_preferences?: Json | null
           created_at?: string
           email?: string | null
           email_preferences?: Json | null
@@ -1944,7 +2130,7 @@ export type Database = {
           created_at: string
           description: string
           id: string
-          ip_address: unknown | null
+          ip_address: unknown
           metadata: Json | null
           resolved: boolean | null
           resolved_at: string | null
@@ -1958,7 +2144,7 @@ export type Database = {
           created_at?: string
           description: string
           id?: string
-          ip_address?: unknown | null
+          ip_address?: unknown
           metadata?: Json | null
           resolved?: boolean | null
           resolved_at?: string | null
@@ -1972,7 +2158,7 @@ export type Database = {
           created_at?: string
           description?: string
           id?: string
-          ip_address?: unknown | null
+          ip_address?: unknown
           metadata?: Json | null
           resolved?: boolean | null
           resolved_at?: string | null
@@ -1988,7 +2174,7 @@ export type Database = {
           action_type: string
           created_at: string
           id: string
-          ip_address: unknown | null
+          ip_address: unknown
           metadata: Json | null
           resource_id: string | null
           resource_type: string | null
@@ -2003,7 +2189,7 @@ export type Database = {
           action_type: string
           created_at?: string
           id?: string
-          ip_address?: unknown | null
+          ip_address?: unknown
           metadata?: Json | null
           resource_id?: string | null
           resource_type?: string | null
@@ -2018,7 +2204,7 @@ export type Database = {
           action_type?: string
           created_at?: string
           id?: string
-          ip_address?: unknown | null
+          ip_address?: unknown
           metadata?: Json | null
           resource_id?: string | null
           resource_type?: string | null
@@ -2279,6 +2465,39 @@ export type Database = {
             referencedColumns: ["id"]
           },
         ]
+      }
+      staff_availability: {
+        Row: {
+          created_at: string
+          day_of_week: number
+          end_time: string
+          id: string
+          is_available: boolean
+          staff_member_id: string
+          start_time: string
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          day_of_week: number
+          end_time: string
+          id?: string
+          is_available?: boolean
+          staff_member_id: string
+          start_time: string
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          day_of_week?: number
+          end_time?: string
+          id?: string
+          is_available?: boolean
+          staff_member_id?: string
+          start_time?: string
+          updated_at?: string
+        }
+        Relationships: []
       }
       staff_members: {
         Row: {
@@ -2738,135 +2957,145 @@ export type Database = {
     }
     Functions: {
       add_achievement_points: {
-        Args: { p_customer_id: string; p_business_id: string; p_points: number }
+        Args: { p_business_id: string; p_customer_id: string; p_points: number }
         Returns: Json
       }
       add_customer_xp: {
         Args: {
-          p_customer_id: string
-          p_business_id: string
-          p_xp_amount: number
           p_activity_type: string
+          p_business_id: string
+          p_customer_id: string
           p_description?: string
+          p_xp_amount: number
         }
         Returns: Json
       }
-      bytea_to_text: {
-        Args: { data: string }
-        Returns: string
-      }
-      calculate_monthly_commissions: {
-        Args: Record<PropertyKey, never>
-        Returns: undefined
-      }
+      bytea_to_text: { Args: { data: string }; Returns: string }
+      calculate_monthly_commissions: { Args: never; Returns: undefined }
       check_table_rls_status: {
-        Args: Record<PropertyKey, never>
+        Args: never
         Returns: {
-          table_name: string
-          rls_enabled: boolean
           policy_count: number
+          rls_enabled: boolean
+          table_name: string
         }[]
       }
-      cleanup_expired_sessions: {
-        Args: Record<PropertyKey, never>
-        Returns: undefined
-      }
-      cleanup_old_monitoring_data: {
-        Args: Record<PropertyKey, never>
-        Returns: undefined
-      }
-      cleanup_security_logs: {
-        Args: Record<PropertyKey, never>
-        Returns: undefined
-      }
+      cleanup_expired_sessions: { Args: never; Returns: undefined }
+      cleanup_old_monitoring_data: { Args: never; Returns: undefined }
+      cleanup_security_logs: { Args: never; Returns: undefined }
       debug_auth_context: {
-        Args: Record<PropertyKey, never>
+        Args: never
         Returns: {
-          current_user_id: string
           business_exists: boolean
+          current_user_id: string
           user_owns_business: boolean
         }[]
       }
       decrement_vote_count: {
-        Args: { table_name: string; feature_id: string }
+        Args: { feature_id: string; table_name: string }
         Returns: undefined
       }
       generate_customer_retention_recommendations: {
         Args: { p_business_id: string }
         Returns: Json
       }
-      generate_referral_code: {
-        Args: Record<PropertyKey, never>
+      generate_referral_code: { Args: never; Returns: string }
+      generate_unsubscribe_token: {
+        Args: { p_business_id: string; p_email: string }
         Returns: string
       }
-      generate_win_back_discount_code: {
-        Args: Record<PropertyKey, never>
-        Returns: string
-      }
+      generate_win_back_discount_code: { Args: never; Returns: string }
       get_current_sms_usage: {
         Args: { p_business_id: string }
         Returns: {
           included_credits: number
-          used_credits: number
-          remaining_credits: number
-          overage_credits: number
           overage_cost_cents: number
+          overage_credits: number
+          remaining_credits: number
+          used_credits: number
         }[]
       }
       get_enhanced_platform_metrics: {
-        Args: Record<PropertyKey, never>
+        Args: never
         Returns: {
-          total_businesses: number
-          total_customers: number
+          active_trials: number
+          customer_signups_this_month: number
+          customer_signups_this_week: number
+          customer_signups_today: number
           monthly_active_users: number
           monthly_rewards_claimed: number
-          active_trials: number
+          recent_errors: number
+          total_businesses: number
+          total_customers: number
           total_trials_started: number
           trial_conversion_rate: number
-          recent_errors: number
           unresolved_security_alerts: number
-          customer_signups_today: number
-          customer_signups_this_week: number
-          customer_signups_this_month: number
         }[]
       }
       get_platform_metrics: {
-        Args: Record<PropertyKey, never>
+        Args: never
         Returns: {
-          total_businesses: number
-          total_customers: number
           monthly_active_users: number
           monthly_rewards_claimed: number
+          total_businesses: number
+          total_customers: number
+        }[]
+      }
+      get_public_business_discovery: {
+        Args: never
+        Returns: {
+          business_type: Database["public"]["Enums"]["business_type_enum"]
+          description: string
+          id: string
+          logo_url: string
+          name: string
+        }[]
+      }
+      get_public_business_locations: {
+        Args: never
+        Returns: {
+          address: string
+          business_id: string
+          business_logo_url: string
+          business_name: string
+          id: string
+          name: string
         }[]
       }
       get_random_gift_box_reward: {
         Args: { p_business_id: string }
         Returns: Json
       }
-      get_staff_business_id: {
-        Args: { p_user_id: string }
-        Returns: string
-      }
+      get_staff_business_id: { Args: { p_user_id: string }; Returns: string }
       get_system_health_summary: {
-        Args: Record<PropertyKey, never>
+        Args: never
         Returns: {
-          total_errors_24h: number
-          critical_errors_24h: number
-          avg_page_load_time_24h: number
           active_sessions: number
+          avg_page_load_time_24h: number
+          critical_errors_24h: number
           error_rate_24h: number
+          total_errors_24h: number
         }[]
       }
-      get_user_role: {
-        Args: { user_id: string } | { user_id: string }
-        Returns: Database["public"]["Enums"]["app_role"]
-      }
+      get_user_role:
+        | {
+            Args: { user_id: string }
+            Returns: {
+              error: true
+            } & "Could not choose the best candidate function between: public.get_user_role(user_id => text), public.get_user_role(user_id => uuid). Try renaming the parameters or the function itself in the database so function overloading can be resolved"
+          }
+        | {
+            Args: { user_id: string }
+            Returns: {
+              error: true
+            } & "Could not choose the best candidate function between: public.get_user_role(user_id => text), public.get_user_role(user_id => uuid). Try renaming the parameters or the function itself in the database so function overloading can be resolved"
+          }
       handle_failed_login: {
         Args: {
           p_email: string
+          p_failure_reason?: string
           p_ip_address: unknown
           p_user_agent?: string
-          p_failure_reason?: string
         }
         Returns: boolean
       }
@@ -2874,168 +3103,266 @@ export type Database = {
         Args: { p_business_id: string }
         Returns: boolean
       }
-      has_role: {
-        Args:
-          | {
-              user_id: string
+      has_role:
+        | {
+            Args: {
               check_role: Database["public"]["Enums"]["app_role"]
-            }
-          | {
               user_id: string
-              check_role: Database["public"]["Enums"]["app_role"]
             }
-        Returns: boolean
-      }
+            Returns: boolean
+          }
+        | {
+            Args: {
+              check_role: Database["public"]["Enums"]["app_role"]
+              user_id: string
+            }
+            Returns: boolean
+          }
       http: {
         Args: { request: Database["public"]["CompositeTypes"]["http_request"] }
         Returns: Database["public"]["CompositeTypes"]["http_response"]
+        SetofOptions: {
+          from: "http_request"
+          to: "http_response"
+          isOneToOne: true
+          isSetofReturn: false
+        }
       }
-      http_delete: {
-        Args:
-          | { uri: string }
-          | { uri: string; content: string; content_type: string }
-        Returns: Database["public"]["CompositeTypes"]["http_response"]
-      }
-      http_get: {
-        Args: { uri: string } | { uri: string; data: Json }
-        Returns: Database["public"]["CompositeTypes"]["http_response"]
-      }
+      http_delete:
+        | {
+            Args: { uri: string }
+            Returns: Database["public"]["CompositeTypes"]["http_response"]
+            SetofOptions: {
+              from: "*"
+              to: "http_response"
+              isOneToOne: true
+              isSetofReturn: false
+            }
+          }
+        | {
+            Args: { content: string; content_type: string; uri: string }
+            Returns: Database["public"]["CompositeTypes"]["http_response"]
+            SetofOptions: {
+              from: "*"
+              to: "http_response"
+              isOneToOne: true
+              isSetofReturn: false
+            }
+          }
+      http_get:
+        | {
+            Args: { uri: string }
+            Returns: Database["public"]["CompositeTypes"]["http_response"]
+            SetofOptions: {
+              from: "*"
+              to: "http_response"
+              isOneToOne: true
+              isSetofReturn: false
+            }
+          }
+        | {
+            Args: { data: Json; uri: string }
+            Returns: Database["public"]["CompositeTypes"]["http_response"]
+            SetofOptions: {
+              from: "*"
+              to: "http_response"
+              isOneToOne: true
+              isSetofReturn: false
+            }
+          }
       http_head: {
         Args: { uri: string }
         Returns: Database["public"]["CompositeTypes"]["http_response"]
+        SetofOptions: {
+          from: "*"
+          to: "http_response"
+          isOneToOne: true
+          isSetofReturn: false
+        }
       }
       http_header: {
         Args: { field: string; value: string }
         Returns: Database["public"]["CompositeTypes"]["http_header"]
+        SetofOptions: {
+          from: "*"
+          to: "http_header"
+          isOneToOne: true
+          isSetofReturn: false
+        }
       }
       http_list_curlopt: {
-        Args: Record<PropertyKey, never>
+        Args: never
         Returns: {
           curlopt: string
           value: string
         }[]
       }
       http_patch: {
-        Args: { uri: string; content: string; content_type: string }
+        Args: { content: string; content_type: string; uri: string }
         Returns: Database["public"]["CompositeTypes"]["http_response"]
+        SetofOptions: {
+          from: "*"
+          to: "http_response"
+          isOneToOne: true
+          isSetofReturn: false
+        }
       }
-      http_post: {
-        Args:
-          | { uri: string; content: string; content_type: string }
-          | { uri: string; data: Json }
-        Returns: Database["public"]["CompositeTypes"]["http_response"]
-      }
+      http_post:
+        | {
+            Args: { content: string; content_type: string; uri: string }
+            Returns: Database["public"]["CompositeTypes"]["http_response"]
+            SetofOptions: {
+              from: "*"
+              to: "http_response"
+              isOneToOne: true
+              isSetofReturn: false
+            }
+          }
+        | {
+            Args: { data: Json; uri: string }
+            Returns: Database["public"]["CompositeTypes"]["http_response"]
+            SetofOptions: {
+              from: "*"
+              to: "http_response"
+              isOneToOne: true
+              isSetofReturn: false
+            }
+          }
       http_put: {
-        Args: { uri: string; content: string; content_type: string }
+        Args: { content: string; content_type: string; uri: string }
         Returns: Database["public"]["CompositeTypes"]["http_response"]
+        SetofOptions: {
+          from: "*"
+          to: "http_response"
+          isOneToOne: true
+          isSetofReturn: false
+        }
       }
-      http_reset_curlopt: {
-        Args: Record<PropertyKey, never>
-        Returns: boolean
-      }
+      http_reset_curlopt: { Args: never; Returns: boolean }
       http_set_curlopt: {
         Args: { curlopt: string; value: string }
         Returns: boolean
       }
-      increment_vote_count: {
-        Args: { table_name: string; feature_id: string }
+      increment_sms_usage: {
+        Args: {
+          p_business_id: string
+          p_credits?: number
+          p_month: number
+          p_year: number
+        }
         Returns: undefined
       }
-      is_ip_blocked: {
-        Args: { p_ip_address: unknown }
+      increment_vote_count: {
+        Args: { feature_id: string; table_name: string }
+        Returns: undefined
+      }
+      is_ip_blocked: { Args: { p_ip_address: unknown }; Returns: boolean }
+      is_member_of_business: {
+        Args: { p_business_id: string }
         Returns: boolean
       }
       is_staff_for_business: {
-        Args: { p_user_id: string; p_business_id: string }
+        Args: { p_business_id: string; p_user_id: string }
+        Returns: boolean
+      }
+      is_staff_of_business: {
+        Args: { p_business_id: string }
         Returns: boolean
       }
       log_security_event: {
         Args: {
-          p_user_id: string
-          p_user_email: string
           p_action_type: string
-          p_resource_type?: string
-          p_resource_id?: string
           p_ip_address?: unknown
-          p_user_agent?: string
-          p_session_id?: string
           p_metadata?: Json
+          p_resource_id?: string
+          p_resource_type?: string
+          p_session_id?: string
           p_severity?: string
+          p_user_agent?: string
+          p_user_email: string
+          p_user_id: string
         }
         Returns: string
       }
-      make_user_admin: {
-        Args: { user_email: string }
+      make_user_admin: { Args: { user_email: string }; Returns: undefined }
+      owns_business: { Args: { p_business_id: string }; Returns: boolean }
+      secure_assign_admin_role: {
+        Args: { target_user_email: string }
         Returns: undefined
       }
       start_trial_for_business: {
         Args: { business_id_param: string; plan_id_param: string }
         Returns: undefined
       }
-      text_to_bytea: {
-        Args: { data: string }
-        Returns: string
-      }
+      text_to_bytea: { Args: { data: string }; Returns: string }
       track_sms_usage: {
         Args: {
           p_business_id: string
-          p_phone_number: string
-          p_message_content: string
-          p_customer_id?: string
           p_campaign_id?: string
-          p_credits_used?: number
           p_cost_cents?: number
+          p_credits_used?: number
+          p_customer_id?: string
+          p_message_content: string
+          p_phone_number: string
           p_twilio_message_sid?: string
         }
         Returns: Json
       }
-      trigger_email_scheduler: {
-        Args: Record<PropertyKey, never>
-        Returns: Json
-      }
+      trigger_email_scheduler: { Args: never; Returns: Json }
       update_achievement_progress: {
         Args: {
-          p_customer_id: string
           p_business_id: string
-          p_requirement_type: string
           p_current_value: number
+          p_customer_id: string
+          p_requirement_type: string
         }
         Returns: Json
       }
       update_challenge_progress: {
         Args: {
-          p_customer_id: string
           p_business_id: string
           p_challenge_type: string
+          p_customer_id: string
           p_increment?: number
         }
         Returns: Json
       }
       update_customer_streak: {
         Args: {
-          p_customer_id: string
           p_business_id: string
+          p_customer_id: string
           p_visit_date?: string
         }
         Returns: Json
       }
       update_global_challenge_progress: {
         Args: {
-          p_customer_id: string
           p_challenge_type: string
+          p_customer_id: string
           p_increment?: number
         }
         Returns: Json
       }
-      urlencode: {
-        Args: { data: Json } | { string: string } | { string: string }
-        Returns: string
-      }
+      urlencode:
+        | { Args: { data: Json }; Returns: string }
+        | {
+            Args: { string: string }
+            Returns: {
+              error: true
+            } & "Could not choose the best candidate function between: public.urlencode(string => bytea), public.urlencode(string => varchar). Try renaming the parameters or the function itself in the database so function overloading can be resolved"
+          }
+        | {
+            Args: { string: string }
+            Returns: {
+              error: true
+            } & "Could not choose the best candidate function between: public.urlencode(string => bytea), public.urlencode(string => varchar). Try renaming the parameters or the function itself in the database so function overloading can be resolved"
+          }
+      user_is_admin: { Args: never; Returns: boolean }
       validate_rls_coverage: {
-        Args: Record<PropertyKey, never>
+        Args: never
         Returns: {
-          table_name: string
           missing_policies: string[]
+          table_name: string
         }[]
       }
     }
@@ -3061,7 +3388,7 @@ export type Database = {
         value: string | null
       }
       http_request: {
-        method: unknown | null
+        method: unknown
         uri: string | null
         headers: Database["public"]["CompositeTypes"]["http_header"][] | null
         content_type: string | null
