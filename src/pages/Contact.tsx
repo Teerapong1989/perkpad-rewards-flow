@@ -11,6 +11,7 @@ import { Mail, Phone, Clock, MessageCircle, ArrowRight, Send, MapPin } from "luc
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
+import { trackConversion, trackEvent } from "@/utils/analytics";
 import Navigation from "@/components/landing/Navigation";
 import Footer from "@/components/landing/Footer";
 
@@ -29,6 +30,7 @@ const Contact = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
+    trackEvent("contact_form_submit_attempt", { inquiryType: formData.inquiryType || "unspecified" });
 
     try {
       // Call the edge function to send emails
@@ -39,6 +41,9 @@ const Contact = () => {
       if (error) {
         throw error;
       }
+
+      trackConversion("demo_request");
+      trackEvent("contact_form_submit_success", { inquiryType: formData.inquiryType || "unspecified" });
 
       toast({
         title: "Message sent successfully!",
@@ -55,6 +60,7 @@ const Contact = () => {
       });
     } catch (error) {
       console.error('Error sending email:', error);
+      trackEvent("contact_form_submit_error", { inquiryType: formData.inquiryType || "unspecified" });
       toast({
         title: "Error sending message",
         description: "Please try again or contact us directly at support@perkpad.io",

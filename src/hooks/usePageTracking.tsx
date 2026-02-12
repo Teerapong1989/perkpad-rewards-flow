@@ -5,6 +5,9 @@ import { trackConversion, trackEvent } from '@/utils/analytics';
 import { updateMetaTags } from '@/utils/seo';
 import { generateBreadcrumbSchema, preloadCriticalResources, optimizePageLoading } from '@/utils/enhancedSeo';
 
+const SITE_URL = 'https://perkpad.io';
+const DEFAULT_OG_IMAGE = `${SITE_URL}/og-image.jpg`;
+
 const pageConfigs = {
   '/': {
     title: 'Digital Punch Card App - Boost Customer Loyalty with Perkpad',
@@ -105,7 +108,10 @@ export const usePageTracking = () => {
         title: config.title,
         description: config.description,
         keywords: config.keywords,
-        canonical: `https://perkpad.io${location.pathname}`
+        canonical: `${SITE_URL}${location.pathname}`,
+        ogUrl: `${SITE_URL}${location.pathname}`,
+        ogImage: DEFAULT_OG_IMAGE,
+        twitterCard: 'summary_large_image'
       });
 
       // Generate breadcrumb schema

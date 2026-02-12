@@ -1,43 +1,11 @@
 
 import { Button } from "@/components/ui/button";
 import { Gift, Menu, X } from "lucide-react";
-import { Link, useNavigate, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useState } from "react";
 
 const MobileNavigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const navigate = useNavigate();
-  const location = useLocation();
-
-  const handlePricingClick = () => {
-    setIsMenuOpen(false);
-    
-    if (location.pathname === '/') {
-      // If we're on the homepage, just scroll to pricing section
-      const element = document.getElementById('pricing');
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
-      }
-    } else {
-      // If we're on another page, navigate to homepage with pricing hash
-      navigate('/#pricing');
-      // Add a small delay to ensure navigation completes before scrolling
-      setTimeout(() => {
-        const element = document.getElementById('pricing');
-        if (element) {
-          element.scrollIntoView({ behavior: 'smooth' });
-        }
-      }, 100);
-    }
-  };
-
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-    setIsMenuOpen(false);
-  };
 
   return (
     <>
@@ -55,35 +23,35 @@ const MobileNavigation = () => {
           <Link 
             to="/features"
             className="text-gray-600 hover:text-gray-900 font-medium transition-colors"
-            onClick={() => console.log('Features link clicked')}
+            
           >
             Features
           </Link>
           <Link 
             to="/pricing"
             className="text-gray-600 hover:text-gray-900 font-medium transition-colors"
-            onClick={() => console.log('Pricing link clicked')}
+            
           >
             Pricing
           </Link>
           <Link 
             to="/how-it-works"
             className="text-gray-600 hover:text-gray-900 font-medium transition-colors"
-            onClick={() => console.log('How It Works link clicked')}
+            
           >
             How It Works
           </Link>
           <Link 
             to="/about"
             className="text-gray-600 hover:text-gray-900 font-medium transition-colors"
-            onClick={() => console.log('About link clicked')}
+            
           >
             About
           </Link>
           <Link 
             to="/contact"
             className="text-gray-600 hover:text-gray-900 font-medium transition-colors"
-            onClick={() => console.log('Contact link clicked')}
+            
           >
             Contact
           </Link>
@@ -93,12 +61,6 @@ const MobileNavigation = () => {
             onClick={() => window.open('https://app.perkpad.io', '_blank')}
           >
             Login
-          </Button>
-          <Button 
-            className="btn-premium font-semibold px-8"
-            onClick={() => window.open('https://app.perkpad.io', '_blank', 'noopener,noreferrer')}
-          >
-            Get Started
           </Button>
         </div>
 
@@ -136,7 +98,6 @@ const MobileNavigation = () => {
               to="/features"
               className="block w-full text-left p-3 text-gray-600 hover:text-gray-900 font-medium transition-colors"
               onClick={() => {
-                console.log('Mobile Features link clicked');
                 setIsMenuOpen(false);
               }}
             >
@@ -146,7 +107,6 @@ const MobileNavigation = () => {
               to="/pricing"
               className="block w-full text-left p-3 text-gray-600 hover:text-gray-900 font-medium transition-colors"
               onClick={() => {
-                console.log('Mobile Pricing link clicked');
                 setIsMenuOpen(false);
               }}
             >
@@ -156,7 +116,6 @@ const MobileNavigation = () => {
               to="/how-it-works"
               className="block w-full text-left p-3 text-gray-600 hover:text-gray-900 font-medium transition-colors"
               onClick={() => {
-                console.log('Mobile How It Works link clicked');
                 setIsMenuOpen(false);
               }}
             >
@@ -166,7 +125,6 @@ const MobileNavigation = () => {
               to="/about"
               className="block w-full text-left p-3 text-gray-600 hover:text-gray-900 font-medium transition-colors"
               onClick={() => {
-                console.log('Mobile About link clicked');
                 setIsMenuOpen(false);
               }}
             >
@@ -176,7 +134,6 @@ const MobileNavigation = () => {
               to="/contact"
               className="block w-full text-left p-3 text-gray-600 hover:text-gray-900 font-medium transition-colors"
               onClick={() => {
-                console.log('Mobile Contact link clicked');
                 setIsMenuOpen(false);
               }}
             >
@@ -191,15 +148,6 @@ const MobileNavigation = () => {
               }}
             >
               Login
-            </Button>
-            <Button 
-              className="w-full btn-premium font-semibold"
-              onClick={() => {
-                window.open('https://app.perkpad.io', '_blank', 'noopener,noreferrer');
-                setIsMenuOpen(false);
-              }}
-            >
-              Get Started
             </Button>
           </div>
         </div>
