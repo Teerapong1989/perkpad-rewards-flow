@@ -2,13 +2,25 @@
 import { createClient } from '@supabase/supabase-js';
 import type { Database } from './types';
 
-const SUPABASE_URL = "https://kbnglvsmilhglajiuzsl.supabase.co";
-const SUPABASE_PUBLISHABLE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImtibmdsdnNtaWxoZ2xhaml1enNsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTEyMDM4NjgsImV4cCI6MjA2Njc3OTg2OH0.4wFAs4RMHvnBUirHils0eIixolkKA5AmPvIlVg_EGGE";
+const SUPABASE_URL = import.meta.env.VITE_SUPABASE_URL;
+const SUPABASE_PUBLISHABLE_KEY = import.meta.env.VITE_SUPABASE_ANON_KEY;
+
+export const isSupabaseConfigured =
+  Boolean(SUPABASE_URL) && Boolean(SUPABASE_PUBLISHABLE_KEY);
+
+if (!isSupabaseConfigured && import.meta.env.DEV) {
+  console.warn(
+    'Supabase env vars are missing. Set VITE_SUPABASE_URL and VITE_SUPABASE_ANON_KEY in .env.local.'
+  );
+}
+
+const safeSupabaseUrl = SUPABASE_URL || 'https://example.supabase.co';
+const safeSupabaseKey = SUPABASE_PUBLISHABLE_KEY || 'missing-anon-key';
 
 // Import the supabase client like this:
 // import { supabase } from "@/integrations/supabase/client";
 
-export const supabase = createClient<Database>(SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY, {
+export const supabase = createClient<Database>(safeSupabaseUrl, safeSupabaseKey, {
   auth: {
     storage: localStorage,
     persistSession: true,

@@ -38,7 +38,7 @@ export const ChatWidget = () => {
         timestamp: new Date()
       }]);
     }
-  }, [isOpen]);
+  }, [isOpen, messages.length]);
 
   const sendMessage = async () => {
     if (!inputMessage.trim() || isLoading) return;

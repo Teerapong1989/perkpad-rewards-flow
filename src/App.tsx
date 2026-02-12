@@ -10,11 +10,15 @@ import HowItWorks from "./pages/HowItWorks";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Dashboard from "./pages/Dashboard";
+import Login from "./pages/Login";
+import CustomerScan from "./pages/CustomerScan";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsOfService from "./pages/TermsOfService";
 import SMSHelp from "./pages/SMSHelp";
 import NotFound from "./pages/NotFound";
 import { usePageTracking } from "./hooks/usePageTracking";
+import { AuthProvider } from "./contexts/AuthProvider";
+import { ProtectedRoute } from "./components/auth/ProtectedRoute";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -38,7 +42,9 @@ const AppContent = () => {
       <Route path="/how-it-works" element={<HowItWorks />} />
       <Route path="/about" element={<About />} />
       <Route path="/contact" element={<Contact />} />
-      <Route path="/dashboard" element={<Dashboard />} />
+      <Route path="/login" element={<Login />} />
+      <Route path="/dashboard" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
+      <Route path="/scan" element={<CustomerScan />} />
       <Route path="/privacy-policy" element={<PrivacyPolicy />} />
       <Route path="/terms-of-service" element={<TermsOfService />} />
       <Route path="/sms-help" element={<SMSHelp />} />
@@ -50,13 +56,15 @@ const AppContent = () => {
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter>
-        <AppContent />
-      </BrowserRouter>
-    </TooltipProvider>
+    <AuthProvider>
+      <TooltipProvider>
+        <Toaster />
+        <Sonner />
+        <BrowserRouter>
+          <AppContent />
+        </BrowserRouter>
+      </TooltipProvider>
+    </AuthProvider>
   </QueryClientProvider>
 );
 

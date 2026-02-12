@@ -43,7 +43,7 @@ export const checkRateLimit = (identifier: string, maxRequests = 5, windowMs = 6
 
 // Secure storage utilities
 export const secureStorage = {
-  set: (key: string, value: any): void => {
+  set: <T>(key: string, value: T): void => {
     try {
       const encrypted = btoa(JSON.stringify(value));
       localStorage.setItem(`secure_${key}`, encrypted);
@@ -52,11 +52,11 @@ export const secureStorage = {
     }
   },
   
-  get: (key: string): any => {
+  get: <T>(key: string): T | null => {
     try {
       const encrypted = localStorage.getItem(`secure_${key}`);
       if (!encrypted) return null;
-      return JSON.parse(atob(encrypted));
+      return JSON.parse(atob(encrypted)) as T;
     } catch (error) {
       console.error('Failed to retrieve data securely:', error);
       return null;
@@ -69,7 +69,7 @@ export const secureStorage = {
 };
 
 // CSP violation reporter
-export const reportCSPViolation = (violationReport: any): void => {
+export const reportCSPViolation = (violationReport: unknown): void => {
   console.warn('CSP Violation:', violationReport);
   
   // In production, you might want to send this to your monitoring service
@@ -82,7 +82,7 @@ export const reportCSPViolation = (violationReport: any): void => {
 };
 
 // Security event logger
-export const logSecurityEvent = (event: string, details: Record<string, any> = {}): void => {
+export const logSecurityEvent = (event: string, details: Record<string, unknown> = {}): void => {
   const securityLog = {
     timestamp: new Date().toISOString(),
     event,

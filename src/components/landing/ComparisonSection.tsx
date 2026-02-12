@@ -140,7 +140,7 @@ const ComparisonSection = () => {
     }
   ];
 
-  const getFeatureValue = (feature: any, competitor: string) => {
+  const getFeatureValue = (feature: (typeof features)[number]["items"][number], competitor: string) => {
     switch (competitor) {
       case "Perkpad": return feature.perkpad;
       case "LoyaltyLion": return feature.loyaltylion;

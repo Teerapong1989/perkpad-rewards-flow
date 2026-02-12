@@ -2,13 +2,13 @@
 // Type declarations for global analytics functions
 declare global {
   interface Window {
-    gtag?: (...args: any[]) => void;
-    fbq?: (...args: any[]) => void;
+    gtag?: (...args: unknown[]) => void;
+    fbq?: (...args: unknown[]) => void;
   }
 }
 
 // Enhanced analytics with security considerations
-export const trackEvent = (eventName: string, properties: Record<string, any> = {}) => {
+export const trackEvent = (eventName: string, properties: Record<string, unknown> = {}) => {
   try {
     // Sanitize properties to prevent XSS
     const sanitizedProperties = Object.entries(properties).reduce((acc, [key, value]) => {
@@ -18,7 +18,7 @@ export const trackEvent = (eventName: string, properties: Record<string, any> = 
         acc[key] = value;
       }
       return acc;
-    }, {} as Record<string, any>);
+    }, {} as Record<string, unknown>);
 
     // Google Analytics 4
     if (typeof window !== 'undefined' && window.gtag) {
@@ -75,7 +75,7 @@ export const getVariant = (testName: string): string => {
 };
 
 // Security-focused error tracking
-export const trackSecurityEvent = (eventType: string, details: Record<string, any> = {}) => {
+export const trackSecurityEvent = (eventType: string, details: Record<string, unknown> = {}) => {
   trackEvent('security_event', {
     event_type: eventType,
     ...details,

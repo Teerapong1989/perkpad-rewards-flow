@@ -71,3 +71,18 @@ Yes, you can!
 To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
 
 Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+
+## Environment setup
+
+Create a local env file before running auth-related flows:
+
+```sh
+cp .env.example .env.local
+```
+
+Then set these values in `.env.local`:
+
+- `VITE_SUPABASE_URL`
+- `VITE_SUPABASE_ANON_KEY`
+
+Without these, the Login screen will show a setup warning and auth actions are disabled by design.
